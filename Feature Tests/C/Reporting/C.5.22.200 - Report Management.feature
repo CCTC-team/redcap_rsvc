@@ -72,10 +72,13 @@ Feature: User Interface:  The system shall support the ability to create, modify
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION:  delete report
-        When  I click on the button labeled "Delete" for the report named "C.5.22.200.100 REPORT_EDIT2"
+        ## if we delete C.5.22.200.100 REPORT_EDIT2, it is not easy to verify
+        When  I click on the button labeled "Delete" for the report named "C.5.22.200.100 REPORT_EDIT2 (copy)"
         Then I should see "DELETE REPORT?"
 
         When I click on the button labeled "Delete" in the dialog box
         ##VERIFY: delete
         Then I should see a table row containing the following values in the reports table:
-            | 2 | C.5.22.200.100 REPORT_EDIT2 (copy) |
+            | 2 | C.5.22.200.100 REPORT_EDIT2 |
+
+        And I should NOT see "C.5.22.200.100 REPORT_EDIT2 (copy)"
