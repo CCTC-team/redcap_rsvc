@@ -30,4 +30,3 @@ Feature: User Interface: The system shall provide default rules after installati
       | G      | Multiple choice fields with invalid values                                | -                                         |
       | H      | Incorrect values for calculated fields                                    | -                                         |
       | I      | Fields containing "missing data codes"                                    | -                                         |
-     
