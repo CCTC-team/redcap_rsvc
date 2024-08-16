@@ -53,6 +53,21 @@ Feature: User Interface: The system shall support excluding discrepancies found 
 
     ##VERIFY
     Then I click on the button labeled "Clear"
+
+    Then I should see a table header and rows containing the following values in a table:
+      | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
+      | A      | Blank values*                                 | -                                        | Execute             |
+      | B      | Blank values* (required fields only)          | -                                        | Execute             |
+      | C      | Field validation errors (incorrect data type) | -                                        | Execute             |
+      | D      | Field validation errors (out of range)        | -                                        | Execute             |
+      | E      | Outliers for numerical fields                 | -                                        | Execute             |
+      | F      | Hidden fields that contain values***          | -                                        | Execute             |
+      | G      | Multiple choice fields with invalid values    | -                                        | Execute             |
+      | H      | Incorrect values for calculated fields        | -                                        | Execute             |
+      | I      | Fields containing "missing data codes"        | -                                        | Execute             |
+      | 1      | [radio]=9.9                                   | [radio]='9..9'                           | Execute             |
+      | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | Execute             |
+
     When I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name                              | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
@@ -63,6 +78,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
     When I click on the "view" link for Data Quality Rule # "D"
     Then I should see "Rule: Field validation errors (out of range)" in the dialog box
     And I should see "Discrepancies found: 3" in the dialog box
+    And I should see "1 exclusion not displayed" in the dialog box
     And I should see a link labeled "view" in the dialog box
 
     When I click on the link labeled "view" in the dialog box
