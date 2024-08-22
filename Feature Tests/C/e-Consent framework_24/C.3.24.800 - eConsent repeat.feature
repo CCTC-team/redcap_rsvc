@@ -21,6 +21,8 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
     And I click on the button labeled "Close" in the dialog box
     And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
     And for the Event Name "Event 1 (Arm 1: Arm 1)", I check the checkbox labeled "Consent" in the dialog box
+    And I select "-- not repeating --" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
+    And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
     And I click on the button labeled "Save" on the dialog box for the Repeatable Instruments and Events module
     Then I should see "Successfully saved!"
 
@@ -146,7 +148,10 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
     ##ACTION: instance 2 for event 3
     Given I click on the link labeled "Record Status Dashboard"
     Then I should see "Record Status Dashboard (all records)"
-    When I locate the bubble for the "Consent" instrument on event "Event Three" for record ID "1" and click the new instance link
+    And I click on the link labeled exactly "1"
+    And I click on the button labeled "Add new"
+    And I click the bubble to add a record for the "Consent" longitudinal instrument on event "(#2)"
+    Then I should see "Editing existing Record ID 1"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     And I click on the button labeled "Okay" in the dialog box
     And I click on the button labeled "Survey options"
@@ -176,7 +181,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
     ##VERIFY_RSD
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record ID 1"
-    Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 2 on event "Event Three"
+    Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "(#2)"
     ##VERIFY_LOG: Keeping here in case you change your mind and want to include something in logging. If you don't feel like its valuable, then delete
 
     ##VERIFY_FiRe
