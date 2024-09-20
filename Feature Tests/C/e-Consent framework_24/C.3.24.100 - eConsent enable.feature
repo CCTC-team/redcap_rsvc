@@ -19,7 +19,9 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##ACTION: e-consent survey settings - disabled
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Disabled" on the radio field labeled "e-Consent Framework"
+    
+    And I select the radio option "Disabled" for the e-consent Framework
+    # And I select "Disabled" on the radio field labeled "e-Consent Framework"
 
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
@@ -59,7 +61,8 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     #FUNCTIONAL_REQUIREMENTauto-archive enabled
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver enabled" for the e-consent Framework
+    # And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
@@ -75,10 +78,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##VERIFY
     Then I should see "Consent"
     And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
-    But I should see a button labeled "Next Page"
-
-    Given I click on the button labeled "Next Page"
-    And I check the checkbox labeled "I certify that all of my information in the document above is correct."
     And I click on the button labeled "Submit"
 
     Given I return to the REDCap page I opened the survey from
@@ -104,7 +103,8 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##ACTION: e-consent survey settings - auto-archive and e-consent
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver + e-Consent Framework" for the e-consent Framework
+    # And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
