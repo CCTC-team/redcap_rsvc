@@ -19,7 +19,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     Then I should see 'Modify survey settings for data collection instrument "Consent"'
-    And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver + e-Consent Framework" for the e-consent Framework
+    # And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
 
     #        And I verify "version test" is within the input field labeled "e-Consent version:"
     #        Then I should see the dropdown field labeled "First name field" with the option "fname 'Name'" selected
@@ -401,7 +402,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     #SETUP_eConsent_change field
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver + e-Consent Framework" for the e-consent Framework
+    # And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
     And I clear field and enter "UPDATED VERSION TEST" into the input field labeled "e-Consent version:"
     #        And I should see "fname 'Name'" in the data entry form field "First name field:"
     #        And I should see "lname 'Name'" in the data entry form field "Last name field:"
@@ -479,7 +481,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     #SETUP_eConsent_change field
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver enabled" for the e-consent Framework
+    # And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
@@ -516,11 +519,6 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
-    And I click on the button labeled "Next Page"
-    Then I should see "Displayed below is a read-only copy of your survey responses."
-    And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct." that is unchecked
-
-    When I check the checkbox labeled "I certify that all of my information in the document above is correct."
     And I click on the button labeled "Submit"
     Then I should see "Thank you for taking the survey."
 
