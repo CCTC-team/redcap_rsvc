@@ -539,5 +539,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Given I click on the link labeled "PDF Survey Archive" in the File Repository table
     When I download the PDF by clicking on the link for Record "9" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
     Then I should see the following values in the downloaded PDF for Record "9" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
-      | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
+      | yyyy-mm-dd |
+    Then I should NOT see the following values in the downloaded PDF for Record "9" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
+      | 'Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test' |
 #M: Close document
