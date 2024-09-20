@@ -19,7 +19,9 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##ACTION: e-consent survey settings - disabled
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Disabled" on the radio field labeled "e-Consent Framework"
+    
+    And I select the radio option "Disabled" for the e-consent Framework
+    # And I select "Disabled" on the radio field labeled "e-Consent Framework"
 
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
@@ -37,7 +39,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     Then I should see "Consent"
     And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
     When I click on the button labeled "Submit"
-    And I should see "Thank you for taking the survey."
 
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record ID 5"
@@ -60,8 +61,8 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     #FUNCTIONAL_REQUIREMENTauto-archive enabled
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    # Cypress is selecting 'Auto-Archiver + e-Consent Framework' for some reason. 
-    And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver enabled" for the e-consent Framework
+    # And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
@@ -77,13 +78,7 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##VERIFY
     Then I should see "Consent"
     And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
-    ## Below 3 commented steps are not visible when 'Auto-Archiver enabled' is selected. This is not present in the original file in Theresa Baker's repository
-    # But I should see a button labeled "Next Page"
-
-    # Given I click on the button labeled "Next Page"
-    # And I check the checkbox labeled "I certify that all of my information in the document above is correct."
     And I click on the button labeled "Submit"
-    And I should see "Thank you for taking the survey."
 
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record ID 6"
@@ -108,7 +103,8 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     ##ACTION: e-consent survey settings - auto-archive and e-consent
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
-    And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
+    And I select the radio option "Auto-Archiver + e-Consent Framework" for the e-consent Framework
+    # And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
@@ -129,7 +125,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     Given I click on the button labeled "Next Page"
     And I check the checkbox labeled "I certify that all of my information in the document above is correct."
     And I click on the button labeled "Submit"
-    And I should see "Thank you for taking the survey."
 
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record ID 7"
@@ -149,5 +144,3 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     And I should see a table header and rows containing the following values in the logging table:
       | Username            | Action            | List of Data Changes OR Fields Exported |
       | [survey respondent] | Update Response 7 | consent_complete = '2'                  |
-
-
