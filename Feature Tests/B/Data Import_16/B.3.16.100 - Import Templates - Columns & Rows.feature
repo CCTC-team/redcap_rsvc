@@ -17,8 +17,9 @@ Feature: User Interface: The system shall support the ability to download two ve
     #FUNCTIONAL REQUIREMENT
     ##ACTION Data Import Template (with records in rows)
     When I click on the link labeled "Data Import Tool"
-    Then I should see "Download your Data Import Template (with records in rows)"
-    And I click on the link labeled "Download your Data Import Template" near "with records in rows" to download a file
+    ## Script works for v13.1.37 but needs to be modified for 13.8.1 as the view of the page has been modified. Commented out the step below and modified the next one
+    # Then I should see "Download your Data Import Template (with records in rows)"
+    And I click on the link labeled "Download your Data Import Template"
     Then I should see a downloaded file named "B316100100_ImportTemplate_yyyy-mm-dd.csv"
 
     ##VERIFY
@@ -29,8 +30,10 @@ Feature: User Interface: The system shall support the ability to download two ve
     #FUNCTIONAL REQUIREMENT
     ##ACTION Data Import Template (with records in columns)
     Given I click on the link labeled "Data Import Tool"
-    Then I should see "Download your Data Import Template (with records in columns)"
-    And I click on the link labeled "Download your Data Import Template" near "with records in columns" to download a file
+    
+    ## Script works for v13.1.37 but needs to be modified for 13.8.1 as the view of the page has been modified. Commented out the step below and modified the next one
+    # Then I should see "Download your Data Import Template (with records in columns)"
+    And I click on the link labeled "column format"
     Then I should see a downloaded file named "B316100100_ImportTemplate_yyyy-mm-dd.csv"
     #M: close csv file
 
