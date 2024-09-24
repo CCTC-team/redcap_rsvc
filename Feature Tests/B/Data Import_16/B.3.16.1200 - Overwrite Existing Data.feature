@@ -16,20 +16,46 @@ Feature: User Interface: The system shall provide the option to allow blank valu
     #M: Will have to accept confirmation window "And I click on the button labeled "Ok" in the pop-up box"
     Then I see Project status: "Production"
 
+    ##VERIFY_RSD:
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "4" and click on the bubble
+    Then I should see "Name" in the data entry form field "Name" 
+    And I should see "email@test.edu" in the data entry form field "Email" 
+    #Need to save the form for 'ignore blank values in the file' to work
+    And I click on the button labeled "Save & Exit Form"
+
     #FUNCTIONAL REQUIREMENT
-    ##ACTION: Error during import
+    ##ACTION: Import new data, ignoring blank values
     When I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B3161200100_INACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-
+    And I select "No, ignore blank values in the file (default)" on the dropdown field labeled "Allow blank values to overwrite existing saved values?"
+    And I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    
     ##VERIFY
-    Then I should see "ERROR:"
+    Then I should see "Your document was uploaded successfully"
+    When I click on the button labeled "Import Data"
+    Then I should see "Import Successful!"
+
+    #VERIFY_RSD:
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "4" and click on the bubble
+    Then I should see "New Name" in the data entry form field "Name" 
+    And I should see "email@test.edu" in the data entry form field "Email" 
+    And I click on the button labeled "Cancel"
 
     #FUNCTIONAL REQUIREMENT
-    ##ACTION: w DAGs
-    When I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    ##ACTION: Import new data, overwrite blank values
+    When I click on the link labeled "Data Import Tool"
+    And I select "Yes, blank values in the file will overwrite existing values" on the dropdown field labeled "Allow blank values to overwrite existing saved values?"
+    And I click on the button labeled "Yes, I understand"
+    And I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
     ##VERIFY
     Then I should see "Your document was uploaded successfully"
-
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
+
+    ##VERIFY_RSD:
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "4" and click on the bubble
+    Then I should see "New Name" in the data entry form field "Name"
+    And I should see "" in the data entry form field "Email"
