@@ -28,6 +28,10 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     Then I should see a table header and rows containing the following values in a table:
       | Role name | Username   |
       | —         | test_user3 |
+
+    ##VERIFY_RSD:
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should NOT see a link labeled "5"
     And I logout
 
     #FUNCTIONAL_REQUIREMENT
