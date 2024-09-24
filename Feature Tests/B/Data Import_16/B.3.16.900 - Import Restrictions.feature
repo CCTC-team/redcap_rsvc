@@ -50,3 +50,8 @@ Feature: User Interface: The system shall not allow data to be changed on locked
       #M: should not see anything was imported after record was locked
       | Username   | Action               | List of Data Changes      |
       | test_admin | Lock/Unlock Record 1 | Action Lock entire record |
+
+    #VERIFY_RECORD
+    When I click on the link labeled "Record Status Dashboard"
+    And I click on the bubble for the "Text Validation" data collection instrument for record ID "1" 
+    Then  I should see "Name" in the data entry form field "Name" 
