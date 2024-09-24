@@ -34,26 +34,40 @@ Feature: User Interface: The system shall provide the ability to assign data ins
     Then I should see Project status: "Production"
 
     Given I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Rows.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Rows.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
 
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
+
+    #VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "View Report"
+    Then I should see a table header and rows containing the following values in the report data table:
+      | record_id | redcap_data_access_group | name   |
+      | 100       |                          | Rob    |
+      | 200       |                          | Brenda |
+      | 300       |                          | Paul   |
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.16.1300.100"
     And I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "ERROR: Illegal use of 'redcap_data_access_group' field!"
+
+    #VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "View Report"
+    Then I should see "No results were returned"
     And I logout
 
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.16.1300.100"
     And I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see a table header and rows containing the following values in a table:
       | record_id | redcap_data_access_group | name   |
       | 100       | test_group1              | Rob    |
