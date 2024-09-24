@@ -27,7 +27,7 @@ Feature: User Interface: The system shall provide the option to allow blank valu
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Import new data, ignoring blank values
     When I click on the link labeled "Data Import Tool"
-    And I select "No, ignore blank values in the file" on the dropdown field labeled " Overwrite data with blank values?"
+    And I select "No, ignore blank values in the file" on the dropdown field labeled "Overwrite data with blank values?"
     And I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     
     ##VERIFY
