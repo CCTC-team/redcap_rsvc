@@ -38,6 +38,10 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     And I upload a "csv" format file located at "import_files//B.3.16.1000_New Record.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "ERROR:"
     And I should see "Your user privileges do NOT allow you to create new records."
+
+    ##VERIFY_RSD:
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should NOT see a link labeled "5"
     And I logout
 
     Given I login to REDCap with the user "Test_Admin"
