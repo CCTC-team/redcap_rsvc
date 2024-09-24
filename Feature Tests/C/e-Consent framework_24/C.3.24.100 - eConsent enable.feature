@@ -21,7 +21,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     
     And I select the radio option "Disabled" for the e-consent Framework
-    # And I select "Disabled" on the radio field labeled "e-Consent Framework"
 
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
@@ -62,7 +61,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     And I select the radio option "Auto-Archiver enabled" for the e-consent Framework
-    # And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
@@ -104,7 +102,6 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     And I select the radio option "Auto-Archiver + e-Consent Framework" for the e-consent Framework
-    # And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
