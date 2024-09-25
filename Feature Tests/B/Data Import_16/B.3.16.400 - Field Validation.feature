@@ -71,7 +71,7 @@ Feature: User Interface: The system shall import only valid formats for text fie
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Corrected format
-    # Change the value of bdate in csv file as DB already contains the value of 07-07-1940
+    # Change the value of bdate in csv file (import_files/B.3.16.400_DataImport_Rows Corrected.csv) as DB already contains the value of 07-07-1940
     When I click on the link labeled "Data Import Tool"
     And I select "Yes, blank values in the file will overwrite existing values" on the dropdown field labeled "Allow blank values to overwrite existing saved values?"
     And I click on the button labeled "Yes, I understand" in the dialog box
