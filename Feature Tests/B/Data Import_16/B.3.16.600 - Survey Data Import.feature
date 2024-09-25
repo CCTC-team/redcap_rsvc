@@ -15,8 +15,17 @@ Feature: User Interface: The system shall ignore survey identifier and timestamp
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-    When I click on the link labeled "Data Import Tool"
+    ###VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the "View Report" button in the row labeled "All data (all records and fields)"
+    Then I should see "All data (all records and fields)"
+    Given I should see a table header and rows containing the following values in the report data table:
+      | record_id | redcap_survey_identifier | data_types_timestamp | ptname    |
+      | 4         |                          |                      | My Name   |
+      | 5         |                          |                      | Your Name |
+      | 6         |                          |                      | That name |
 
+    When I click on the link labeled "Data Import Tool"
     Given I upload a "csv" format file located at "import_files/B.3.16.600_DataImport.csv", by clicking the button near "Upload your CSV file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "DATA DISPLAY TABLE"
     And I should see a table header and rows containing the following values in the import data display table:
@@ -28,10 +37,9 @@ Feature: User Interface: The system shall ignore survey identifier and timestamp
     Given I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
+    ###VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the "View Report" button in the row labeled "All data (all records and fields)"
-
-    ###VERIFY_DE
     Then I should see "All data (all records and fields)"
     Given I should see a table header and rows containing the following values in the report data table:
       | record_id | redcap_survey_identifier | data_types_timestamp | ptname    |
