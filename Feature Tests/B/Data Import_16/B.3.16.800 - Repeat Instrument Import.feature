@@ -24,14 +24,22 @@ Feature: User Interface: The system shall require the repeating instrument and i
         #M: Will have to accept confirmation window "And I click on the button labeled "Ok" in the pop-up box"
     Then I see Project status: "Production"
 
+    #VERIFY_RSD
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should see "No records exist yet"
+
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Error during import
     When I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         
     ##VERIFY
     Then I should see "ERROR:"
     And I click on the link labeled "RETURN TO PREVIOUS PAGE"
+
+    #VERIFY_RSD
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should see "No records exist yet"
 
     #SETUP_PROJECTSETUP
     When I click on the link labeled "Project Setup"
@@ -44,14 +52,19 @@ Feature: User Interface: The system shall require the repeating instrument and i
     #FUNCTIONAL REQUIREMENT
     ##ACTION: import without repeat instrument
     When I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files//B316800100_WOUT_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B316800100_WOUT_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
     ##VERIFY
     Then I should see "ERROR:"
 
-  #FUNCTIONAL REQUIREMENT
-  ##ACTION: import with repeat instrument
-    When I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    #VERIFY_RSD
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should see "No records exist yet"
+
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION: import with repeat instrument
+    When I click on the link labeled "Data Import Tool"
+    When I upload a "csv" format file located at "import_files/B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
     ##VERIFY
     Then I should see "Your document was uploaded successfully"
@@ -59,3 +72,6 @@ Feature: User Interface: The system shall require the repeating instrument and i
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
+    #VERIFY_RSD
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should see a link labeled "4"
