@@ -16,15 +16,23 @@ Feature: User Interface: The system shall import only valid choice codes for rad
     Then I see Project status: "Production"
 
     When I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.500_DataImport_Rows.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
 
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
+    #VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "View Report"
+    Then I should see a table header and rows containing the following values in the report data table:
+      | record_id | multiple_dropdown_auto   | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
+      | 300       | DDChoice1 (1)	           | DDChoice6 (7)	          | Choice.3 (3)	      | Choice100 (100)     | Checked (1)	 |
+
     #FUNCTIONAL_REQUIREMENT
     ##ACTION:  incorrect format
-    When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    When I click on the link labeled "Data Import Tool"
+    When I upload a "csv" format file located at "import_files/B.3.16.500_DataImport_Rows Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Errors were detected in the import file that prevented it from being loaded"
 
     And I should see a table header and rows containing the following values in a table:
@@ -35,16 +43,30 @@ Feature: User Interface: The system shall import only valid choice codes for rad
       | 300    | radio_button_manual      | 222   |
       | 300    | checkbox___1             | 99    |
 
+    #VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "View Report"
+    Then I should see a table header and rows containing the following values in the report data table:
+      | record_id | multiple_dropdown_auto   | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
+      | 300       | DDChoice1 (1)	           | DDChoice6 (7)	          | Choice.3 (3)	      | Choice100 (100)     | Checked (1)	 |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION:  corrected format
-    When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    When I click on the link labeled "Data Import Tool"
+    When I upload a "csv" format file located at "import_files/B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see a table header and rows containing the following values in a table:
       | record_id | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
       | 300       | 3                      | 5                        | 2                   | 101                 | 0            |
 
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
+
+    #VERIFY_DE
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "View Report"
+    Then I should see a table header and rows containing the following values in the report data table:
+      | record_id | multiple_dropdown_auto   | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1  |
+      | 300       | DDChoice3 (3)	           | DDChoice5 (5)	          | Choice2 (2)	        | Choice101 (101)     | Unchecked (0) |
 
     #VERIFY_LOG
     When I click on the link labeled "Logging"
