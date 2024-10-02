@@ -15,18 +15,6 @@ Feature: User Interface: The tool shall support the ability to navigate directly
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-    #USER_RIGHTS
-    When I click on the link labeled "User Rights"
-    And I enter "Test_User1" into the input field labeled "Add with custom rights"
-    And I click on the button labeled "Add with custom rights"
-    Then I should see 'Adding new user "Test_User1"'
-
-    When I check the User Right named "Record Locking Customization"
-    And I select the User Right named "Lock/Unlock Records" and choose "Locking / Unlocking with E-signature authority"
-    And I click on the button labeled "Close" in the dialog box
-    And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
-    And I save changes within the context of User Rights
-
     #FUNCTIONAL REQUIREMENT
     ##ACTION Navigate to record
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
