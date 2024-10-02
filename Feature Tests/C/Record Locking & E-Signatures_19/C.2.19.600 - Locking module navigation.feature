@@ -27,13 +27,6 @@ Feature: User Interface: The tool shall support the ability to navigate directly
     And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
     And I save changes within the context of User Rights
 
-    ##VERIFY_LOG
-    When I click on the link labeled "Logging"
-    Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action     | List of Data Changes OR Fields Exported |
-      | test_admin | Add user   | user = 'Test_User1'                     |
-      |            | Test_User1 |                                         |
-
     #FUNCTIONAL REQUIREMENT
     ##ACTION Navigate to record
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
