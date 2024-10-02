@@ -18,95 +18,80 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
     #SETUP
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
+    Given the Column Name "Display the Lock option for this instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Consent"
+    And for the Column Name "Also display E-signature option on instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
     Then I should see a table header and rows containing the following values in a table:
       | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-      | [✓]                                          | Text Validation            | [ ]                                            | [text box]              |
-      | [✓]                                          | Data Types                 | [ ]                                            | [text box]              |
-      | [✓]                                          | Survey                     | [ ]                                            | [text box]              |
-      | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
+      | [✓]                                          | Text Validation            | [✓]                                           | [text box]              |
+      | [✓]                                          | Data Types                 | [ ]                                           | [text box]              |
+      | [✓]                                          | Survey                     | [ ]                                           | [text box]              |
+      | [ ]                                          | Consent                    | [ ]                                           | [text box]              |
 
-
-    #FUNCTIONAL REQUIREMENT
-    ##ACTION Lock Record Custom Text
-    When I enter "Test custom text" into the textarea field labeled "Text Validation"
-    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
-    Then I should see a table header and rows containing the following values in a table:
-      | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-      | [✓]                                          | Text Validation            | [ ]                                            | Test custom text        |
-      | [✓]                                          | Data Types                 | [ ]                                            | [text box]              |
-      | [✓]                                          | Survey                     | [ ]                                            | [text box]              |
-      | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
-
-    And I enter "Test custom text" into the textarea field labeled "Data Types"
-    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
-    Then I should see a table header and rows containing the following values in a table:
-      | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-      | [✓]                                          | Text Validation            | [ ]                                            | Test custom text        |
-      | [✓]                                          | Data Types                 | [ ]                                            | Test custom text        |
-      | [✓]                                          | Survey                     | [ ]                                            | [text box]              |
-      | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
-
-
-    ##VERIFY_LOG
-    When I click on the link labeled "Logging"
-    Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Customize record locking                |
-      | test_admin | Manage/Design | Customize record locking                |
-
-    ##VERIFY: custom text in record
+    
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     Then I should see "Text Validation"
-    And I should see "Test custom text"
+    Given I check the checkbox labeled exactly "Lock"
+    And I check the checkbox labeled exactly "E-signature"
+    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    Then I should see "E-signature: Username/password verification" in the dialog box
+    Given I provide E-Signature credentials for the user "Test_Admin"
+    And I click on the button labeled "Save" in the dialog box
+    Then I should see "E-signed by test_admin"
+    And I should see "Instrument locked by test_admin"
 
     When I click on the link labeled "Data Types"
     Then I should see "Data Types"
-    And I should see "Test custom text"
+    Given I check the checkbox labeled exactly "Lock"
+    And I should NOT see a checkbox labeled "E-signature"
+    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    Then I should see "Instrument locked by test_admin"
+    And I should NOT see "E-signed by test_admin"
+
+    When I click on the link labeled "Consent"
+    Then I should NOT see a checkbox labeled "E-signature"
+    And I should NOT see a checkbox labeled "Lock"
+    
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "1" and click on the bubble
+    Then I should see "Survey"
+    And I should see a checkbox labeled exactly "Lock" that is unchecked
+    And I should NOT see a checkbox labeled "E-signature"
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Edit / Remove Custom Text
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
 
-    #And I click on the Edit icon in the row labeled "Text Validation"
-    And I click on the Edit icon within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
-    And I clear field and enter "New custom text" into the textarea field labeled "Text Validation"
-    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
-    Then I should see a table header and rows containing the following values in a table:
-      | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-      | [✓]                                          | Text Validation            | [ ]                                            | New custom text         |
-      | [✓]                                          | Data Types                 | [ ]                                            | Test custom text        |
-      | [✓]                                          | Survey                     | [ ]                                            | [text box]              |
-      | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
+    ##VERIFY
+    When I click on the link labeled "E-signature and Locking Management"
+   Then I should see a table header and rows containing the following values in a table:
+      | Record | Event Name                 | Form Name       | Repeat Instance | Locked?     | E-signed?       |
+      | 1      | Event 1 (Arm 1: Arm 1)     | Text Validation |                 | [lock icon] | [e-signed icon] |
+      | 1      | Event Three (Arm 1: Arm 1) | Survey          |                 |             | N/A             |
+      | 1      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #1           | [lock icon] | N/A             |
+      | 1      | Event 2 (Arm 1: Arm 1)     | Text Validation |    #1           |             |                 |
+      | 1      | Event 2 (Arm 1: Arm 1)     | Data Types      |    #1           |             | N/A             |
+      | 1      | Event 2 (Arm 1: Arm 1)     | Text Validation |    #2           |             |                 |
+      | 1      | Event 2 (Arm 1: Arm 1)     | Data Types      |    #2           |             | N/A             |
+      | 2      | Event 1 (Arm 1: Arm 1)     | Text Validation |                 |             |                 |
+      | 2      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #1           |             | N/A             |
+      | 2      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #2           |             | N/A             |
+      | 3      | Event 1 (Arm 1: Arm 1)     | Text Validation |                 |             |                 |
+      | 3      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #1           |             | N/A             |
+      | 3      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #2           |             | N/A             |
+      | 4      | Event 1 (Arm 1: Arm 1)     | Text Validation |                 |             |                 |
+      | 4      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #1           |             | N/A             |
+      | 4      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #2           |             | N/A             |
+      | 4      | Event 1 (Arm 1: Arm 1)     | Data Types      |    #3           |             | N/A             |
 
-    And I click on the Delete icon within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
-
-    #MANUAL: confirmation windows are automatically accepted on automated side
-    # And I click on the button labeled "OK" in the pop-up box
-    Then I should see a table header and rows containing the following values in a table:
-      | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-      | [✓]                                          | Text Validation            | [ ]                                            | New custom text         |
-      | [✓]                                          | Data Types                 | [ ]                                            | [text box]              |
-      | [✓]                                          | Survey                     | [ ]                                            | [text box]              |
-      | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
-
+    ##VERIFY C.2.19.200
+    And I should NOT see "Consent"
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
-    Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Customize record locking                |
-      | test_admin | Manage/Design | Customize record locking                |
-      | test_admin | Manage/Design | Customize record locking                |
-      | test_admin | Manage/Design | Customize record locking                |
-
-
-    ##VERIFY: custom text in record and revert back to template
-    When I click on the link labeled "Record Status Dashboard"
-    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-    Then I should see "Text Validation"
-    And I should see "New custom text"
-    When I click on the link labeled "Data Types"
-    Then I should see "Data Types"
-    And I should see "Lock this instrument?"
+    Then I should see a table header and rows containing the following values in a table:
+      | Username   | Action               | List of Data ChangesOR Fields Exported                                  |
+      | test_admin | Lock/Unlock Record 1 | Action: Lock instrument Record: 1 Form: Data Types Event: Event 1       |
+      | test_admin | E-signature 1        | Action: Save e-signature Record: 1 Form: Text Validation Event: Event 1 |
+      | test_admin | Lock/Unlock Record 1 | Action: Lock instrument Record: 1 Form: Text Validation Event: Event 1  |
