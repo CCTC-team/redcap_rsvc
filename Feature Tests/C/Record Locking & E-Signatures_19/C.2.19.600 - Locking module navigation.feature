@@ -50,4 +50,6 @@ Feature: User Interface: The tool shall support the ability to navigate directly
 
     ##VERIFY
     Then I should see "Text Validation"
+    And I should see "Event 1 (Arm 1: Arm 1)"
+    And I should see "3"
     And I should see a checkbox labeled "Lock this instrument?" that is unchecked
