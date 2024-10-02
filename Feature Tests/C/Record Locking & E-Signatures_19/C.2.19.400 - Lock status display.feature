@@ -70,6 +70,13 @@ Feature: User Interface: The tool shall display locked status of forms for all r
       | 3      | Event 1 (Arm 1: Arm 1) | Text Validation | [lock icon] |
       | 3      | Event 1 (Arm 1: Arm 1) | Consent         |             |
 
+    When I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in a table:
+      | Username   | Action      | List of Data Changes OR Fields Exported |
+      | test_user1 | Lock/Unlock | Action: Lock instrument                 |
+      |            | Record      | Record: 3                               |
+      |            | 3           | Form: Text Validation Event: Event 1    |
+
     ##ACTION Lock icon for event
     When I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "3"
@@ -99,6 +106,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
       | Record           | Form Name | Locked?     |
       | 3 (Arm 1: Arm 1) |           | [lock icon] |
       | (entire record)  |           |             |
+      
     ##ACTION : unlock record 3
     When I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "3"
@@ -116,7 +124,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in a table:
       | Username   | Action      | List of Data Changes OR Fields Exported |
-      | test_user1 | Lock/Unlock | Action: Lock entire record              |
+      | test_user1 | Lock/Unlock | Action: Unlock entire record            |
       | test_user1 | Record 3    | Record: 3 - Arm 1: Arm 1                |
 
     ##VERIFY_LOCK_ESIG: record locked
@@ -148,8 +156,9 @@ Feature: User Interface: The tool shall display locked status of forms for all r
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action          | List of Data Changes OR Fields Exported |
-      | test_user1 | Update record 3 |                                         |
+      | Username   | Action               | List of Data Changes OR Fields Exported                                  |
+      | test_user1 | Update record 3      |                                                                          |
+      | test_user1 | Lock/Unlock Record 3 | Action: Unlock instrument Record: 3 Form: Text Validation Event: Event 1 |
 
     ##VERIFY_LOCK_ESIG: verify that there isn't a lock in that view
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
