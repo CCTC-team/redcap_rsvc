@@ -65,7 +65,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
 
     ##VERIFY
     When I click on the link labeled "E-signature and Locking Management"
-   Then I should see a table header and rows containing the following values in a table:
+    Then I should see a table header and rows containing the following values in a table:
       | Record | Event Name                 | Form Name       | Repeat Instance | Locked?     | E-signed?       |
       | 1      | Event 1 (Arm 1: Arm 1)     | Text Validation |                 | [lock icon] | [e-signed icon] |
       | 1      | Event Three (Arm 1: Arm 1) | Survey          |                 |             | N/A             |
