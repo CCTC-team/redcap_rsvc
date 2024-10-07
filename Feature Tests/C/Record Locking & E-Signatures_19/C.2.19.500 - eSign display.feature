@@ -88,3 +88,32 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
       | Record | Form Name       | Locked?     | E-signed?       |
       | 3      | Text Validation | [lock icon] | [e-signed icon] |
       | 3      | Consent         |             | N/A             |
+
+    ##ACTION
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
+    Then I should see "Instrument locked by test_user1"
+    And I should see "E-signed by test_user1"
+    When I click on the button labeled "Unlock form"
+    Then I should see 'Are you sure you wish to unlock this form for record "3"? NOTICE: Unlocking this form will also negate the current e-signature.'
+    And I click on the button labeled "Unlock" in the dialog box
+    Then I should see "UNLOCK SUCCESSFUL!"
+    And I click on the button labeled "Close"
+    Then I should see a checkbox labeled exactly "Lock" that is unchecked
+    And I should see a checkbox labeled exactly "E-signature" that is unchecked
+
+    ##VERIFY_LOG
+    When I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Username   | Action               | List of Data Changes OR Fields Exported                                   |
+      | test_user1 | E-signature 3        | Action: Negate e-signature Record: 3 Form: Text Validation Event: Event 1 |
+      | test_user1 | Lock/Unlock Record 3 | Action: Unlock instrument Record: 3 Form: Text Validation Event: Event 1  |
+
+    ##VERIFY_LOCK_ESIG: verify that there isn't a lock or e-signature in that view
+    When I click on the link labeled "Customize & Manage Locking/E-signatures"
+    And I click on the button labeled "I understand. Let me make changes" in the dialog box
+    And I click on the link labeled "E-signature and Locking Management"
+    Then I should see a table header and rows containing the following values in a table:
+      | Record | Form Name       | Locked? | E-signed? |
+      | 3      | Text Validation |         |           |
+      | 3      | Consent         |         | N/A       |
