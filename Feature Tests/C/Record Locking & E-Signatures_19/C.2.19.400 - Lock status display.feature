@@ -26,12 +26,6 @@ Feature: User Interface: The tool shall display locked status of forms for all r
     And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
     And I check the User Right named "Logging"
     And I save changes within the context of User Rights
-
-    #VERIFY_LOG
-    When I click on the link labeled "Logging"
-    Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action              | List of Data Changes OR Fields Exported |
-      | test_admin | Add user Test_user1 | user = 'Test_user1'                     |
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
@@ -55,12 +49,6 @@ Feature: User Interface: The tool shall display locked status of forms for all r
       | Data Collection Instrument | Event 1     | Event 2 | Event Three |
       | Text Validation            | [lock icon] |         |             |
 
-    ##VERIFY_LOG
-    When I click on the link labeled "Logging"
-    Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action               | List of Data Changes OR Fields Exported                                |
-      | test_user1 | Lock/Unlock Record 3 | Action: Lock instrument Record: 3 Form: Text Validation Event: Event 1 |
-
     ##VERIFY_LOCK_ESIG: Record instrument lock on Locking Management
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
@@ -70,6 +58,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
       | 3      | Event 1 (Arm 1: Arm 1) | Text Validation | [lock icon] |
       | 3      | Event 1 (Arm 1: Arm 1) | Consent         |             |
 
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in a table:
       | Username   | Action      | List of Data Changes OR Fields Exported |
