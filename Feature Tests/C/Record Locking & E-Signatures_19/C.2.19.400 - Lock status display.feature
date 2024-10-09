@@ -77,7 +77,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
     ##VERIFY_RH
 
     ##VERIFY_LOG
-    When I no longer see 'Record "3" is now LOCKED' in the dialog box
+    When I no longer see 'Record "3" is now LOCKED'
     Then I should see the lock image for Record ID "3"
 
     When I click on the link labeled "Logging"
@@ -107,7 +107,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
     ##VERIFY_RH
 
     ##VERIFY_LOG
-    When I no longer see 'Record "3" is now UNLOCKED' in the dialog box
+    When I no longer see 'Record "3" is now UNLOCKED'
     Then I should NOT see the lock image for Record ID "3"
 
     When I click on the link labeled "Logging"
