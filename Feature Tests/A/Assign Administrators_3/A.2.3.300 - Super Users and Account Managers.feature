@@ -29,8 +29,9 @@ Feature: A.2.3.300 Assign administrators and account managers
     Then I should see "Control Center Home"
     # Checking if 'Access to Control Center dashboards' is enabled
     And I should see a link labeled "System Statistics"
-    # Checking if 'Perform REDCap upgrades' is enabled
-    Then I should see "Ready to upgrade to REDCap"
+    # Checking if 'Perform REDCap upgrades' is enabled. The message to view is not consistent.
+    Then I should see "New REDCap versions are available for upgrade"
+    # Then I should see "Ready to upgrade to REDCap"
     # Checking if 'Manage user accounts' is enabled
     And I should see a link labeled "Browse Users"
     # Checking if 'Modify system configuration pages' is enabled
@@ -58,8 +59,9 @@ Feature: A.2.3.300 Assign administrators and account managers
     
     # Checking if 'Access to Control Center dashboards' is disabled
     And I should NOT see a link labeled "System Statistics"
-    # Checking if 'Perform REDCap upgrades' is disabled
-    Then I should NOT see "Ready to upgrade to REDCap"
+    # Checking if 'Perform REDCap upgrades' is disabled. The message to view is not consistent.
+    Then I should NOT see "New REDCap versions are available for upgrade"
+    # Then I should NOT see "Ready to upgrade to REDCap"
     # Checking if 'Manage user accounts' is disabled
     And I should NOT see a link labeled "Browse Users"
     # Checking if 'Modify system configuration pages' is disabled
