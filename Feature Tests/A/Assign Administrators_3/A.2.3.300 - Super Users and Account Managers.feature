@@ -30,7 +30,8 @@ Feature: A.2.3.300 Assign administrators and account managers
     # Checking if 'Access to Control Center dashboards' is enabled
     And I should see a link labeled "System Statistics"
     # Checking if 'Perform REDCap upgrades' is enabled
-    Then I should see "Ready to upgrade to REDCap"
+    # Then I should see "Ready to upgrade to REDCap"
+    Then I should see "New REDCap versions are available for upgrade"
     # Checking if 'Manage user accounts' is enabled
     And I should see a link labeled "Browse Users"
     # Checking if 'Modify system configuration pages' is enabled
