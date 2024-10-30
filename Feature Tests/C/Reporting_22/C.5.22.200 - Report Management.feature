@@ -81,3 +81,13 @@ Feature: User Interface:  The system shall support the ability to create, modify
       | 2 | C.5.22.200.100 REPORT_EDIT2 |
 
     And I should NOT see "C.5.22.200.100 REPORT_EDIT2 (copy)"
+
+    #VERIFY_LOG
+    Given I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Username   | Action        | List of Data ChangesOR Fields Exported                                                                               |
+      | test_admin | Manage/Design | Delete report (report: "C.5.22.200.100 REPORT_EDIT2 (copy)", report_id: 3, fields: record_id)                        |
+      | test_admin | Manage/Design | Copy report (report: "C.5.22.200.100 REPORT_EDIT2 (copy)", report_id: 3, copied from report_id 2, fields: record_id) |
+      | test_admin | Manage/Design | Edit report (report: "C.5.22.200.100 REPORT_EDIT2", report_id: 2, fields: record_id)                                 |
+      | test_admin | Manage/Design | Edit report (report: "C.5.22.200.100 REPORT_EDIT", report_id: 2, fields: record_id)                                  |
+      | test_admin | Manage/Design | Create report (report: "C.5.22.200.100 REPORT", report_id: 2, fields: record_id)                                     |
