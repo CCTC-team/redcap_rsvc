@@ -197,7 +197,7 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 7 successfully added."
 
-    And I want to export a snapshot of this feature here
+    # And I want to export a snapshot of this feature here
 
     ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
