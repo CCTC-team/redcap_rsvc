@@ -34,7 +34,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
     Then I should see Project status: "Production"
 
     Given I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Rows.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Rows.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
 
     When I click on the button labeled "Import Data"
@@ -54,7 +54,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.16.1300.100"
     And I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "ERROR: Illegal use of 'redcap_data_access_group' field!"
 
     #VERIFY_DE
@@ -68,7 +68,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
     And I click on the link labeled "B.3.16.1300.100"
     And I click on the link labeled "Data Import Tool"
     # Verify wrong DAG names cannot be imported
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag_Bad.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag_Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "ERROR:"
     Then I should see "The following Data Access Group are invalid for the redcap_data_access_group field: testgroupno"
     
@@ -82,7 +82,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
       | 300       |                          | Paul   |
 
     And I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1300_DataImport_Dag.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see a table header and rows containing the following values in a table:
       | record_id | redcap_data_access_group | name   |
       | 100       | test_group1              | Rob    |
