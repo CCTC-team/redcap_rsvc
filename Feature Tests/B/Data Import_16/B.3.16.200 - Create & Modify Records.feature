@@ -16,12 +16,13 @@ Feature: User Interface: The system shall allow data to be uploaded with the csv
     Then I should see "No records exist yet"
 
     When I click on the link labeled "Data Import Tool"
-    Then I should see "Download your Data Import Template (with records in rows)"
+    Then I should see the dropdown field labeled "Records in file are formatted as" with the option "Rows" selected
 
-    # #FUNCTIONAL REQUIREMENT
-    # ##ACTION - Cancel import
-    # #B.3.16.100 CROSSFUNCTIONAL
-    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Cancel import
+    #B.3.16.100 CROSSFUNCTIONAL
+    ## Script works for v13.1.37 but needs to be modified for 13.8.1 as the view of the page has been modified. Modified the step below
+    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
     And I click on the link labeled "Cancel"
 
@@ -36,14 +37,15 @@ Feature: User Interface: The system shall allow data to be uploaded with the csv
     #FUNCTIONAL REQUIREMENT
     ##ACTION - Import (with records in rows)
     Given I click on the link labeled "Data Import Tool"
-    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    ## Script works for v13.1.37 but needs to be modified for 13.8.1 as the view of the page has been modified. Modified the step below
+    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
 
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
     #VERIFY_RSD: 1 record
-     When I click on the link labeled "Record Status Dashboard"
+    When I click on the link labeled "Record Status Dashboard"
     Then I should see a link labeled exactly "1"
     When I click on the bubble for the "Text Validation" data collection instrument for record ID "1" 
     Then  I should see "Joe" in the data entry form field "Name" 
@@ -56,16 +58,17 @@ Feature: User Interface: The system shall allow data to be uploaded with the csv
       | test_admin | Create record (import) 1 |record_id = '1', name = 'Joe', email = 'joe@test.edu' |
 
     #FUNCTIONAL REQUIREMENT
-    ##ACTION - Import (with records in columns) and verify record modification
+    ##ACTION - Import (with records in columns) and check modiying records
     When I click on the link labeled "Data Import Tool"
-    And I select "Columns" on the dropdown field labeled "Record format"
-    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord_Column.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I select "Columns" on the dropdown field labeled "Record format"    
+    ## Script works for v13.1.37 but needs to be modified for 13.8.1 as the view of the page has been modified. Modified the step below
+    When I upload a "csv" format file located at "import_files/B316200100_ImportTemplate_ImportRecord_Column.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
     And I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
     #VERIFY_RSD: 2 records
-     When I click on the link labeled "Record Status Dashboard"
+    When I click on the link labeled "Record Status Dashboard"
     Then I should see a link labeled exactly "2"
     When I click on the bubble for the "Text Validation" data collection instrument for record ID "1" 
     Then  I should see "Jack" in the data entry form field "Name" 
