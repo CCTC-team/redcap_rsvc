@@ -39,7 +39,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.16.1000.100"
     When I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files//B.3.16.1000_New Record.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1000_New Record.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "ERROR:"
     And I should see "Your user privileges do NOT allow you to create new records."
 
@@ -52,7 +52,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.16.1000.100"
     And I click on the link labeled "Data Import Tool"
-    And I upload a "csv" format file located at "import_files//B.3.16.1000_New Record.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    And I upload a "csv" format file located at "import_files/B.3.16.1000_New Record.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see a table header and rows containing the following values in a table:
       | record_id    | email          |
       | (new record) | email@test.edu |
