@@ -10,7 +10,7 @@ Feature: D.110.100 Special Functions  - The system shall support the ability to 
 
   Scenario: D.110.100.1 - datediff
     Given I login to REDCap with the user "Test_User1"
-    And I create a new project named "D.110.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "/redcap_val_cdisc_files/Project_redcap_val_Special_Functions.xml", and clicking the "Create Project" button
+    And I create a new project named "D.110.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Special_Functions.xml", and clicking the "Create Project" button
     And I click on the link labeled "Designer"
     And I click on the instrument labeled "Data Types"
     And I should see a field named "Date difference in days"
