@@ -6,7 +6,7 @@ Feature: D.120.100 - The system shall support the ability to use Embedded Fields
   Scenario: D.120.100 Field Embedding
     #SETUP
     Given I login to REDCap with the user "Test_User1"
-    And I create a new project named "D.120.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "/redcap_val_cdisc_files/Project_redcap_val.xml", and clicking the "Create Project" button
+    And I create a new project named "D.120.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     And I click on the link labeled "Designer"
     Then I should see "Data Collection Instruments"
     And I click on the instrument labeled "Text Validation"
