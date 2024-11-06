@@ -1,4 +1,4 @@
-Feature: D.103.100 Form Display Logic
+Feature: D.103.100 - The system shall support the ability to display a form/instrument when a condition is met.             
 
   As a REDCap end user
   I want to see that Form Display Logic is functioning as expected
