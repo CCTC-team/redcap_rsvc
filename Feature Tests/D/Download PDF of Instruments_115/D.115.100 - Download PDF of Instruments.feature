@@ -46,6 +46,7 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
       |                                  | Checkbox3                     |
       | Signature                        |                               |
       | File Upload                      |                               |
+      | Section Break                    |                               |
       | Descriptive Text with File       |                               |
       | [Attachment: "7_image_v913.jpg"] |                               |
       | Required                         |                               |
