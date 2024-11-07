@@ -1,25 +1,27 @@
+
 Feature: Send It: D.105.100 - The system shall support the ability to send a file to user/users.
 
   As a REDCap end user
   I want to see that Send It is functioning as expected
 
   Scenario: D.105.100 Send a file to user
-    Given I login to REDCap with the user "Test_user1" 
-    Then I should see "Send-It"
+    Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
     Then I should see the dropdown field labeled "From:" with the option "Test_User1@test.edu" selected
-    When I enter "joe@abc.com, paul@abc.com" into the input field labeled "To:"
+    When I enter "joe@abc.com, paul@abc.com" into the textarea field labeled "To:"
     And I enter "Send-it file" into the input field labeled "Email subject:"
-    And I enter "Send-it csv file" into the input field labeled "Email message:"
+    And I enter "Send-it csv file" into the textarea field labeled "Email message:"
     #The file will expire and become inaccessible after 2 days
     And I select "2 days" on the dropdown field labeled "Expiration:"
-    Then I click the button labeled "Choose file" to select and upload the file located at "/import_files/B.3.16.600_DataImport.csv"
+    Then I upload a "csv" format file located at "/import_files/redcap_val/redcap_val_Data_Import.csv" by clicking on the button labeled "Choose file"
+    # Then I click the button labeled "Choose file" to select and upload the file located at "/import_files/B.3.16.600_DataImport.csv"
     And I click on the button labeled "Send It!"
     Then I should see "File successfully uploaded!"
 
     # Verify Email for joe@abc.com
     # Email sent with Password
-    Given I open Email
+    Given I open the Email
+    # When I click on the link labeled "Re: [REDCap Send-It] Send-it file" for user "joe@abc.com"
     When I click on the link labeled "Re: [REDCap Send-It] Send-it file" for user "joe@abc.com"
     Then I should see "joe@abc.com"
     And I should see "Below is the password for downloading the file mentioned in the previous email."
