@@ -25,8 +25,8 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
       | CRF Version 1                    |                               |
       |                                  |      D.115.200                |
       |                                  |      Record ID 1 (Event 1)    |
-      | Text Validation                  |      1                        |
-      | Record ID                        |                               |
+      | Text Validation                  |                               |
+      | Record ID                        |      1                        |
       | Name                             |                               |
       | Email                            |                               |
       | Data Types                       |                               |
@@ -86,8 +86,8 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
     Then I should see the following values in the downloaded PDF
       | CRF Version 2                    |                               |
       |                                  |      D.115.200                |
-      | Text Validation                  |      1                        |
-      | Record ID                        |                               |
+      | Text Validation                  |                               |
+      | Record ID                        |      1                        |
       | Name                             |                               |
       | Email                            |                               |
       | Data Types                       |                               |
