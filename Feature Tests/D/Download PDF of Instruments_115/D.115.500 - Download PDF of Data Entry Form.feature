@@ -8,12 +8,12 @@ Feature: D.115.500 - The system shall support the ability to download the data e
     Then I create a new project named "D.115.500" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
  
     #VERIFY
-    And I click on the link labeled "Record Status Dashboard"
-    When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    Given I click on the button labeled "Download PDF of instrument(s)"
+    When I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
+    And I click on the button labeled "Download PDF of instrument(s)"
     And I click on the link labeled "This data entry form (blank)"
-    And I should see a downloaded file named "DataTypes_D115500.pdf"
-    Then I should see the following values in the downloaded PDF
+    Then I should see a downloaded file named "DataTypes_D115500.pdf"
+    And I should see the following values in the downloaded PDF
         |                                  |             D.115.500         |
         | Data Types                       |                               |
         | Record ID                        |                               |

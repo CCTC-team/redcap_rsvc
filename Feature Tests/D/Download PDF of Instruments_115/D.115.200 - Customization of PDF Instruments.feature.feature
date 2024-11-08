@@ -21,7 +21,8 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
     And I click on the link labeled exactly "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see the following values in the downloaded PDF
+    Then I should see a downloaded file named "D115200_yyyy_mm_dd_hhmm.pdf"
+    And I should see the following values in the downloaded PDF
       | CRF Version 1                    |                               |
       |                                  |      D.115.200                |
       |                                  |      Record ID 1 (Event 1)    |
@@ -83,7 +84,8 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
     And I click on the link labeled exactly "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see the following values in the downloaded PDF
+    Then I should see a downloaded file named "D115200_yyyy_mm_dd_hhmm.pdf"
+    And I should see the following values in the downloaded PDF
       | CRF Version 2                    |                               |
       |                                  |      D.115.200                |
       | Text Validation                  |                               |

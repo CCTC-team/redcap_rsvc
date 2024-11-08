@@ -29,7 +29,8 @@ Feature: D.115.300 - The system shall support the ability to download the PDF of
     #VERIFY
     Given I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see the following values in the downloaded PDF
+    Then I should see a downloaded file named "D115300_yyyy_mm_dd_hhmm.pdf"
+    And I should see the following values in the downloaded PDF
       |                                  |      D.115.300                |
       |                                  |      Record ID 1 (Event 1)    |
       | Text Validation                  |                               |

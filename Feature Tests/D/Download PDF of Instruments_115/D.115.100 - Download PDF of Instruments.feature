@@ -9,14 +9,15 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
     Then I create a new project named "D.115.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
     #VERIFY
-    And I click on the link labeled "Designer"
+    When I click on the link labeled "Designer"
     And I click on the instrument labeled "Text Validation"
     And I click on the Edit image for the field named "Email"
     And I enter "email" into the input field labeled "Field Note"
-    And I click on the button labeled "Save"
-    And I click on the link labeled "Project Setup"
-    When I click on the link labeled "Download PDF of all instruments"
-    Then I should see the following values in the downloaded PDF
+    Then I click on the button labeled "Save"
+    When I click on the link labeled "Project Setup"
+    And I click on the link labeled "Download PDF of all instruments"
+    Then I should see a downloaded file named "D115100.pdf"
+    And I should see the following values in the downloaded PDF
       |                                  |             D.115.100         |
       | Text Validation                  |                               |
       | Record ID                        |                               |
@@ -72,7 +73,8 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
     #VERIFY
     Given I click on the link labeled "Project Setup"
     When I click on the link labeled "Download PDF of all instruments"
-    Then I should NOT see the following values in the downloaded PDF
+    Then I should see a downloaded file named "D115100.pdf"
+    And I should NOT see the following values in the downloaded PDF
       | Signature                        |
       | File Upload                      |
       | Required                         |
