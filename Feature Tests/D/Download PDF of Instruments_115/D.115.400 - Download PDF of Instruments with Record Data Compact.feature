@@ -49,8 +49,9 @@ Feature: D.115.400 - The system shall support the ability to download the PDF of
       | Record ID                        |       1                       |
       | Name                             |       Joe                     |
 
-    #Checking for Email thrice doesn't in ATS as it might just check the first Email row for all 3 entries. 
-    # But keeping it for manual testing. Same with Identifier field
+    #Checking for Email thrice doesn't work as expected in ATS as it might just check the first Email row for all 3 entries. 
+    # But keeping it for manual testing. Same with Identifier field.
+    # Not verifying Name fields in Text Validation and Data Types in Record ID 1 (Event 1) as ATS will fail. Name is present with values of Joe and John in PDF
     And I should NOT see the following values in the downloaded PDF
       | Email                            | 
       | Email                            |
