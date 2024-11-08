@@ -5,7 +5,7 @@ Feature: D.115.500 - The system shall support the ability to download the data e
 
   Scenario: Download data entry form from within an instrument
     Given I login to REDCap with the user "Test_User1"
-    Then I create a new project named "D.115.500" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_redcap_val_.xml", and clicking the "Create Project" button
+    Then I create a new project named "D.115.500" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
  
     #VERIFY
     And I click on the link labeled "Record Status Dashboard"
@@ -13,31 +13,42 @@ Feature: D.115.500 - The system shall support the ability to download the data e
     Given I click on the button labeled "Download PDF of instrument(s)"
     And I click on the link labeled "This data entry form (blank)"
     And I should see a downloaded file named "DataTypes_D115500.pdf"
-    Then I should see the following values in the downloaded PDF "DataTypes_D115500.pdf"
-      | Data Types                                       D.115.500      |
-      | Record ID                                                       |
-      | Name                                                            |
-      | Text2                                                           |
-      | Text Box                                                        |
-      | Notes Box                                                       |
-      | Calculated Field                                                |
-      | Multiple Choice Dropdown Auto     DDChoice1 DDChoice2 DDChoice3 |
-      | Multiple Choice Dropdown Manual   DDChoice5 DDChoice6 DDChoice7 |
-      | Radio Button Auto                 Choice1 Choice2 Choice.3      |
-      | Radio Button Manual               Choice99 Choice100 Choice101  |
-      | Checkbox                          Checkbox Checkbox2 Checkbox3  |
-      | Signature                                                       |
-      | File Upload                                                     |
-      | Section Break                                                   |
-      | Descriptive Text with File                                      |
-      | [Attachment: "7_image_v913.jpg"]                                |
-      | Required                                                        |
-      | Identifier                                                      |
-      | Identifier                                                      |
-      | Edit Field                                                      |
-      | Section Break                                                   |
-      | Descriptive Text                                                |
-
+    Then I should see the following values in the downloaded PDF
+        |                                  |             D.115.500         |
+        | Data Types                       |                               |
+        | Record ID                        |                               |
+        | Name                             |                               |
+        | Text2                            |                               |
+        | Text Box                         |                               |
+        | Notes Box                        |                               |
+        | Calculated Field                 |                               |
+        | Multiple Choice Dropdown Auto    | DDChoice1                     |
+        |                                  | DDChoice2                     |
+        |                                  | DDChoice3                     |
+        | Multiple Choice Dropdown Manual  | DDChoice5                     |
+        |                                  | DDChoice6                     |
+        |                                  | DDChoice7                     |
+        | Radio Button Auto                | Choice1                       |
+        |                                  | Choice2                       |
+        |                                  | Choice.3                      |
+        | Radio Button Manual              | Choice99                      |
+        |                                  | Choice100                     |
+        |                                  | Choice101                     |
+        | Checkbox                         | Checkbox                      |
+        |                                  | Checkbox2                     |
+        |                                  | Checkbox3                     |
+        | Signature                        |                               |
+        | File Upload                      |                               |
+        | Section Break                    |                               |
+        | Descriptive Text with File       |                               |
+        | [Attachment: "7_image_v913.jpg"] |                               |
+        | Required                         |                               |
+        | Identifier                       |                               |
+        | Identifier                       |                               |
+        | Edit Field                       |                               |
+        | Section Break                    |                               |
+        | Descriptive Text                 |                               |
+   
     #VERIFY_LOG
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
