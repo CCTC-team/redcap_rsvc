@@ -11,6 +11,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: New Alert
         When I click on the link labeled "Alerts & Notifications"
+        Then I should NOT see "Alert #1:Email Alert"
         And I click on the button labeled "Add New Alert"
         Then I should see "Create new alert"
         And I enter "Email Alert" into the input field labeled "Title of this alert"
@@ -44,11 +45,11 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
         And I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.100"        
         And I click on the link labeled "Alerts & Notifications"
-        When I click on the link labeled "Notification Log"
+        When I click on the tab labeled "Notification Log"
         And I click on the button labeled "View past notifications"
         Then I should see a table header and rows containing the following values in the a table:
             | Notification send time | Alert    | Record                          | Recipient              | Subject                  | 
-            | mm/dd/yyyy hh:mm        | #1 (A-1) | 2 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Alerts and Notifications |
+            | mm/dd/yyyy hh:mm       | #1 (A-1) | 2 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Alerts and Notifications |
 
         Given I click on the mail icon for record "2"
         Then I should see "Test_User1@test.edu" in the dialog box
@@ -83,25 +84,19 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
 
         # Login to REDCap
         Given I login to REDCap with the user "Test_User1"
-        When I click on the link labeled "My Projects"
+        And I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.100"     
-        And I click on the tab labeled "Alerts & Notifications"
-        And I click on the tab labeled "Notification Log"
-        And I click on the button labeled "View past notifications"
-        Then I should see "Notification Log"
-        # And I should NOT see "Editing Alerts and Notifications"
-
-        Given I click on the link labeled "Record Status Dashboard"
+        And I click on the link labeled "Record Status Dashboard"
         When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "3" and click on the bubble
         And I select "Complete" on the dropdown field labeled "Complete?"  
         And I click on the button labeled "Save & Exit Form"
         Then I should see "Record ID 3 successfully edited" 
 
-        Given I click on the tab labeled "Alerts & Notifications"
+        Given I click on the link labeled "Alerts & Notifications"
         When I click on the tab labeled "Notification Log"
         And I click on the button labeled "View past notifications"
         Then I should see a table header and rows containing the following values in the a table:
-            | Notification send time | Alert    | Record                          | Recipient              | Subject                          | 
+            | Notification send time | Alert    | Record                          | Recipient              | Subject                           | 
             | mm/dd/yyyy hh:mm        | #1 (A-1) | 2 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Alerts and Notifications         |
             | mm/dd/yyyy hh:mm        | #1 (A-1) | 3 (#1) - Event 1 (Arm 1: Arm 1) | test_user3@example.com | Editing Alerts and Notifications |
        
@@ -115,7 +110,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
         Given I login to REDCap with the user "Test_User1"
         When I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.100"    
-        And I click on the tab labeled "Alerts & Notifications"
+        And I click on the link labeled "Alerts & Notifications"
         Then I should NOT see "Alert #2:Email Alert"
         When I click on the button labeled "Options" for alert "1"
         And I click on the link labeled "Copy alert"
