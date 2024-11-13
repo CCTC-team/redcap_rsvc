@@ -79,7 +79,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         Given I open Email
         Then I should see an email for user "test_user2@example.com" with subject "Alerts-and-Notifications"
 
-    Scenario: Verify Download alert settings
+    Scenario: D.102.600 - Verify Download alert settings
         Given I login to REDCap with the user "Test_User1"
         When I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.300"
