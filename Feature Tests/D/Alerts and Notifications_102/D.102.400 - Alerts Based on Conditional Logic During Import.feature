@@ -5,40 +5,33 @@ Feature: D.102.400 - The system shall support the ability to send emails When co
   I want to see that Alerts and Notifications is functioning as expected
 
   Scenario: D.102.400 Send emails When conditional logic is TRUE during a data import, data entry, or as the result of time-based logic.
-    Given I login to REDCap with the user "Test_user1"   
-    And I create a new project named "D.102.400" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_redcap_val.xml", and clicking the "Create Project" button
-      
+    Given I login to REDCap with the user "Test_User1"   
+    And I create a new project named "D.102.400" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
+
+    # D.102.600 - Upload alert settings
     When I click on the link labeled "Alerts & Notifications"
     Then I should NOT see "Alert #1:Email Alert"
-    And I click on the button labeled "Add New Alert"
-    And I enter "Email Alert" into the input field labeled "Title of this alert"
-    And I select the radio option "When conditional logic is TRUE during a data import, data entry, or as the result of time-based logic" for the field labeled "How will this alert be triggered?"
-    And I click on the input element labeled "while the following logic is true:"
-    And I enter "[ptname_v2_v2] != ''" into the textarea field labeled "Logic Editor"
-    And I click on the button labeled "Update & Close Editor" in the dialog box
-    And I check the checkbox labeled "Ensure logic is still true before sending notification?"
-    And I should see the radio field labeled "When to send the alert?" with the option "Send immediately" selected 
-    And I should see the radio field labeled "Send it how many times?" with the option "Just once" selected  
-    And I should see the radio field labeled "Alert Type:" with the option "Email" selected
-    And I select "[event_1_arm_1][email_v2] “Email(Event 1 (Arm 1: Arm 1))" on the dropdown field labeled "Email To"
-    And I enter "Testing Alerts and Notifications" into the input field labeled "Subject"
-    And I enter "Alerts and Notifications" into the input field labeled "Message"
-    When I click on the button labeled "Save" in the dialog box
-    Then I should see "Success! New alert created"
-    And I should see "Alert #1:Email Alert"
-    And I should see "When the following logic becomes TRUE during data import or data entry: [ptname_v2_v2] != ''"
-          
-    ##VERIFY: MailHog 
-    Given I open Email
-    And I delete all the messages
+    Given I click on the button labeled "Upload or download Alerts"
+    Then I should see "Upload Alerts (CSV)"
+    And I click on the link labeled "Upload Alerts (CSV)"
+    Then I should see a dialog containing the following text: "Upload Alerts (CSV)"
+    When I upload a "csv" format file located at "import_files/redcap_val/D102400_Alerts.csv", by clicking the button near "Select your CSV file of Alerts to be added:" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    Then I should see a dialog containing the following text: "Upload Alerts (CSV) - Confirm"
+    And I should see a table header and rows containing the following values in the a table:
+      | alert-title | alert-trigger	|
+      | Email Alert | LOGIC         |
 
-    ##ACTION: Import (with records in rows and column)
-    Given I return to REDCap
-    And I click on the link labeled "Data Import Tool"
-    When I upload a "csv" format file located at "redcap_val/D.102.400_DataImport.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+    Given I click on the button labeled "Upload" in the dialog box
+    Then I should see a dialog containing the following text: "SUCCESS!"
+    And I click on the button labeled "Close" in the dialog box
+    And I should see "Alert #1:Email Alert"
+      
+    ##ACTION: Import (with records in rows)
+    Given I click on the link labeled "Data Import Tool"
+    When I upload a "csv" format file located at "import_files/redcap_val/D.102.400_DataImport.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Your document was uploaded successfully and is ready for review"
     And I click on the button labeled "Import Data"
-    Then I should see "Import Successful! 2 records were created or modified during the import"
+    Then I should see "Import Successful!"
 
     Given I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "2" and click on the bubble
@@ -51,15 +44,14 @@ Feature: D.102.400 - The system shall support the ability to send emails When co
     And I should see "test_user2@abc.com" in the data entry form field "Email"
     And I click on the button labeled "Cancel"
 
-    ##VERIFY: Sent email in MailHog 
-    Given I open Email
-    Then I should see a message "Testing Alerts and Notifications" for user "test_user2@abc.com"
-    And I should NOT see a message "Testing Alerts and Notifications" for user "test_user1@abc.com"
-
-    Given I return to REDCap
     Given I click on the link labeled "Alerts & Notifications"
     When I click on the tab labeled "Notification Log"
     And I click on the button labeled "View past notifications"
     Then I should see a table header and rows containing the following values in the a table:
-        | Notification send time | Alert    | View Notification | Record                          | Recipient              | Subject                          | 
-        | mm/dd/yyyy hh:mm       | #1 (A-1) | [email icon]      | 3 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Testing Alerts and Notifications |
+        | Notification send time | Alert    | Record                     | Recipient          | Subject                  | 
+        | mm/dd/yyyy hh:mm       | #1 (A-2) | 3 - Event 1 (Arm 1: Arm 1) | test_user2@abc.com | Alerts and Notifications |
+
+    ##VERIFY: Verify email in MailHog 
+    Given I open Email
+    Then I should see an email for user "test_user2@abc.com" with subject "Alerts and Notifications"
+    And I should NOT see "test_user1@abc.com"
