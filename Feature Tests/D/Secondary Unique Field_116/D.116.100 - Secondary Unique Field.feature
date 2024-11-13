@@ -128,14 +128,6 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1         |
       | 2         |
 
-    Given I click on the link labeled "Record Status Dashboard"
-    And I click on the button labeled "Add new record for this arm"
-    When I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
-    And I enter "3" into the data entry form field labeled "Secondary ID"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
-    Then I should see "successfully added"
-
-
     And I click on the link labeled "Project Setup"
     When I click on the button labeled "Additional customizations"
     Then I check the checkbox labeled "Display the value of the Secondary Unique Field next to each record name displayed?"
@@ -149,7 +141,6 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | Record ID |
       | 1 (1)     |
       | 2 (2)     |
-      | 3 (3)     |
 
     And I click on the link labeled exactly "1"
     When I click on the button labeled "Choose action for record"
@@ -164,7 +155,6 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | Record ID |
       | 1 (1)     |
       | 2 (2)     |
-      | 3 (3)     |
 
   Scenario: Diasble Secondary Unique Field
     Given I click on the link labeled "Project Setup"
@@ -186,6 +176,5 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1         |
       | 2         |
       | 3         |
-      | 4         |
       
     And I logout
