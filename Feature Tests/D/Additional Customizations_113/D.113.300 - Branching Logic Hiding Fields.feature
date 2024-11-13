@@ -15,9 +15,9 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         Then I click on the button labeled "Save"
 
         #ACTION: Add branching logic
-        When I click on the link labeled "Designer"
+        Given I click on the link labeled "Designer"
         And I click on the instrument labeled "Text Validation"
-        And I click on the Branching Logic icon for the variable "email_v2"
+        When I click on the Branching Logic icon for the variable "email_v2"
         And I click on "" in the textarea field labeled "Advanced Branching Logic Syntax" in the dialog box
         And I clear field and enter "[ptname_v2_v2]=''" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
@@ -34,7 +34,7 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         Then I should see a field labeled "Email"
         And I enter "John@email.com" into the data entry form field labeled "Email"
         And I enter "John" into the data entry form field labeled "Name"
-        Then I should see the showfield icon for the field labeled "Email"
+        Then I should see the Show Field icon for the field labeled "Email"
         And I click on the button labeled "Save & Exit Form"
   
         #VERIFY_LOG
