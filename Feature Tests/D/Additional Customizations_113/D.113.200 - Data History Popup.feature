@@ -47,16 +47,15 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
             And I click on the button labeled "Additional customizations"
             And I uncheck the checkbox labeled Enable the Data History popup for all data collection instruments in additional customizations
             Then I click on the button labeled "Save" in the dialog box
-
+            
+            #VERIFY_LOG
+            Given I click on the link labeled "Logging"
+            Then I should see a table header and row containing the following values in the logging table:
+                  | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
+                  | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
+      
             #VERIFY - No Data History icon is present
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
             Then I should NOT see the History icon for the field labeled "Name"
-
-            #VERIFY_LOG
-            Given I click on the link labeled "Logging"
-            Then I should see a table header and row containing the following values in the logging table:
-                  | Date / Time      | Username   | Action                                   | List of Data Changes OR Fields Exported |
-                  | mm/dd/yyyy hh:mm | test_admin | Manage/Design                            | Make project customizations             |
-      
             And I logout

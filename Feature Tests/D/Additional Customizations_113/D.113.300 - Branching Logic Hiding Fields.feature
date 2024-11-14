@@ -14,6 +14,12 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         And I check the checkbox labeled Prevent branching logic from hiding fields that have values in additional customizations
         Then I click on the button labeled "Save"
 
+        #VERIFY_LOG
+        Given I click on the link labeled "Logging"
+        Then I should see a table header and row containing the following values in the logging table:
+            | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
+      
         #ACTION: Add branching logic
         Given I click on the link labeled "Designer"
         And I click on the instrument labeled "Text Validation"
@@ -36,11 +42,4 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         And I enter "John" into the data entry form field labeled "Name"
         Then I should see the Show Field icon for the field labeled "Email"
         And I click on the button labeled "Save & Exit Form"
-  
-        #VERIFY_LOG
-        Given I click on the link labeled "Logging"
-        Then I should see a table header and row containing the following values in the logging table:
-            | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
-            | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
-      
         And I logout
