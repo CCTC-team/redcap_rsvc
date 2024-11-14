@@ -51,7 +51,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
             | Notification send time | Alert    | Record                          | Recipient              | Subject                  | 
             | mm/dd/yyyy hh:mm       | #1 (A-1) | 2 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Alerts and Notifications |
 
-        Given I click on the mail icon for record "2"
+        Given I click on the mail icon for record 2
         Then I should see "Test_User1@test.edu" in the dialog box
         And I should see "test_user2@example.com" in the dialog box
         And I should see "Testing Alerts and Notifications" in the dialog box
