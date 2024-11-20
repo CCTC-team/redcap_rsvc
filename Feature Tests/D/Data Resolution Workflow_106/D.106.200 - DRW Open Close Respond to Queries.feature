@@ -167,10 +167,11 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I click on the link labeled "Resolve Issues"
             When I select the option "All status types (1)" from the dropdown field for Status in Data Resolution Dashboard
             Then I should see a table row containing the following values in a table:
-                  # | Record                   | Data Quality rule and/or Field |
-                  | 1                        | email_v2                 | Test_User2 | Test_User1 | [same as first update] |
-                  # | 2 (#1) Event 1 (Arm 1: Arm 1) | Field:ptname (Name)                   | Test_User1     | Test_User2 "Query 2" | [same as first update] |
-            
+                  | 1                      | email_v2 | Test_User2 | Test_User1 | Test_User1             |
+                  | Event 1 (Arm 1: Arm 1) | (Email)  | Test_User2 | "Query 1"  | "Closed"               |
+                  | 2 (#1)                 | ptname   | Test_User1 | Test_User2 | [same as first update] |
+                  | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
+      
             # And I download a file by clicking on the link labeled "Export" 
             # Then the downloaded CSV with filename "D.106.200_DataResolutionDashboard_yyyy-mm-dd.csv" has the header and rows below
             # | Current Query Status | Number of comments | Record | Data Access Group | Event                  | Data Quality Rule | Field            | User Assigned | Days Open | First Update         | Last Update                             | Time Raised      | Time Resolved    |
