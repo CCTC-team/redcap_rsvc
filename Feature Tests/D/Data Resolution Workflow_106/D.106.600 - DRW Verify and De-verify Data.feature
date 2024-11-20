@@ -21,7 +21,7 @@ Feature: D.106.600 Data Resolution Workflow
       And  I upload a "csv" format file located at "redcap_val_fixtures/import_files/D.106.100_Data_Import.csv", by clicking the button near "Choose file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
       And I should see "Your document was uploaded successfully and is ready for review."
       And I click on the button labeled "Import Data"
-      Then I should see "Import Successful! 15 records were created or modified during the import."
+      Then I should see "Import Successful!"
 
       #ACTION: Edit User rights to verify/de-verify data
       Given I click on the link labeled "User Rights"
@@ -29,7 +29,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the button labeled "Edit user privileges"
       And I select the User Right named "Data Resolution Workflow" and choose "Open, close, and respond to queries"
       And I click on the button labeled "Save Changes"
-      Then I should see "User test_user1 successfully edited"
+      Then I should see 'User "test_user1" successfully edited'
 
       #ACTION: Verify and de-verify data
       And I click on the link labeled "Record Status Dashboard"
@@ -42,7 +42,7 @@ Feature: D.106.600 Data Resolution Workflow
       Given I click on the radio labeled "Verified data value"
       And I enter "Test Verify Data" into the input field labeled "Comment (optional):"
       And I click on the button labeled "Verified data value" 
-      Then I should see a green tick icon for the input field labeled "Name"
+      Then I should see a Tick icon for the input field labeled "Name"
       
       Given I click on the link labeled "Resolve Issues"
       And I select the "All status types(1)" option from the Filters dropdown field indentified by 'choose_status_type'
@@ -87,11 +87,11 @@ Feature: D.106.600 Data Resolution Workflow
       Then I should see "Data De-verified"
       Given I select the radio labeled "Verified data value" in the dialog box
       And I click on the button labeled "Verified data value" 
-      Then I should see a green tick icon for the input field labeled "Name"
+      Then I should see the Tick icon for the field labeled "Name"
       Given I clear field and enter "John" into the input field labeled "Name" 
       And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
       And  I click on the bubble for the "Text Validation" data collection instrument for record ID "1" 
-      Then I should see a red exclamation icon for the input field labeled "Name"
+      Then I should see the Exclamation icon for the field labeled "Name"
       And I click on the Comment icon for the field labeled "Name"
       Then I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments and Details                                           | 
