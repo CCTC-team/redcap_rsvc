@@ -52,7 +52,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I select the checkboxes option REDCap Messenger in Data Resolution Workflow
             And I enter "Query 1" in the comment box in Data Resolution Workflow
             And I click on the button labeled "Open query" in the dialog box
-            Then I should see an Exclamation icon for the field labeled "Email"
+            Then I should see a Small Exclamation icon for the field labeled "Email"
             And I logout
 
             #VERIFY D.106.500 - Email
@@ -100,7 +100,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
 
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            Then I should see an Exclamation icon for the field labeled "Email"
+            Then I should see a Small Exclamation icon for the field labeled "Email"
             And I logout
 
             Given I login to REDCap with the user "Test_User1" 
@@ -108,7 +108,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the link labeled "D.106.200"
             And I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            And I click on the Exclamation icon for the field labeled "Email"
+            And I click on the Small Exclamation icon for the field labeled "Email"
             Then I should see "Data Resolution Workflow" in the dialog box
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                            | 
@@ -127,8 +127,8 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I check the checkbox labeled "Reopen the closed query" 
             And I enter "Reopen the closed query" in the comment box in Data Resolution Workflow
             And I click on the button labeled "Reopen query" in the dialog box
-            Then I should see an Exclamation icon for the field labeled "Email"
-            Given I click on the Exclamation icon for the field labeled "Email"
+            Then I should see a Small Exclamation icon for the field labeled "Email"
+            Given I click on the Small Exclamation icon for the field labeled "Email"
             Then I should see "Data Resolution Workflow" in the dialog box
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                    | 
@@ -145,7 +145,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I select the dropdown option "test_user1 (Test User1)" in Data Resolution Workflow
             And I enter "Query 2" in the comment box in Data Resolution Workflow
             And I click on the button labeled "Open query" in the dialog box
-            Then I should see an Exclamation icon for the field labeled "Name"
+            Then I should see a Small Exclamation icon for the field labeled "Name"
       
             ##VERIFY_LOG
             Given I click on the link labeled "Logging"
