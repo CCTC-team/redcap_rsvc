@@ -42,7 +42,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I select the radio option Open query in Data Resolution Workflow
     And I enter "Query 1" in the comment box in Data Resolution Workflow
     And I click on the button labeled "Open query" in the dialog box
-    Then I should see an Exclamation icon for the field labeled "Text Box"
+    Then I should see a Small Exclamation icon for the field labeled "Text Box"
     When I click on the Comment icon for the field labeled "Notes Box"
     And I select the radio option Verified data value in Data Resolution Workflow
     And I click on the button labeled "Verified data value" in the dialog box
@@ -55,7 +55,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the Exclamation icon for the field labeled "Text Box"
+    And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
@@ -83,7 +83,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the Exclamation icon for the field labeled "Text Box"
+    And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
@@ -114,7 +114,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the Exclamation icon for the field labeled "Text Box"
+    And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
@@ -143,7 +143,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the Exclamation icon for the field labeled "Text Box"
+    And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
@@ -187,9 +187,9 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    Then I should NOT see the Exclamation icon for the field labeled "Text Box"
-    And I should NOT see the Comment icon for the field labeled "Name" 
-    And I should NOT see the Tick icon for the field labeled "Notes Box" 
+    Then I should NOT see a Small Exclamation icon for the field labeled "Text Box"
+    And I should NOT see a Comment icon for the field labeled "Name" 
+    And I should NOT see a Tick icon for the field labeled "Notes Box" 
     And I logout
 
     #ACTION: Verify access right - 'View only', No access to 'verify/de-verify'
@@ -199,8 +199,8 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     #The below step shows a new query cannot be opened and cannot verify data value
-    Then I should NOT see the Comment icon for the field labeled "Name"
-    Given I click on the Exclamation icon for the field labeled "Text Box"
+    Then I should NOT see a Comment icon for the field labeled "Name"
+    Given I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
