@@ -15,8 +15,9 @@ Feature: User Interface: The system shall support the ability to select specific
       | A | All data (all records and fields) |
 
     When I click on the "Make custom selections" button for the "Selected instruments" report in the My Reports & Exports table
-    And I select "Text Validation" on the multiselect field labeled "Instruments"
-    And I select "Event 1 (Arm 1: Arm 1)" on the multiselect field labeled "Events"
+    # For the below 2 Steps - When the field type is multiselect, the option is not getting selected. Hence changed to dropdown.
+    And I select "Text Validation" on the dropdown field labeled "Instruments"
+    And I select "Event 1 (Arm 1: Arm 1)" on the dropdown field labeled "Events"
     And I click on the "Export Data" button for the "Selected instruments" report in the My Reports & Exports table
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
     And I click on the button labeled "Export Data" in the dialog box
