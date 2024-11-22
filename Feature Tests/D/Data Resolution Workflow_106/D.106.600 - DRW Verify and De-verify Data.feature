@@ -29,7 +29,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the button labeled "Edit user privileges"
       And I select the User Right named Data Resolution Workflow and choose Open, close, and respond to queries
       And I click on the button labeled "Save Changes"
-      # Then I should see 'User "test_user1" successfully edited'
+      Then I should see 'User "test_user1" was successfully edited'
 
       #ACTION: Verify and de-verify data
       Given I click on the link labeled "Record Status Dashboard"
@@ -67,6 +67,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I enter "Test De-verify Data" in the comment box in Data Resolution Workflow
       And I click on the button labeled "De-verify data value" in the dialog box
       Then I should see an Exclamation icon for the field labeled "Name"
+      And I wait for 1 second
       When I click on the Exclamation icon for the field labeled "Name"
       Then I should see "Data Resolution Workflow" in the dialog box
       And I should see a table header and rows containing the following values in a table:
