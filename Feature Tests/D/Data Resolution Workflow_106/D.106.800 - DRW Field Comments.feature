@@ -37,10 +37,15 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      And I enter "Comment 1" in the comment box in Field Comment Log
-      And I click on the button labeled "Comment"
-      When I click on the Comment icon for the field labeled "Name"
-      Then I should see a table header and row containing the following values in a table:
+      Then I enter "Comment 1" in the comment box in Field Comment Log
+      And I click on the button labeled "Comment" in the dialog box
+      Then I should see a Comment icon for the field labeled "Name"
+      # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
+      Given I click on the link labeled "Record Status Dashboard"
+      When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
+      And I click on the Comment icon for the field labeled "Name"
+      Then I should see "Field Comment Log" in the dialog box
+      And I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments  | 
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 1 |
 
@@ -52,9 +57,14 @@ Feature: D.106.800 Data Resolution Workflow
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
 
       And I enter "Comment 2" in the comment box in Field Comment Log
-      And  I click on the button labeled "Comment"
-      When I click on the Comment icon for the field labeled "Name"
-      Then I should see a table header and row containing the following values in a table:
+      And  I click on the button labeled "Comment" in the dialog box
+      Then I should see a Comment icon for the field labeled "Name"
+      # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
+      Given I click on the link labeled "Record Status Dashboard"
+      When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
+      And I click on the Comment icon for the field labeled "Name"
+      Then I should see "Field Comment Log" in the dialog box
+      And I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments   |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2  |
@@ -90,14 +100,20 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       When I click on the Comment icon for the field labeled "Name"
-      Then I should see a table header and row containing the following values in a table:
+      Then I should see "Field Comment Log" in the dialog box
+      And I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments  |
             | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
 
       And I enter "Comment 3" in the comment box in Field Comment Log
-      And I click on the button labeled "Comment"
-      When I click on the Comment icon for the field labeled "Name"
-      Then I should see a table header and row containing the following values in a table:
+      And I click on the button labeled "Comment" in the dialog box
+      Then I should see a Comment icon for the field labeled "Name"
+      # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
+      Given I click on the link labeled "Record Status Dashboard"
+      When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
+      And I click on the Comment icon for the field labeled "Name"
+      Then I should see "Field Comment Log" in the dialog box
+      And I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments  |
             | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
             | mm/dd/yyyy hh:mm | Test_User2 | Comment 3 |
@@ -112,12 +128,12 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the Comment icon for the field labeled "Email"
       And I enter "Comment 5" in the comment box in Field Comment Log
       And I click on the button labeled "Comment"
-      # And I logout
+      And I logout
 
       #ACTION: D.106.900 - Verify filtering
-      # Given I login to REDCap with the user "Test_User1"
-      # And I click on the link labeled "My Projects"
-      # And I click on the link labeled "D.106.800"
+      Given I login to REDCap with the user "Test_User1"
+      And I click on the link labeled "My Projects"
+      And I click on the link labeled "D.106.800"
       When I click on the link labeled "Field Comment Log"
       When I select the option "1" from the dropdown field for Record in Field Comment Log
       And I click on the button labeled "Apply filters"
