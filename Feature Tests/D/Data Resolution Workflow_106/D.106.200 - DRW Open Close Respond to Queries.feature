@@ -4,7 +4,6 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
       I want to see that Data Resolution Workflow works as expected
 
       Scenario: D.106.200 - Open, close, reopen and respond to queries
-            #ACTION: Data Resolution Workflow SETUP
             Given I login to REDCap with the user "Test_User1" 
             And I create a new project named "D.106.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
@@ -90,7 +89,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | Test_User2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
 
             And  I click on the link labeled "B.3.16.600_DataImport.... (0.01 MB)" 
-            Then the downloaded CSV with filename "B.3.16.600_DataImport.csv" should have the header below
+            Then the downloaded CSV with filename "B.3.16.600_DataImport.csv" has the header below
                   | record_id | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
 
             And I select the radio option Send back for further attention in Data Resolution Workflow
@@ -103,7 +102,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see a Small Exclamation icon for the field labeled "Email"
             And I logout
 
-            Given I login to REDCap with the user "Test_User1" 
+            Given I login to REDCap with the user "Test_User1"
             And I click on the link labeled "My Projects"
             And I click on the link labeled "D.106.200"
             And I click on the link labeled "Record Status Dashboard"
@@ -172,13 +171,12 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
       
             When I click on the button labeled "Export" 
-            Then I should have the latest downloaded "csv" file that contains the headings below
-                  | "Current Query Status" | "Number of comments" | "Record (Sorted by DAG)" | "Data Access Group" | Event                    | "Data Quality Rule" | Field              | "User Assigned" | "Days Open" | "First Update"         | "Last Update"            | "Time Raised"      | "Time Resolved"    |
-            
-            #  Then I should have the latest downloaded "csv" file that contains the headings and rows below
-            #       | "Current Query Status" | "Number of comments" | "Record (Sorted by DAG)" | "Data Access Group" | Event                    | "Data Quality Rule" | Field              | "User Assigned" | "Days Open" | "First Update"         | "Last Update"            | "Time Raised"      | "Time Resolved"    |
-            #       | CLOSED                 | 6                    | 1                        |                     | "Event 1 (Arm 1: Arm 1)" |                     | "email_v2 (Email)" | Test_User2      | 0           | "Test_User1 "Query 1"" | "Test_User1 "Closed""    | "mm/dd/yyyy hh:mm" | "mm/dd/yyyy hh:mm" |
-            #       | OPEN                   | 1                    | "2 (#1)"                 |                     | "Event 1 (Arm 1: Arm 1)" |                     | "ptname (Name)"    | Test_User1      | 0           | "Test_User1 "Query 2"" | "[same as first update]" | "mm/dd/yyyy hh:mm" |                    |
+            Then I should see the latest downloaded "csv" file containing the headings below
+                  | "Current Query Status" | "Number of comments" | "Record (Sorted by DAG)" | "Data Access Group" | Event                    | "Data Quality Rule" | Field              | "User Assigned" | "Days Open" | "First Update" | "Last Update" | "Time Raised" | "Time Resolved" |
+            # Cannot check the data as data is of the form: Test_User1 (11/22/2024 8:03am): "Query 1".
+            # Tried other Step Definitions (the downloaded CSV with filename "" has a value "" for column ""), but since the file name contains _hhmm it's not picking up the correct file
+            #       # | CLOSED                 | 6                    | 1                        |                     | "Event 1 (Arm 1: Arm 1)" |                     | "email_v2 (Email)" | Test_User2      | 0           |
+            #       # | OPEN                   | 1                    | "2 (#1)"                 |                     | "Event 1 (Arm 1: Arm 1)" |                     | "ptname (Name)"    | Test_User1      | 0           |
             
             When I click on the link labeled "Resolve Issues"
             And I select the option "Open / unresolved issues (1)" from the dropdown field for Status in Data Resolution Dashboard
