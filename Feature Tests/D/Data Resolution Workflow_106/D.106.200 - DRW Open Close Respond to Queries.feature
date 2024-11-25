@@ -171,12 +171,10 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
       
             When I click on the button labeled "Export" 
-            Then I should see the latest downloaded "csv" file containing the headings below
-                  | "Current Query Status" | "Number of comments" | "Record (Sorted by DAG)" | "Data Access Group" | Event                    | "Data Quality Rule" | Field              | "User Assigned" | "Days Open" | "First Update" | "Last Update" | "Time Raised" | "Time Resolved" |
-            # Cannot check the data as data is of the form: Test_User1 (11/22/2024 8:03am): "Query 1".
-            # Tried other Step Definitions (the downloaded CSV with filename "" has a value "" for column ""), but since the file name contains _hhmm it's not picking up the correct file
-            #       # | CLOSED                 | 6                    | 1                        |                     | "Event 1 (Arm 1: Arm 1)" |                     | "email_v2 (Email)" | Test_User2      | 0           |
-            #       # | OPEN                   | 1                    | "2 (#1)"                 |                     | "Event 1 (Arm 1: Arm 1)" |                     | "ptname (Name)"    | Test_User1      | 0           |
+            Then the downloaded CSV with filename "D106200_DataResolutionDashboard_yyyy-mm-dd_hhmm.csv" has the header and rows below
+                  | Current Query Status | Number of comments | Record (Sorted by DAG) | Data Access Group | Event                  | Data Quality Rule | Field            | User Assigned | Days Open |
+                  | CLOSED               | 6                  | 1                      |                   | Event 1 (Arm 1: Arm 1) |                   | email_v2 (Email) | Test_User2    | 0         |
+                  | OPEN                 | 1                  | 2 (#1)                 |                   | Event 1 (Arm 1: Arm 1) |                   | ptname (Name)    | Test_User1    | 0         |
             
             When I click on the link labeled "Resolve Issues"
             And I select the option "Open / unresolved issues (1)" from the dropdown field for Status in Data Resolution Dashboard
