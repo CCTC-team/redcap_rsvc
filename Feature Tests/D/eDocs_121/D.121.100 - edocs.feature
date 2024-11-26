@@ -4,8 +4,7 @@ Feature: D.121.100 - Control Center: The system shall support the option to conf
     As a REDCap end user
     I want to see that eDocse is functioning as expected
 
-    Scenario: D.121.100 - configure the storage location for uploaded documents
-
+    Scenario: D.121.100 - Configure the storage location for uploaded documents
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: Configure the File Vault
         Given I login to REDCap with the user "Test_Admin"
@@ -14,10 +13,8 @@ Feature: D.121.100 - Control Center: The system shall support the option to conf
         Then I should see "Local Server File Storage"
         # And I enter "/var/www/html/redcap_file_repository/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
         And I enter "/var/www/html/edocs" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
-        And I click on the button labeled "Save Changes"
-        # Then I should see "Your configuration values have now been changed"
+        Then I click on the button labeled "Save Changes"
 
-        #SETUP
     Scenario: Add record to get participant signature
         Given I create a new project named "24ConsentWithSetup" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "24ConsentWithSetup.xml", and clicking the "Create Project" button
         When I click on the link labeled "Add / Edit Records"
@@ -71,3 +68,5 @@ Feature: D.121.100 - Control Center: The system shall support the option to conf
             | DOB                         | yyyy-mm-dd     |
             | Participant's Name Typed    | MyName         |
             | Participant signature field |                |
+
+        And I logout
