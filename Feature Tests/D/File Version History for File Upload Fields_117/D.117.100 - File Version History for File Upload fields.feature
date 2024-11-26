@@ -1,5 +1,5 @@
 
-Feature: D.117.100  File Version History for File Upload fields
+Feature: D.117.100 - The system shall support the ability to enable/disable File Version History for 'File Upload' fields 
 
   As a REDCap end user
   I want to see that File Version History for File Upload fields is functioning as expected
@@ -59,12 +59,12 @@ Feature: D.117.100  File Version History for File Upload fields
     And I click on the link labeled exactly "2"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download ZIP file of all uploaded documents"
+    And I wait for 1 second
     Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"
-    # and I open the csv via a file path of clicking on a couple of consecutive folders and maybe unzipping the zip file. 
-    # When I unzip the file "Files_D117100_yyyy-mm-dd_hhmm.zip"
-    # Then I should see a downloaded file "/Files_D117100_yyyy-mm-dd_hhmm/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" containing the headings below
-    #   | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
-    # and I should not see any other files  
+    And I unzip the latest downloaded zip file
+    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+      | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
+    # And I should not see any other files  
 
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
@@ -84,17 +84,17 @@ Feature: D.117.100  File Version History for File Upload fields
    
     And I click on the button labeled "Close" in the dialog box
 
-    # Given I click on the link labeled "Data Exports, Reports, and Stats"
-    # And I click on the tab labeled "Other Export Options"
-    # And I click on the Download image for "ZIP file of uploaded files (all records)"  
-    # Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"
-    # and I open the csv via a file path of clicking on a couple of consecutive folders and maybe unzipping the zip file. 
-    # When I unzip the file "Files_D117100_yyyy-mm-dd_hhmm.zip"
-    # Then I should see a downloaded file named "/Files_D117100_yyyy-mm-dd_hhmm/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" containing the headings below
-    #   | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
+    Given I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the tab labeled "Other Export Options"
+    When I click on the ZIP image for ZIP file of uploaded files in Other Export options
+    And I wait for 1 second
+    Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"
+    When I unzip the latest downloaded zip file
+    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+      | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
     
-    # And I should see a downloaded file named "/Files_D117100_yyyy-mm-dd_hhmm/Files_D117100_yyyy-mm-dd_hhmm/documents/3_event_1_arm_1_data_types_1_file_upload.csv" containing the headings below
-    #   | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics |survey_timestamp | reminder | description | survey_complete |
+    And the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/3_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+      | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics |survey_timestamp | reminder | description | survey_complete |
 
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled exactly "2"
@@ -160,27 +160,23 @@ Feature: D.117.100  File Version History for File Upload fields
 
     #VERIFY_LOG
     Given I click on the link labeled "Logging"
-    # Files uploaded are shown as File Upload = 'num' where num is random number.
-    # Files deleted are shown as File Upload = ''.
-    # Previous versions of files deleted are recorded properly as Deleted including version number e.g. Deleted Document file_upload (V1).
-    # The file upload number is different each time in 'List of Data Changes OR Fields Exported' column. Have to check if it works without the number
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action                                                    | List of Data Changes OR Fields Exported                                           |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload =                                                                     |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 4 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload =  data_types_complete = '0', record_id = '4' |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Make project customizations                                                       |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Deleted Document Update record 2 (Event 1 (Arm 1: Arm 1)) | file_upload (V1)                                                                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (all records)                                      |
-      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 3                       | file_upload                                                                       |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 3 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload =  data_types_complete = '0', record_id = '3' |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (single record)                                    |
-      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V2)                                                                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V1)                                                                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                       |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload =                                                                     |
-      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                       |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload =  data_types_complete = '0', record_id = '2' |
+      | Time / Date      | Username   | Action                                                    | List of Data Changes OR Fields Exported                                              |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload = '6'                                                                    |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                     |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 4 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '5' data_types_complete = '0', record_id = '4' |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Make project customizations                                                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                     |
+      | mm/dd/yyyy hh:mm | test_user1 | Deleted Document Update record 2 (Event 1 (Arm 1: Arm 1)) | file_upload (V1)                                                                     |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (all records)                                         |
+      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 3                       | file_upload                                                                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 3 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '4' data_types_complete = '0', record_id = '3' |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (single record)                                       |
+      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V2)                                                                     |
+      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V1)                                                                     |
+      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload = '3'                                                                    |
+      | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '2' data_types_complete = '0', record_id = '2' |
 
     And I logout
