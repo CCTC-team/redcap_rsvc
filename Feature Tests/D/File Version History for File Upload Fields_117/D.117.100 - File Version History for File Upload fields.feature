@@ -64,7 +64,6 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I unzip the latest downloaded zip file
     Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
-    # And I should not see any other files  
 
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
