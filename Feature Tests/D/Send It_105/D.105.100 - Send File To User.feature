@@ -8,52 +8,24 @@ Feature: Send It: D.105.100 - The system shall support the ability to send a fil
     Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
     Then I should see the dropdown field labeled "From:" with the option "Test_User1@test.edu" selected
-    When I enter "joe@abc.com, paul@abc.com" into the textarea field labeled "To:"
+    When I enter "joe@abc.com; paul@abc.com" into the textarea field labeled "To:"
     And I enter "Send-it file" into the input field labeled "Email subject:"
     And I enter "Send-it csv file" into the textarea field labeled "Email message:"
-    #The file will expire and become inaccessible after 2 days
     And I select "2 days" on the dropdown field labeled "Expiration:"
-    Then I upload a "csv" format file located at "/import_files/redcap_val/redcap_val_Data_Import.csv" by clicking on the button labeled "Choose file"
-    # Then I click the button labeled "Choose file" to select and upload the file located at "/import_files/B.3.16.600_DataImport.csv"
+    Then I upload a file located at "/import_files/redcap_val/redcap_val_Data_Import.csv" by clicking on the button labeled "Choose file"
     And I click on the button labeled "Send It!"
     Then I should see "File successfully uploaded!"
 
-    # Verify Email for joe@abc.com
-    # Email sent with Password
-    Given I open the Email
-    # When I click on the link labeled "Re: [REDCap Send-It] Send-it file" for user "joe@abc.com"
-    When I click on the link labeled "Re: [REDCap Send-It] Send-it file" for user "joe@abc.com"
-    Then I should see "joe@abc.com"
-    And I should see "Below is the password for downloading the file mentioned in the previous email."
-    And I copy Password
-     
-    # Email sent with download link
-    Given I click on the link labeled "Inbox"
-    And I click on the link labeled "[REDCap Send-It] Send-it file" for user "joe@abc.com"
-    Then I should see "joe@abc.com"
-    And I should see 'Test User1 has uploaded the file "B.3.16.600_DataImport.csv" for you to download.'
-    When I click on the link containing "SendItController"
-    Then I should see "File Download"
-    And I enter Password into the input field labeled "Enter password"
-    And I download a file by clicking on the link labeled "Download File"
+    # Download the file
+    Given I open Email
+    # Two emails sent, each containing a password and a link for the respective user
+    Then I should see 2 emails for user "joe@abc.com"
+    And I should see 2 emails for user "paul@abc.com"
+    And I copy and paste the password for user "joe@abc.com" from the email with subject "Re: [REDCap Send-It] Send-it file" to the link in the email with subject "[REDCap Send-It] Send-it file"
+    When I click on the button labeled "Download File"
     Then I should see "SUCCESS! The file will begin downloading momentarily."
-
-    # Verify Email for paul@abc.com
-    # Email sent with Password
-    Given I click on the link labeled "Inbox"
-    When I click on the link labeled "Re: [REDCap Send-It] Send-it file" for user "paul@abc.com"
-    Then I should see "paul@abc.com"
-    And I should see "Below is the password for downloading the file mentioned in the previous email."
-    And I copy Password
-     
-    # Email sent with download link
-    Given I click on the link labeled "Inbox"
-    And I click on the link labeled "[REDCap Send-It] Send-it file" for user "paul@abc.com"
-    Then I should see "paul@abc.com"
-    And I should see 'Test User1 has uploaded the file "B.3.16.600_DataImport.csv" for you to download.'
-    When I click on the link containing "SendItController"
-    Then I should see "File Download"
-    And I enter Password into the input field labeled "Enter password"
-    And I download a file by clicking on the link labeled "Download File"
-    Then I should see "SUCCESS! The file will begin downloading momentarily."
-    And I logout    
+    And I should see a downloaded file named "redcap_val_Data_Import.csv"
+    And I should have the latest downloaded "csv" file that contains the headings below
+      | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | ptname_v2_v2 | email_v2 | text_validation_complete | ptname | textbox | multiple_dropdown_manual | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | file_upload | required | data_types_complete |
+  
+    And I logout
