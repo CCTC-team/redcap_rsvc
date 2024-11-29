@@ -8,13 +8,13 @@ Feature: D.112.100 - The system shall support the ability to send password over 
         Given I login to REDCap with the user "Test_Admin"   
         And I click on the link labeled "Control Center"
         # EMAIL ADDRESS SET FOR REDCAP ADMIN - without it, emails are not send out from system
-        Given I click on the link labeled "General Configuration"
+        When I click on the link labeled "General Configuration"
         Then I should see "General Configuration"
         When I enter "redcap@test.instance" into the input field labeled "Email Address of REDCap Administrator"
         And I click on the button labeled "Save Changes"
         Then I should see "Your system configuration values have now been changed"
         
-        And I click on the link labeled "Add Users (Table-based Only)"
+        Given I click on the link labeled "Add Users (Table-based Only)"
         Then I should see "User Management for Table-based Authentication" 
         When I enter "Test_User5" into the input field labeled "Username:" 
         And I enter "Test" into the input field labeled "First name:"
