@@ -6,88 +6,129 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
 
     Scenario: Stats and Charts.
         Given I login to REDCap with the user "Test_Admin"   
-        And I create a new project named "D.118.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_redcap_val.xml", and clicking the "Create Project" button
+        And I create a new project named "D.118.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Import (with records in rows and column)
+        #ACTION: Import data 
         Given I click on the link labeled "Data Import Tool"
-        When I upload a "csv" format file located at "redcap_val_fixtures/import_files/D.118.100_Data_Import.csv", by clicking the button near "Choose File" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        Then I should see "Your document was uploaded successfully and is ready for review"
+        And  I upload a "csv" format file located at "import_files/redcap_val/redcap_val_Data_Import.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I should see "Your document was uploaded successfully and is ready for review."
         And I click on the button labeled "Import Data"
-        Then I should see "Import Successful! 15 records were created or modified during the import"
+        Then I should see "Import Successful!"
 
         #VERIFY_RSD: 15 records
         When I click on the link labeled "Record Status Dashboard"
-        Then I should see "of 15 records"
+        Then I should see a link labeled "15"
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"
-        Then I should see a table rows containing the following values in the reports table:  
+        And I click on the tab labeled "My Reports & Exports"
+        Then I should see a table rows containing the following values in a table:  
             | A | All data (all records and fields)  |
             | B | Selected instruments and/or events |
         
         And I click on the button labeled "Stats & Charts" 
-        Then I see a table header and rows containing the following values in the report data table:   
-            | Display Options                             |
-            | Select a data collection instrument to view |
+        Then I should see "All data (all records and fields)"
 
         And I select "Text Validation" on the dropdown field labeled "Select a data collection instrument to view"
-        Then I see a table header and rows containing the following values in the report data table: 
-            | Name (ptname_v2_v2)                  |           |        |
-            | Total Count (N)                      | Missing   |        | 
-            | 12                                   | 3 (20.0%) |        |
-            | Email (email_v2)                     |           |        |
-            | Total Count (N)                      | Missing   |        |
-            | 11                                   | 4 (26.7%) |        | 
-            | Complete? (text_validation_complete) |           |        |
-            | Total Count (N)                      | Missing   | Unique |
-            | 15                                   | 0(0.0%)   | 3      |
+        Then I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing   |
+            | 12              | 3 (20.0%) |
 
-        And I should see "Counts/frequency: Incomplete (4, 26.7%), Unverified (5, 33.3%), Complete (6, 40.0%)"
-        And I should see the dropdown field labeled "Complete?" with the option "View as Bar Chart" selected 
-        And I should see "a Bar Chart showing Incomplete count: 4, Unverified count: 5, Complete count: 6"
+        And I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing   |
+            | 11              | 4 (26.7%) |
+
+        And I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing  | Unique |
+            | 15              | 0 (0.0%) | 3      |
+
+        # View Bar Chart
+        And I should see the dropdown field labeled "Complete?" with the option "View as Bar Chart" selected
+        Then I should see a bar chart for "Complete?" with bar of width 311
+        And I should see a bar chart for "Complete?" with bar of width 259
+        And I should see a bar chart for "Complete?" with bar of width 207
+        # View Pie Chart
         When I select "View as Pie Chart" on the dropdown field labeled "Complete?"
-        Then I should see "a Pie Chart showing Complete 6(40%), Incomplete 4(26.7%), Unverified 5(33.3%)"
+        Then I should see a pie chart for "Complete?" with text "40%"
+        And I should see a pie chart for "Complete?" with text "33.3%"
+        And I should see a pie chart for "Complete?" with text "26.7%"
 
         When I select "Data Types" on the dropdown field labeled "Select a data collection instrument to view"
-        Then I see a table header and rows containing the following values in the report data table:  
-            | Name (ptname)                                              |           |        |
-            | Total Count (N)                                            | Missing   |        |
-            | 13                                                         | 2 (13.3%) |        |
-            | Text Box (textbox)                                         |           |        |
-            | Total Count (N)                                            | Missing   |        |
-            | 11                                                         | 4(26.7%)  |        |
-            | Multiple Choice Dropdown Manual (multiple_dropdown_manual) |           |        |
-            | Total Count (N)                                            | Missing   | Unique |
-            | 12                                                         | 3(20.0%)  | 3      |
+        Then I see a table header and rows containing the following values in a table:  
+            | Total Count (N) | Missing   |
+            | 13              | 2 (13.3%) |
+            
+        And I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing   |
+            | 11              | 4 (26.7%) |
 
-        Then I should see "Counts/frequency: DDChoice5 (3, 25.0%), DDChoice6 (7, 58.3%), DDChoice7 (2, 16.7%)"
+        And I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing   | Unique |
+            | 12              | 3 (20.0%) | 3      |
+
+        # View Pie Chart
         And I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the option "View as Bar Chart" selected 
-        And I should see "a Bar Chart showing DDChoice5 count: 3, DDChoice6 count: 7, DDChoice7 count: 2"
+        Then I should see a bar chart for "Multiple Choice Dropdown Manual" with bar of width 155
+        And I should see a bar chart for "Multiple Choice Dropdown Manual" with bar of width 363
+        And I should see a bar chart for "Multiple Choice Dropdown Manual" with bar of width 103
+        # View Pie Chart
         When I select "View as Pie Chart" on the dropdown field labeled "Multiple Choice Dropdown Manual"
-        Then I should see "a Pie Chart showing DDChoice7 2(16.7%), DDChoice6 7(58.3%), DDChoice5 3(25%)"
-       
+        Then I should see a pie chart for "Multiple Choice Dropdown Manual" with text "25%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "58.3%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "16.7%"
+     
         Then I should NOT see "File Upload" 
-        And I see a table header and rows containing the following values in the report data table: 
-            | Calculated Field (calculated_field) |         |        |     |     |      |       |     | Percentile |      |      |             |       |      |      |
-            | Total Count (N)                     | Missing | Unique | Min | Max | Mean | StDev | Sum | 0.05       | 0.10 | 0.25 | 0.50 Median | 0.75  | 0.90 | 0.95 |
-            | 15                                  | 0(0.0%) | 1      | 6   | 6   | 6    | 0     | 90  | 6          | 6    | 6    | 6           | 6     | 6    | 6    |
+        And I see a table header and rows containing the following values in a table: 
+            | Total Count (N) | Missing | Unique | Min | Max | Mean | StDev | Sum | Percentile |
+       
+        And I see a table header and rows containing the following values in a table: 
+            | 0.05       | 0.10 | 0.25 | 0.50 Median | 0.75  | 0.90 | 0.95 | 
         
-        And I should see "Lowest values: 6,6,6,6,6"
-        And I should see "Highest values: 6,6,6,6,6"
-        And I see a table header and rows containing the following values in the report data table:
-            | Complete? (data_types_complete) |         |        |
-            | Total Count (N)                 | Missing | Unique |
-            | 15                              | 0(0.0%) | 3      |
+        And I see a table header and rows containing the following values in a table: 
+            | 15              | 0 (0.0%) | 1     | 6   | 6   | 6    | 0     | 90  | 6          | 6    | 6    | 6           | 6     | 6    | 6    |
+            
+        And I should see "Lowest values: 6, 6, 6, 6, 6"
+        And I should see "Highest values: 6, 6, 6, 6, 6"
+        And I see a table header and rows containing the following values in a table:
+            | Total Count (N) | Missing | Unique |
+            | 15              | 0 (0.0%) | 3      |
 
-        And I should see "Counts/frequency: Incomplete (6, 40.0%), Unverified (5, 33.3%), Complete (4, 26.7%)"
-        And I should see the dropdown field labeled "Complete?" with the option "View as Bar Chart" selected 
-        And I should see "a Bar Chart showing Incomplete count: 6, Unverified count: 5, Complete count: 4"
+        # View Bar Chart
+        And I should see the dropdown field labeled "Complete?" with the option "View as Bar Chart" selected
+        Then I should see a bar chart for "Complete?" with bar of width 311
+        And I should see a bar chart for "Complete?" with bar of width 259
+        And I should see a bar chart for "Complete?" with bar of width 207
+        # View Pie Chart
         When I select "View as Pie Chart" on the dropdown field labeled "Complete?"
-        Then I should see "a Pie Chart showing Complete 4(26.7%), Incomplete 6(40%), Unverified 5(33.3%)"
-        And I should see "Counts/frequency: Incomplete (6, 40%), Unverified (5, 33.3%), Complete (4, 26.7%)"
+        Then I should see a pie chart for "Complete?" with text "40%"
+        And I should see a pie chart for "Complete?" with text "33.3%"
+        And I should see a pie chart for "Complete?" with text "26.7%"
         When I click on the link labeled "4 (26.7%)"
         Then I should see "Missing values: 10, 13, 14, 15"
-        When I click on the link labeled "14"
-        Then I should see "" in the data entry form field "Text Box" 
+ 
+        When I click on the button labeled "Show stats only"
+        Then I see a table header and rows containing the following values in a table:  
+            | Total Count (N) | Missing   |
+            | 13              | 2 (13.3%) |
+
+        And I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the option "View as Pie Chart" selected
+        And I should NOT see a pie chart for "Multiple Choice Dropdown Manual" with text "25%"
+                    
+        When I click on the button labeled "Show plots only"
+        Then I should NOT see "Total Count (N)"
+        # View Pie Chart
+        And I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the option "View as Pie Chart" selected
+        Then I should see a pie chart for "Multiple Choice Dropdown Manual" with text "25%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "58.3%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "16.7%"
+
+        When I click on the button labeled "Show plots & stats"
+        Then I see a table header and rows containing the following values in a table:  
+            | Total Count (N) | Missing   |
+            | 13              | 2 (13.3%) |
+
+        And I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the option "View as Pie Chart" selected
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "25%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "58.3%"
+        And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "16.7%"
         And I logout
