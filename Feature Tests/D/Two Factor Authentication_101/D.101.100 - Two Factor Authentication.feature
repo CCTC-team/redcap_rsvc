@@ -1,5 +1,5 @@
-Feature: Two Factor Authentication: The system shall support enabling/disabling of Two-Factor Authentication.
-    
+Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor Authentication.
+
     As a REDCap end user
     I want to see that Two Factor Authentication is functioning as expected
 
