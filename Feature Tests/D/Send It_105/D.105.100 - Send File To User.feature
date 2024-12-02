@@ -21,10 +21,12 @@ Feature: Send It: D.105.100 - The system shall support the ability to send a fil
     # Two emails sent, each containing a password and a link for the respective user
     Then I should see 2 emails for user "joe@abc.com"
     And I should see 2 emails for user "paul@abc.com"
-    And I copy and paste the password for user "joe@abc.com" from the email with subject "Re: [REDCap Send-It] Send-it file" to the link in the email with subject "[REDCap Send-It] Send-it file"
+    When I copy the password for user "joe@abc.com" from the email with subject "Re: [REDCap Send-It] Send-it file"
+    And I click on the link in the email for user "joe@abc.com" with subject "[REDCap Send-It] Send-it file"
+    And I paste the password into the input field
     When I click on the button labeled "Download File"
     Then I should see "SUCCESS! The file will begin downloading momentarily."
-    And I should see a downloaded file named "redcap_val_Data_Import.csv"
+    Then I should see a downloaded file named "redcap_val_Data_Import.csv"
     And I should have the latest downloaded "csv" file that contains the headings below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | ptname_v2_v2 | email_v2 | text_validation_complete | ptname | textbox | multiple_dropdown_manual | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | file_upload | required | data_types_complete |
   
