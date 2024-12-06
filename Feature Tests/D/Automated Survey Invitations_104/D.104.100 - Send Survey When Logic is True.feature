@@ -1,4 +1,3 @@
-
 Feature: D.104.100 - The system shall support the ability to send a survey when a logic becomes true 
 
   As a REDCap end user
@@ -54,13 +53,6 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I check the checkbox labeled "When the following survey is completed:"
     And I select '"Survey" - Event 1' from the dropdown option for When the following survey is completed
     And I click on the radio labeled "Send immediately"
-    # And I click on the radio labeled "Send the invitation"
-    # When I enter 0 days 0 hours and 1 minute for When to send invitations AFTER conditions are met
-    # And I check the checkbox labeled "Re-send invitation as a reminder if participant has not responded by a specified time?"
-    # And I click on the radio labeled Send every for occurence
-    # And I select the option for ASI reminder to send every "Day" at time "12:00"
-    # And I click on the button labeled "Done"
-    # And I select "Send only once" on the dropdown field labeled "Recurrence:"
     When I click on the button labeled exactly "Save"
     Then I should see "Settings for automated invitations were successfully saved!"
     And I click on the button labeled "Close" in the dialog box
@@ -126,7 +118,6 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Given I click on the link labeled "Designer"
     And I click on the button labeled "Auto Invitation options"
     When I click on the link labeled "Download all Automated Survey Invitations settings (CSV)"
-    # Then I should see the latest downloaded "csv" file containing the headings and rows below
     Then the downloaded CSV with filename "asi_export_pid13.csv" has the header and rows below
       | form_name | event_name    | condition_surveycomplete_form_name | condition_surveycomplete_event_name | num_recurrence | units_recurrence | active | email_subject          | email_sender        | condition_andor | condition_logic             | condition_send_time_option | condition_send_time_lag_field_after | delivery_type | reminder_type   | reminder_timelag_days | reminder_timelag_hours | reminder_timelag_minutes | reminder_num | reeval_before_send |
       | survey    | event_1_arm_1 |                                    |                                     | 0              | DAYS             | 1      | Testing Survey Event 1 | test_user1@test.edu | AND             | [fname]!='' and [email]!='' | IMMEDIATELY                | after                               | EMAIL         | TIME_LAG        | 0                     | 0                      | 1                        | 2            | 1                  |
@@ -135,7 +126,6 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     # ASI 2
     Given I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event 1" for record ID "1" and click on the bubble
-    # And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     ##VERIFY
