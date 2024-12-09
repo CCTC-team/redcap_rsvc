@@ -24,7 +24,7 @@ Feature: D.115.700 - The system shall support the ability to download the PDF of
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the tab labeled "Other Export Options"
-    When I click on the icon "Compact PDF" to download "PDF of data collection instruments containing saved data (all records)"  
+    When I click on the icon Compact PDF to download PDF of data collection instruments containing saved data 
     Then I should see a downloaded file named "D115700_yyyy_mm_dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       |                                  |      D.115.700                |
