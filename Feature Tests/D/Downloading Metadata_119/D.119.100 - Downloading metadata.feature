@@ -28,6 +28,10 @@ Feature: D.119.100 Downloading Metadata - The system shall support the ability t
       | Text Validation          | 3      |
       | Data Types               | 18     |
 
+    #VERIFY: No Data
+    When I click on the link labeled "Record Status Dashboard"
+    Then I should see "No records exist yet" 
+ 
     #VERIFY: Events and Arms 
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
