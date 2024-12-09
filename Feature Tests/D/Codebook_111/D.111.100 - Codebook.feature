@@ -193,39 +193,39 @@ Feature:
         ##VERIFY_Codebook 
         When I click on the link labeled "Codebook"
         And I should see a table header and rows containing the following values in the codebook table:  
-            | # | Variabl / Field Name                          | Field Label                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
+            | #  | Variabl / Field Name                         | Field Label                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             |    | Instrument: Text Validation (text_validation)|                                           |                                                                        |   
             | 1  | [record_id]                                  | Record ID                                 | text                                                                   |  
             | 2  | [ptname_v2]                                  | Name                                      | text                                                                   |  
             | 3  | [email_v2]                                   | Email                                     | text (email)                                                           |  
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | dropdown                                                               | 
-            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                          | 
-            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                          | 
-            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 2 Complete                                                            |  
-            |    | Instrument: Data Types (data_types)          |                                           |                                                                       | 
-            | 5  | [date_trial]                                 | Date of Trial must not be in the future   | text (date_dmy, Min: 2006-01-01, Max: today)                          | 
-            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | dropdown                                                              |   
-            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 5 DDChoice5                                                           |   
-            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 6 DDChoice6                                                           |   
-            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 7 DDChoice7                                                           |   
-            | 7  | [checkbox]                                   | Checkbox                                  | checkbox                                                              |
-            | 7  | [checkbox]                                   | Checkbox                                  | 1 checkbox___1 Checkbox1                                              |
-            | 7  | [checkbox]                                   | Checkbox                                  | 2 checkbox___2 Checkbox2                                              |
-            | 7  | [checkbox]                                   | Checkbox                                  | 3 checkbox___3 Checkbox3                                              |
-            | 7  | [checkbox]                                   | Checkbox                                  | 4 checkbox___4 Checkbox4                                              |
-            | 8  | [file_upload]                                | File Upload                               | file                                                                  |  
-            | 9  | [radio_button_manual]                        | Radio Button Manual                       | radio                                                                 | 
-            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 99 Choice99                                                           | 
-            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 100 Choice100                                                       | 
-            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 101 Choice101                                                       | 
-            | 10 | [calculated_field]                           | Calculated Field                          | calc Calculation: 3*2                                                 |  
-            | 11 | [descriptive_text_file]                      | Descriptive Text with File                | descriptive                                                           |
-            | 12 | [identifier_2]                               | Identifier                                | text, Identifier                                                      |
-            | 13 | [required_2]                                 | Required                                  | text, Required                                                        |
-            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | dropdown                                                              | 
-            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 0 Incomplete                                                          | 
-            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 1 Unverified                                                          | 
-            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 2 Complete                                                            |   
+            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
+            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
+            | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 2 Complete                                                             |  
+            |    | Instrument: Data Types (data_types)          |                                           |                                                                        | 
+            | 5  | [date_trial]                                 | Date of Trial must not be in the future   | text (date_dmy, Min: 2006-01-01, Max: today)                           | 
+            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | dropdown                                                               |   
+            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 5 DDChoice5                                                            |   
+            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 6 DDChoice6                                                            |   
+            | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 7 DDChoice7                                                            |   
+            | 7  | [checkbox]                                   | Checkbox                                  | checkbox                                                               |
+            | 7  | [checkbox]                                   | Checkbox                                  | 1 checkbox___1 Checkbox1                                               |
+            | 7  | [checkbox]                                   | Checkbox                                  | 2 checkbox___2 Checkbox2                                               |
+            | 7  | [checkbox]                                   | Checkbox                                  | 3 checkbox___3 Checkbox3                                               |
+            | 7  | [checkbox]                                   | Checkbox                                  | 4 checkbox___4 Checkbox4                                               |
+            | 8  | [file_upload]                                | File Upload                               | file                                                                   |  
+            | 9  | [radio_button_manual]                        | Radio Button Manual                       | radio                                                                  | 
+            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 99 Choice99                                                            | 
+            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 100 Choice100                                                          | 
+            | 9  | [radio_button_manual]                        | Radio Button Manual                       | 101 Choice101                                                          | 
+            | 10 | [calculated_field]                           | Calculated Field                          | calc Calculation: 3*2                                                  |  
+            | 11 | [descriptive_text_file]                      | Descriptive Text with File                | descriptive                                                            |
+            | 12 | [identifier_2]                               | Identifier                                | text, Identifier                                                       |
+            | 13 | [required_2]                                 | Required                                  | text, Required                                                         |
+            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | dropdown                                                               | 
+            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
+            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
+            | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 2 Complete                                                             |   
 
     Scenario: D.111.200 Modify and delete fields and verify codebook
         When I click on the link labeled "Designer"
@@ -241,13 +241,13 @@ Feature:
         When I click on the link labeled "Codebook"
         Then I should NOT see "[email_v2]" 
         And I should see a table header and rows containing the following values in the codebook table:
-         | #  | Variabl / Field Name                          | Field Label                           | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-         |    | Instrument: Text Validation (text_validation) |                                       |                                                                        |   
-         | 1  | [record_id]                                   | Record ID                             | text                                                                   |  
-         | 2  | [ptname_v2]                                   | EditName                              | text                                                                   |  
-         | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | dropdown                                                               | 
-         | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 0 Incomplete                                                           | 
-         | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 1 Unverified                                                           | 
-         | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 2 Complete                                                             |  
+            | #  | Variabl / Field Name                          | Field Label                           | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
+            |    | Instrument: Text Validation (text_validation) |                                       |                                                                        |   
+            | 1  | [record_id]                                   | Record ID                             | text                                                                   |  
+            | 2  | [ptname_v2]                                   | EditName                              | text                                                                   |  
+            | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | dropdown                                                               | 
+            | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 0 Incomplete                                                           | 
+            | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 1 Unverified                                                           | 
+            | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 2 Complete                                                             |  
         
         And I logout
