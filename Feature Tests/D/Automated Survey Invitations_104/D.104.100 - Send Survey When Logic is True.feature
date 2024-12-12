@@ -1,7 +1,7 @@
 Feature: D.104.100 - The system shall support the ability to send a survey when a logic becomes true 
 
   As a REDCap end user
-  I want to be able to send surveys under logic conditions
+  I want to see that automated survey invitations work as expected
 
   Scenario: D.104.100 - Send Survey When Logic is True
     Given I login to REDCap with the user "Test_User1"
@@ -33,6 +33,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I enter "Testing Survey Event 1" into the input field labeled "Subject:"
     And I check the checkbox labeled "When the following logic becomes true:"
     And I click on "" in the textarea field labeled "When the following logic becomes true" in the dialog box
+    And I should see a dialog containing the following text: "Logic Editor"
     And I clear field and enter "[fname]!='' and [email]!=''" in the textarea field labeled "Logic Editor" in the dialog box
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
