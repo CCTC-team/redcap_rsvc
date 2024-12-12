@@ -8,11 +8,12 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.104.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D104300.xml", and clicking the "Create Project" button
    
-    # Enable surveys in the project and designate email field
+    #Verify surveys are enabled in the project and email field is designated
     Given I click on the link labeled "Project Setup"
     And I should see a button labeled "Disable" in the "Use surveys in this project?" row in the "Main project settings" section
     Then I should see "Field currently designated: email"
 
+    #Modify ASI
     Given I click on the link labeled "Designer"
     And I click on the button labeled "Automated Invitations"
     When I click on the last button labeled "Modify"
@@ -27,6 +28,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     Then I should see a dialog containing the following text: "Copy Automated Invitation settings to other surveys"    
     And I click on the button labeled "Cancel" in the dialog box
 
+    #Re-evaluate surveys
     And I click on the button labeled "Auto Invitation options"
     When I click on the link labeled "Re-evaluate Automated Survey Invitations"
     When I click on the button labeled "Re-evaluate selected surveys"
