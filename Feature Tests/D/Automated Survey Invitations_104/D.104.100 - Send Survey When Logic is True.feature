@@ -63,7 +63,6 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported       |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Add settings for automated survey invitations |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Add settings for automated survey invitations |
 
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record"
@@ -123,6 +122,12 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
       | form_name | event_name    | condition_surveycomplete_form_name | condition_surveycomplete_event_name | num_recurrence | units_recurrence | active | email_subject          | email_sender        | condition_andor | condition_logic             | condition_send_time_option | condition_send_time_lag_field_after | delivery_type | reminder_type   | reminder_timelag_days | reminder_timelag_hours | reminder_timelag_minutes | reminder_num | reeval_before_send |
       | survey    | event_1_arm_1 |                                    |                                     | 0              | DAYS             | 1      | Testing Survey Event 1 | test_user1@test.edu | AND             | [fname]!='' and [email]!='' | IMMEDIATELY                | after                               | EMAIL         | TIME_LAG        | 0                     | 0                      | 1                        | 2            | 1                  |
       | survey    | event_2_arm_1 | survey                             | event_1_arm_1                       | 0              | DAYS             | 1      | Testing Survey Event 2 | test_user1@test.edu | AND             |                             | IMMEDIATELY                | after                               | EMAIL         |                 |                       |                        |                          | 0            | 0                  |
+
+    Given I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported                          |
+      | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design | Automatically schedule survey invitation                         |
+      | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design | (Record: "1", Survey: "Survey", Event: "Event 1", Instance: "1") |
 
     # ASI 2
     Given I click on the link labeled "Record Status Dashboard"
