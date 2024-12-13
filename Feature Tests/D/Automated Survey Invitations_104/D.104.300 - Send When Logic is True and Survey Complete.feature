@@ -35,6 +35,15 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     Then I should see "Nothing changed!"
     And I click on the button labeled "OK"
 
+    Given I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Time / Date      | Username   | Action                                   | List of Data Changes OR Fields Exported                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                            | Re-evaluate automated survey invitations:                        |
+      | mm/dd/yyyy hh:mm | test_user1 | Re-evaluate Automated Survey Invitations | 0 records were affected.                                         |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                            | Edit settings for automated survey invitations                   |
+      | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design                            | Automatically schedule survey invitation                         |
+      | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design                            | (Record: "1", Survey: "Survey", Event: "Event 1", Instance: "1") |
+    
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Demographics" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I clear field and enter "joe@abc.com" into the data entry form field labeled "Email"
