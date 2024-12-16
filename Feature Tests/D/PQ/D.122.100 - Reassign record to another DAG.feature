@@ -42,7 +42,26 @@ Feature: D.122.100 - The system shall provide the ability to reassign a record f
       | TestGroup2         | test_user2     |
 
     ##FUNCTIONAL REQUIREMENT - Reassign record to another DAG
-    Given I click on the link labeled "Record Status Dashboard"
+    Given I click on the link labeled "Record Status Dashboard" 
+    Then I should see a table header and rows containing the following values in the record status dashboard table:
+      | Record ID |
+      | 1-1       |
+      | 1-2       |
+      | 2-1       |
+      | 2-2       |    
+      
+    When I select "TestGroup2" on the dropdown field labeled "Displaying Data Access Group"
+    Then I should see a table header and rows containing the following values in the record status dashboard table:
+      | Record ID |
+      | 2-1       |
+      | 2-2       |
+
+    When I select "TestGroup1" on the dropdown field labeled "Displaying Data Access Group"
+    Then I should see a table header and rows containing the following values in the record status dashboard table:
+      | Record ID |
+      | 1-1       |
+      | 1-2       |
+
     And I click on the link labeled "1-2"
     Then I should see "Record Home Page"
     And I click on the span element labeled "Choose action for record"
