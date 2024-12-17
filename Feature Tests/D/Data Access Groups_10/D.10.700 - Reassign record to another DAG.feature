@@ -1,11 +1,11 @@
-Feature: D.10.100 - The system shall provide the ability to reassign a record from one DAG to another for users with appropriate user rights
+Feature: D.10.700 - The system shall provide the ability to reassign a record from one DAG to another for users with appropriate user rights
 
   As a REDCap end user
   I want to see that reassign a record from one DAG to another works as expected.
 
-  Scenario: D.10.100 - Reassign a record from one DAG to another
+  Scenario: D.10.700 - Reassign a record from one DAG to another
     Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "D.10.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D10100.xml", and clicking the "Create Project" button
+    And I create a new project named "D.10.700" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D10700.xml", and clicking the "Create Project" button
    
     #ACTION: Add Test_User1 with Custom rights
     When I click on the link labeled "User Rights"
@@ -76,7 +76,7 @@ Feature: D.10.100 - The system shall provide the ability to reassign a record fr
     #VERIFY
     Given I login to REDCap with the user "Test_User2"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "D.10.100"
+    And I click on the link labeled "D.10.700"
     And I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID       |
@@ -92,7 +92,7 @@ Feature: D.10.100 - The system shall provide the ability to reassign a record fr
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "D.10.100"
+    And I click on the link labeled "D.10.700"
     And I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID       |
