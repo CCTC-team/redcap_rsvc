@@ -4,9 +4,11 @@ Feature:
             D.111.100.1.1 - Variable name 
             D.111.100.1.2 - Label 
             D.111.100.1.3 - Type 
-            D.111.100.1.4 - Field note 
-            D.111.100.1.5 - Identifier 
-            D.111.100.1.6 - Required 
+            D.111.100.1.4 - Field note
+            D.111.100.1.5 - Branching Logic 
+            D.111.100.1.6 - Action tag  
+            D.111.100.1.7 - Identifier 
+            D.111.100.1.8 - Required 
         D.111.100.2 - The following subset of field types are verified 
             D.111.100.2.1 - Textbox with email selected 
             D.111.100.2.2 - Textbox with date format e.g. D-M-Y 
@@ -23,7 +25,7 @@ Feature:
     Scenario: Adding fields and verifying Codebook.
 
         #SETUP
-        Given I login to REDCap with the user "Test_Admin"   
+        Given I login to REDCap with the user "Test_User1"   
         And I create an empty project named "D.111.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, and clicking the "Create Project" button
 
         ##VERIFY_Codebook 
@@ -84,8 +86,17 @@ Feature:
         And I enter "email_v2" into the Variable Name of the open "Add New Field" dialog box
         And I enter "Email" into the Field Label of the open "Add New Field" dialog box
         And I select "Email" on the dropdown field labeled "Validation?"
+        And I click on the textarea labeled "Action Tags / Field Annotation"
+        And I clear field and enter "@NOMISSING" in the textarea field labeled "Logic Editor" in the dialog box
+        And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save" in the dialog box
-        
+        When I click on the Branching Logic icon for the variable "email"
+        And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax" in the dialog box
+        And I clear field and enter '[ptname_v2] != ""' in the textarea field labeled "Logic Editor" in the dialog box
+        And I click on the button labeled "Update & Close Editor" in the dialog box
+        And I click on the button labeled "Save" in the dialog box
+        Then I should see 'Branching logic: [ptname_v2] != ""' within the field with variable name "email"
+    
         ##ACTION: Create Date and Multiple Choice Dropdown fields
         When I click on the button labeled "Next instrument"
         Then I should see "Data Types"
@@ -198,6 +209,7 @@ Feature:
             | 1  | [record_id]                                  | Record ID                                 | text                                                                   |  
             | 2  | [ptname_v2]                                  | Name                                      | text                                                                   |  
             | 3  | [email_v2]                                   | Email                                     | text (email)                                                           |  
+            | 3  | Show the field ONLY if:[ptname_v2] != ""     | Email                                     | Field Annotation: @NOMISSING                                                           |  
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | dropdown                                                               | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
@@ -249,5 +261,5 @@ Feature:
             | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 0 Incomplete                                                           | 
             | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 1 Unverified                                                           | 
             | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | 2 Complete                                                             |  
-        
+              
         And I logout
