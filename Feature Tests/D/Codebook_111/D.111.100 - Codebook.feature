@@ -209,7 +209,7 @@ Feature:
             | 1  | [record_id]                                  | Record ID                                 | text                                                                   |  
             | 2  | [ptname_v2]                                  | Name                                      | text                                                                   |  
             | 3  | [email_v2]                                   | Email                                     | text (email)                                                           |  
-            | 3  | Show the field ONLY if:[ptname_v2] != ""     | Email                                     | Field Annotation: @NOMISSING                                                           |  
+            | 3  | Show the field ONLY if:[ptname_v2] != ""     | Email                                     | Field Annotation: @NOMISSING                                           |  
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | dropdown                                                               | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
