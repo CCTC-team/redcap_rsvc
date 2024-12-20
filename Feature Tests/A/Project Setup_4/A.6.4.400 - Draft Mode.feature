@@ -424,7 +424,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I see a table header and rows containing the following values in the report data table:
       | Record ID | Repeat Instrument | Event Name             | Radio Button Manual |
-      | 1         | Data Types        | Event 1 (Arm 1: Arm 1) |                     |
+      | 1         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
       | 2         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
       | 3         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
       | 4         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
