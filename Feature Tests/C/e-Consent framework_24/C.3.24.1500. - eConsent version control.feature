@@ -168,6 +168,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           0 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
@@ -256,9 +257,11 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
+    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario:
@@ -271,9 +274,11 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
+    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario:
@@ -288,9 +293,11 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
+    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario: C.3.24.1500.400 View historical version
@@ -361,6 +368,6 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     When I click on the link labeled "pid13_formParticipantConsent_id3_"
     Then I should see the following values in the last file downloaded
       # Make sure the DOB is followed immediatly by "Participant", verifying that the consent "Version:" is omitted. 
-      | 2000-01-01, Participant |
+      | 2000-01-01, Type: Participant |
 #Manual: Close document
 #END
