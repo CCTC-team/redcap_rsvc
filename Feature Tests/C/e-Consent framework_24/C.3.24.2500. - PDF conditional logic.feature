@@ -145,8 +145,8 @@ Feature: User Interface: The system shall support conditional logic integration 
     And I click on the link labeled "PDF Snapshot Archive"
     Then I should see a table header and rows containing the following values in a table:
       | Name      | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB) | Version | Type |
-      | Snapshot3 | -                                |      1 |                                              |                        |         |      |
-      | Snapshot2 | -                                |      1 |                                              |                        |         |      |
+      | Snapshot3 | -                                |      1 | (Event 1 (Arm 1: Arm 1))                     |                        |         |      |
+      | Snapshot2 | -                                |      1 | (Event 1 (Arm 1: Arm 1))                     |                        |         |      |
       | Snapshot1 | -                                |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
       ##VERIFY_Logging
       ##e-Consent Framework not used, and PDF Snapshot is used
