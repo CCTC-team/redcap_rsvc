@@ -12,7 +12,7 @@ Feature: D.115.400 - The system shall support the ability to download the PDF of
     When I click on the button labeled "Begin Editing"
     And I enable the Data Collection Instrument named "Text Validation" for the Event named "Event 2"
     And I enable the Data Collection Instrument named "Text Validation" for the Event named "Event Three"
-    And I click on the button labeled "Save" on the Designate Instruments for My Events page
+    And I click on the button labeled "Save"
     Then I verify the Data Collection Instrument named "Text Validation" is enabled for the Event named "Event 2"
     And I verify the Data Collection Instrument named "Text Validation" is enabled for the Event named "Event Three"
 
@@ -27,7 +27,7 @@ Feature: D.115.400 - The system shall support the ability to download the PDF of
 
     Given I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events (compact)"
-    Then I should see a downloaded file named "D115400_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D115400_yyyy-mm-dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       |                                  |      D.115.400                |
       |                                  |      Record ID 1 (Event 1)    |
@@ -53,7 +53,7 @@ Feature: D.115.400 - The system shall support the ability to download the PDF of
     # Checking for Email thrice doesn't work as expected in ATS as it might just check the first Email row for all 3 entries. 
     # But keeping it for manual testing. Same with Identifier field.
     # Not verifying Name fields in Text Validation and Data Types in Record ID 1 (Event 1) as ATS will fail. Name is present with values of Joe and John in PDF
-    And I should NOT see the following values in the downloaded PDF
+    And I should NOT see the following values in the last file downloaded
       | Email                            | 
       | Email                            |
       | Text2                            |
