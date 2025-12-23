@@ -18,10 +18,10 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
     
     #VERIFY
     Given I click on the link labeled "Record Status Dashboard"
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D115200_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D115200_yyyy-mm-dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       | CRF Version 1                    |                               |
       |                                  |      D.115.200                |
@@ -71,7 +71,7 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
       | mm/dd/yyyy hh:mm | test_user1 | PDF Export with data Record 1 | Download all data entry forms as PDF (with data) |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                 | Make project customizations                      |
 
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     And I click on the button labeled "Additional customizations"
     And I clear field and enter "CRF Version 2" into the input field labeled "1)"
     And I select the radio option "Display REDCap logo and website URL (default)"
@@ -81,10 +81,10 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
 
     #VERIFY
     Given I click on the link labeled "Record Status Dashboard"
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D115200_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D115200_yyyy-mm-dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       | CRF Version 2                    |                               |
       |                                  |      D.115.200                |
@@ -126,5 +126,5 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
       | Descriptive Text                 |                               |
       |                                  | projectredcap.org             |
       
-    And I should NOT see the following values in the downloaded PDF
+    And I should NOT see the following values in the last file downloaded
       | Record ID 1 (Event 1) |

@@ -10,7 +10,7 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
 
     #VERIFY
     When I click on the link labeled "Designer"
-    And I click on the instrument labeled "Text Validation"
+    And I click on the link labeled "Text Validation"
     And I click on the Edit image for the field named "Email"
     And I enter "email" into the input field labeled "Field Note"
     Then I click on the button labeled "Save"
@@ -64,26 +64,26 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Download all data entry forms as PDF    |
       
     Given I click on the link labeled "Designer"
-    When I click on the instrument labeled "Data Types"
+    When I click on the link labeled "Data Types"
     And I click on the button labeled "Dismiss"
     And I click on the Delete Field image for the field named "Signature"
-    And I click on the button labeled "Delete" in the dialog box
+    And I click on the button labeled "Delete"
     Then I should NOT see a field labeled "Signature"
     And I click on the Delete Field image for the field named "File Upload"
-    And I click on the button labeled "Delete" in the dialog box
+    And I click on the button labeled "Delete"
     Then I should NOT see a field labeled "File Upload"
     And I click on the Delete Field image for the field named "Required"
-    And I click on the button labeled "Delete" in the dialog box
+    And I click on the button labeled "Delete"
     Then I should NOT see a field labeled "Required"
     And I click on the Delete Field image for the field named "Descriptive Text with File"
-    And I click on the button labeled "Delete" in the dialog box
+    And I click on the button labeled "Delete"
     Then I should NOT see a field labeled "Descriptive Text with File"
 
     #VERIFY
     Given I click on the link labeled "Project Setup"
     When I click on the link labeled "Download PDF of all instruments"
     Then I should see a downloaded file named "D115100.pdf"
-    And I should NOT see the following values in the downloaded PDF
+    And I should NOT see the following values in the last file downloaded
       | Signature                        |
       | File Upload                      |
       | Required                         |

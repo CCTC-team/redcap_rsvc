@@ -23,9 +23,9 @@ Feature: D.115.700 - The system shall support the ability to download the PDF of
     Then I should see "Record ID 2 successfully added."
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-    And I click on the tab labeled "Other Export Options"
+    And I click on the link labeled "Other Export Options"
     When I click on the icon Compact PDF to download PDF of data collection instruments containing saved data 
-    Then I should see a downloaded file named "D115700_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D115700_yyyy-mm-dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       |                                  |      D.115.700                |
       |                                  |      Record ID 1 (Event 1)    |
@@ -50,7 +50,7 @@ Feature: D.115.700 - The system shall support the ability to download the PDF of
     # But keeping it for manual testing.
     # Not verifying Name field in Data Types in Record ID 1 (Event 1) and Email field in Text Validation in Record ID 2 (Event 1) as ATS will fail. 
     # Name is present with values of Dave and Paul in PDF
-    And I should NOT see the following values in the downloaded PDF
+    And I should NOT see the following values in the last file downloaded
       | Text2                            |
       | Text Box                         |
       | Notes Box                        |
