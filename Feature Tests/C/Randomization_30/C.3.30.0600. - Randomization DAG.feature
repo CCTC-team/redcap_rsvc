@@ -2,7 +2,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
   As a REDCap end user
   I want to see that Randomization is functioning as expected
 
- Scenario: #SETUP project with randomization enabled
+  Scenario: #SETUP project with randomization enabled
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "C.3.30.0600." by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project 3.30 baserand.REDCap.xml", and clicking the "Create Project" button
     #Adding user rights Test_User1
@@ -20,11 +20,18 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Add user"
     Then I should see 'User "Test_User2" was successfully added'
   
-    #Adding DAG
+    #Adding DAG 1
     When I click on the link labeled "DAGs"
     Then I should see "Create new groups"
     When I enter "DAG 1" into the field with the placeholder text of "Enter new group name"
     And I click on the button labeled "Add Group"
+
+    #Adding DAG 2
+    When I click on the link labeled "DAGs"
+    Then I should see "Create new groups"
+    When I enter "DAG 2" into the field with the placeholder text of "Enter new group name"
+    And I click on the button labeled "Add Group"
+
     #Assign User to DAG
     Given I click on the link labeled "DAGs"
     When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
@@ -100,20 +107,25 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Set up randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-                 | Used    | Not Used | Allocated records   | Data Access Group  redcap_data_access_group|Randomization group 2  rand_group_2|
-                 | 1       |     0    |     1-1             | DAG 1 (1)                                  | Drug A (1)        | 
+      | Used    | Not Used | Allocated records   | Data Access Group  redcap_data_access_group|Randomization group 2  rand_group_2|
+      | 0       |     1    |                     | DAG 1 (1)                                  | Drug B (2)                        |
+      | 0       |     1    |                     | DAG 1 (1)                                  | Placebo (3)                       |
+      | 0       |     0    |                     | DAG 2 (2)                                  | Drug A (1)                        |
+      | 0       |     1    |                     | DAG 2 (2)                                  | Drug B (2)                        |
+      | 0       |     1    |                     | DAG 2 (2)                                  | Placebo (3)                       |
+      | 1       |     0    |     1-1             | DAG 1 (1)                                  | Drug A (1)                        |
       #M This record ID may be diferent with manual testing.
        	
       #VERIFY_log Randomization at project level enabled recorded in logging table
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-            | Time / Date      | Username   | Action              | List of Data Changes OR Fields Exported           |
-            | mm/dd/yyyy hh:mm | test_user2 | Randomize Record 1-1|Randomize record|
-            | mm/dd/yyyy hh:mm | test_user2 | Update record 1-1   |Assign record to Data Access Group (redcap_data_access_group = 'dag_1')|
-            | mm/dd/yyyy hh:mm | test_user2 | Create record 1-1   |strat_1 = '1', demographics_complete = '0', record_id = '1-1'|
+      | Time / Date      | Username   | Action              | List of Data Changes OR Fields Exported           |
+      | mm/dd/yyyy hh:mm | test_user2 | Randomize Record 1-1|Randomize record|
+      | mm/dd/yyyy hh:mm | test_user2 | Update record 1-1   |Assign record to Data Access Group (redcap_data_access_group = 'dag_1')|
+      | mm/dd/yyyy hh:mm | test_user2 | Create record 1-1   |strat_1 = '1', demographics_complete = '0', record_id = '1-1'|
       #M These record IDs may be diferent with manual testing.
 
-  
+
   Scenario: FUNCTIONAL_REQUIREMENT C.3.30.0600.0200: The randomization model shall support stratification by DAG, allowing independent randomization assignments within each DAG.
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record"
@@ -131,11 +143,46 @@ Feature: User Interface: The system shall restrict users to randomizing records 
       #VERIFY Logging
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-           |Time / Date        | Username   | Action              | List of Data Changes OR Fields Exported      |
-           | mm/dd/yyyy hh:mm  | test_user1 | Update record 6     |  |
-           | mm/dd/yyyy hh:mm  | test_user1 | Randomize Record 6  | Randomize record  |
-           | mm/dd/yyyy hh:mm  | test_user1 | Update record 6     | Assign record to Data Access Group (redcap_data_access_group = 'dag_1') |
-           | mm/dd/yyyy hh:mm  | test_user1 | Create record 6     | record_id = '6', rand_group_2 = '2', randomization_complete = '0' |
+      |Time / Date        | Username   | Action              | List of Data Changes OR Fields Exported      |
+      | mm/dd/yyyy hh:mm  | test_user1 | Update record 6     |  |
+      | mm/dd/yyyy hh:mm  | test_user1 | Randomize Record 6  | Randomize record  |
+      | mm/dd/yyyy hh:mm  | test_user1 | Update record 6     | Assign record to Data Access Group (redcap_data_access_group = 'dag_1') |
+      | mm/dd/yyyy hh:mm  | test_user1 | Create record 6     | record_id = '6', rand_group_2 = '2', randomization_complete = '0' |
 
-And I logout
+
+  Scenario: FUNCTIONAL_REQUIREMENT C.3.30.0600.0200: The randomization model shall support stratification by DAG, allowing independent randomization assignments within each DAG.
+    When I click on the link labeled "Add / Edit Records"
+    And I click on the button labeled "Add new record"
+    And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
+    And I click on the button labeled "Randomize"
+    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    When I select "DAG 2" on the dropdown field labeled "Assign this record to a Data Access Group"
+    And I click on the button labeled "Randomize"
+    Then I should see "was randomized for"
+    And I click on the button labeled "Close"
+    And I should see "Already randomized"
+    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I should see "Record ID 7 successfully edited."
+
+      #VERIFY Logging
+    When I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      |Time / Date        | Username   | Action              | List of Data Changes OR Fields Exported      |
+      | mm/dd/yyyy hh:mm  | test_user1 | Update record 7     |  |
+      | mm/dd/yyyy hh:mm  | test_user1 | Randomize Record 7  | Randomize record  |
+      | mm/dd/yyyy hh:mm  | test_user1 | Update record 7     | Assign record to Data Access Group (redcap_data_access_group = 'dag_2') |
+      | mm/dd/yyyy hh:mm  | test_user1 | Create record 7     | record_id = '7', rand_group_2 = '1', randomization_complete = '0' |
+
+    When I click on the link labeled "Randomization"
+    And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
+    Then I should see a table header and rows containing the following values in a table:
+      | Used    | Not Used | Allocated records   | Data Access Group  redcap_data_access_group|Randomization group 2  rand_group_2|
+      | 0       |     1    |                     | DAG 1 (1)                                  | Placebo (3)        |
+      | 0       |     1    |                     | DAG 2 (2)                                  | Drug B (2)         |
+      | 0       |     1    |                     | DAG 2 (2)                                  | Placebo (3)        |
+      | 1       |     0    |     1-1             | DAG 1 (1)                                  | Drug A (1)         |
+      | 1       |     0    |     6               | DAG 1 (1)                                  | Drug B (2)         |
+      | 1       |     0    |     7               | DAG 2 (2)                                  | Drug A (1)         |
+      #M This record ID may be diferent with manual testing.
+    And I logout
 #END
