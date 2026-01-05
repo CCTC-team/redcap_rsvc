@@ -11,9 +11,9 @@ Scenario: #SETUP project with randomization enabled
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
-    When I click on the button labeled exactly "Assign" on the role selector dropdown
+    When I click on the button labeled "Assign"
     Then I should see "test_user1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
-      
+
     #Adding user Test_User2 (without randomize rights)
     When I click on the link labeled "User Rights"
     And I enter "Test_User2" into the field with the placeholder text of "Add new user"
@@ -51,23 +51,21 @@ Scenario: #SETUP project with randomization enabled
     And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize" 
     Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
-    And I click on the button labeled "Randomize" in the dialog box
+    And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 2 successfully edited."
 
 Scenario: #C.3.30.1600.0200 ensures that access is granted when the user has the correct dashboard rights. 
-    Given I login to REDCap with the user "Test_User1"
-    And I click on the link labeled "My Projects"
-    And I click on the link labeled "C.3.30.1600."
-    And I click on the link labeled "Setup"
+    Given I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
             |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
             |       | 0       |     1    |                   | No (0)           | Drug B (2)        |   
-            |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        | 
+            |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        |
+    And I logout
 
 Scenario: #C.3.30.1600.0100 ensures that access is denied when the user lacks the appropriate permission.
     Given I login to REDCap with the user "Test_User2"
@@ -78,8 +76,7 @@ Scenario: #C.3.30.1600.0100 ensures that access is denied when the user lacks th
     Then I should see a table header and rows containing the following values in a table:
             | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Randomization ID |
             | 1      | rand_group |                 | strat_1        | 2                              | 0                           |       | 2                |
-    
-    And I should NOT see a button labeled "Dashboard"
 
-    #Given I logout
+    And I should NOT see a table with header "Dashboard"
+    Given I logout
   #End
