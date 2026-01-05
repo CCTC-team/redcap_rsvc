@@ -11,7 +11,7 @@ I want to see that Randomization is functioning as expected
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
-    When I click on the button labeled exactly "Assign" on the role selector dropdown
+    When I click on the button labeled "Assign"
     Then I should see "test_user1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
       
     #Adding user Test_User2 (No randomization rights)
@@ -47,9 +47,9 @@ I want to see that Randomization is functioning as expected
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize" 
     Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
-    And I click on the button labeled "Randomize" in the dialog box
+    And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 1 successfully edited."
 
@@ -57,9 +57,9 @@ I want to see that Randomization is functioning as expected
     Given I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-            |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-            |       | 0       |     1    |                   | No (0)           | Drug B (2)        |   
-	          |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        | 
+      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
+      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
      
     
     #VERIFY Non project Admin can not see Allocation Table page from the Dashboard.
@@ -68,7 +68,7 @@ I want to see that Randomization is functioning as expected
     When I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.30.1700."
     And I click on the link labeled "Setup"
-    Then I should NOT see the button labeled "Set up a randomization model"
+    Then I should see the button labeled "Set up randomization" that is disabled
     And I logout
 
  Scenario:#C.3.30.1700.0200. User with dashboard rights cannot access View Allocation Table.
@@ -90,7 +90,13 @@ I want to see that Randomization is functioning as expected
     And I click on the link labeled "C.3.30.1700."
     And I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
-    #VERIFY Test User with dashboard permissions cannot see Allocation Table
+    #VERIFY Test User with dashboard permissions cannot see Allocation Table -- Not sure if this is correct??
+   #  How is this different from C.3.30.1600. - Randomization view dashboard.feature??
     Then I should NOT see the button labeled "Setup"
-
+    #VERIFY Test User with dashboard permissions can see Allocation Table
+    When I click on the icon in the column labeled "Dashboard" and the row labeled "1"
+    Then I should see a table header and rows containing the following values in a table:
+      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
+      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
 #End
