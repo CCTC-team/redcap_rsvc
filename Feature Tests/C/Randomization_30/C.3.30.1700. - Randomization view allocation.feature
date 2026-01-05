@@ -57,9 +57,9 @@ I want to see that Randomization is functioning as expected
     Given I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-            |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-            |       | 0       |     1    |                   | No (0)           | Drug B (2)        |   
-	          |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        | 
+      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
+      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
      
     
     #VERIFY Non project Admin can not see Allocation Table page from the Dashboard.
@@ -90,7 +90,13 @@ I want to see that Randomization is functioning as expected
     And I click on the link labeled "C.3.30.1700."
     And I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
-    #VERIFY Test User with dashboard permissions cannot see Allocation Table
+    #VERIFY Test User with dashboard permissions cannot see Allocation Table -- Not sure if this is correct??
+   #  How is this different from C.3.30.1600. - Randomization view dashboard.feature??
     Then I should NOT see the button labeled "Setup"
-
+    #VERIFY Test User with dashboard permissions can see Allocation Table
+    When I click on the icon in the column labeled "Dashboard" and the row labeled "1"
+    Then I should see a table header and rows containing the following values in a table:
+      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
+      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
 #End
