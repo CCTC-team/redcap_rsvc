@@ -55,7 +55,7 @@ I want to see that Randomization is functioning as expected
     And I should NOT see a table with header "View"
     And I logout
 
- Scenario:#C.3.30.1700.0100. Admin accesses View Allocation Table page.  
+ Scenario: #C.3.30.1700.0100. Admin accesses View Allocation Table page.
     Given I login to REDCap with the user "Test_Admin"
     When  I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
