@@ -2,7 +2,7 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
   As a REDCap end user
   I want to see that Randomization is functioning as expected
 
- Scenario: #SETUP project with randomization enabled
+  Scenario: #SETUP project with randomization enabled
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "C.3.30.1100." by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project 3.30 baserand.REDCap.xml", and clicking the "Create Project" button
     
@@ -42,14 +42,14 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.30.1100."
-        # Create Record for one stratum
+    # Create Record for one stratum
     When I click on the link labeled "Add / Edit Records"
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 1 successfully edited."
-        # Ensure randomization button isn't available
+    # Ensure randomization button isn't available
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     Then I should NOT see a button labeled "Randomize"
     And I should see "Not yet randomized"
@@ -74,6 +74,7 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 2 successfully edited."
 
+  Scenario: C.3.30.1100.0400 User with randomize rights cannot modify randomized record.
     #Verify "Randomization group" field is populated with an expected value (i.e., what was selected from the allocation table).
     When I click on the link labeled "Add / Edit Records"
     And I select "2" on the dropdown field labeled "Choose an existing Record ID"
@@ -94,14 +95,5 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
   Scenario: C.3.30.1100.0300. Record's randomized value matches allocation table.  
     # This feature test is REDUNDANT and can be viewed in C.3.30.0200 and C.3.30.0300
 
-  Scenario: C.3.30.1100.0400 User with randomize rights cannot modify randomized record.
-    When I click on the link labeled "Add / Edit Records"
-    And I select "2" on the dropdown field labeled "Choose an existing Record ID"
-    And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
-    Then I should see "Already randomized"
-    And I should see a radio labeled "Drug A" in the row labeled "Already randomized" that is disabled
-    And I should see a radio labeled "Drug B" in the row labeled "Already randomized" that is disabled
-    And I should see a radio labeled "Placebo" in the row labeled "Already randomized" that is disabled
-
-Given I logout
+    Given I logout
 #End
