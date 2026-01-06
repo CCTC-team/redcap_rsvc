@@ -67,7 +67,6 @@ Scenario:#C.3.30.1400.0100. A record can be randomized across distinct models (e
       | test_user1 | Randomize Record 1 | Randomize record                             |
       | test_user1 | Update record 1    | rand_group = '1'                             |
 
-
 Scenario:#C.3.30.1400.0200. The system shall prevent a record from being randomized more than once within the same model.
     When I click on the link labeled "Add / Edit Records"
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
