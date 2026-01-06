@@ -40,14 +40,22 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.30.1100."
+<<<<<<< HEAD
     #Create Record for one stratum
+=======
+    # Create Record for one stratum
+>>>>>>> a3990c0 (Modified C.3.30.1100. - Randomization rights execute)
     When I click on the link labeled "Add / Edit Records"
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 1 successfully edited."
+<<<<<<< HEAD
     #Ensure randomization button isn't available
+=======
+    # Ensure randomization button isn't available
+>>>>>>> a3990c0 (Modified C.3.30.1100. - Randomization rights execute)
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     Then I should NOT see a button labeled "Randomize"
     And I should see "Not yet randomized"
@@ -94,7 +102,11 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
             |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        | 
 
   Scenario: C.3.30.1100.0300. Record's randomized value matches allocation table.  
+<<<<<<< HEAD
     #This feature test is REDUNDANT and can be viewed in C.3.30.0200 and C.3.30.0300
+=======
+    # This feature test is REDUNDANT and can be viewed in C.3.30.0200 and C.3.30.0300
+>>>>>>> a3990c0 (Modified C.3.30.1100. - Randomization rights execute)
 
     Given I logout
 #End
