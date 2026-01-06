@@ -360,9 +360,9 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I click on the link labeled "Randomization"
       And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
       Then I should see a table header and rows containing the following values in a table:
-              |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-              |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
-              |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        |
+        |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+        |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
+        |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        |
       And I click on the icon in the column labeled "View" and the row labeled "Drug B"
       Then I should see "View Allocation Table"
       And I should see a table header and rows containing the following values in a table:
@@ -384,9 +384,9 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       #VERIFY that the change to the target is reflected in the randomization dashboard
       When I click on the link labeled "Dashboard"
       Then I should see a table header and rows containing the following values in a table:
-              |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group |
-              |       | 0       |     1    |                   | No (0)           | Placebo (3)        |
-              |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)         |
+        |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group |
+        |       | 0       |     1    |                   | No (0)           | Placebo (3)        |
+        |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)         |
 
       #VERIFY: Logging
       Given I click on the link labeled "Logging"
@@ -429,11 +429,19 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I click on the button labeled "Download table"
       Then I should see the latest downloaded "csv" file containing the headings and rows below
         | redcap_randomization_number | redcap_randomization_group | strat_1 |
-        |                            | 1                          | 1       |
-        | 1                          | 3                          | 0       |
+        |                             | 1                          | 1       |
+        | 1                           | 3                          | 0       |
 
   Scenario: #C.3.30.1800.0300. Admin can manually randomize a record with reason.
-      Given I click on the link labeled "Randomization"
+      #VERIFY record is not randomized.
+      When I click on the link labeled "Add / Edit Records"
+      And I select "3" on the dropdown field labeled "Choose an existing Record ID"
+      And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
+      Then I should see a button labeled "Randomize"
+      And I should NOT see "Already randomized"
+
+      Given I click on the link labeled "Setup"
+      And I click on the button labeled "Set up randomization"
       And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
       And I click on the icon in the column labeled "View" and the row labeled "Placebo"
       Then I should see "View Allocation Table"
@@ -451,6 +459,13 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I should see a table header and rows containing the following values in a table:
         | Sequence | Target Field | Alternate | Record | Edit |
         |  1       | 3            | 1         | 3      |      |
+
+      When I click on the link labeled "Dashboard"
+      Then I should see a table header and rows containing the following values in a table:
+        |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+        |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        |
+        |       | 1       |     0    |     3             | No (0)           | Placebo (3)       |
+
       #VERIFY: Logging
       Given I click on the link labeled "Logging"
       Then I should see a table header and rows containing the following values in the logging table:
@@ -462,7 +477,7 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I select "3" on the dropdown field labeled "Choose an existing Record ID"
       And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
       Then I should see "Already randomized"
-      # And I should see a radio labeled "Placebo" that is in the disabled state
+      And I should NOT see a button labeled "Randomized"
       And I should see a radio labeled "Placebo" in the row labeled "Randomization group 1" that is disabled
 
   Scenario: #C.3.30.1800.0600. Admin can remove randomization with reason.
@@ -563,6 +578,9 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I should see an icon labeled "Edit Target Alternate" in the row labeled "1"
       And I should see an icon labeled "Manual Randomization" in the row labeled "1"
       And I should see an icon labeled "Make Sequence Unavailable" in the row labeled "1"
+      And I should see a table header and rows containing the following values in a table:
+        | Sequence | Target Field | Alternate | Record | Edit |
+        |  1       | 1            |           |        |      |
 
       #VERIFY: Logging
       Given I click on the link labeled "Logging"
