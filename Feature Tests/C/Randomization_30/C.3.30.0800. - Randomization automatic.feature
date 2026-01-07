@@ -32,6 +32,7 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I click on the button labeled "Save randomization model"
     When I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     When I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I should see the dropdown field labeled "Trigger option" with the option "Manual only, using Randomize button (default)" selected
 
   Scenario: C.3.30.0800.0100. Manual only, using Randomize button (default)
     When I click on the link labeled "Add / Edit Records"
@@ -45,6 +46,8 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I click on the button labeled "Randomize"
     Then I should see a dialog containing the following text: 'Record ID "1" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
     And I click on the button labeled "Close"
+    Then I should see "Already randomized"
+    And I should see the radio labeled "Randomization group 1" with option "Drug A" selected
     And I click on the button labeled "Save & Exit Form"
 
     #VERIFY - Logging
@@ -53,7 +56,7 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
       | Username   | Action             | List of Data Changes OR Fields Exported      |
       | test_user1 | Update record 1    |                                              |
       | test_user1 | Randomize Record 1 | Randomize record |
-      | test_user1 | Update record 1  | rand_group = '1' |
+      | test_user1 | Update record 1    | rand_group = '1' |
 
   #SETUP Randomization for 0200
   Scenario: C.3.30.0800.0200. Trigger logic, for users with Randomize permissions only
@@ -251,17 +254,17 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     #VERIFY - Logging
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported      |
-      | test_user1 | Update record 7 | survey_complete = '2' |
+      | Username   | Action             | List of Data Changes OR Fields Exported      |
+      | test_user1 | Update record 7    | survey_complete = '2' |
       | test_user1 | Randomize Record 7 | Randomize record |
-      | test_user1 | Update record 7 | rand_survey = '3', survey_complete = '0' |
-      | test_user2 | Update record 7  | demographics_complete = '2' |
-      | test_user1 | Manage/Design | Save randomization execute option (rid = 4) |
-      | test_admin | Manage/Design | Move project to Production status |
-      | test_admin | Update record 8 | rand_survey = '' |
-      | test_admin | Update record 7 | rand_survey = '' |
-      | test_admin | Update record 6 | auto_rand = '' |
-      | test_admin | Update record 1 | rand_group = '' |
+      | test_user1 | Update record 7    | rand_survey = '3', survey_complete = '0' |
+      | test_user2 | Update record 7    | demographics_complete = '2' |
+      | test_user1 | Manage/Design      | Save randomization execute option (rid = 4) |
+      | test_admin | Manage/Design      | Move project to Production status |
+      | test_admin | Update record 8    | rand_survey = '' |
+      | test_admin | Update record 7    | rand_survey = '' |
+      | test_admin | Update record 6    | auto_rand = '' |
+      | test_admin | Update record 1    | rand_group = '' |
 
     And I logout
 #END
