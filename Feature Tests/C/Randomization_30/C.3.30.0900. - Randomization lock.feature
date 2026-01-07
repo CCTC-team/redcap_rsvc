@@ -39,11 +39,10 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         And I should see the button labeled "Erase randomization model" that is disabled
 
         #Verify unable to modify Stratification
-        And I should see a checkbox labeled "A) Use stratified randomization?" that is checked
+        And I should see a checkbox labeled "A) Use stratified randomization?" that is disabled
 
         #Verify unable to change randomize by group/site
         And I should see a checkbox labeled "B) Randomize by group/site?" that is disabled
-
 
         #verify unable to change randomization field
         And I should see the dropdown labeled "rand_group (Randomization group 1)" that is disabled
@@ -73,7 +72,7 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         And I should see the button labeled "Erase randomization model" that is disabled
 
         #Verify unable to modify Stratification
-        And I should see a checkbox labeled "A) Use stratified randomization?" that is checked
+        And I should see a checkbox labeled "A) Use stratified randomization?" that is disabled
 
         #Verify unable to change randomize by group/site
         And I should see a checkbox labeled "B) Randomize by group/site?" that is disabled
@@ -106,7 +105,7 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         #verify logging for the upload
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-        | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-        | mm/dd/yyyy hh:mm | test_admin | Manage/Design |Upload randomization allocation table to append - production (rid=2)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
+            | mm/dd/yyyy hh:mm | test_admin | Manage/Design |Upload randomization allocation table to append - production (rid=2)|
         And I logout
 #End
