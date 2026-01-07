@@ -1,8 +1,8 @@
 Feature: Project Interface Administrator Access: The system shall support administrator-only access to the randomization module's View Allocation Table page.
-As a REDCap end user
-I want to see that Randomization is functioning as expected
+  As a REDCap end user
+  I want to see that Randomization is functioning as expected
   
-   Scenario: #SETUP project with randomization enabled
+  Scenario: #SETUP project with randomization enabled
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "C.3.30.1700." by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project 3.30 baserand.REDCap.xml", and clicking the "Create Project" button
     
@@ -28,7 +28,7 @@ I want to see that Randomization is functioning as expected
     When I upload a "csv" format file located at "import_files/Randomization_one_strat.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     Then I should see "Already uploaded"
 
-    # Create Record for one stratum
+    #Create Record for one stratum
     When I click on the link labeled "Add / Edit Records"
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
@@ -55,7 +55,7 @@ I want to see that Randomization is functioning as expected
     And I should NOT see a table with header "View"
     And I logout
 
- Scenario: #C.3.30.1700.0100. Admin accesses View Allocation Table page.
+  Scenario: #C.3.30.1700.0100. Admin accesses View Allocation Table page.
     Given I login to REDCap with the user "Test_Admin"
     When  I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
