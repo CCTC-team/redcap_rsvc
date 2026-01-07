@@ -35,14 +35,21 @@ Feature: C.3.30.1200.	User Interface: The system shall support an audit trail sh
       And I click the bubble for the row labeled "Randomization" instrument on the column labeled "Status"
       And I click on the first button labeled "Randomize"
       And I should see "Below you may perform randomization"
+      And I should NOT see "Already randomized"
       And I click on the button labeled "Randomize"
       Then I should see a dialog containing the following text: 'Record ID "6" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
       And I click on the button labeled "Close"
+      Then I should see the radio labeled "Randomization group 1" with option "Drug A" selected
+      And I should see a radio labeled "Drug A" in the row labeled "Randomization group 1" that is disabled
+      And I should see a radio labeled "Drug B" in the row labeled "Randomization group 1" that is disabled
+      And I should see a radio labeled "Placebo" in the row labeled "Randomization group 1" that is disabled
+      And I should see "Already randomized"
       And I click on the button labeled "Randomize"
       And I should see "Below you may perform randomization"
       And I click on the button labeled "Randomize"
       Then I should see a dialog containing the following text: 'Record ID "6" was randomized for the field "Blinded randomization" and assigned the value "1".'
       And I click on the button labeled "Close"
+      Then I should see "1" in the data entry form field "Blinded randomization"
       And I click on the button labeled "Save & Exit Form"
 
    Scenario: #C.3.30.1200.0200 Logging includes the target field allocation value.
