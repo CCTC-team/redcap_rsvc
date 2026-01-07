@@ -77,6 +77,9 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I enter "CONFIRM" into the input field labeled 'Type "CONFIRM"'
       And I click on the button labeled "Confirm"
       Then I should see a "3" within the "1" row of the column labeled "Target Field"
+      And I should see a table header and rows containing the following values in a table:
+        | Sequence | Target Field | Alternate | Record | Edit |
+        |  1       | 3            |           |        |      |
 
       #VERIFY that the change to the target is reflected in the randomization dashboard
       When I click on the link labeled "Dashboard"
@@ -97,9 +100,6 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
       And I click on the icon in the column labeled "View" and the row labeled "Placebo"
       Then I should see "View Allocation Table"
-      And I should see a table header and rows containing the following values in a table:
-        | Sequence | Target Field | Alternate | Record | Edit |
-        |  1       | 3            |           |        |      |
       And I should see a " " within the "1" row of the column labeled "Alternate"
       When I click on the icon labeled "Edit Target Alternate"
       Then I should see "Specify Reason"
@@ -142,6 +142,7 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
       And I click on the icon in the column labeled "View" and the row labeled "Placebo"
       Then I should see "View Allocation Table"
+      And I should see a "" within the "1" row of the column labeled "Record"
 
       When I click on the icon labeled "Manual Randomization"
       Then I should see "Specify Reason"
@@ -176,6 +177,7 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       Then I should see "Already randomized"
       And I should NOT see a button labeled "Randomized"
       And I should see a radio labeled "Placebo" in the row labeled "Randomization group 1" that is disabled
+      And I should see the radio labeled "Randomization group 1" with option "Placebo" selected
 
   Scenario: #C.3.30.1800.0600. Admin can remove randomization with reason.
       Given I click on the link labeled "Setup"
@@ -234,6 +236,9 @@ Feature: Project Interface Administrator Access: The system shall support the ad
       And I click on the button labeled "Confirm"
       Then I should see a "" within the "1" row of the column labeled "Record"
       And I should see an icon labeled "Restore" in the row labeled "1"
+      And I should see a table header and rows containing the following values in a table:
+        | Sequence | Target Field | Alternate | Record | Edit |
+        |  1       | 1            |           |        |      |
 
       #VERIFY: Logging
       Given I click on the link labeled "Logging"
