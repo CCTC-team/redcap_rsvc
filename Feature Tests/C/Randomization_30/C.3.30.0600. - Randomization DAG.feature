@@ -56,7 +56,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     Then I upload a "csv" format file located at "downloads/RandomizationAllocationTemplate.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     
     #Adding Allocation table for automation
-    When I upload a "csv" format file located at "import_files/AllocationTblC.3.30.0600.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    When I upload a "csv" format file located at "import_files/AllocationTblC.3.30.0600.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     Then I should see " Success! The randomization allocation table was created!"
 
 
@@ -84,21 +84,25 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     Then I should see "Record ID 1-1 successfully edited."
     #M This number may be diferent with manual testing.
 
-      #VERIFY Randomization value was saved and field now has a value.
+    #VERIFY Randomization value was saved and field now has a value.
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
-    Then I should see "Already randomized" 
+    Then I should see "Already randomized"
+    And I should see the radio labeled "Randomization group 2" with option "Drug A" selected
+    And I should see a radio labeled "Drug A" in the row labeled "Randomization group 2" that is disabled
+    And I should see a radio labeled "Drug B" in the row labeled "Randomization group 2" that is disabled
+    And I should see a radio labeled "Placebo" in the row labeled "Randomization group 2" that is disabled
 
-      #VERIFY access restriction | Test_User2 doesn't have access to records outside of their dag.
+    #VERIFY access restriction | Test_User2 doesn't have access to records outside of their dag.
     When I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID |
       | 1-1       |
-      #M This record ID may be diferent with manual testing.
+    #M This record ID may be diferent with manual testing.
 
-      #Verification that user does not have access to record 2. Ensuring they cannot view or randomize records outside their group is fully covered by B.2.10.0400. User Interface: The system shall provide the ability to restrict a user who has been assigned to a DAG.
+    #Verification that user does not have access to record 2. Ensuring they cannot view or randomize records outside their group is fully covered by B.2.10.0400. User Interface: The system shall provide the ability to restrict a user who has been assigned to a DAG.
     And I should see "ALL (1)" 
     
-      #VERIFY Record Randomization was added to the randomization dashboard.
+    #VERIFY Record Randomized was added to the randomization dashboard.
     Given I logout
     And I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
@@ -114,16 +118,16 @@ Feature: User Interface: The system shall restrict users to randomizing records 
       | 0       |     1    |                     | DAG 2 (2)                                  | Drug B (2)                        |
       | 0       |     1    |                     | DAG 2 (2)                                  | Placebo (3)                       |
       | 1       |     0    |     1-1             | DAG 1 (1)                                  | Drug A (1)                        |
-      #M This record ID may be diferent with manual testing.
-       	
-      #VERIFY_log Randomization at project level enabled recorded in logging table
+    #M This record ID may be diferent with manual testing.
+
+    #VERIFY_log Randomization at project level enabled recorded in logging table
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action              | List of Data Changes OR Fields Exported           |
-      | mm/dd/yyyy hh:mm | test_user2 | Randomize Record 1-1|Randomize record|
-      | mm/dd/yyyy hh:mm | test_user2 | Update record 1-1   |Assign record to Data Access Group (redcap_data_access_group = 'dag_1')|
-      | mm/dd/yyyy hh:mm | test_user2 | Create record 1-1   |strat_1 = '1', demographics_complete = '0', record_id = '1-1'|
-      #M These record IDs may be diferent with manual testing.
+      | mm/dd/yyyy hh:mm | test_user2 | Randomize Record 1-1| Randomize record |
+      | mm/dd/yyyy hh:mm | test_user2 | Update record 1-1   | Assign record to Data Access Group (redcap_data_access_group = 'dag_1') |
+      | mm/dd/yyyy hh:mm | test_user2 | Create record 1-1   | strat_1 = '1', demographics_complete = '0', record_id = '1-1' |
+    #M These record IDs may be diferent with manual testing.
 
 
   Scenario: FUNCTIONAL_REQUIREMENT C.3.30.0600.0200: The randomization model shall support stratification by DAG, allowing independent randomization assignments within each DAG.
@@ -136,11 +140,12 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
-    And I should see "Already randomized" 
+    And I should see "Already randomized"
+    And I should see the radio labeled "Randomization group 2" with option "Drug B" selected
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 6 successfully edited."
 
-      #VERIFY Logging
+    #VERIFY Logging
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       |Time / Date        | Username   | Action              | List of Data Changes OR Fields Exported      |
@@ -161,10 +166,11 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
     And I should see "Already randomized"
+    And I should see the radio labeled "Randomization group 2" with option "Drug A" selected
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 7 successfully edited."
 
-      #VERIFY Logging
+    #VERIFY Logging
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       |Time / Date        | Username   | Action              | List of Data Changes OR Fields Exported      |
