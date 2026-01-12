@@ -1,7 +1,7 @@
 Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomization Setup can create and modify randomization models while in project development mode.
     As a REDCap end user
     I want to see that Randomization is functioning as expected
-  
+
     Scenario: #SETUP project with randomization enabled
         Given I login to REDCap with the user "Test_User1"
         And I create a new project named "C.3.30.0700." by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project 3.30 baserand.REDCap.xml", and clicking the "Create Project" button
@@ -38,8 +38,8 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
 
         #VERIFY
         Then I should see a table header and rows containing the following values in a table:
-                | Data Access Groups |
-                | DAG 1              |
+            | Data Access Groups |
+            | DAG 1              |
 
     Scenario: C.3.30.0700.2300. User without Randomization Setup rights cannot access Setup via Project Setup
         Given I logout
@@ -61,9 +61,16 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         And I select "rand_group (Randomization group 1)" on the dropdown field labeled "Choose your randomization field"
         And I click on the button labeled "Save randomization model"
         Then I should see "Success! The randomization model has been saved!"
-        
+
+        #VERIFY Randomization model was added to the randomization summary.
+        When I click on the link labeled "Summary"
+        Then I should see a table header and rows containing the following values in a table:
+            | # | Target       | Stratification   | Randomization ID |
+            | 2 | rand_group   | strat_1          | 2                |
+
     Scenario: C.3.30.0700.2200 Upload invalid allocation table in DEVELOPMENT
-        When I upload a "csv" format file located at "import_files/Invalid_Allocation.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+        When I click on the icon in the column labeled "Setup" and the row labeled "1"
+        And I upload a "csv" format file located at "import_files/Invalid_Allocation.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
         Then I should see "ERROR: The following errors occurred. Please address them and try again."
 
         #Adding valid allocation table
@@ -72,9 +79,6 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         Then I should see "Already uploaded"
 
     Scenario: C.3.30.0700.2000. Modify an existing randomization model
-        When I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
         Then I should see "If you wish to modify the randomization setup below, you will need to click the Erase Randomization Model button below."
 
         # Create Record for one stratum
@@ -93,7 +97,6 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         And I click on the button labeled "Close"
         And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 1 successfully edited."
-        
 
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Setup"
@@ -101,25 +104,25 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
         And I click on the link labeled "Dashboard"
         Then I should see a table header and rows containing the following values in a table:
-            |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-            |       | 0       |     1    |                   | No (0)           | Drug B (2)        |   
-            |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        | 	
-           
+            | Used    | Not Used | Allocated records | Stratification 1 | Randomization group |
+            | 0       |     1    |                   | No (0)           | Drug B (2)          |
+            | 1       |     0    |     1             | Yes (1)          | Drug A (1)          |
+
         #VERIFY_log Randomization at project level enabled recorded in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Time / Date      | Username   | Action            | List of Data Changes OR Fields Exported           |
-            | mm/dd/yyyy hh:mm | test_user1 | Randomize Record 1|Randomize record|
-            | mm/dd/yyyy hh:mm | test_user1 | Update record 1   |rand_group = '1'|
-            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design     |Upload randomization allocation table - development (rid=2)|
+            | Time / Date      | Username   | Action            | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Randomize Record 1| Randomize record                        |
+            | mm/dd/yyyy hh:mm | test_user1 | Update record 1   | rand_group = '1'                        |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design     | Upload randomization allocation table - development (rid=2) |
 
     Scenario: C.3.30.0700.0100. Disable stratified randomization.  
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the button labeled "Add new randomization model"
         And I check the checkbox labeled "A) Use stratified randomization?"
-        And I select "strat_1 (Stratification 1)" on the first dropdown field labeled "- select a field -"
-        And I uncheck the checkbox labeled "A) Use stratified randomization?"
+        Then I should see "Choose strata"
+        When I uncheck the checkbox labeled "A) Use stratified randomization?"
         Then I should NOT see "Choose strata"
 
     Scenario: C.3.30.0700.1100. Erase randomization model. 
@@ -131,11 +134,15 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
         Then I should see "Add new randomization model"
 
+        #VERIFY Randomization model was deleted from the randomization summary.
+        When I click on the link labeled "Summary"
+        Then I should NOT see "rand_group"
+
         #VERIFY_log Randomization at project level enabled recorded in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Erase randomization model and allocations (rid=2)| 
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Erase randomization model and allocations (rid=2) |
 
     Scenario: C.3.30.0700.0300. Enable stratified randomization with up to 14 strata (test all 14). 
         When I click on the link labeled "Setup"
@@ -169,15 +176,22 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         And I select "strat_13 (Stratification 13)" on the thirteenth dropdown field labeled "- select a field -"
         And I click on the button labeled "Add another stratum"
         And I select "strat_14 (Stratification 14)" on the fourteenth dropdown field labeled "- select a field -"
+        When I click on the button labeled "Add another stratum"
+        Then I should see an alert box with the following text: "Sorry, but the maximum number of fields that can be used as randomization criteria is 14"
         And I select "rand_group (Randomization group 1)" on the fifteenth dropdown field labeled "- select a field -"
         And I click on the button labeled "Save randomization model"
         Then I should see "Success! The randomization model has been saved!"
-        
+
+        When I click on the link labeled "Summary"
+        Then I should see a table header and rows containing the following values in a table:
+            | # | Target     | Stratification | Randomization ID |
+            | 1 | rand_group | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14 | 3 |
+
         #VERIFY_log Randomization at project level enabled recorded in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Time / Date      | Username   | Action            | List of Data Changes OR Fields Exported           |
-            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design     |Save randomization model (rid=3)|
+            | Time / Date      | Username   | Action            | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design     | Save randomization model (rid=3)        |
 
     Scenario: C.3.30.0700.0400. Randomize by group/site enabled with no option selected.  
         When I click on the link labeled "Setup"
@@ -190,15 +204,11 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
 
         #VERIFY Randomization model was not added to the randomization summary.
         When I click on the link labeled "Summary"
-        Then I should see a table header and rows containing the following values in a table:
-                | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-                | 1      | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-                
+        Then I should NOT see "rand_group_2"
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
-        Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=3)| 
+        Then I should NOT see "rid=4"
 
     Scenario: C.3.30.0700.0500. Randomize by group/site enabled with DAG selected.  
         When I click on the link labeled "Setup"
@@ -213,16 +223,15 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Summary"
         Then I should see a table header and rows containing the following values in a table:
-                | #     | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-                | 1     | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-                | 2     | rand_group_2 |                 | Data Access Group | 0                              | 0                           |       |           | 4                |
-                
+            | # | Target       | Stratification    | Randomization ID |
+            | 1 | rand_group   | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14 | 3 |
+            | 2 | rand_group_2 | Data Access Group |  4                |
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=4)| 
-
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Save randomization model (rid=4)        |
 
     Scenario: C.3.30.0700.0600. Randomize by group/site enabled with an existing field selected.  
         When I click on the link labeled "Setup"
@@ -238,16 +247,17 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Summary"
         Then I should see a table header and rows containing the following values in a table:
-                | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-                | 1      | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-                | 2      | rand_group_2 |                 | Data Access Group | 0                              | 0                           |       |           | 4                |
-            | 3      | rand_group_3 |                 | gender | 0                              | 0                           |       |           | 5                |
-                
+            | # | Target       | Stratification   | Randomization ID |
+            | 1 | rand_group   | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14 | 3 |
+            | 2 | rand_group_2 | Data Access Group | 4               |
+            | 3 | rand_group_3 | gender            | 5               |
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=5)| 
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Save randomization model (rid=5)        | 
+
 
     Scenario: C.3.30.0700.0700. Choose open randomization dropdown field.   
         When I click on the link labeled "Setup"
@@ -260,18 +270,17 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Summary"
         Then I should see a table header and rows containing the following values in a table:
-                | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-                | 1      | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-                | 2      | rand_group_2 |                 | Data Access Group | 0                              | 0                           |       |           | 4                |
-            | 3      | rand_group_3 |                 | gender | 0                              | 0                           |       |           | 5                |
-            | 4      | rand_group_4 |                 |                | 0                              | 0                           |       |           | 6               |
-                
+            | # | Target       | Stratification   | Randomization ID |
+            | 1 | rand_group   | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14| 3 |
+            | 2 | rand_group_2 | Data Access Group | 4                |
+            | 3 | rand_group_3 | gender            | 5                |
+            | 4 | rand_group_4 |                   | 6                |
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=6)                   |
-
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=6)         |
 
     Scenario: C.3.30.0700.0800. Choose open randomization radio field.  
         When I click on the link labeled "Setup"
@@ -284,18 +293,18 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Summary"
         Then I should see a table header and rows containing the following values in a table:
-            | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-            | 1      | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-            | 2      | rand_group_2 |                 | Data Access Group | 0                              | 0                           |       |           | 4                |
-            | 3      | rand_group_3 |                 | gender | 0                              | 0                           |       |           | 5                |
-            | 4      | rand_group_4 |                 |                | 0                              | 0                           |       |           | 6               |
-            | 5      | rand_group_5 |                 |        | 0                              | 0                           |       |           | 7               |
-                
+            | # | Target       | Stratification    | Randomization ID |
+            | 1 | rand_group   | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14 | 3 |
+            | 2 | rand_group_2 | Data Access Group | 4                |
+            | 3 | rand_group_3 |  gender           | 5                |
+            | 4 | rand_group_4 |                   | 6                |
+            | 5 | rand_group_5 |                   | 7                |
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=7)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Save randomization model (rid=7)        |
 
     Scenario: C.3.30.0700.0900. Choose concealed randomization text field.  
         When I click on the link labeled "Setup"
@@ -308,24 +317,24 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY Randomization model was added to the randomization summary.
         When I click on the link labeled "Summary"
         Then I should see a table header and rows containing the following values in a table:
-                | #      | Target     | Allocation Type | Stratification | Total Allocations (Development) |Total Allocations (Production)| Setup | Dashboard | Randomization ID |
-                | 1      | rand_group |                 | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14         | 0                              | 0                           |       |           | 3                |
-                | 2      | rand_group_2 |                 | Data Access Group | 0                              | 0                           |       |           | 4                |
-    	    | 3      | rand_group_3 |                 | gender | 0                              | 0                           |       |           | 5                |
-    	    | 4      | rand_group_4 |                 |                | 0                              | 0                           |       |           | 6               |
-    	    | 5      | rand_group_5 |                 |        | 0                              | 0                           |       |           | 7               |
-    	    | 6      | rand_blind |                 |        | 0                              | 0                           |       |           | 8               |
-        
+            | # | Target       | Stratification    | Randomization ID |
+            | 1 | rand_group   | strat_1 strat_2 strat_3 strat_4 strat_5 strat_6 strat_7 strat_8 strat_9 strat_10 strat_11 strat_12 strat_13 strat_14 | 3 |
+            | 2 | rand_group_2 | Data Access Group | 4               |
+    	    | 3 | rand_group_3 | gender            | 5               |
+    	    | 4 | rand_group_4 |                   | 6               |
+    	    | 5 | rand_group_5 |                   | 7               |
+    	    | 6 | rand_blind   |                   | 8               |
+
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Save randomization model (rid=8)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Save randomization model (rid=8)        |
 
-     Scenario: C.3.30.0700.1000. Save randomization model.  
+    Scenario: C.3.30.0700.1000. Save randomization model.
         #REDUNDANT - Tested in C.3.30.0700.0200 | C.3.30.0700.0300 | C.3.30.0700.0500 | C.3.30.0700.0600 | C.3.30.0700.0700 | C.3.30.0700.0800 | C.3.30.0700.0900 | 
 
-     Scenario: C.3.30.0700.1200. Download example allocation tables (Excel/CSV).  
+    Scenario: C.3.30.0700.1200. Download example allocation tables (Excel/CSV).
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the button labeled "Add new randomization model"
@@ -343,7 +352,7 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         When I click on the button labeled "Example #3 (5x all possible combos)"
         Then I should see a downloaded file named "RandomizationAllocationTemplate.csv"
 
-     Scenario: C.3.30.0700.1300. User with Randomization Setup uploads a unique allocation table in DEVELOPMENT status (system prevents duplicate uploads).
+    Scenario: C.3.30.0700.1300. User with Randomization Setup uploads a unique allocation table in DEVELOPMENT status (system prevents duplicate uploads).
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1" 
@@ -355,10 +364,10 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Upload randomization allocation table - development (rid=3)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported                     |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Upload randomization allocation table - development (rid=3) |
 
-     Scenario: C.3.30.0700.1400. User with Randomization Setup downloads the allocation table previously uploaded in DEVELOPMENT.
+    Scenario: C.3.30.0700.1400. User with Randomization Setup downloads the allocation table previously uploaded in DEVELOPMENT.
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1" 
@@ -369,10 +378,10 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Download randomization allocation table (development)|
-        
-     Scenario: C.3.30.0700.1600. User with Randomization Setup uploads a unique allocation table in PRODUCTION status (system prevents duplicate uploads).
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported               |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Download randomization allocation table (development) |
+
+    Scenario: C.3.30.0700.1600. User with Randomization Setup uploads a unique allocation table in PRODUCTION status (system prevents duplicate uploads).
         #Duplicate Upload File
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
@@ -383,35 +392,30 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         Then I should see "ERROR: Duplicate allocation table!"
 
         #Different Upload File
-        When I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1" 
-        Then I should see "STEP 3: Upload your allocation table (CSV file)"
-
         When I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate_new.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
         Then I should see "Already uploaded"
 
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Upload randomization allocation table - production (rid=3)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported                    |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Upload randomization allocation table - production (rid=3) |
 
-     Scenario: C.3.30.0700.1700. User with Randomization Setup downloads the allocation table previously uploaded in PRODUCTION.
+    Scenario: C.3.30.0700.1700. User with Randomization Setup downloads the allocation table previously uploaded in PRODUCTION.
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1" 
         Then I should see "STEP 3: Upload your allocation table (CSV file)"
         When I click on the second button labeled "Download table"
-        Then I should see a downloaded file named "RandomizationAllocationTable_Dev.csv"
+        Then I should see a downloaded file named "RandomizationAllocationTable_Prod.csv"
 
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Download randomization allocation table (development)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported               |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Download randomization allocation table (development) |
 
-     Scenario: C.3.30.0700.1500. User with Randomization Setup deletes the allocation table previously uploaded in DEVELOPMENT.
+    Scenario: C.3.30.0700.1500. User with Randomization Setup deletes the allocation table previously uploaded in DEVELOPMENT.
         When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1" 
@@ -422,14 +426,12 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY_log Randomization deleted in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_user1 | Manage/Design |Delete randomization allocation table (development)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported             |
+            | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Delete randomization allocation table (development) |
 
-     Scenario: C.3.30.0700.1800. Admin deletes the allocation table previously uploaded in PRODUCTION.
+    Scenario: C.3.30.0700.1800. Admin deletes the allocation table previously uploaded in PRODUCTION.
         Given I logout
         And I login to REDCap with the user "Test_Admin"
-        When I click on the link labeled "My Projects"
-        And I click on the link labeled "C.3.30.0700."
         And I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1" 
@@ -440,95 +442,25 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #VERIFY_log Randomization deleted in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_admin | Manage/Design |Delete randomization allocation table (production)|
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported            |
+            | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Delete randomization allocation table (production) |
 
-        #Removing randomization models so we can move the project to production and test 
+        #Check if below xan be deleted as additional allocation is verified in 900. All beow steps are for that???
+        #Removing randomization models
         Given I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
+        And I click on the icon in the column labeled "Setup" and the row labeled "rand_group_6"
         And I wait for 1 second
         And I click on the button labeled "Erase randomization model"
         And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
         Then I should see "Add new randomization model"
+        Then I should NOT see "rand_group_6"
 
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I wait for 1 second
-        And I click on the button labeled "Erase randomization model"
-        And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
-        Then I should see "Add new randomization model"
-
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I wait for 1 second
-        And I click on the button labeled "Erase randomization model"
-        And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
-        Then I should see "Add new randomization model"
-        
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I wait for 1 second
-        And I click on the button labeled "Erase randomization model"
-        And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
-        Then I should see "Add new randomization model"
-
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I wait for 1 second
-        And I click on the button labeled "Erase randomization model"
-        And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
-        Then I should see "Add new randomization model"
-
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I wait for 1 second
-        And I click on the button labeled "Erase randomization model"
-        And I should see an alert box with the following text: "Are you sure you wish to erase your randomization setup?"
-        Then I should see "Add new randomization model"
-
-    
-        #SETUP_PRODUCTION (Re-adding allocation tables so the project can be moved to production)
-        When I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1" 
-        Then I should see "STEP 3: Upload your allocation table (CSV file)"
-
-        When I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate_1basic.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-        Then I should see "Already uploaded"
-
-        When I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1" 
-        Then I should see "STEP 3: Upload your allocation table (CSV file)"
-
-        When I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate_2allcombos.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-        Then I should see "Already uploaded"
-
-       #SETUP
-        And I click on the link labeled "Setup"
-        And I click on the button labeled "Move project to production"
-        And I click on the radio labeled "Keep ALL data saved so far"
-        And I click on the button labeled "YES, Move to Production Status"
-
-        #VERIFY
-        Then I should see "Project status:  Production"
-
-     Scenario: C.3.30.0700.1900. Admin uploads an additional allocation table in PRODUCTION status.
-        Given I click on the link labeled "Setup"
-        And I click on the button labeled "Set up randomization"
-        And I click on the icon in the column labeled "Setup" and the row labeled "1"
-        And I click on the link labeled "Upload more allocations?"
-        And I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate_2allcombos2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-        Then I should see "Success! New assignments were appended to your existing randomization allocation table!"
+        #VERIFY_log Randomization model deleted in logging table
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-                | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
-                | mm/dd/yyyy hh:mm | test_admin | Manage/Design |Upload randomization allocation table to append - production (rid=9)|
-        
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
+            | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Erase randomization model and allocations (rid=9) |
+
+    #Scenario: C.3.30.0700.1900 - Verified in CC.3.30.0900.0600. Admin can upload additional allocations to existing table in production.
 #End
