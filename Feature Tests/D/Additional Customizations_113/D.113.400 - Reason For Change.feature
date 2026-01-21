@@ -35,7 +35,7 @@ Feature: D.113.400 - The system shall support the ability to specify a reason wh
             | Date / Time of Change | User       | Data Changes Made | Reason for Data Change(s) | 
             | mm/dd/yyyy hh:mm      | test_admin | Lily Brown        | Reason 2                  |
 
-        And I click on the button labeled "Close" in the dialog box
+        And I click on the button labeled "Close"
         And I click on the link labeled "Text Validation"
         When I click on the History icon for the field labeled "Name"
         # Bug - Should be Reason 1 but shows Reason 2
@@ -43,13 +43,13 @@ Feature: D.113.400 - The system shall support the ability to specify a reason wh
             | Date / Time of Change | User       | Data Changes Made | Reason for Data Change(s) | 
             | mm/dd/yyyy hh:mm      | test_admin | Tony Stone        | Reason 2                  |
 
-        And I click on the button labeled "Close" in the dialog box
+        And I click on the button labeled "Close"
         When I clear field and enter "John" into the data entry form field labeled "Name"
         And I clear field and enter "john@email.com" into the data entry form field labeled "Email" 
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-        Then I should see "Please supply reason for data changes" in the dialog box 
-        And I enter "Reason 3" into the textarea field labeled "Reason for changes:" in the dialog box
-        And I click on the button labeled "Save" in the dialog box
+        Then I should see "Please supply reason for data changes" 
+        And I enter "Reason 3" into the textarea field labeled "Reason for changes:"
+        And I click on the button labeled "Save"
 
         #ACTION: Verify reason for change history
         When I click on the History icon for the field labeled "Name"

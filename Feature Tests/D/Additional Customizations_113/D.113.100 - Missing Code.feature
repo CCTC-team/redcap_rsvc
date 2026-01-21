@@ -47,14 +47,14 @@ Feature: D.113.100 - The system shall support the ability to add Missing Data Co
 
             #ACTION: Verify Missing Data Code in csv download file
             Given I click on the button labeled "Export Data"
-            And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
-            And I click on the button labeled "Export Data" in the dialog box
+            And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
+            And I click on the button labeled "Export Data"
             Then I should see a dialog containing the following text: "Data export was successful!"
-            And I click on the download icon to receive the file for the "CSV / Microsoft Excel (raw data)" format in the dialog box
+            And I click on the download icon to receive the file for the "CSV / Microsoft Excel (raw data)" format
             Then I should have the latest downloaded "csv" file that contains the headings and rows below
                   | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | ptname_v2_v2 | email_v2 | text_validation_complete | ptname | text2 | textbox | notesbox | calculated_field | multiple_dropdown_auto | multiple_dropdown_manual | radio_button_auto   | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | checkbox___inv | checkbox___unk | signature | file_upload | required | identifier | identifier_2 | edit_field | data_types_complete |
                   | 1         | event_1_arm_1     |                          |                        |                          | UNK          | INV      | 0                        |        |       |         |          |                  |                        |                          |                     |                     |              |              |              |                |                |           |             |          |            |              |            |                     |
                   | 1         | event_1_arm_1     | data_types               |            1           |                          |              |          |                          |        |       |         |          | 6                |                        |                          |                     |                     | 0            | 0            | 0            | 0              | 0              |           |             |          |            |              |            | 2                   |
             
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
             And I logout

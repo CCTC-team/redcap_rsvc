@@ -45,7 +45,7 @@ Feature: D.112.100 - The system shall support the ability to send password over 
         ##ACTION: Reset Password 
         Given I click on the link labeled "Profile"
         Then I click on the button labeled "Reset password"
-        And I click on the button labeled "Reset" in the dialog box
+        And I click on the button labeled "Reset"
         Then I should see "Set Your Password"
         Then I enter "Testingpass123" into the input field labeled "Password"
         And I enter "Testingpass123" into the input field labeled "Re-type password"

@@ -82,7 +82,7 @@ Feature: D.119.100 Downloading Metadata - The system shall support the ability t
     And I should see a checkbox labeled "Require a 'reason' when making changes to existing records?" that is unchecked
     And I should see a checkbox labeled "Protected Email Mode" that is unchecked
     And I should see a checkbox labeled "Data Entry Trigger" that is unchecked
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
 
     #VERIFY: Data Quality
     When I click on the link labeled "Data Quality"

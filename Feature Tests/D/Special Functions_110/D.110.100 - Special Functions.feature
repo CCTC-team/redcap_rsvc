@@ -16,7 +16,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I should see a field named "Date difference in days"
     And I click on the Edit icon for the variable "calc_date_days" 
     And I enter the equation "datediff([date_1], [date_2], 'd')" into Calculation Equation of the open "Add New Field" dialog box
-    # And I enter "datediff([date_1], [date_2], 'd')" into the input field labeled "Calculation Equation" in the dialog box
+    # And I enter "datediff([date_1], [date_2], 'd')" into the input field labeled "Calculation Equation"
     # And I click on the button labeled "Update & Close Editor"
     And I click on the button labeled "Save"
     

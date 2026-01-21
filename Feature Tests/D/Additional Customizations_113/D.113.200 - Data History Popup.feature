@@ -12,7 +12,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
             Given I click on the link labeled "Project Setup"
             And I click on the button labeled "Additional customizations"
             Then I should see a checkbox labeled Enable the Data History popup for all data collection instruments that is checked in additional customizations
-            And I click on the button labeled "Cancel" in the dialog box
+            And I click on the button labeled "Cancel"
             
             #VERIFY - Data History Popup entries
             Given I click on the link labeled "Record Status Dashboard"
@@ -23,7 +23,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
                   | Date/Time of Change           |
                   | No data exists for this field |
 
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
             When I enter "John" into the data entry form field labeled "Name" 
             And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
             And I click on the History icon for the field labeled "Name"
@@ -31,7 +31,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
                   | Date/Time of Change | User       | Data Changes Made | 
                   | mm/dd/yyyy hh:mm    | test_admin | John              |
 
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
             When I clear field and enter "Joe" into the data entry form field labeled "Name" 
             And I click on the button labeled "Save & Stay"
             And I click on the History icon for the field labeled "Name"
@@ -40,13 +40,13 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
                   | mm/dd/yyyy hh:mm    | test_admin | John              |
                   | mm/dd/yyyy hh:mm    | test_admin | Joe               |
 
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
 
       Scenario: Disable Data History Popup 
             Given I click on the link labeled "Project Setup"
             And I click on the button labeled "Additional customizations"
             And I uncheck the checkbox labeled Enable the Data History popup for all data collection instruments in additional customizations
-            Then I click on the button labeled "Save" in the dialog box
+            Then I click on the button labeled "Save"
             
             #VERIFY_LOG
             Given I click on the link labeled "Logging"

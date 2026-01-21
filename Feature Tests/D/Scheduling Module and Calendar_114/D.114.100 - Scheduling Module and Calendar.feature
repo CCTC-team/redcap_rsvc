@@ -32,10 +32,10 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     When I click on the button labeled "Upload or download instrument mappings"
     And I click on the link labeled "Upload instrument-event mappings (CSV)"
     And I upload a "csv" format file located at "import_files/redcap_val/D114100_InstrumentDesignations.csv", by clicking the button near "Select your CSV File of Instrument-Event Designations" to browse for the file, and clicking the button labeled "Upload" to upload the file
-    Then I should see "Upload instrument-event mappings (CSV)" in the dialog box
-    And I click on the button labeled exactly "Upload" in the dialog box
-    Then I should see "SUCCESS!" in the dialog box
-    And I click on the button labeled "Close" in the dialog box
+    Then I should see "Upload instrument-event mappings (CSV)"
+    And I click on the button labeled "Upload"
+    Then I should see "SUCCESS!"
+    And I click on the button labeled "Close"
     Then I verify the Data Collection Instrument named "Text Validation" is enabled for the Event named "Event 1"
     And I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 1"
     And I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 2"
@@ -53,7 +53,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
             
     Given I click on the link labeled "Scheduling"
     And I clear field and enter "11/20/2023" into the input field labeled "Start Date:"
-    And I click on the link labeled exactly "20"
+    And I click on the link labeled "20"
     And I click on the button labeled "Generate Schedule"
     Then I should see 'Projected Schedule for "1"'
     When I click on the button labeled "Create Schedule"
@@ -78,10 +78,10 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     And I enter "10:00" into the Time for the event named "Event 2" in the Schedule table
     And I click on the button labeled "Done"
     Then I enter "11/23/2023" into the Date for the event named "Event 2" in the Schedule table
-    And I click on the link labeled exactly "23"
+    And I click on the link labeled "23"
     Then I enter "Notes Event 2" into the Notes for the event named "Event 2" in the Schedule table
     And I click on the button labeled "Save"
-    When I click on the button labeled "YES, adjust ALL dates" in the dialog box
+    When I click on the button labeled "YES, adjust ALL dates"
     Then I should see a table header and rows containing the following values in a table:
       | Time     | Date / Day of Week                                  | Event Name  | Status   | Notes         |
       |          | 11/21/2023 Tuesday                                  | Event 1     | Due Date |               |
@@ -91,9 +91,9 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     # # D.114.200 - Edit calendar event in the Schedule Events - adjust just this one
     When I click on the Edit icon for the event named "Event 2" in the Schedule Events
     Then I enter "11/22/2023" into the Date for the event named "Event 2" in the Schedule table
-    And I click on the link labeled exactly "22"
+    And I click on the link labeled "22"
     And I click on the button labeled "Save"
-    When I click on the button labeled "NO, just this one" in the dialog box
+    When I click on the button labeled "NO, just this one"
     Then I should see a table header and rows containing the following values in a table:
       | Time     | Date / Day of Week                                   | Event Name  | Status   | Notes         |
       |          | 11/21/2023 Tuesday                                   | Event 1     | Due Date |               |
@@ -102,7 +102,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     
     # D.114.400 - Add Ad Hoc calendar event in the Schedule Events
     When I clear field and enter "11/27/2023" into the input field labeled "Add new Ad Hoc calendar event on"
-    And I click on the link labeled exactly "27"
+    And I click on the link labeled "27"
     And I click on the button labeled "Add" to add an Ad Hoc Event
     And I enter "09:00" into the input field labeled "Time"
     And I click on the button labeled "Done"
@@ -119,8 +119,8 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     
     # D.114.500 - Delete calendar event in the Schedule Events
     And I click on the Delete icon for the event named "Event Three" in the Schedule Events
-    Then I should see "The calendar event has been deleted" in the dialog box
-    And I click on the button labeled "Close" in the dialog box
+    Then I should see "The calendar event has been deleted"
+    And I click on the button labeled "Close"
     Then I should NOT see "Event Three"
    
     Given I click on the View icon for the event named "Event 2" in the Schedule Events
@@ -197,7 +197,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     And I click on the button labeled "Download ICS file"
     Then I should see a downloaded file named "D114100_CalendarEvents_yyyy_mm_dd_hhmm.ics"
     And I should have the latest downloaded "ics" file with SHA256 hash value "6eed3799205ed240df743d603fee17eed0104ae91aa23835ddc965728641e6a4"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     # D.114.500 - Delete calendar event 
     Given I click on the link labeled "Scheduling"

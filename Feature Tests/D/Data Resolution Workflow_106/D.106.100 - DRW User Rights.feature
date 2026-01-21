@@ -13,7 +13,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I select "Data Resolution Workflow" on the dropdown field labeled "Enable:"
     Then I click on the button labeled "Save"
     Then I should see "The Data Resolution Workflow has now been enabled!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     #VERIFY_LOG
     Given I click on the link labeled "Logging"
@@ -27,9 +27,9 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the link labeled "Upload users (CSV)"
     And I upload a "csv" format file located at "import_files/redcap_val/D.106.100_Users.csv", by clicking the button near "Select your CSV file" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I should see "Upload users (CSV) - Confirm"
-    And I click on the button labeled "Upload" in the dialog box
+    And I click on the button labeled "Upload"
     And I should see "5 users were added or updated"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
@@ -38,14 +38,14 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
 
     #ACTION: Open a query and verify data
     When I click on the Comment icon for the field labeled "Text Box"
-    Then  I should see "Data Resolution Workflow" in the dialog box
+    Then  I should see "Data Resolution Workflow"
     And I select the radio option Open query in Data Resolution Workflow
     And I enter "Query 1" in the comment box in Data Resolution Workflow
-    And I click on the button labeled "Open query" in the dialog box
+    And I click on the button labeled "Open query"
     Then I should see a Small Exclamation icon for the field labeled "Text Box"
     When I click on the Comment icon for the field labeled "Notes Box"
     And I select the radio option Verified data value in Data Resolution Workflow
-    And I click on the button labeled "Verified data value" in the dialog box
+    And I click on the button labeled "Verified data value"
     Then I should see a Tick icon for the field labeled "Notes Box"
     And I logout
 
@@ -63,18 +63,18 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     Then I should see "Reply with response"
     Then I should see "Close the query"
     And I should NOT see "Verified data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I click on the Comment icon for the field labeled "Text2"
     Then I should see "Verified data value"
     And I should see "Open query"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I logout
 
     #ACTION: Verify access right - 'Respond only to open queries', No access to 'verify/de-verify'
@@ -90,13 +90,13 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
 
     Then I should see "Reply with response"
     Then I should NOT see "Close the query"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     Given I click on the Comment icon for the field labeled "Name"
     Then I should NOT see "Open query"
     And I should NOT see "Verified data value"
     And I should see "Awaiting action by user with sufficient user privileges"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details       | 
@@ -105,7 +105,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I should see "Awaiting action by user with sufficient user privileges"
     Then I should NOT see "De-verify data value"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I logout
 
     #ACTION: Verify User right - 'Open queries only', 'verify/de-verify'
@@ -122,19 +122,19 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     Then I should NOT see "Close the query"
     And I should NOT see "Respond to query"
     And I should see "Awaiting action by user with sufficient user privileges"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
     And I click on the Comment icon for the field labeled "Name"
     Then I should see "Open query"
     And I should see "Verified data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
           | Date / Time      | User       | Comments and Details       | 
           | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I logout
 
     #ACTION: Verify User right - 'Open and respond to queries', 'verify/de-verify'
@@ -150,18 +150,18 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
 
     Then I should NOT see "Close the query"
     And I should see "Reply with response:"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I click on the Comment icon for the field labeled "Name"
     Then I should see "Open query"
     And I should see "Verified data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
     And I logout
 
     #ACTION: Assign user rights
@@ -209,7 +209,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     Then I should NOT see "Respond to query"
     And I should see "Awaiting action by user with sufficient user privileges"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     Given I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
       | Date / Time      | User       | Comments and Details       | 
@@ -218,5 +218,5 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I should see "Awaiting action by user with sufficient user privileges"
     Then I should NOT see "De-verify data value"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I logout

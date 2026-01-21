@@ -12,11 +12,11 @@ Feature: D.103.100 - The system shall support the ability to display a form/inst
     And I select "Data Types [All Events]" on the dropdown field labeled "Keep the following forms enabled..."
     Then I should see "...when the logic below is TRUE."
     And I enter "[ptname_v2_v2]!=''" into the textarea field labeled "...when the logic below is TRUE."
-    And I clear field and enter "[ptname_v2_v2]!=''" in the textarea field labeled "Logic Editor" in the dialog box
+    And I clear field and enter "[ptname_v2_v2]!=''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
     And I click on the button labeled "Save"
     Then I should see "Saved!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
@@ -39,7 +39,7 @@ Feature: D.103.100 - The system shall support the ability to display a form/inst
     And I check the checkbox labeled "Hide forms that are disabled"
     And I click on the button labeled "Save"
     Then I should see "Saved!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     Given I click on the link labeled "Add / Edit Records"
     When I click on the button labeled "Add new record for the arm selected above"

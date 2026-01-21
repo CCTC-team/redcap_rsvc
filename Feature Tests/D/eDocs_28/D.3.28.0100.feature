@@ -23,7 +23,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         Then I should see "Adding new Record ID 1"
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-        And I click on the button labeled "Okay" in the dialog box
+        And I click on the button labeled "Okay"
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
         And I clear field and enter "FirstName" into the data entry form field labeled "First Name"
@@ -35,7 +35,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         When I click on the "Add signature" link for the field labeled "Participant signature field"
         And I see a dialog containing the following text: "Add signature"
         And I draw a signature in the signature field area
-        When I click on the button labeled "Save signature" in the dialog box
+        When I click on the button labeled "Save signature"
         And I click on the button labeled "Next Page >>"
         And I check the checkbox labeled "I certify that all of my information in the document above is correct"
         And I click on the button labeled "Submit"

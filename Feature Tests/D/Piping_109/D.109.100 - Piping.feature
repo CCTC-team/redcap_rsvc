@@ -27,9 +27,9 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     And I select "Slider / Visual Analog Scale" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "How much do you love [ice_cream]?" into the Field Label of the open "Add New Field" dialog box
     And I enter "love_icecream" into the Variable Name of the open "Add New Field" dialog box
-    And I enter "Hate it" into the input field labeled "Left label (bottom, if vertical):" in the dialog box
-    And I enter "Indifferent" into the input field labeled "Middle label:" in the dialog box
-    And I enter "I love [ice_cream]" into the input field labeled "Right label (top, if vertical):" in the dialog box
+    And I enter "Hate it" into the input field labeled "Left label (bottom, if vertical):"
+    And I enter "Indifferent" into the input field labeled "Middle label:"
+    And I enter "I love [ice_cream]" into the input field labeled "Right label (top, if vertical):"
     And I click on the checkbox element labeled "Display number value?" 
     And I click on the button labeled "Save" in the "Add New Field" dialog box    
     Then I should see the field labeled "How much do you love [ice_cream]?"

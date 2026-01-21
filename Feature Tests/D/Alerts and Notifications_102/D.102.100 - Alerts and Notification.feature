@@ -49,16 +49,16 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
       | Notification send time | Alert    | Record                          | Recipient              | Subject                  |
       | mm/dd/yyyy hh:mm       | #1 (A-1) | 2 (#1) - Event 1 (Arm 1: Arm 1) | test_user2@example.com | Alerts and Notifications |
     Given I click on the mail icon for record 2
-    Then I should see "Test_User1@test.edu" in the dialog box
-    And I should see "test_user2@example.com" in the dialog box
-    And I should see "Testing Alerts and Notifications" in the dialog box
-    And I should see "Alerts and Notifications" in the dialog box
-    Then I click on the button labeled "Close" in the dialog box
+    Then I should see "Test_User1@test.edu"
+    And I should see "test_user2@example.com"
+    And I should see "Testing Alerts and Notifications"
+    And I should see "Alerts and Notifications"
+    Then I click on the button labeled "Close"
 
   Scenario: D.102.200 - Modify Alerts
     Given I click on the tab labeled "My Alerts"
     When I click on the button labeled "Edit" for alert "1"
-    Then I should see "Edit Alert #1" in the dialog box
+    Then I should see "Edit Alert #1"
     And I select "is saved with Complete status only" on the dropdown field for alert form status
     And I scroll to the field labeled "Or manually enter emails"
     And I clear field and enter "test_user3@example.com" into the input field labeled "Or manually enter emails"
@@ -111,7 +111,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the link labeled "Copy alert"
     Then I should see "Alert #2:Email Alert"
     When I click on the button labeled "Edit" for alert "2"
-    Then I should see "Edit Alert #2" in the dialog box
+    Then I should see "Edit Alert #2"
     And I should see the radio option "When a record is saved on a specific form/survey" for How will this alert be triggered selected
     And I should see "Data Types (Event 1 (Arm 1: Arm 1))"
     And I should see the dropdown field for alert form status with the option "is saved with Complete status only" selected
@@ -128,7 +128,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     When I click on the button labeled "Options" for alert "2"
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."
-    When I click on the button labeled "Deactivate" in the dialog box
+    When I click on the button labeled "Deactivate"
     Then I should see "Success! The alert was deactivated"
     And I should NOT see "Alert #2:Email Alert"
     When I check the checkbox labeled "Show 1 deactivated alert(s)"
@@ -156,10 +156,10 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Given I click on the button labeled "Options" for alert "1"
     When I click on the link labeled "Move alert"
     And I select "Alert #2: Email Alert (A-2)" on the dropdown field labeled "Move the alert above so that it will be located immediately *AFTER* the following alert:"
-    And I click on the button labeled "Move alert" in the dialog box
-    Then I should see "The alert was successfully moved to a new location!" in the dialog box
-    And I should see "PLEASE NOTE that moving this alert may have caused some or all of the alerts to be re-numbered automatically. They will still retain their same alert title and unique alert ID, but their alert number (#) may have changed because alert numbers are generated on the fly based on the order of the alerts." in the dialog box
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Move alert"
+    Then I should see "The alert was successfully moved to a new location!"
+    And I should see "PLEASE NOTE that moving this alert may have caused some or all of the alerts to be re-numbered automatically. They will still retain their same alert title and unique alert ID, but their alert number (#) may have changed because alert numbers are generated on the fly based on the order of the alerts."
+    And I click on the button labeled "Close"
     # VERIFY
     When I click on the button labeled "Edit" for alert "1"
     Then I should see "Edit Alert #1"
@@ -174,7 +174,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Given I click on the button labeled "Options" for alert "1"
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."
-    When I click on the button labeled "Deactivate" in the dialog box
+    When I click on the button labeled "Deactivate"
     Then I should see "Success! The alert was deactivated"
     And I should NOT see "Alert #1:Email Alert"
     When I check the checkbox labeled "Show 1 deactivated alert(s)"
@@ -185,7 +185,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the link labeled "Permanently delete"
     Then I should see "Are you sure you want to delete this Alert?"
     And I should see "This will permanently delete the Alert."
-    And I click on the button labeled "Delete" in the dialog box
+    And I click on the button labeled "Delete"
     Then I should see "Success! The alert was permanently deleted."
     And I should see a checkbox labeled "Show 0 deactivated alert(s)" that is unchecked
     And I should see "Alert #1:Email Alert"

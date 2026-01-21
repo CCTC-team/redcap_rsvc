@@ -24,10 +24,10 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         Given I click on the link labeled "Designer"
         And I click on the instrument labeled "Text Validation"
         When I click on the Branching Logic icon for the variable "email_v2"
-        And I click on "" in the textarea field labeled "Advanced Branching Logic Syntax" in the dialog box
-        And I clear field and enter "[ptname_v2_v2]=''" in the textarea field labeled "Logic Editor" in the dialog box
-        And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save" in the dialog box
+        And I click on "" in the textarea field labeled "Advanced Branching Logic Syntax"
+        And I clear field and enter "[ptname_v2_v2]=''" in the textarea field labeled "Logic Editor"
+        And I click on the button labeled "Update & Close Editor"
+        And I click on the button labeled "Save"
         Then I should see "Branching logic: [ptname_v2_v2]=''" within the field with variable name "email_v2"
 
         #ACTION: Enter data and verify

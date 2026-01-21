@@ -28,8 +28,8 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         #SETUP_PRODUCTION
         When I click on the link labeled "Project Setup"
         And I click on the button labeled "Move project to production"
-        And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-        And I click on the button labeled "YES, Move to Production Status" in the dialog box
+        And I click on the radio labeled "Keep ALL data saved so far"
+        And I click on the button labeled "YES, Move to Production Status"
         Then I should see Project status: "Production"
 
         ##ACTION: Draft Mode
@@ -50,7 +50,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         Then I should see the field labeled "Notes Box"
 
         When I click on the button labeled "Submit Changes for Review"
-        And I click on the button labeled "Submit" in the dialog box
+        And I click on the button labeled "Submit"
         Then I logout
 
         Given I login to REDCap with the user "Test_Admin"
@@ -62,9 +62,9 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         And I click on the link labeled "Designer"
         When I click on the button labeled "Project Modification Module"
         And I click on the button labeled "Compose confirmation email"
-        And I click on the button labeled "Send Email" in the dialog box
-        Then I should see "EMAIL SENT" in the dialog box
-        And I click on the button labeled "Close" in the dialog box
+        And I click on the button labeled "Send Email"
+        Then I should see "EMAIL SENT"
+        And I click on the button labeled "Close"
         Then I logout
 
         Given I open Email
@@ -82,7 +82,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         And I click on the link labeled "Designer"
         When I click on the button labeled "Project Modification Module"
         And I click on the button labeled "COMMIT CHANGES"
-        And I click on the button labeled "COMMIT CHANGES" in the dialog box
+        And I click on the button labeled "COMMIT CHANGES"
         Then I should see "Project Changes Committed / User Notified"
         And I logout
 

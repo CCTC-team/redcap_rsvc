@@ -32,9 +32,9 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I click on the radio labeled "Active"
     And I enter "Testing Survey Event 1" into the input field labeled "Subject:"
     And I check the checkbox labeled "When the following logic becomes true:"
-    And I click on "" in the textarea field labeled "When the following logic becomes true" in the dialog box
-    And I should see "Logic Editor" in the dialog box
-    And I clear field and enter "[fname]!='' and [email]!=''" in the textarea field labeled "Logic Editor" in the dialog box
+    And I click on "" in the textarea field labeled "When the following logic becomes true"
+    And I should see "Logic Editor"
+    And I clear field and enter "[fname]!='' and [email]!=''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
     And I click on the radio labeled "Send immediately"
@@ -42,9 +42,9 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I click on the radio labeled Send every for time lag
     When I enter 0 days 0 hours and 1 minute for Enable reminders
     And I select "Send up to 2 times" on the dropdown field labeled "Recurrence"
-    When I click on the button labeled exactly "Save"
+    When I click on the button labeled "Save"
     Then I should see "Settings for automated invitations were successfully saved!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     Then I should see "Automated Invitations"
 
     Given I click on the button labeled "+Set up"
@@ -54,9 +54,9 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I check the checkbox labeled "When the following survey is completed:"
     And I select '"Survey" - Event 1' from the dropdown option for When the following survey is completed
     And I click on the radio labeled "Send immediately"
-    When I click on the button labeled exactly "Save"
+    When I click on the button labeled "Save"
     Then I should see "Settings for automated invitations were successfully saved!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     Then I should see "Automated Invitations"
 
     Given I click on the link labeled "Logging"

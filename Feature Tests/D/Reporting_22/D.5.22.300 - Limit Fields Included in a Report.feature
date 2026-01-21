@@ -29,7 +29,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I enter "She" into the operator value for Filter 1
     And I select 'record_id "Record ID"' on the dropdown field labeled "Live Filter 1"
     When I click on the button labeled "Save Report"
-    And I click on the button labeled "View report" in the dialog box
+    And I click on the button labeled "View report"
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Name        | Email                       | Required |
       | 1         | Event 1 (Arm 1: Arm 1) |                   |                 |             | tonystone@example.com       |          |
@@ -66,7 +66,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I select the operator value "Choice99" for Filter 2
     And I select 'required "Required"' on the dropdown field labeled "First by"
     When I click on the button labeled "Save Report"
-    And I click on the button labeled "View report" in the dialog box
+    And I click on the button labeled "View report"
     #The order of records does not matter for ATS testing. Hence Step 4 ("First by" filter) should be tested manually
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Name        | Email                       | Required |
@@ -82,7 +82,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I select the operator "not =" for Filter 3
     And I enter "4" into the operator value for Filter 3
     When I click on the button labeled "Save Report"
-    And I click on the button labeled "View report" in the dialog box
+    And I click on the button labeled "View report"
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Name        | Email                       | Required |
       | 1         | Event 1 (Arm 1: Arm 1) |                   |                 |             | tonystone@example.com       |          |
@@ -106,7 +106,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     When I click on the button labeled "Edit"
     And I select "Event 2 (Arm 1: Arm 1)" on the multiselect field labeled "Filter by event(s)"
     When I click on the button labeled "Save Report"
-    And I click on the button labeled "View report" in the dialog box
+    And I click on the button labeled "View report"
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Name         | Email | Required |
       | 1         | Event 2 (Arm 1: Arm 1) |                   | 1               | Jasmine Ryan	|       | 9        |
