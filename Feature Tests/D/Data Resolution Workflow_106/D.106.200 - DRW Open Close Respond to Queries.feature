@@ -13,7 +13,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I select "Data Resolution Workflow" in the dropdown field labeled "Enable:"
             Then I click on the button labeled "Save"
             Then I should see "The Data Resolution Workflow has now been enabled!"
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
 
             #ACTION: Import data 
             Given I click on the link labeled "Data Import Tool"
@@ -28,7 +28,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the button labeled "Add with custom rights"
             Then I should see a dialog containing the following text: "Adding new user"
             And I select the User Right named Data Resolution Workflow and choose Open, close, and respond to queries
-            And I click on the button labeled "Add user" in the dialog box
+            And I click on the button labeled "Add user"
             Then I should see a table header and rows containing the following values in a table:
             | Role name | Username                |
             | —         | test_user1 (Test User1) |
@@ -44,13 +44,13 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
             And I click on the Comment icon for the field labeled "Email"
-            Then  I should see "Data Resolution Workflow" in the dialog box
+            Then  I should see "Data Resolution Workflow"
             And I select the radio option Open query in Data Resolution Workflow
             Then I select the dropdown option "Test_User2 (Test User2)" in Data Resolution Workflow
             And I select the checkboxes option Email in Data Resolution Workflow
             And I select the checkboxes option REDCap Messenger in Data Resolution Workflow
             And I enter "Query 1" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Open query" in the dialog box
+            And I click on the button labeled "Open query"
             Then I should see a Small Exclamation icon for the field labeled "Email"
             And I logout
 
@@ -68,7 +68,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Assigned to a data query" 
             And I click on the link labeled "Resolve Issues"
             And I click on the button labeled "1 comment"
-            Then I should see "Data Resolution Workflow" in the dialog box
+            Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                         | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Opened query Assigned to user:Test_User2 (Test User2) Comment:“Query 1” |
@@ -78,12 +78,12 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I click on the link labeled "Upload file"
             Then I upload a "csv" format file located at "/import_files/B.3.16.600_DataImport.csv", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload document" to upload the file
             Then I should see "Document was successfully uploaded!"
-            And I click on the button labeled "Close" in the dialog box
+            And I click on the button labeled "Close"
             And I enter "The value is correct - B.3.16.600_DataImport.csv uploaded" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Respond to query" in the dialog box
+            And I click on the button labeled "Respond to query"
             Then I should see "Data Resolution Dashboard"
             When I click on the button labeled "2 comments"
-            Then I should see "Data Resolution Workflow" in the dialog box
+            Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                                                               | 
                   | mm/dd/yyyy hh:mm | Test_User2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
@@ -94,7 +94,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
 
             And I select the radio option Send back for further attention in Data Resolution Workflow
             And I clear field and enter "Please clarify" in the comment box in Data Resolution Workflow
-            When I click on the button labeled "Send back for further attention" in the dialog box
+            When I click on the button labeled "Send back for further attention"
             Then I should see "Data Resolution Dashboard"
 
             Given I click on the link labeled "Record Status Dashboard"
@@ -108,34 +108,34 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
             And I click on the Small Exclamation icon for the field labeled "Email"
-            Then I should see "Data Resolution Workflow" in the dialog box
+            Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                            | 
                   | mm/dd/yyyy hh:mm | Test_User2 | Action:Sent back for further attention Comment:“Please clarify” |
 
             And I select the radio option Close the query in Data Resolution Workflow
             And I enter "Closed" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Close the query" in the dialog box
+            And I click on the button labeled "Close the query"
             Then I should see a Small Tick icon for the field labeled "Email"
             Given I click on the Small Tick icon for the field labeled "Email"
-            Then I should see "Data Resolution Workflow" in the dialog box
+            Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                 | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Closed query Comment:“Closed” |
 
             When I check the checkbox labeled "Reopen the closed query" 
             And I enter "Reopen the closed query" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Reopen query" in the dialog box
+            And I click on the button labeled "Reopen query"
             Then I should see a Small Exclamation icon for the field labeled "Email"
             Given I click on the Small Exclamation icon for the field labeled "Email"
-            Then I should see "Data Resolution Workflow" in the dialog box
+            Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date / Time      | User       | Comments and Details                                    | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Reopened query Comment:“Reopen the closed query” |
 
-            And I click on the radio labeled "Close the query" in the dialog box
+            And I click on the radio labeled "Close the query"
             And I enter "Closed" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Close the query" in the dialog box
+            And I click on the button labeled "Close the query"
             Then I should see a Small Tick icon for the field labeled "Email"
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "2" and click on the bubble
@@ -143,7 +143,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I select the radio option Open query in Data Resolution Workflow
             And I select the dropdown option "test_user1 (Test User1)" in Data Resolution Workflow
             And I enter "Query 2" in the comment box in Data Resolution Workflow
-            And I click on the button labeled "Open query" in the dialog box
+            And I click on the button labeled "Open query"
             Then I should see a Small Exclamation icon for the field labeled "Name"
       
             ##VERIFY_LOG

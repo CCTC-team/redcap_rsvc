@@ -14,7 +14,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I select "Data Resolution Workflow" in the dropdown field labeled "Enable:"
       Then I click on the button labeled "Save"
       Then I should see "The Data Resolution Workflow has now been enabled!"
-      And I click on the button labeled "Close" in the dialog box
+      And I click on the button labeled "Close"
 
      #ACTION: Import data 
       Given I click on the link labeled "Data Import Tool"
@@ -35,14 +35,14 @@ Feature: D.106.600 Data Resolution Workflow
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I should see "Data Resolution Workflow" in the dialog box
+      Then I should see "Data Resolution Workflow"
       And I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments and Details                           | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone' |
 
       When I select the radio option Verified data value in Data Resolution Workflow
       And I enter "Test Verify Data" in the comment box in Data Resolution Workflow
-      And I click on the button labeled "Verified data value" in the dialog box
+      And I click on the button labeled "Verified data value"
       Then I should see a Tick icon for the field labeled "Name"
       
       Given I click on the link labeled "Resolve Issues"
@@ -54,29 +54,29 @@ Feature: D.106.600 Data Resolution Workflow
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Tick icon for the field labeled "Name"
-      Then I should see "Data Resolution Workflow" in the dialog box
+      Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
             | Date / Time      | User       | Comments and Details                                  | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'        |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data” |
       
       When I select the radio option De-verify data value in Data Resolution Workflow
-      And I click on the button labeled "De-verify data value" in the dialog box
+      And I click on the button labeled "De-verify data value"
       Then I should see a dialog containing the following text: "A comment is required. Please enter a comment." 
-      And I click on the button labeled "Close" in the dialog box
+      And I click on the button labeled "Close"
       And I enter "Test De-verify Data" in the comment box in Data Resolution Workflow
-      And I click on the button labeled "De-verify data value" in the dialog box
+      And I click on the button labeled "De-verify data value"
       Then I should see an Exclamation icon for the field labeled "Name"
       And I wait for 1 second
       When I click on the Exclamation icon for the field labeled "Name"
-      Then I should see "Data Resolution Workflow" in the dialog box
+      Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
             | Date / Time      | User       | Comments and Details                                        | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'              |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data”       |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value Comment:“Test De-verify Data” |
       
-      And I click on the button labeled "Cancel" in the dialog box
+      And I click on the button labeled "Cancel"
 
       Given I click on the link labeled "Resolve Issues"
       And I select the option "All status types (1)" from the dropdown field for Status in Data Resolution Dashboard
@@ -88,23 +88,23 @@ Feature: D.106.600 Data Resolution Workflow
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Exclamation icon for the field labeled "Name"
-      Then I should see "Data Resolution Workflow" in the dialog box
+      Then I should see "Data Resolution Workflow"
       And I should see "Data De-verified"
       When I select the radio option Verified data value in Data Resolution Workflow
-      And I click on the button labeled "Verified data value" in the dialog box
+      And I click on the button labeled "Verified data value"
       Then I should NOT see "Data Resolution Workflow"
       Then I should see a Tick icon for the field labeled "Name"
       Given I clear field and enter "John" into the input field labeled "Name" 
       And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
       Then I should see an Exclamation icon for the field labeled "Name"
       And I click on the Exclamation icon for the field labeled "Name"
-      Then I should see "Data Resolution Workflow" in the dialog box
+      Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
             | Date / Time      | User       | Comments and Details                                          | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'John'                      |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value (automatically via data change) |
 
-      And I click on the button labeled "Cancel" in the dialog box
+      And I click on the button labeled "Cancel"
 
       ##VERIFY_LOG
       When I click on the link labeled "Logging"

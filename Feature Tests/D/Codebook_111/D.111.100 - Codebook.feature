@@ -53,13 +53,13 @@ Feature:
 
         ##ACTION: Create new instrument (Data Types)
         #Oddly, we need the space before this button because otherwise we match on "Create snapshot of instruments"
-        When I click on the button labeled exactly " Create"
+        When I click on the button labeled " Create"
         And I click on the button labeled "Add instrument here"
         Then I should see "New instrument name:"
         When I enter "Data Types" into the input field labeled "New instrument name:" within the data collection instrument list
         And I click on the last button labeled "Create"
         Then I should see "SUCCESS!"
-        And I click on the button labeled "Close" in the dialog box
+        And I click on the button labeled "Close"
         Then I should see "Data Types"
 
         ##VERIFY_Codebook 
@@ -92,14 +92,14 @@ Feature:
         And I enter "Email" into the Field Label of the open "Add New Field" dialog box
         And I select "Email" on the dropdown field labeled "Validation?"
         And I click on the textarea labeled "Action Tags / Field Annotation"
-        And I clear field and enter "@NOMISSING" in the textarea field labeled "Logic Editor" in the dialog box
+        And I clear field and enter "@NOMISSING" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
-        And I click on the button labeled "Save" in the dialog box
+        And I click on the button labeled "Save"
         When I click on the Branching Logic icon for the variable "email"
-        And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax" in the dialog box
-        And I clear field and enter '[ptname_v2] != ""' in the textarea field labeled "Logic Editor" in the dialog box
-        And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save" in the dialog box
+        And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
+        And I clear field and enter '[ptname_v2] != ""' in the textarea field labeled "Logic Editor"
+        And I click on the button labeled "Update & Close Editor"
+        And I click on the button labeled "Save"
         Then I should see 'Branching logic: [ptname_v2] != ""' within the field with variable name "email"
     
         ##ACTION: Create Date and Multiple Choice Dropdown fields
@@ -114,7 +114,7 @@ Feature:
         And I enter "01-01-2006" into the input field labeled "Minimum"
         And I enter "today" into the input field labeled "Maximum"
         And I enter "must not be in the future" into the input field labeled "Field Note"
-        And I click on the button labeled "Save" in the dialog box
+        And I click on the button labeled "Save"
         Then I click on the last button labeled "Add Field"
         And I select "Multiple Choice - Drop-down List (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Multiple Choice Dropdown Manual" into the Field Label of the open "Add New Field" dialog box
@@ -179,11 +179,11 @@ Feature:
         And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Descriptive Text with File" into the Field Label of the open "Add New Field" dialog box
         And I enter "descriptive_text_file" into the Variable Name of the open "Add New Field" dialog box
-        And I click on the link labeled "Upload file" in the dialog box
+        And I click on the link labeled "Upload file"
         And I see a dialog containing the following text: "Attach an image, file, or embedded audio"
         When I upload a "docx" format file located at "import_files/File_upload.docx", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload file" to upload the file
-        Then I should see "Document was successfully uploaded!" in the dialog box
-        And I click on the button labeled "Close" in the dialog box
+        Then I should see "Document was successfully uploaded!"
+        And I click on the button labeled "Close"
         And I click on the button labeled "Save" in the "Add New Field" dialog box
         Then I should see the field labeled "Descriptive Text with File"
         And I should see the link labeled "File_upload.docx"

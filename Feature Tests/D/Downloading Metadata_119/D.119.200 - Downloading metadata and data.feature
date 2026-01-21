@@ -26,10 +26,10 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     Then I click on the link labeled "Other Functionality"
     And I click on the button labeled "Download metadata & data (XML)"
     Then I should see a dialog containing the following text: 'Exporting "Entire project (metadata & data)"' 
-    And I click on the button labeled "Export Entire Project (metadata & data)" in the dialog box
+    And I click on the button labeled "Export Entire Project (metadata & data)"
     Then I should see a dialog containing the following text: "Data export was successful!"
     And I click on the icon REDCap XML to download REDCap Project (XML)
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
   
     #FUNCTIONAL_REQUIREMENT
     #ACTION: Create new Project using downloaded metadata and data file and verify
@@ -98,7 +98,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I should see a checkbox labeled "Require a 'reason' when making changes to existing records?" that is unchecked
     And I should see a checkbox labeled "Protected Email Mode" that is unchecked
     And I should see a checkbox labeled "Data Entry Trigger" that is unchecked
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
 
     #VERIFY: Data Quality
     When I click on the link labeled "Data Quality"

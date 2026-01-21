@@ -10,7 +10,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I click on the instrument labeled "Data Types"
         And I click on the Edit image for the field named "Text Box"
         And I click on the textarea labeled "Action Tags / Field Annotation"
-        Then I clear field and enter "@CALCTEXT(if([ptname] != '', 'Pass', 'Fail'))" in the textarea field labeled "Logic Editor" in the dialog box
+        Then I clear field and enter "@CALCTEXT(if([ptname] != '', 'Pass', 'Fail'))" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save"
 
@@ -23,7 +23,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I select '"Data Types" (Event 1 (Arm 1: Arm 1))' on the dropdown field for alert form name
         And I should see the dropdown field for alert form status with the option "is saved with any form status" selected
         And I click on the textarea labeled while the following logic is true for the alert
-        And I clear field and enter "[textbox]='Pass'" in the textarea field labeled "Logic Editor" in the dialog box
+        And I clear field and enter "[textbox]='Pass'" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I check the checkbox labeled "Ensure logic is still true before sending notification?"
         And I should see the radio option "Send immediately" for When to send the alert selected

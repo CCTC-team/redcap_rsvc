@@ -47,7 +47,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1 (Secondary ID 1) |
 
     ##VERIFY D.116.400
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
     Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
@@ -72,7 +72,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | Record ID |
       | 1 (1)     |
 
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
     Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
@@ -90,8 +90,8 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the button labeled "Add new record for this arm"
     When I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
     And I enter "1" into the data entry form field labeled "Secondary ID"
-    Then I should see "DUPLICATE VALUE!" in the dialog box
-    And I click on the button labeled "Close" in the dialog box
+    Then I should see "DUPLICATE VALUE!"
+    And I click on the button labeled "Close"
     And I clear field and enter "2" into the input field labeled "Secondary ID"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "successfully added"
@@ -114,7 +114,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1         |
       | 2         |
 
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
     Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
@@ -142,7 +142,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1 (1)     |
       | 2 (2)     |
 
-    And I click on the link labeled exactly "1"
+    And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
     Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"

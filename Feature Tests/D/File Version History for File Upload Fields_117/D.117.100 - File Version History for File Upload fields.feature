@@ -28,9 +28,9 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | User       | File Uploaded             | File Version   |
       | test_user1 | Upload File - "file1.csv" | V1             |
       
-    And I should see a link labeled "Delete" in the dialog box
-    And I should see a button labeled "Download" in the dialog box
-    And I click on the button labeled "Close" in the dialog box
+    And I should see a link labeled "Delete"
+    And I should see a button labeled "Download"
+    And I click on the button labeled "Close"
     
   Scenario: D.117.200 - Upload new version of file
     Given I click on the link labeled "Upload new version"
@@ -52,11 +52,11 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I should see a downloaded file named "file1 (1).csv"
     And I click on the button labeled "Download" for row 2
     And I should see a downloaded file named "B3161200100_ACCURATE (1).csv"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
   Scenario: D.117.400 - Download only current version of file during download of zip file
     Given I click on the link labeled "Record Status Dashboard"
-    And I click on the link labeled exactly "2"
+    And I click on the link labeled "2"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download ZIP file of all uploaded documents"
     And I wait for 1 second
@@ -81,7 +81,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | User       | File Uploaded             | File Version   |
       | test_user1 | Upload File - "file1.csv" | V1             |
    
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the tab labeled "Other Export Options"
@@ -96,7 +96,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics |survey_timestamp | reminder | description | survey_complete |
 
     Given I click on the link labeled "Record Status Dashboard"
-    And I click on the link labeled exactly "2"
+    And I click on the link labeled "2"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
     And I click on the History icon for the field labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
@@ -108,7 +108,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Upload File - "file1.csv"                | V1             |                             |
       | test_user1 | Upload File - "B3161200100_ACCURATE.csv" | V2             |                             |
     
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     When I click on the link labeled "Remove file"
     Then I click on the button labeled "Yes, delete it"
     Then I should see a link labeled "Upload file"
@@ -120,7 +120,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Upload File - "file1.csv"                | V1             | Deleted on                  |
       | test_user1 | Upload File - "B3161200100_ACCURATE.csv" | V2             | Deleted on                  |
     
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     # Disable File Version History
     Given I click on the link labeled "Project Setup"
@@ -155,7 +155,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Delete File               |
       | test_user1 | Upload File - "file1.csv" | 
 
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
 
     #VERIFY_LOG
     Given I click on the link labeled "Logging"

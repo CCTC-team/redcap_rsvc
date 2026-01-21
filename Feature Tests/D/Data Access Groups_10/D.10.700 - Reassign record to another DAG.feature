@@ -69,7 +69,7 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
 
     When I select "TestGroup2" on the dropdown field labeled "Assign record" on the dialog box
-    And I click on the button labeled "Assign to Data Access Group" in the dialog box
+    And I click on the button labeled "Assign to Data Access Group"
     Then I should see "Record ID 1-2 was successfully assigned to a Data Access Group"
     And I logout
 

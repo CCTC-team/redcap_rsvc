@@ -27,7 +27,7 @@ Feature: D.106.800 Data Resolution Workflow
       And I enter "Test_User2" into the input field labeled "Add with custom rights"
       And I click on the button labeled "Add with custom rights"
       Then I should see a dialog containing the following text: "Adding new user"
-      And I click on the button labeled "Add user" in the dialog box
+      And I click on the button labeled "Add user"
       Then I should see a table header and rows containing the following values in a table:
       | Role name | Username                |
       | —         | test_user1 (Test User1) |
@@ -38,51 +38,51 @@ Feature: D.106.800 Data Resolution Workflow
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
       Then I enter "Comment 1" in the comment box in Field Comment Log
-      And I click on the button labeled "Comment" in the dialog box
+      And I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I should see "Field Comment Log" in the dialog box
+      Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments  | 
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 1 |
 
       When I click on the Edit icon for the Comment "Comment 1"
       And I clear field and enter "Comment 10" in the comment box for the editted comment "Comment 1" in Field Comment Log
-      And I click on the button labeled "Save" in the dialog box
+      And I click on the button labeled "Save"
       Then I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments   | 
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
 
       And I enter "Comment 2" in the comment box in Field Comment Log
-      And  I click on the button labeled "Comment" in the dialog box
+      And  I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I should see "Field Comment Log" in the dialog box
+      Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments   |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2  |
 
       When I click on the Delete icon for the Comment "Comment 10"
-      Then I should see "Delete this Field Comment?" in the dialog box
+      Then I should see "Delete this Field Comment?"
       And I click on the button labeled "Delete"
       Then I should see a table header and row containing the following values in a table:
             |              | Date / Time      | User       | Comments  |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
 
-      And I should NOT see "Comment 10" in the dialog box
-      And I click on the button labeled "Cancel" in the dialog box
+      And I should NOT see "Comment 10"
+      And I click on the button labeled "Cancel"
 
       #ACTION: Disable users to edit/delete Field Comments
       Given I click on the link labeled "Project Setup"
       And I click on the button labeled "Additional customizations"
-      And I uncheck the checkbox labeled "Allow users to edit or delete Field Comments" in the dialog box 
+      And I uncheck the checkbox labeled "Allow users to edit or delete Field Comments" 
       Then I click on the button labeled "Save"
       Then I should see "Success! Your changes have been saved"
 
@@ -91,7 +91,7 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the Comment icon for the field labeled "Name"
       Then I should NOT see Edit icon for the Comment "Comment 2"
       And I should NOT see Delete icon for the Comment "Comment 2"
-      And I click on the button labeled "Cancel" in the dialog box
+      And I click on the button labeled "Cancel"
       And I logout
 
       Given I login to REDCap with the user "Test_User2"
@@ -100,25 +100,25 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       When I click on the Comment icon for the field labeled "Name"
-      Then I should see "Field Comment Log" in the dialog box
+      Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments  |
             | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
 
       And I enter "Comment 3" in the comment box in Field Comment Log
-      And I click on the button labeled "Comment" in the dialog box
+      And I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I should see "Field Comment Log" in the dialog box
+      Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date / Time      | User       | Comments  |
             | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
             | mm/dd/yyyy hh:mm | Test_User2 | Comment 3 |
 
-      And I click on the button labeled "Cancel" in the dialog box
+      And I click on the button labeled "Cancel"
       Then I click on the Comment icon for the field labeled "Email"
       And I enter "Comment 4" in the comment box in Field Comment Log
       And I click on the button labeled "Comment"

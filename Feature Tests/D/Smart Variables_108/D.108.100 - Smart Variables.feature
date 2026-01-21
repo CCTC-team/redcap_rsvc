@@ -23,7 +23,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
     Then I select "TestRole" on the dropdown field labeled "Select Role" on the role selector dropdown
-    And I click on the button labeled exactly "Assign" on the role selector dropdown
+    And I click on the button labeled "Assign"
     Then I should see "Test User1" within the "TestRole" row of the column labeled "Username" of the User Rights table
 
     # Add Test_User1 to DAG1

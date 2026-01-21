@@ -21,9 +21,9 @@ Feature: D.102.400 - The system shall support the ability to send emails When co
       | alert-title | alert-trigger	|
       | Email Alert | LOGIC         |
 
-    Given I click on the button labeled "Upload" in the dialog box
+    Given I click on the button labeled "Upload"
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I click on the button labeled "Close" in the dialog box
+    And I click on the button labeled "Close"
     And I should see "Alert #1:Email Alert"
       
     ##ACTION: Import (with records in rows)

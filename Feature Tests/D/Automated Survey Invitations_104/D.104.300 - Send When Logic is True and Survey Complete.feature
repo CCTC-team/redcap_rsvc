@@ -18,15 +18,15 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I click on the button labeled "Automated Invitations"
     When I click on the last button labeled "Modify"
     And I check the checkbox labeled "When the following logic becomes true:"
-    And I click on "" in the textarea field labeled "When the following logic becomes true" in the dialog box
+    And I click on "" in the textarea field labeled "When the following logic becomes true"
     And I should see a dialog containing the following text: "Logic Editor"
-    And I clear field and enter "[event_1_arm_1][lname] != ''" in the textarea field labeled "Logic Editor" in the dialog box
+    And I clear field and enter "[event_1_arm_1][lname] != ''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
     When I enter 0 days 0 hours and 1 minute for When to send invitations AFTER conditions are met
-    When I click on the button labeled "Save" in the dialog box
+    When I click on the button labeled "Save"
     Then I should see a dialog containing the following text: "Copy Automated Invitation settings to other surveys"    
-    And I click on the button labeled "Cancel" in the dialog box
+    And I click on the button labeled "Cancel"
 
     #Re-evaluate surveys
     And I click on the button labeled "Auto Invitation options"
