@@ -83,7 +83,7 @@ Feature:
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: Create Text Box and Email fields
-        When I click on the instrument labeled "Text Validation"
+        When I click on the link labeled "Text Validation"
         Then I should see "Record ID" within the field with variable name "record_id"
         And I add a new Text Box field labeled "Patient Name" with variable name "ptname_v2" and click on the "Save" button
         And I click on the last button labeled "Add Field"
@@ -95,7 +95,7 @@ Feature:
         And I clear field and enter "@NOMISSING" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save"
-        When I click on the Branching Logic icon for the variable "email"
+        When I click on the icon labeled "Branching Logic" in the row labeled "email"
         And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
         And I clear field and enter '[ptname_v2] != ""' in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
@@ -247,7 +247,7 @@ Feature:
 
     Scenario: D.111.200 Modify and delete fields and verify codebook
         When I click on the link labeled "Designer"
-        And I click on the instrument labeled "Text Validation"
+        And I click on the link labeled "Text Validation"
         And I click on the Edit image for the field named "Patient Name"
         And I enter "Participant Name" into the Field Label of the open "Add New Field" dialog box
         Then I click on the button labeled "Save"

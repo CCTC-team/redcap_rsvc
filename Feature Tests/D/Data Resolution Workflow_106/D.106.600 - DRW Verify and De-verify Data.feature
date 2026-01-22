@@ -37,7 +37,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the Comment icon for the field labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see a table header and row containing the following values in a table:
-            | Date / Time      | User       | Comments and Details                           | 
+            | Date/Time        | User       | Comments and Details                           | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone' |
 
       When I select the radio option Verified data value in Data Resolution Workflow
@@ -56,7 +56,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the Tick icon for the field labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
-            | Date / Time      | User       | Comments and Details                                  | 
+            | Date/Time        | User       | Comments and Details                                  | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'        |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data” |
       
@@ -71,7 +71,7 @@ Feature: D.106.600 Data Resolution Workflow
       When I click on the Exclamation icon for the field labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
-            | Date / Time      | User       | Comments and Details                                        | 
+            | Date/Time        | User       | Comments and Details                                        | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'              |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data”       |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value Comment:“Test De-verify Data” |
@@ -100,7 +100,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the Exclamation icon for the field labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see a table header and rows containing the following values in a table:
-            | Date / Time      | User       | Comments and Details                                          | 
+            | Date/Time        | User       | Comments and Details                                          | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'John'                      |
             | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value (automatically via data change) |
 

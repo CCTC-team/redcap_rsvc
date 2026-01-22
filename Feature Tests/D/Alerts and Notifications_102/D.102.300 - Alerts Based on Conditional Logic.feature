@@ -7,7 +7,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         Given I login to REDCap with the user "Test_User1"   
         And I create a new project named "D.102.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
         When I click on the link labeled "Designer"
-        And I click on the instrument labeled "Data Types"
+        And I click on the link labeled "Data Types"
         And I click on the Edit image for the field named "Text Box"
         And I click on the textarea labeled "Action Tags / Field Annotation"
         Then I clear field and enter "@CALCTEXT(if([ptname] != '', 'Pass', 'Fail'))" in the textarea field labeled "Logic Editor"
@@ -53,7 +53,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         When I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.300"
         And I click on the link labeled "Alerts & Notifications"
-        When I click on the tab labeled "Notification Log"
+        When I click on the link labeled "Notification Log"
         Then I should see "No notifications to list"
         When I click on the button labeled "View past notifications"
         Then I should see "No notifications to list"
@@ -67,7 +67,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I click on the button labeled "Cancel"
         
         Given I click on the link labeled "Alerts & Notifications"
-        When I click on the tab labeled "Notification Log"
+        When I click on the link labeled "Notification Log"
         And I click on the button labeled "View past notifications"
         Then I should see a table header and rows containing the following values in the a table:
             | Notification send time | Alert    | Record                          | Recipient              | Subject                  | 

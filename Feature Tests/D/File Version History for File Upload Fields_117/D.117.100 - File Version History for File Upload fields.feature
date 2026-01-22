@@ -84,7 +84,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I click on the button labeled "Close"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-    And I click on the tab labeled "Other Export Options"
+    And I click on the link labeled "Other Export Options"
     When I click on the icon ZIP to download ZIP file of uploaded files
     And I wait for 1 second
     Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"

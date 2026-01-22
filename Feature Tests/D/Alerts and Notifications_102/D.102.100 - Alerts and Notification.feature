@@ -43,7 +43,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.102.100"
     And I click on the link labeled "Alerts & Notifications"
-    When I click on the tab labeled "Notification Log"
+    When I click on the link labeled "Notification Log"
     And I click on the button labeled "View past notifications"
     Then I should see a table header and rows containing the following values in the a table:
       | Notification send time | Alert    | Record                          | Recipient              | Subject                  |
@@ -56,7 +56,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I click on the button labeled "Close"
 
   Scenario: D.102.200 - Modify Alerts
-    Given I click on the tab labeled "My Alerts"
+    Given I click on the link labeled "My Alerts"
     When I click on the button labeled "Edit" for alert "1"
     Then I should see "Edit Alert #1"
     And I select "is saved with Complete status only" on the dropdown field for alert form status
@@ -89,7 +89,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 3 successfully edited"
     Given I click on the link labeled "Alerts & Notifications"
-    When I click on the tab labeled "Notification Log"
+    When I click on the link labeled "Notification Log"
     And I click on the button labeled "View past notifications"
     Then I should see a table header and rows containing the following values in the a table:
       | Notification send time | Alert    | Record                          | Recipient              | Subject                          |

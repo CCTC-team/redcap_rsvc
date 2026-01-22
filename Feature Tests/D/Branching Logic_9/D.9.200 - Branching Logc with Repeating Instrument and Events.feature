@@ -10,9 +10,9 @@ Feature: D.9.200 - The system shall support branching logic from data entry form
 
     ##VERIFY: Branching logic
     When I click on the link labeled "Designer"
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     #Branching Logic with repeating events
-    And I click on the Branching Logic icon for the variable "textbox"
+    And I click on the icon labeled "Branching Logic" in the row labeled "textbox"
     And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
     And I clear field and enter '[event_2_arm_1][name][2] != ""' in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
@@ -20,7 +20,7 @@ Feature: D.9.200 - The system shall support branching logic from data entry form
     Then I should see 'Branching logic: [event_2_arm_1][name][2] != ""' within the field with variable name "textbox"
     
     #Branching Logic with repeating instrument
-    And I click on the Branching Logic icon for the variable "text2"
+    And I click on the icon labeled "Branching Logic" in the row labeled "text2"
     And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
     And I clear field and enter '[event_three_arm_1][name][3] != ""' in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"

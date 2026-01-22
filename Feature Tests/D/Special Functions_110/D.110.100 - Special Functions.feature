@@ -12,7 +12,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.110.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Special_Functions.xml", and clicking the "Create Project" button
     And I click on the link labeled "Designer"
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     And I should see a field named "Date difference in days"
     And I click on the Edit icon for the variable "calc_date_days" 
     And I enter the equation "datediff([date_1], [date_2], 'd')" into Calculation Equation of the open "Add New Field" dialog box
@@ -34,7 +34,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
 
   Scenario: D.110.100.2 - round
     When I click on the link labeled "Designer"  
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     And I should see a field named "BMI Calculated"
     And I click on the Edit icon for the variable "bmi_calc"
     And I enter the equation "round(([weight]*10000)/(([height])^(2)), 1)" into Calculation Equation of the open "Add New Field" dialog box
@@ -53,7 +53,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
 
   Scenario: D.110.100.3 - if
     When I click on the link labeled "Designer"  
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     And I should see a field named "BMI suitable for study"
     And I click on the Edit icon for the variable "bmi_suitable"
     And I enter the equation "if([bmi_calc] > 15, 1, 0)" into Calculation Equation of the open "Add New Field" dialog box
@@ -74,7 +74,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
 
   Scenario: D.110.100.4 - mean
     When I click on the link labeled "Designer"  
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     Then I should see a field named "Mean sum of values"
     And I click on the Edit icon for the variable "mean_value" 
     And I enter the equation "mean([value1],[value2],[value3])" into Calculation Equation of the open "Add New Field" dialog box
@@ -93,7 +93,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
 
   Scenario: D.110.100.5 - length
     When I click on the link labeled "Designer"  
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     And I should see a field named "Length of text"
     And I click on the Edit icon for the variable "length_text" 
     And I enter the equation "length ([notesbox])" into Calculation Equation of the open "Add New Field" dialog box

@@ -90,7 +90,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
    
     Given I click on the link labeled "Project Setup"
     When I click on the button labeled "Designate Instruments for My Events"
-    And I click on the tab labeled "Arm 1"
+    And I click on the link labeled "Arm 1"
     And I click on the button labeled "Begin Editing"
     And I enable the Data Collection Instrument named "Data Types" for the Event named "Event 2"
     Then I click on the button labeled "Save" on the Designate Instruments for My Events page

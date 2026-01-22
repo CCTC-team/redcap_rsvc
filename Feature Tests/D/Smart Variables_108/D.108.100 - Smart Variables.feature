@@ -17,7 +17,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
     Then I should see a dialog containing the following text: "Adding new user"
-    And I save changes within the context of User Rights
+    And I click on the button labeled "Add user"
 
     # Add Test_User1 to TestRole
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
@@ -33,7 +33,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I click on the button labeled "Assign"
 
     # Test_User1 is assigned to DAG1 (Group ID number 1)
-    Then I should see a table header and rows containing the following values in data access groups table:
+    Then I should see a table header and rows containing the following values in a table:
       | Data Access Groups | Users in group         | Group ID number |
       | DAG1               |test_user1 (Test User1) | 1               |         
 
@@ -45,12 +45,12 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I click on the link labeled "D.108.100" 
     Then I click on the link labeled "Designer"
     And I should see "Text Validation"
-    When I click on the instrument labeled "Text Validation"
+    When I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "Event Label: [event-label]" into the Field Label of the open "Add New Field" dialog box
     And I enter "event_label" into the Variable Name of the open "Add New Field" dialog box
-    Then I click on the button labeled "Save" in the "Add New Field" dialog box    
+    Then I click on the button labeled "Save"    
 
     #VERIFY: [event-label] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
@@ -64,12 +64,12 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
   Scenario: D.108.100.2 - [record-dag-id] 
     When I click on the link labeled "Designer"
-    And I click on the instrument labeled "Text Validation"
+    And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "Group ID Assigned: [record-dag-id]" into the Field Label of the open "Add New Field" dialog box
     And I enter "dag_id" into the Variable Name of the open "Add New Field" dialog box
-    Then I click on the button labeled "Save" in the "Add New Field" dialog box 
+    Then I click on the button labeled "Save" 
     
     #VERIFY: [record-dag-id] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
@@ -83,12 +83,12 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
   Scenario: D.108.100.3 - [user-role-label]
     Given I click on the link labeled "Designer"
     And I should see "Text Validation"
-    When I click on the instrument labeled "Text Validation"
+    When I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "User role: [user-role-label]" into the Field Label of the open "Add New Field" dialog box
     And I enter "user_role" into the Variable Name of the open "Add New Field" dialog box
-    Then I click on the button labeled "Save" in the "Add New Field" dialog box 
+    Then I click on the button labeled "Save" 
 
     #VERIFY: [user-role-label] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
@@ -101,7 +101,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
   Scenario: D.108.100.4 - [instrument-name]
     When I click on the link labeled "Designer"
-    And I click on the instrument labeled "Text Validation"
+    And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "Instrument Name: [instrument-name]" into the Field Label of the open "Add New Field" dialog box
@@ -119,7 +119,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
   Scenario: D.108.100.5 [user-fullname]
     When I click on the link labeled "Designer"
-    And I click on the instrument labeled "Text Validation"
+    And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "User Fullname: [user-fullname]" into the Field Label of the open "Add New Field" dialog box

@@ -9,7 +9,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I create a new project named "D.116.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
    
     Given I click on the link labeled "Designer"
-    And I click on the instrument labeled "Text Validation"
+    And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
     When I select "Text Box (Short Text, Number, Date/Time, ...)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "secondary_id" into the Variable Name of the open "Add New Field" dialog box

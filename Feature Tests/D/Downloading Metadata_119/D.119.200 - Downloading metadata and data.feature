@@ -58,16 +58,16 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
       | 2       | Event 2     | event_2_arm_1                                   |
       | 3       | Event Three | event_three_arm_1                               |
 
-    Then I click on the tab labeled "Arm Two" 
+    Then I click on the link labeled "Arm Two" 
     And I should see a table header and rows containing the following values in the define events table:
       | Event # | Event Label | Unique event name (auto generated) [event-name] |
       | 1       | Event 1     | event_1_arm_2                                   |
     
-    Then I click on the tab labeled "Designate Instruments for My Events"
-    And I click on the tab labeled "Arm 1" 
+    Then I click on the link labeled "Designate Instruments for My Events"
+    And I click on the link labeled "Arm 1" 
     And I verify the Data Collection Instrument named "Text Validation" is enabled for the Event named "Event 1"  
     And I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 1" 
-    Then I click on the tab labeled "Arm Two" 
+    Then I click on the link labeled "Arm Two" 
     And I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 1" 
 
     #VERIFY: Enable optional modules and customizations
@@ -154,7 +154,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
 
     #VERIFY: DAGS
     When I click on the link labeled "DAGs"
-    Then I should see a table header and rows containing the following values in data access groups table:
+    Then I should see a table header and rows containing the following values in a table:
       | Data Access Groups        | Users in group                                 | Number of records in group | Unique group name (auto generated) | Group ID number |
       | DAG1                      |                                                |          0                 | dag1                               | 2               |  
       | [Not assigned to a group] | test_user1 (Test User1) * Can view ALL records |                            |                                    |                 |

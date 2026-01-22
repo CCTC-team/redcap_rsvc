@@ -74,7 +74,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
 
     Given I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
-    And I click on the tab labeled "Survey Invitation Log"
+    And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
       | Invitation send time | Participant Email | Record | Survey         |
@@ -89,7 +89,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I wait for 65 seconds
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
-    And I click on the tab labeled "Survey Invitation Log"
+    And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
       | Invitation send time | Participant Email | Record | Survey         |
@@ -104,7 +104,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I wait for 80 seconds
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
-    And I click on the tab labeled "Survey Invitation Log"
+    And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
       | Invitation send time | Participant Email | Record | Survey         |
@@ -144,7 +144,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     When I return to the REDCap page I opened the survey from
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
-    And I click on the tab labeled "Survey Invitation Log"
+    And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
       | Invitation send time | Participant Email | Record | Survey         |

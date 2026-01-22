@@ -12,13 +12,13 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
     Then I should see a dialog containing the following text: "Adding new user"
-    And I save changes within the context of User Rights
+    And I click on the button labeled "Add user"
 
     #ACTION: Add Test_User2 with Custom rights
     And I enter "Test_User2" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
     Then I should see a dialog containing the following text: "Adding new user"
-    And I save changes within the context of User Rights
+    And I click on the button labeled "Add user"
 
     #ACTION: Assign Test User1 to TestGroup1
     Given I click on the link labeled "DAGs"
@@ -26,7 +26,7 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
-    Then I should see a table header and rows containing the following values in data access groups table:
+    Then I should see a table header and rows containing the following values in a table:
       | Data Access Groups | Users in group |
       | TestGroup1         | test_user1     |
       | TestGroup2         |                |
@@ -36,7 +36,7 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     When I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
-    Then I should see a table header and rows containing the following values in data access groups table:
+    Then I should see a table header and rows containing the following values in a table:
       | Data Access Groups | Users in group |
       | TestGroup1         | test_user1     |
       | TestGroup2         | test_user2     |

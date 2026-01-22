@@ -45,7 +45,7 @@ Feature: D.102.400 - The system shall support the ability to send emails When co
     And I click on the button labeled "Cancel"
 
     Given I click on the link labeled "Alerts & Notifications"
-    When I click on the tab labeled "Notification Log"
+    When I click on the link labeled "Notification Log"
     And I click on the button labeled "View past notifications"
     Then I should see a table header and rows containing the following values in the a table:
         | Notification send time | Alert    | Record                     | Recipient          | Subject                  | 

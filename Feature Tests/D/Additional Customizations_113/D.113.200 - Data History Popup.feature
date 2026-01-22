@@ -51,7 +51,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
             #VERIFY_LOG
             Given I click on the link labeled "Logging"
             Then I should see a table header and row containing the following values in the logging table:
-                  | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
+                  | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
                   | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
       
             #VERIFY - No Data History icon is present

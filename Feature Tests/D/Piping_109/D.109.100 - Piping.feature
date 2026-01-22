@@ -7,7 +7,7 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "D.109.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     When I click on the link labeled "Designer" 
-    And I click on the instrument labeled "Data Types"
+    And I click on the link labeled "Data Types"
     And I click on the button labeled "Dismiss"
     When I click on the first button labeled "Add Field"
     And I select "Multiple Choice - Radio Buttons (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
@@ -16,7 +16,7 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     And I enter Choices of "1, Chocolate" into the open "Add New Field" dialog box
     And I enter Choices of "2, Strawberry" into the open "Add New Field" dialog box
     And I enter Choices of "3, Vanilla" into the open "Add New Field" dialog box
-    And I click on the button labeled "Save" in the "Add New Field" dialog box    
+    And I click on the button labeled "Save"    
     Then I should see the radio field labeled "What is your favorite ice cream?" with the options below
       | Chocolate     |
       | Strawberry    |
@@ -31,7 +31,7 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     And I enter "Indifferent" into the input field labeled "Middle label:"
     And I enter "I love [ice_cream]" into the input field labeled "Right label (top, if vertical):"
     And I click on the checkbox element labeled "Display number value?" 
-    And I click on the button labeled "Save" in the "Add New Field" dialog box    
+    And I click on the button labeled "Save"    
     Then I should see the field labeled "How much do you love [ice_cream]?"
 
     #VERIFY:

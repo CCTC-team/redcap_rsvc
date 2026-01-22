@@ -18,7 +18,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     #VERIFY_LOG
     Given I click on the link labeled "Logging"
     Then I should see a table header and row containing the following values in the logging table:
-          | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
+          | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
           | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
 
     #ACTION: Add users 
@@ -57,7 +57,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details                  | 
+      | Date/Time        | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
 
     Then I should see "Reply with response"
@@ -70,7 +70,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
@@ -85,7 +85,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details                  | 
+      | Date/Time        | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
 
     Then I should see "Reply with response"
@@ -99,7 +99,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the button labeled "Close"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     And I should see "Awaiting action by user with sufficient user privileges"
@@ -116,7 +116,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details                  | 
+      | Date/Time        | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
 
     Then I should NOT see "Close the query"
@@ -130,7 +130,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-          | Date / Time      | User       | Comments and Details       | 
+          | Date/Time        | User       | Comments and Details       | 
           | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
@@ -145,7 +145,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details                  | 
+      | Date/Time        | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
 
     Then I should NOT see "Close the query"
@@ -157,7 +157,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
@@ -202,7 +202,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     Then I should NOT see a Comment icon for the field labeled "Name"
     Given I click on the Small Exclamation icon for the field labeled "Text Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details                  | 
+      | Date/Time        | User       | Comments and Details                  | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Opened query Comment:“Query 1” |
 
     Then I should NOT see "Close the query"
@@ -212,7 +212,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I click on the button labeled "Close"
     Given I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-      | Date / Time      | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       | 
       | mm/dd/yyyy hh:mm | Test_Admin | Action:Verified data value |
 
     And I should see "Awaiting action by user with sufficient user privileges"

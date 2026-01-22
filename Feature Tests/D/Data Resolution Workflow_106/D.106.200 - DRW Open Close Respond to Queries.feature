@@ -70,7 +70,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the button labeled "1 comment"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
-                  | Date / Time      | User       | Comments and Details                                         | 
+                  | Date/Time        | User       | Comments and Details                                         | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Opened query Assigned to user:Test_User2 (Test User2) Comment:“Query 1” |
 
             #VERIFY D.106.400 - Upload file to Query
@@ -85,7 +85,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I click on the button labeled "2 comments"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
-                  | Date / Time      | User       | Comments and Details                                                                               | 
+                  | Date/Time        | User       | Comments and Details                                                                               | 
                   | mm/dd/yyyy hh:mm | Test_User2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
 
             And  I click on the link labeled "B.3.16.600_DataImport.... (0.01 MB)" 
@@ -110,7 +110,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the Small Exclamation icon for the field labeled "Email"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
-                  | Date / Time      | User       | Comments and Details                                            | 
+                  | Date/Time        | User       | Comments and Details                                            | 
                   | mm/dd/yyyy hh:mm | Test_User2 | Action:Sent back for further attention Comment:“Please clarify” |
 
             And I select the radio option Close the query in Data Resolution Workflow
@@ -120,7 +120,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Given I click on the Small Tick icon for the field labeled "Email"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
-                  | Date / Time      | User       | Comments and Details                 | 
+                  | Date/Time        | User       | Comments and Details                 | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Closed query Comment:“Closed” |
 
             When I check the checkbox labeled "Reopen the closed query" 
@@ -130,7 +130,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Given I click on the Small Exclamation icon for the field labeled "Email"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
-                  | Date / Time      | User       | Comments and Details                                    | 
+                  | Date/Time        | User       | Comments and Details                                    | 
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Reopened query Comment:“Reopen the closed query” |
 
             And I click on the radio labeled "Close the query"
@@ -149,7 +149,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             ##VERIFY_LOG
             Given I click on the link labeled "Logging"
             Then I should see a table header and row containing the following values in a table:
-                  | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported                                                                                                                 |
+                  | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported                                                                                                                 |
                   | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Open data query (Record: 2, Event: Event 1 (Arm 1: Arm 1), Field: ptname, Comment: "Query 2")                                                           |
                   | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Close data query (Record: 1, Event: Event 1 (Arm 1: Arm 1), Field: email_v2, Comment: "Closed")                                                         |
                   | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Open data query (Record: 1, Event: Event 1 (Arm 1: Arm 1), Field: email_v2, Comment: "Reopen the closed query")                                         |

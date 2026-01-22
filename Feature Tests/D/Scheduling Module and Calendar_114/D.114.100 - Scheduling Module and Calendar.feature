@@ -28,7 +28,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
       | 3       | 3           | -1/+2        | Event Three | [complete_study_date] | event_three_arm_1                               |
 
     # Upload Instrument-Event mappings
-    Given I click on the tab labeled "Designate Instruments for My Events"
+    Given I click on the link labeled "Designate Instruments for My Events"
     When I click on the button labeled "Upload or download instrument mappings"
     And I click on the link labeled "Upload instrument-event mappings (CSV)"
     And I upload a "csv" format file located at "import_files/redcap_val/D114100_InstrumentDesignations.csv", by clicking the button near "Select your CSV File of Instrument-Event Designations" to browse for the file, and clicking the button labeled "Upload" to upload the file
@@ -164,7 +164,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
    
     # D.114.300 - View schedule in calendar
     Given I click on the link labeled "Calendar"
-    When I click on the tab labeled "Day"
+    When I click on the link labeled "Day"
     Then I should see "No calendar events to display"
     And I select "November" on the Month dropdown field
     When I select "2023" on the Year dropdown field
@@ -173,18 +173,18 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
       | Day         | Time    | Description                  |                                     
       | Wed Nov 22	| 10:00am |	1 (Event 2) - Notes Event 2  |
 
-    When I click on the tab labeled "Week"
+    When I click on the link labeled "Week"
     Then I should see a table header and rows containing the following values in a table:
       | Sunday | Monday | Tuesday        | Wednesday                               | Thursday | Friday | Saturday |                                    
       | 19     | 20     |	21 1 (Event 1) | 22 10:00am 1 (Event 2) -  Notes Event 2 | 23       | 24     | 25       | 
 
-    When I click on the tab labeled "Month"
+    When I click on the link labeled "Month"
     Then I should see a table header and rows containing the following values in a table:
       | Sunday | Monday | Tuesday                     | Wednesday                               | Thursday | Friday | Saturday |                                    
       | 19     | 20     |	21 1 (Event 1)              | 22 10:00am 1 (Event 2) -  Notes Event 2 | 23       | 24     | 25       | 
       | 26     | 27     |	28 9:00am 1 -  Ad Hoc Notes | 29                                      | 30       |        |          | 
  
-    When I click on the tab labeled "Agenda"
+    When I click on the link labeled "Agenda"
     Then I should see a table header and rows containing the following values in a table:
       | Day         | Time    | Description                  |                                     
       | Tue Nov 21	|         | 1 (Event 1)                  |
@@ -214,7 +214,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     # And I click on the link labeled "My Projects"
     # And I click on the link labeled "D.114.100"
     # And I click on the link labeled "Calendar"
-    # When I click on the tab labeled "Agenda"
+    # When I click on the link labeled "Agenda"
     # And I select "November" on the Month dropdown field
     # And I select "2023" on the Year dropdown field
     # Then I should see a table header and rows containing the following values in a table:

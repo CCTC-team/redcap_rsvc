@@ -17,13 +17,13 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         #VERIFY_LOG
         Given I click on the link labeled "Logging"
         Then I should see a table header and row containing the following values in the logging table:
-            | Date / Time      | Username   | Action        | List of Data Changes OR Fields Exported |
+            | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
             | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
       
         #ACTION: Add branching logic
         Given I click on the link labeled "Designer"
-        And I click on the instrument labeled "Text Validation"
-        When I click on the Branching Logic icon for the variable "email_v2"
+        And I click on the link labeled "Text Validation"
+        When I click on the icon labeled "Branching Logic" in the row labeled "email_v2"
         And I click on "" in the textarea field labeled "Advanced Branching Logic Syntax"
         And I clear field and enter "[ptname_v2_v2]=''" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"

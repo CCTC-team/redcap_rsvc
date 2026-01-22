@@ -87,9 +87,6 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
         And I logout
       
         # No verification code asked
-        Given I visit the REDCap login page
-        And I enter "Test_User2" into the input field labeled "Username"
-        And I enter "Testing123" into the input field labeled "Password"
-        And I click on the button labeled "Log In"
+        Given I login to REDCap with the user "Test_User2"
         Then I should see "Welcome to REDCap"
         And I logout

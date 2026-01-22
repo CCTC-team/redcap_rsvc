@@ -21,7 +21,7 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"
-        And I click on the tab labeled "My Reports & Exports"
+        And I click on the link labeled "My Reports & Exports"
         Then I should see a table rows containing the following values in a table:  
             | A | All data (all records and fields)  |
             | B | Selected instruments and/or events |
