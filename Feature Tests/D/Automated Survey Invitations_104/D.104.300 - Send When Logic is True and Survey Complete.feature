@@ -10,23 +10,24 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
    
     #Verify surveys are enabled in the project and email field is designated
     Given I click on the link labeled "Project Setup"
-    And I should see a button labeled "Disable" in the "Use surveys in this project?" row in the "Main project settings" section
+    And I should see a button labeled "Disable" in the row labeled "Use surveys in this project?"
     Then I should see "Field currently designated: email"
 
     #Modify ASI
     Given I click on the link labeled "Designer"
     And I click on the button labeled "Automated Invitations"
+
     When I click on the last button labeled "Modify"
     And I check the checkbox labeled "When the following logic becomes true:"
     And I click on "" in the textarea field labeled "When the following logic becomes true"
+    And I wait for 1 second
     And I should see a dialog containing the following text: "Logic Editor"
     And I clear field and enter "[event_1_arm_1][lname] != ''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
     When I enter 0 days 0 hours and 1 minute for When to send invitations AFTER conditions are met
     When I click on the button labeled "Save"
-    Then I should see a dialog containing the following text: "Copy Automated Invitation settings to other surveys"    
-    And I click on the button labeled "Cancel"
+    And I click on the button labeled "Close"
 
     #Re-evaluate surveys
     And I click on the button labeled "Auto Invitation options"

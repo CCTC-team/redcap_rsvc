@@ -9,7 +9,8 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         When I click on the link labeled "Designer"
         And I click on the link labeled "Data Types"
         And I click on the Edit image for the field named "Text Box"
-        And I click on the textarea labeled "Action Tags / Field Annotation"
+        And I click on "" in the textarea field labeled "Action Tags"
+        And I wait for 2 seconds
         Then I clear field and enter "@CALCTEXT(if([ptname] != '', 'Pass', 'Fail'))" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save"
@@ -29,9 +30,9 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I should see the radio option "Send immediately" for When to send the alert selected
         And I should see the radio option "Just once" for Send it how many times selected
         And I should see the radio option "Email" for Alert Type selected
+        And I enter "test_user2@example.com" into the input field labeled "Or manually enter emails"
         Then I enter "Testing-Alerts-and-Notifications" into the alert message
         And I enter "Alerts-and-Notifications" into the input field labeled "Subject"
-        And I enter "test_user2@example.com" into the input field labeled "Email To"
         When I save the alert
         Then I should see "Success! New alert created"
         And I should see "Alert #1:Email-Alert"

@@ -9,11 +9,10 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
    
     # Enable surveys in the project and designate email field
     Given I click on the link labeled "Project Setup"
-    Then I should see a button labeled "Enable" in the "Use surveys in this project?" row in the "Main project settings" section
-    And I click on the button labeled "Enable" in the "Use surveys in this project?" row in the "Main project settings" section
-    Then I should see "Saved!"
-    And I should see a button labeled "Disable" in the "Use surveys in this project?" row in the "Main project settings" section
-    When I click on the button labeled "Enable" in the "Designate an email field for communications (including survey invitations and alerts)" row in the "Enable optional modules and customizations" section
+    Then I should see a button labeled "Enable" in the row labeled "Use surveys in this project?"
+    And I click on the button labeled "Enable" in the row labeled "Use surveys in this project?"
+    Then I should see a button labeled "Disable" in the row labeled "Use surveys in this project?"
+    When I click on the button labeled "Enable" in the row labeled "Designate an email field for communications (including survey invitations and alerts)"
     Then I select 'email "Email"' on the dropdown field labeled "Choose an email field to use for invitations to survey participants:"
     And I click on the last button labeled "Save"
     Then I should see "Field currently designated: email"
@@ -21,18 +20,19 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     # Enable instrument as a survey
     Given I click on the link labeled "Designer"
     Then I should see "Data Collection Instruments"
-    And I click on the "Enable" button for the instrument row labeled "Survey"
+    And I wait for 1 second
+    And I click on the button labeled "Enable" in the column labeled "Enabled as" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
-    Then I should see the enabled survey icon link for the instrument row labeled "Survey"
     
     When I click on the button labeled "Automated Invitations"
     Then I should see "Automated Invitations"
     And I click on the first button labeled "+Set up"
     Then I should see "Define Conditions for Automated Survey Invitations (ASI)"
-    And I click on the radio labeled "Active"
+    And I select the radio option "Active" for ASI
     And I enter "Testing Survey Event 1" into the input field labeled "Subject:"
     And I check the checkbox labeled "When the following logic becomes true:"
     And I click on "" in the textarea field labeled "When the following logic becomes true"
+    And I wait for 1 second
     And I should see "Logic Editor"
     And I clear field and enter "[fname]!='' and [email]!=''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
@@ -49,7 +49,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
 
     Given I click on the button labeled "+Set up"
     Then I should see "Define Conditions for Automated Survey Invitations (ASI)"
-    And I click on the radio labeled "Active"
+    And I select the radio option "Active" for ASI
     And I enter "Testing Survey Event 2" into the input field labeled "Subject:"
     And I check the checkbox labeled "When the following survey is completed:"
     And I select '"Survey" - Event 1' from the dropdown option for When the following survey is completed

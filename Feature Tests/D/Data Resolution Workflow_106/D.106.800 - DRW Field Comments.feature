@@ -49,7 +49,7 @@ Feature: D.106.800 Data Resolution Workflow
             |              | Date/Time        | User       | Comments  | 
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 1 |
 
-      When I click on the Edit icon for the Comment "Comment 1"
+      When I click on the image "pencil" link for the row containing "Comment 1"
       And I clear field and enter "Comment 10" in the comment box for the editted comment "Comment 1" in Field Comment Log
       And I click on the button labeled "Save"
       Then I should see a table header and row containing the following values in a table:
@@ -69,7 +69,7 @@ Feature: D.106.800 Data Resolution Workflow
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2  |
 
-      When I click on the Delete icon for the Comment "Comment 10"
+      When I click on the image "cross" link for the row containing "Comment 10"
       Then I should see "Delete this Field Comment?"
       And I click on the button labeled "Delete"
       Then I should see a table header and row containing the following values in a table:
@@ -89,8 +89,8 @@ Feature: D.106.800 Data Resolution Workflow
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I should NOT see Edit icon for the Comment "Comment 2"
-      And I should NOT see Delete icon for the Comment "Comment 2"
+      Then I should NOT see "pencil" icon for the Comment "Comment 2"
+      And I should NOT see "cross" icon for the Comment "Comment 2"
       And I click on the button labeled "Cancel"
       And I logout
 

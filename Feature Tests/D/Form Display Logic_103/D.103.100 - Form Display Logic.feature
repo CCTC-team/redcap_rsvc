@@ -17,6 +17,7 @@ Feature: D.103.100 - The system shall support the ability to display a form/inst
     And I click on the button labeled "Save"
     Then I should see "Saved!"
     And I click on the button labeled "Close"
+    Then I should see "Data Collection Instruments"
 
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
@@ -40,6 +41,7 @@ Feature: D.103.100 - The system shall support the ability to display a form/inst
     And I click on the button labeled "Save"
     Then I should see "Saved!"
     And I click on the button labeled "Close"
+    Then I should see "Data Collection Instruments"
 
     Given I click on the link labeled "Add / Edit Records"
     When I click on the button labeled "Add new record for the arm selected above"
@@ -55,11 +57,13 @@ Feature: D.103.100 - The system shall support the ability to display a form/inst
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 3 successfully edited."
 
-    Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
+    Given I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
     And I clear field and enter "" into the data entry form field labeled "Name"
     And I click on the button labeled "Save & Exit Form"
     And I should see "Record ID 3 successfully edited."
     # Data Types remains enabled as 'Keep forms enabled if they contain data'
-    When I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
+    Given I click on the link labeled "Record Status Dashboard"
+    When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "3" and click on the bubble
     And I should see "Text2"
     Then I logout
