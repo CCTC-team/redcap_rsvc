@@ -21,7 +21,7 @@ Feature: Send It: D.105.200 - The system shall support the ability to receive em
     And I enter "Send-it file" into the input field labeled "Email subject:"
     And I enter "Send-it csv file" into the textarea field labeled "Email message:"
     #The file will expire and become inaccessible after 4 days
-    And I select "4 days" on the dropdown field labeled "Expiration:"
+    And I select "4 days" on the Expiration dropdown field
     Then I upload a file located at "/import_files/redcap_val/redcap_val_Data_Import.csv" by clicking on the button labeled "Choose file"
     And I check the checkbox labeled "Receive confirmation?"
     And I click on the button labeled "Send It!"

@@ -26,7 +26,7 @@ Feature: D.115.600 - The system shall support the ability to download the PDF of
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the link labeled "Other Export Options"
     When I click on the icon PDF to download PDF of data collection instruments containing saved data
-    Then I should see a downloaded file named "D115600_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D115600_yyyy-mm-dd_hhmm.pdf"
     And I should see the following values in the downloaded PDF
       |                                  |      D.115.600                |
       |                                  |      Record ID 1 (Event 1)    |

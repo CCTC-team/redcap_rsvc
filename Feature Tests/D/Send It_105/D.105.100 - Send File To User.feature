@@ -11,7 +11,7 @@ Feature: Send It: D.105.100 - The system shall support the ability to send a fil
     When I enter "joe@abc.com; paul@abc.com" into the textarea field labeled "To:"
     And I enter "Send-it file" into the input field labeled "Email subject:"
     And I enter "Send-it csv file" into the textarea field labeled "Email message:"
-    And I select "2 days" on the dropdown field labeled "Expiration:"
+    And I select "2 days" on the Expiration dropdown field
     Then I upload a file located at "/import_files/redcap_val/redcap_val_Data_Import.csv" by clicking on the button labeled "Choose file"
     And I click on the button labeled "Send It!"
     Then I should see "File successfully uploaded!"

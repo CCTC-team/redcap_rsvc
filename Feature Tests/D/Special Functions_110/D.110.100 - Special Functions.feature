@@ -14,7 +14,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I click on the link labeled "Designer"
     And I click on the link labeled "Data Types"
     And I should see a field named "Date difference in days"
-    And I click on the Edit icon for the variable "calc_date_days" 
+    And I click on the Edit image for the field named "Date difference in days"
     And I enter the equation "datediff([date_1], [date_2], 'd')" into Calculation Equation of the open "Add New Field" dialog box
     # And I enter "datediff([date_1], [date_2], 'd')" into the input field labeled "Calculation Equation"
     # And I click on the button labeled "Update & Close Editor"
@@ -36,7 +36,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "BMI Calculated"
-    And I click on the Edit icon for the variable "bmi_calc"
+    And I click on the Edit image for the field named "BMI Calculated"
     And I enter the equation "round(([weight]*10000)/(([height])^(2)), 1)" into Calculation Equation of the open "Add New Field" dialog box
     And I click on the button labeled "Save"
     
@@ -55,13 +55,13 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "BMI suitable for study"
-    And I click on the Edit icon for the variable "bmi_suitable"
+    And I click on the Edit image for the field named "BMI suitable for study"
     And I enter the equation "if([bmi_calc] > 15, 1, 0)" into Calculation Equation of the open "Add New Field" dialog box
     And I click on the button labeled "Save"
 
     #VERIFY
     When I click on the link labeled "Record Status Dashboard"
-    And I click on button labeled "Add new record for this arm"
+    And I click on the button labeled "Add new record for this arm"
     Then I should see "Record Home Page"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
     Then I should see "0" in the data entry form field "BMI suitable for study 1 = Suitable 0 = Not suitable" 
@@ -76,7 +76,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     Then I should see a field named "Mean sum of values"
-    And I click on the Edit icon for the variable "mean_value" 
+    And I click on the Edit image for the field named "Mean sum of values"
     And I enter the equation "mean([value1],[value2],[value3])" into Calculation Equation of the open "Add New Field" dialog box
     And I click on the button labeled "Save"
   
@@ -95,7 +95,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "Length of text"
-    And I click on the Edit icon for the variable "length_text" 
+    And I click on the Edit image for the field named "Length of text"
     And I enter the equation "length ([notesbox])" into Calculation Equation of the open "Add New Field" dialog box
     And I click on the button labeled "Save"
 
