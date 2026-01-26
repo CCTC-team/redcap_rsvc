@@ -33,7 +33,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         And I clear field and enter "MyName" into the input field labeled "Participant's Name Typed"
 
         When I click on the "Add signature" link for the field labeled "Participant signature field"
-        And I see a dialog containing the following text: "Add signature"
+        And I should see a dialog containing the following text: "Add signature"
         And I draw a signature in the signature field area
         When I click on the button labeled "Save signature"
         And I click on the button labeled "Next Page >>"

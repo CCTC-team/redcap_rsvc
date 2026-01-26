@@ -14,6 +14,7 @@ Feature: D.9.200 - The system shall support branching logic from data entry form
     #Branching Logic with repeating events
     And I click on the icon labeled "Branching Logic" in the row labeled "textbox"
     And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
+    And I wait for 1 second
     And I clear field and enter '[event_2_arm_1][name][2] != ""' in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
     And I click on the button labeled "Save"
@@ -22,6 +23,7 @@ Feature: D.9.200 - The system shall support branching logic from data entry form
     #Branching Logic with repeating instrument
     And I click on the icon labeled "Branching Logic" in the row labeled "text2"
     And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
+    And I wait for 1 second
     And I clear field and enter '[event_three_arm_1][name][3] != ""' in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
     And I click on the button labeled "Save"

@@ -50,7 +50,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D116100_yyyy-mm-dd_hhmm.pdf"
     Then I should see the following values in the downloaded PDF
       | Record ID 1 (Secondary ID 1) (Event 1) |
     
@@ -75,7 +75,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D116100_yyyy-mm-dd_hhmm.pdf"
     Then I should see the following values in the downloaded PDF
       | Record ID 1 (1) (Event 1) |
     
@@ -117,7 +117,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D116100_yyyy-mm-dd_hhmm.pdf"
     Then I should see the following values in the downloaded PDF
       | Record ID 1 (Event 1) |
 
@@ -145,7 +145,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the link labeled "1"
     When I click on the button labeled "Choose action for record"
     And I click on the link labeled "Download PDF of record data for all instruments/events"
-    Then I should see a downloaded file named "D116100_yyyy_mm_dd_hhmm.pdf"
+    Then I should see a downloaded file named "D116100_yyyy-mm-dd_hhmm.pdf"
     Then I should see the following values in the downloaded PDF
       | Record ID 1 (Event 1) |
 

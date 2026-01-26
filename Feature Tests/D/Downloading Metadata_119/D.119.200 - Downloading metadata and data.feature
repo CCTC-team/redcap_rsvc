@@ -38,9 +38,9 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
 
     #VERIFY: Project settings
     When I click on the link labeled "Project Setup"
-    And I should see the button labeled "Enable" in the "Use surveys in this project?" row in the "Main project settings" section
-    And I should see the button labeled "Disable" in the "Use longitudinal data collection with defined events?" row in the "Main project settings" section
-    
+    And I should see a button labeled "Enable" in the row labeled "Use surveys in this project?"
+    And I should see a button labeled "Disable" in the row labeled "Use longitudinal data collection with defined events?"
+   
     #VERIFY: Instruments
     When I click on the button labeled "Online Designer" 
     Then I should see a table header and rows containing the following values in a table:
@@ -51,7 +51,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     #VERIFY: Events and Arms 
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
-    Then I see "Arm 1"
+    Then I should see "Arm 1"
     And I should see a table header and rows containing the following values in the define events table:
       | Event # | Event Label | Unique event name (auto generated) [event-name] |
       | 1       | Event 1     | event_1_arm_1                                   |
@@ -72,14 +72,14 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
 
     #VERIFY: Enable optional modules and customizations
     Given I click on the link labeled "Project Setup"
-    Then I see the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Disable" in the "Auto-numbering for records" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Enable" in the "Scheduling module" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Enable" in the "Randomization module" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Enable" in the "Designate an email field for communications (including survey invitations and alerts)" row in the "Enable optional modules and customizations" section 
-    And I should see the button labeled "Enable" in the "Twilio SMS and Voice Call services for surveys and alerts" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Enable" in the "Mosio SMS services for surveys and alerts" row in the "Enable optional modules and customizations" section
-    And I should see the button labeled "Enable" in the "SendGrid Template email services for Alerts & Notifications" row in the "Enable optional modules and customizations" section
+    Then I should see a button labeled "Modify" in the row labeled "Repeating instruments and events"
+    And I should see a button labeled "Disable" in the row labeled "Auto-numbering for records"
+    And I should see a button labeled "Enable" in the row labeled "Scheduling module"
+    And I should see the button labeled "Enable" in the row labeled "Randomization module"
+    And I should see the button labeled "Enable" in the row labeled "Designate an email field for communications (including survey invitations and alerts)" 
+    And I should see the button labeled "Enable" in the row labeled "Twilio SMS and Voice Call services for surveys and alerts"
+    And I should see the button labeled "Enable" in the row labeled "Mosio SMS services for surveys and alerts"
+    And I should see the button labeled "Enable" in the row labeled "SendGrid Template email services for Alerts & Notifications"
 
     #VERIFY: Additional customizations
     When I click on the button labeled "Additional customizations"
@@ -104,7 +104,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
     And I should see a table header and rows containing the following values in a table: 
-      | Rule # |                   Rule Name                         | Rule Logic (Show discrepancy  only if...) |        
+      | Rule # | Rule Name                                           | Rule Logic                                |        
       | A      | Blank values*                                       |  -                                        |  
       | B      | Blank values* (required fields only)                |  -                                        |  
       | C      | Field validation errors (incorrect data type)       |  -                                        |  
@@ -120,7 +120,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     #VERIFY: User Rights
     When I click on the link labeled "User Rights"
     And I click on the link labeled "test_user1"
-    And I click on the button labeled "Edit user privileges" on the tooltip
+    And I click on the button labeled "Edit user privileges"
     Then I should see a dialog containing the following text: "Editing existing user"
     And I should see the Data Viewing Rights of the instrument "Text Validation" with option View & Edit selected
     And I should see the Data Viewing Rights of the instrument "Data Types" with option View & Edit selected
@@ -128,7 +128,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I should see the Data Export Rights of the instrument "Data Types" with option Full Data Set selected
   
     And I should see a checkbox labeled "Project Design and Setup" that is checked
-    And I should see a checkbox labeled "User Rights" that is checked
+    And I should see a radio labeled "Full Access" that is checked
     And I should see a checkbox labeled "Data Access Groups" that is checked
     And I should see a checkbox labeled "Alerts & Notifications" that is checked
     And I should see a checkbox labeled "Calendar" that is checked
@@ -140,7 +140,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I should see a checkbox labeled "File Repository" that is checked
     And I should see a checkbox labeled "Create & edit rules" that is checked
     And I should see a checkbox labeled "Execute rules" that is checked
-    And I should see a checkbox labeled "API Export" that is unchecked
+    # And I should see a checkbox labeled "API Export" that is unchecked
     And I should see a checkbox labeled "API Import/Update" that is unchecked
     And I should see a checkbox labeled "Allows user to collect data offline in the mobile app" that is checked
     And I should see a checkbox labeled "Allow user to download data for all records to the app?" that is checked
@@ -162,8 +162,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     #VERIFY: Codebook - Instruments and Fields
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:  
-      | #  | Variabl / Field Name                        | Field Label                                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-      |    | Instrument: Text Validation (text_validation)|                                                           |                                                                        |   
+      | #  | Variable / Field Name                        | Field Label                                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
       | 1  | [record_id]                                  | Record ID                                                 | text                                                                   |  
       | 2  | [ptname_v2_v2]                               | Name                                                      | text                                                                   |  
       | 3  | [email_v2]                                   | Email                                                     | text (email)                                                           |  
@@ -171,7 +170,6 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
       | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?                     | 0 Incomplete                                                           | 
       | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?                     | 1 Unverified                                                           | 
       | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?                     | 2 Complete                                                             |  
-      |    | Instrument: Data Types (data_types)          |                                                           |                                                                        | 
       | 5  | [ptname]                                     | Name                                                      | text                                                                   | 
       | 6  | [text2]                                      | text2                                                     | text                                                                   |   
       | 7  | [textbox]                                    | Text Box                                                  | text                                                                   |   

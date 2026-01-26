@@ -93,7 +93,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I click on the link labeled "Arm 1"
     And I click on the button labeled "Begin Editing"
     And I enable the Data Collection Instrument named "Data Types" for the Event named "Event 2"
-    Then I click on the button labeled "Save" on the Designate Instruments for My Events page
+    Then I click on the button labeled "Save"
 
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 2" for record ID "1" and click on the bubble

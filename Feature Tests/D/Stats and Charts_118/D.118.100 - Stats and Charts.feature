@@ -30,15 +30,15 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         Then I should see "All data (all records and fields)"
 
         And I select "Text Validation" on the dropdown field labeled "Select a data collection instrument to view"
-        Then I see a table header and rows containing the following values in a table: 
+        Then I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing   |
             | 12              | 3 (20.0%) |
 
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing   |
             | 11              | 4 (26.7%) |
 
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing  | Unique |
             | 15              | 0 (0.0%) | 3      |
 
@@ -54,15 +54,15 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         And I should see a pie chart for "Complete?" with text "26.7%"
 
         When I select "Data Types" on the dropdown field labeled "Select a data collection instrument to view"
-        Then I see a table header and rows containing the following values in a table:  
+        Then I should see a table header and rows containing the following values in a table:  
             | Total Count (N) | Missing   |
             | 13              | 2 (13.3%) |
             
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing   |
             | 11              | 4 (26.7%) |
 
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing   | Unique |
             | 12              | 3 (20.0%) | 3      |
 
@@ -78,18 +78,18 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "16.7%"
      
         Then I should NOT see "File Upload" 
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing | Unique | Min | Max | Mean | StDev | Sum | Percentile |
        
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | 0.05       | 0.10 | 0.25 | 0.50 Median | 0.75  | 0.90 | 0.95 | 
         
-        And I see a table header and rows containing the following values in a table: 
+        And I should see a table header and rows containing the following values in a table: 
             | 15              | 0 (0.0%) | 1     | 6   | 6   | 6    | 0     | 90  | 6          | 6    | 6    | 6           | 6     | 6    | 6    |
             
         And I should see "Lowest values: 6, 6, 6, 6, 6"
         And I should see "Highest values: 6, 6, 6, 6, 6"
-        And I see a table header and rows containing the following values in a table:
+        And I should see a table header and rows containing the following values in a table:
             | Total Count (N) | Missing | Unique |
             | 15              | 0 (0.0%) | 3      |
 
@@ -107,7 +107,7 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         Then I should see "Missing values: 10, 13, 14, 15"
  
         When I click on the button labeled "Show stats only"
-        Then I see a table header and rows containing the following values in a table:  
+        Then I should see a table header and rows containing the following values in a table:  
             | Total Count (N) | Missing   |
             | 13              | 2 (13.3%) |
 
@@ -123,7 +123,7 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         And I should see a pie chart for "Multiple Choice Dropdown Manual" with text "16.7%"
 
         When I click on the button labeled "Show plots & stats"
-        Then I see a table header and rows containing the following values in a table:  
+        Then I should see a table header and rows containing the following values in a table:  
             | Total Count (N) | Missing   |
             | 13              | 2 (13.3%) |
 

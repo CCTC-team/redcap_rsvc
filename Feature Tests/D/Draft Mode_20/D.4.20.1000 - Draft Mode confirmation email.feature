@@ -11,7 +11,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         Given I select "Yes, normal users can move projects to production" on the dropdown field labeled "Allow normal users to move projects to production?"
         And I select "Never (always require an admin to approve changes)" on the dropdown field labeled "Allow production Draft Mode changes to be approved automatically under certain conditions"
         When I click on the button labeled "Save Changes"
-        And I see "Your system configuration values have now been changed!"
+        And I should see "Your system configuration values have now been changed!"
 
         # EMAIL ADDRESS SET FOR REDCAP ADMIN - without it, emails are not send out from system
         Given I click on the link labeled "General Configuration"
@@ -30,7 +30,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far"
         And I click on the button labeled "YES, Move to Production Status"
-        Then I should see Project status: "Production"
+        Then I should see "Project status:  Production"
 
         ##ACTION: Draft Mode
         When I click on the link labeled "Designer"
@@ -40,14 +40,14 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         When I click on the link labeled "Data Types"
         And I click on the Edit image for the field named "Radio Button Manual"
         And I enter Choices of "102, Choice102" into the open "Edit Field" dialog box
-        And I click on the button labeled "Save" in the "Edit Field" dialog box
+        And I click on the button labeled "Save"
         And I click on the Add Field input button below the field named "Radio Button Manual"
 
         Given I select "Notes Box (Paragraph Text)" on the dropdown field labeled "Field Type:"
         And I enter "Notes Box" into the Field Label of the open "Add New Field" dialog box
         And I enter "notesbox4" into the Variable Name of the open "Add New Field" dialog box
         And I click on the button labeled "Save"
-        Then I should see the field labeled "Notes Box"
+        Then I should see the textarea labeled "Notes Box"
 
         When I click on the button labeled "Submit Changes for Review"
         And I click on the button labeled "Submit"

@@ -20,7 +20,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
-    Then I should see a downloaded file named "file1.csv"
+    Then I should see a downloaded file named "file1.csv (0.01 MB)"
 
     Given I click on the History icon for the field labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
@@ -38,7 +38,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     Then I should see a link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
-    Then I should see a downloaded file named "B3161200100_ACCURATE.csv"
+    Then I should see a downloaded file named "B3161200100_ACCURATE.csv (0.01 MB)"
 
     # D.117.300
     Given I click on the History icon for the field labeled "File Upload"
@@ -49,9 +49,9 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Upload File - "B3161200100_ACCURATE.csv" | V2             |
     
     And I click on the button labeled "Download" for row 1
-    And I should see a downloaded file named "file1 (1).csv"
+    And I should see a downloaded file named "file1.csv"
     And I click on the button labeled "Download" for row 2
-    And I should see a downloaded file named "B3161200100_ACCURATE (1).csv"
+    And I should see a downloaded file named "B3161200100_ACCURATE.csv"
     And I click on the button labeled "Close"
 
   Scenario: D.117.400 - Download only current version of file during download of zip file
@@ -73,7 +73,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
-    Then I should see a downloaded file named "file1 (2).csv"
+    Then I should see a downloaded file named "file1 (2).csv (0.01 MB)"
 
     When I click on the History icon for the field labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "3"'

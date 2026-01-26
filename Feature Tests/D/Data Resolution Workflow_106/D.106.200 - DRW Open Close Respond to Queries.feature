@@ -82,6 +82,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I enter "The value is correct - B.3.16.600_DataImport.csv uploaded" in the comment box in Data Resolution Workflow
             And I click on the button labeled "Respond to query"
             Then I should see "Data Resolution Dashboard"
+            And I wait for 1 second
             When I click on the button labeled "2 comments"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
@@ -193,6 +194,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | 1                      | email_v2 | Test_User2 | Test_User1 | Test_User1             |
                   | Event 1 (Arm 1: Arm 1) | (Email)  | Test_User2 | "Query 1"  | "Closed"               |
             
+            And I wait for 1 second
             When I select the option "Test_User1 (Test User1)" from the dropdown field for Assigned User in Data Resolution Dashboard
             Then I should see "No results to display"
 

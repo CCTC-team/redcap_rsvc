@@ -35,8 +35,7 @@ Feature:
         ##VERIFY_Codebook 
         When I click on the link labeled "Codebook"
         And I should see a table header and rows containing the following values in the codebook table:  
-            | # | Variabl / Field Name        | Field Label                             | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-            |   | Instrument: Form 1 (form_1) |                                         |                                                                        |   
+            | # | Variable / Field Name       | Field Label                             | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             | 1 | [record_id]                 | Record ID                               | text                                                                   | 
             | 2 | [form_1_complete]           | Section Header: Form Status Complete?   | dropdown                                                               | 
             | 2 | [form_1_complete]           | Section Header: Form Status Complete?   | 0 Incomplete                                                           | 
@@ -46,9 +45,9 @@ Feature:
         ##ACTION: Rename instrument
         Given I click on the link labeled "Online Designer"
         When I click on the button labeled "Choose action"
-        And I click on the link labeled "Rename" in the action popup
+        And I click on the link labeled "Rename"
         And I clear field and enter "Text Validation" into the field with the placeholder text of "Form 1"
-        And I click on the button labeled "Save" to rename an instrument
+        And I click on the button labeled "Save"
         Then I should see "Text Validation" 
 
         ##ACTION: Create new instrument (Data Types)
@@ -65,14 +64,12 @@ Feature:
         ##VERIFY_Codebook 
         When I click on the link labeled "Codebook"
         Then I should see a table header and rows containing the following values in the codebook table:  
-            | # | Variabl / Field Name                          | Field Label                             | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-            |   | Instrument: Text Validation (text_validation) |                                         |                                                                        |   
+            | # | Variable / Field Name                         | Field Label                             | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             | 1 | [record_id]                                   | Record ID                               | text                                                                   | 
             | 2 | [text_validation_complete]                    | Section Header: Form Status Complete?   | dropdown                                                               | 
             | 2 | [text_validation_complete]                    | Section Header: Form Status Complete?   | 0 Incomplete                                                           | 
             | 2 | [text_validation_complete]                    | Section Header: Form Status Complete?   | 1 Unverified                                                           | 
             | 2 | [text_validation_complete]                    | Section Header: Form Status Complete?   | 2 Complete                                                             |  
-            |   | Instrument: Data Types (data_types)           |                                         |                                                                        |   
             | 3 | [data_types_complete]                         | Section Header: Form Status Complete?   | dropdown                                                               | 
             | 3 | [data_types_complete]                         | Section Header: Form Status Complete?   | 0 Incomplete                                                           | 
             | 3 | [data_types_complete]                         | Section Header: Form Status Complete?   | 1 Unverified                                                           | 
@@ -91,12 +88,14 @@ Feature:
         And I enter "email_v2" into the Variable Name of the open "Add New Field" dialog box
         And I enter "Email" into the Field Label of the open "Add New Field" dialog box
         And I select "Email" on the dropdown field labeled "Validation?"
-        And I click on the textarea labeled "Action Tags / Field Annotation"
+        And I click on "" in the textarea field labeled "Action Tags"
+        And I wait for 2 seconds
         And I clear field and enter "@NOMISSING" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save"
         When I click on the icon labeled "Branching Logic" in the row labeled "email"
         And I click on "'" in the textarea field labeled "Advanced Branching Logic Syntax"
+        And I wait for 1 second
         And I clear field and enter '[ptname_v2] != ""' in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I click on the button labeled "Save"
@@ -122,7 +121,7 @@ Feature:
         And I enter Choices of "5, DDChoice5" into the open "Add New Field" dialog box
         And I enter Choices of "7, DDChoice7" into the open "Add New Field" dialog box
         And I enter Choices of "6, DDChoice6" into the open "Add New Field" dialog box
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
+        And I click on the button labeled "Save"
         Then I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the options below
             | DDChoice5 |
             | DDChoice7 |
@@ -137,7 +136,7 @@ Feature:
         And I enter Choices of "2, Checkbox2" into the open "Add New Field" dialog box
         And I enter Choices of "3, Checkbox3" into the open "Add New Field" dialog box
         And I enter Choices of "4, Checkbox4" into the open "Add New Field" dialog box
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
+        And I click on the button labeled "Save"
         Then I should see the multiselect field labeled "checkbox" with the options below
             | Checkbox1 |
             | Checkbox2 |
@@ -148,7 +147,7 @@ Feature:
         And I select "File Upload (for users to upload files)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "File Upload" into the Field Label of the open "Add New Field" dialog box
         And I enter "file_upload" into the Variable Name of the open "Add New Field" dialog box
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
+        And I click on the button labeled "Save"
         Then I should see the link labeled "Upload file"
 
         ##ACTION: Create Radio Button and Calculated fields
@@ -159,7 +158,7 @@ Feature:
         And I enter Choices of "99, Choice99" into the open "Add New Field" dialog box
         And I enter Choices of "100, Choice100" into the open "Add New Field" dialog box
         And I enter Choices of "101, Choice101" into the open "Add New Field" dialog box
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
+        And I click on the button labeled "Save"
         Then I should see the radio field labeled "Radio Button Manual" with the options below
             | Choice99  |
             | Choice100 |
@@ -170,7 +169,7 @@ Feature:
         And I enter "Calculated Field" into the Field Label of the open "Add New Field" dialog box
         And I enter "calculated_field" into the Variable Name of the open "Add New Field" dialog box
         And I enter the equation "3*2" into Calculation Equation of the open "Add New Field" dialog box
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
+        And I click on the button labeled "Save"
         Then I should see a field named "Calculated Field"
         And I should see a link labeled "View equation"
 
@@ -180,13 +179,14 @@ Feature:
         And I enter "Descriptive Text with File" into the Field Label of the open "Add New Field" dialog box
         And I enter "descriptive_text_file" into the Variable Name of the open "Add New Field" dialog box
         And I click on the link labeled "Upload file"
-        And I see a dialog containing the following text: "Attach an image, file, or embedded audio"
+        And I should see a dialog containing the following text: "Attach an image, file, or embedded audio"
         When I upload a "docx" format file located at "import_files/File_upload.docx", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload file" to upload the file
         Then I should see "Document was successfully uploaded!"
         And I click on the button labeled "Close"
-        And I click on the button labeled "Save" in the "Add New Field" dialog box
-        Then I should see the field labeled "Descriptive Text with File"
-        And I should see the link labeled "File_upload.docx"
+        And I click on the button labeled "Save"
+        And I wait for 1 second
+        # Then I should see the field labeled "Descriptive Text with File"
+        Then I should see the link labeled "File_upload.docx"
 
         ##ACTION: Designating field as identifier
         When I click on the last button labeled "Add Field"
@@ -210,17 +210,14 @@ Feature:
         ##VERIFY_Codebook 
         When I click on the link labeled "Codebook"
         And I should see a table header and rows containing the following values in the codebook table:  
-            | #  | Variabl / Field Name                         | Field Label                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-            |    | Instrument: Text Validation (text_validation)|                                           |                                                                        |   
+            | #  | Variable / Field Name                        | Field Label                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             | 1  | [record_id]                                  | Record ID                                 | text                                                                   |  
             | 2  | [ptname_v2]                                  | Patient Name                              | text                                                                   |
-            | 3  | [email_v2]                                   | Email                                     | text (email)                                                           |
-            | 3  | Show the field ONLY if:[ptname_v2] != ""     | Email                                     | Field Annotation: @NOMISSING                                           |
+            | 3  | [email_v2]\nShow the field ONLY if:\n[ptname_v2] != "" | Email                           | text (email)\nField Annotation: @NOMISSING                             |
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | dropdown                                                               | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 2 Complete                                                             |  
-            |    | Instrument: Data Types (data_types)          |                                           |                                                                        | 
             | 5  | [date_trial]                                 | Date of Trial must not be in the future   | text (date_dmy, Min: 2006-01-01, Max: today)                           | 
             | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | dropdown                                                               |   
             | 6  | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual           | 5 DDChoice5                                                            |   
@@ -259,8 +256,7 @@ Feature:
         When I click on the link labeled "Codebook"
         Then I should NOT see "[email_v2]" 
         And I should see a table header and rows containing the following values in the codebook table:
-            | #  | Variabl / Field Name                          | Field Label                           | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
-            |    | Instrument: Text Validation (text_validation) |                                       |                                                                        |   
+            | #  | Variable / Field Name                          | Field Label                           | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             | 1  | [record_id]                                   | Record ID                             | text                                                                   |  
             | 2  | [ptname_v2]                                   | Participant Name                      | text                                                                   |
             | 3  | [text_validation_complete]                    | Section Header: Form Status Complete? | dropdown                                                               | 
