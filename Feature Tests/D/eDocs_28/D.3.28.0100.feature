@@ -12,7 +12,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         And I click on the link labeled "File Upload Settings"
         Then I should see "Local Server File Storage"
         # Change this path to the edocs folder location
-        And I enter "/var/www/html/redcap_file_repository/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
+        And I enter "/var/www/html/edocs/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
         Then I click on the button labeled "Save Changes"
 
     Scenario: Add record to get participant signature
@@ -28,14 +28,14 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         And I click on the survey option label containing "Open survey" label
         And I clear field and enter "FirstName" into the data entry form field labeled "First Name"
         And I clear field and enter "LastName" into the input field labeled "Last Name"
-        And I clear field and enter "email@test.edu" into the input field labeled "Email"
+        And I clear field and enter "email@test.edu" into the input field labeled "email"
         And I click on the "Today" button for the field labeled "Date of Birth"
         And I clear field and enter "MyName" into the input field labeled "Participant's Name Typed"
 
-        When I click on the "Add signature" link for the field labeled "Participant signature field"
-        And I should see a dialog containing the following text: "Add signature"
+        When I click on the link labeled "Add signature"
+        Then I should see a dialog containing the following text: "Add signature"
         And I draw a signature in the signature field area
-        When I click on the button labeled "Save signature"
+        And I click on the button labeled "Save signature"
         And I click on the button labeled "Next Page >>"
         And I check the checkbox labeled "I certify that all of my information in the document above is correct"
         And I click on the button labeled "Submit"
@@ -50,11 +50,11 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Snapshot Archive"
-        And I download the PDF by clicking on the link for Record "1" and Survey "Participant Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
-        Then I should see the following values in the downloaded PDF for Record "1" and Survey "Participant Consent (Event 1 (Arm 1: Arm 1))"
+        And I click on the link labeled "ParticipantConsent_id1"
+        Then I should see the following values in the downloaded PDF
             | First Name                  | FirstName      |
             | Last Name                   | LastName       |
-            | Email                       | email@test.edu |
+            | email                       | email@test.edu |
             | Date of Birth               | yyyy-mm-dd     |
             | Participant's Name Typed    | MyName         |
             | Participant signature field |                |
@@ -63,7 +63,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         And I should see the following values in the PDF at the local storage
             | First Name                  | FirstName      |
             | Last Name                   | LastName       |
-            | Email                       | email@test.edu |
+            | email                       | email@test.edu |
             | Date of Birth               | yyyy-mm-dd     |
             | Participant's Name Typed    | MyName         |
             | Participant signature field |                |
