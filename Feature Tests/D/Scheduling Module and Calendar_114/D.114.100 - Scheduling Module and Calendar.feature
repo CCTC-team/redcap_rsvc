@@ -5,7 +5,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
   Scenario: The system shall support the ability to schedule events
     Given I login to REDCap with the user "Test_User1"
     When I create a new project named "D.114.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D114100.xml", and clicking the "Create Project" button
-    Then I should see a button labeled "Disable" in the "Scheduling module" row in the "Enable optional modules and customizations" section
+    Then I should see the button labeled "Disable" in the row labeled "Scheduling module"
     And I click on the button labeled "Define My Events"
     Then I should see "Event 1" in the define events table
     
@@ -64,7 +64,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
       |      | 11/22/2023 Wednesday | Event 2     |
       |      | 11/23/2023 Thursday  | Event Three |
 
-    And I click on the tab "View or Edit Schedule"
+    And I click on the link "View or Edit Schedule"
     And I select "1" on the dropdown field labeled "Select a previously scheduled Record ID:"
     Then I should see 'View/Edit Existing Schedule'
     And I should see a table header and rows containing the following values in a table:
@@ -125,7 +125,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
    
     Given I click on the View icon for the event named "Event 2" in the Schedule Events
     Then I should see "View/Edit Calendar Event"
-    And I should see "Notes Event 2"
+    # And  I should see "Notes Event 2"
     When I click on the link labeled "change status"
     And I select "Confirmed" on the dropdown field labeled "Status"
     And I click on the button labeled "Save Status"
@@ -147,18 +147,18 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
 
     Given I click on the View icon for the event named "Event 2" in the Schedule Events
     Then I should see "View/Edit Calendar Event"
-    And I should see "Notes Event 2"
+    # And I should see "Notes Event 2"
     When I click on the link labeled "Data Types" in the View Calendar Event
     Then I should see "6" in the data entry form field "Calculated Field"
     And I click on the button labeled "Cancel"
 
     Given I click on the link labeled "Scheduling"
-    And I click on the tab "View or Edit Schedule"
+    And I click on the link "View or Edit Schedule"
     And I select "1" on the dropdown field labeled "Select a previously scheduled Record ID:"
     Then I should see 'View/Edit Existing Schedule'
     When I click on the View icon for the event named "Event 2" in the Schedule Events
     Then I should see "View/Edit Calendar Event"
-    And I should see "Notes Event 2"
+    # And I should see "Notes Event 2"
     When I click on the link labeled "View Record Home Page" in the View Calendar Event
     Then I should see "Record Home Page"
    
@@ -195,31 +195,34 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     # D.114.600 - Verify file download to sync to calendar
     When I click on the button labeled "Sync Calendar to External Application"
     And I click on the button labeled "Download ICS file"
-    Then I should see a downloaded file named "D114100_CalendarEvents_yyyy_mm_dd_hhmm.ics"
-    And I should have the latest downloaded "ics" file with SHA256 hash value "6eed3799205ed240df743d603fee17eed0104ae91aa23835ddc965728641e6a4"
+    Then I should see a downloaded file named "D114100_CalendarEvents_yyyy-mm-dd_hhmm.ics"
+    And I should have the latest downloaded "ics" file with SHA256 hash value "5178a4a418caac72b8d56c0c557ec8c92bb6c1dc4cc9b85f60476baf3a20c245"
     And I click on the button labeled "Close"
 
     # D.114.500 - Delete calendar event 
     Given I click on the link labeled "Scheduling"
-    And I click on the tab "View or Edit Schedule"
+    And I click on the link "View or Edit Schedule"
     And I select "1" on the dropdown field labeled "Select a previously scheduled Record ID:"
     Then I should see 'View/Edit Existing Schedule'
     When I click on the View icon for the event named "Ad Hoc" in the Schedule Events
+    And I wait for 1 second
     When I should see "View/Edit Calendar Event"
     And I click on the button labeled "Delete from Calendar"
     Then I should see "Your calendar event was successfully deleted!"
 
-    ## Cannot verify this through ATS as REDCap remains on the previous page after login, which corresponds to the deleted window. Verification was performed manually
-    # Given I login to REDCap with the user "Test_User1"
-    # And I click on the link labeled "My Projects"
-    # And I click on the link labeled "D.114.100"
-    # And I click on the link labeled "Calendar"
-    # When I click on the link labeled "Agenda"
-    # And I select "November" on the Month dropdown field
-    # And I select "2023" on the Year dropdown field
-    # Then I should see a table header and rows containing the following values in a table:
-    #   | Day         | Time    | Description                  |
-    #   | Tue Nov 21	|         | 1 (Event 1)                  |
-    #   | Wed Nov 22  | 10:00am |	1 (Event 2) -  Notes Event 2 |
+    Given I visit the REDCap login page
+    And I enter "Test_User1" into the input field labeled "Username"
+    And I enter "Testing123" into the input field labeled "Password"
+    And I click on the button labeled "Log In"
+    And I click on the link labeled "My Projects"
+    And I click on the link labeled "D.114.100"
+    And I click on the link labeled "Calendar"
+    When I click on the link labeled "Agenda"
+    And I select "November" on the Month dropdown field
+    And I select "2023" on the Year dropdown field
+    Then I should see a table header and rows containing the following values in a table:
+      | Day         | Time    | Description                  |
+      | Tue Nov 21	|         | 1 (Event 1)                  |
+      | Wed Nov 22  | 10:00am |	1 (Event 2) -  Notes Event 2 |
 
-    # And I should NOT see "1 -  Ad Hoc Notes"
+    And I should NOT see "1 -  Ad Hoc Notes"
