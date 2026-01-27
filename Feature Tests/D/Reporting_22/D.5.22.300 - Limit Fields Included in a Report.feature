@@ -16,15 +16,13 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the button labeled "Create New Report"
     And I enter 'Test Report 1' into the input field labeled "Name of Report:"
-    And I enter 'ptname "Name"' into the input field labeled "Field 2"
-    And I click on the list item 'ptname "Name"'
-    And I enter 'email_v2 "Email"' into the input field labeled "Field 3" 
-    And I click on the list item 'email_v2 "Email"'
-    And I enter 'required "Required"' into the input field labeled "Field 4" 
-    And I click on the list item 'required "Required"'
+    And I click on the button labeled "View full list of fields" for the row labeled 'Field 2'
+    And I select 'ptname "Name"' on the dropdown field labeled "Field 2"
+    And I select 'email_v2 "Email"' on the dropdown field labeled "Field 3"
+    And I select 'required "Required"' on the dropdown field labeled "Field 4"
     Then I should see "Show data for all events or repeating instruments/events for each record returned"
-    When I enter 'textbox "Text Box"' into the field label for Filter 1
-    And I click on the list item 'textbox "Text Box"'
+    And I click on the button labeled "View full list of fields" for the row labeled 'Filter 1'
+    And I select 'textbox "Text Box"' on the dropdown field labeled "Filter 1"
     And I select the operator "contains" for Filter 1
     And I enter "She" into the operator value for Filter 1
     And I select 'record_id "Record ID"' on the dropdown field labeled "Live Filter 1"
@@ -59,9 +57,10 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
       | 7         | Event 1 (Arm 1: Arm 1) |                   |                 |             | christopherblue@example.com |          |
       | 7         | Event 1 (Arm 1: Arm 1) | Data Types        | 1               | Gilly Dilly |                             | 7        |
     
-    When I click on the button labeled "Edit"
-    And I enter 'radio_button_manual "Radio Button Manual"' into the field label for Filter 2
-    And I click on the list item 'radio_button_manual "Radio Button Manual"'
+    When I click on the button labeled "Edit Report"
+    And I click on the button labeled "View full list of fields" for the row labeled 'Filter 2'
+    And I select 'radio_button_manual "Radio Button Manual"' on the dropdown field labeled "Filter 2"
+
     And I select the operator "=" for Filter 2
     And I select the operator value "Choice99" for Filter 2
     And I select 'required "Required"' on the dropdown field labeled "First by"
@@ -77,8 +76,8 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     When I click on the button labeled "Edit"
-    And I enter 'required "Required"' into the field label for Filter 3
-    And I click on the list item 'required "Required"'
+    And I click on the button labeled "View full list of fields" for the row labeled 'Filter 3'
+    And I select 'required "Required"' on the dropdown field labeled "Filter 3"
     And I select the operator "not =" for Filter 3
     And I enter "4" into the operator value for Filter 3
     When I click on the button labeled "Save Report"
