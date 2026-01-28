@@ -2,7 +2,7 @@
 Feature: D.3.28.0100. - Control Center: The system shall support the option to configure the storage location for uploaded documents
 
     As a REDCap end user
-    I want to see that eDocse is functioning as expected
+    I want to see that eDocs is functioning as expected
 
     Scenario: D.3.28.0100. - Configure the storage location for uploaded documents
         #FUNCTIONAL_REQUIREMENT
@@ -11,8 +11,8 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         When I click on the link labeled "Control Center"
         And I click on the link labeled "File Upload Settings"
         Then I should see "Local Server File Storage"
-        # Change this path to the edocs folder location
-        And I enter "/var/www/html/edocs/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
+        # Change this path to the redcap_file_repository folder location
+        And I enter "/var/www/html/redcap_file_repository/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
         Then I click on the button labeled "Save Changes"
 
     Scenario: Add record to get participant signature
