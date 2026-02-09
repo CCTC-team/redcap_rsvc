@@ -46,10 +46,11 @@ Feature:
         Given I click on the link labeled "Online Designer"
         When I click on the button labeled "Choose action"
         And I click on the link labeled "Rename"
-        And I clear field and enter "Text Validation" into the field with the placeholder text of "Form 1"
-        And I click on the button labeled "Save"
+        And I clear field and enter "Text Validation" into the field labeled "Instrument name"
+        And I clear field and enter "text_validation" into the field labeled "Form name"
+        And I click on the button labeled "Apply"
         Then I should see "Text Validation" 
-
+   
         ##ACTION: Create new instrument (Data Types)
         #Oddly, we need the space before this button because otherwise we match on "Create snapshot of instruments"
         When I click on the button labeled " Create"
@@ -106,6 +107,7 @@ Feature:
         Then I should see "Data Types"
         And I click on the button labeled "Dismiss"
         And I click on the button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Text Box (Short Text, Number, Date/Time, ...)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Date of Trial" into the Field Label of the open "Add New Field" dialog box
         And I enter "date_trial" into the Variable Name of the open "Add New Field" dialog box
@@ -114,7 +116,9 @@ Feature:
         And I enter "today" into the input field labeled "Maximum"
         And I enter "must not be in the future" into the input field labeled "Field Note"
         And I click on the button labeled "Save"
+        Then I should see "Date of Trial"
         Then I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Multiple Choice - Drop-down List (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Multiple Choice Dropdown Manual" into the Field Label of the open "Add New Field" dialog box
         And I enter "multiple_dropdown_manual" into the Variable Name of the open "Add New Field" dialog box
@@ -129,6 +133,7 @@ Feature:
 
         ##ACTION: Create Checkbox and File Upload fields
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Checkboxes (Multiple Answers)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Checkbox" into the Field Label of the open "Add New Field" dialog box
         And I enter "checkbox" into the Variable Name of the open "Add New Field" dialog box
@@ -144,6 +149,7 @@ Feature:
             | Checkbox4 |
 
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "File Upload (for users to upload files)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "File Upload" into the Field Label of the open "Add New Field" dialog box
         And I enter "file_upload" into the Variable Name of the open "Add New Field" dialog box
@@ -152,6 +158,7 @@ Feature:
 
         ##ACTION: Create Radio Button and Calculated fields
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Multiple Choice - Radio Buttons (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Radio Button Manual" into the Field Label of the open "Add New Field" dialog box
         And I enter "radio_button_manual" into the Variable Name of the open "Add New Field" dialog box
@@ -165,6 +172,7 @@ Feature:
             | Choice101 |
 
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Calculated Field" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Calculated Field" into the Field Label of the open "Add New Field" dialog box
         And I enter "calculated_field" into the Variable Name of the open "Add New Field" dialog box
@@ -175,6 +183,7 @@ Feature:
 
         ##ACTION: Create Descriptive text field
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Descriptive Text (with optional Image/Video/Audio/File Attachment)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Descriptive Text with File" into the Field Label of the open "Add New Field" dialog box
         And I enter "descriptive_text_file" into the Variable Name of the open "Add New Field" dialog box
@@ -190,15 +199,18 @@ Feature:
 
         ##ACTION: Designating field as identifier
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Text Box (Short Text, Number, Date/Time, ...)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Identifier" into the Field Label of the open "Add New Field" dialog box
         And I enter "identifier_2" into the Variable Name of the open "Add New Field" dialog box
         And I mark the field as an identifier
         And I click on the button labeled "Save"
         Then I should see the field labeled "Identifier"
+        And I wait for 2 seconds
 
         ##ACTION Designating field as required
         When I click on the last button labeled "Add Field"
+        And I wait for 2 seconds
         And I select "Text Box (Short Text, Number, Date/Time, ...)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Required" into the Field Label of the open "Add New Field" dialog box
         And I enter "required_2" into the Variable Name of the open "Add New Field" dialog box
@@ -213,7 +225,7 @@ Feature:
             | #  | Variable / Field Name                        | Field Label                               | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) | 
             | 1  | [record_id]                                  | Record ID                                 | text                                                                   |  
             | 2  | [ptname_v2]                                  | Patient Name                              | text                                                                   |
-            | 3  | [email_v2]\nShow the field ONLY if:\n[ptname_v2] != "" | Email                           | text (email)\nField Annotation: @NOMISSING                             |
+            | 3  | [email_v2] Show the field ONLY if: [ptname_v2] != "" | Email                             | text (email) Field Annotation: @NOMISSING                              |
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | dropdown                                                               | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 0 Incomplete                                                           | 
             | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
