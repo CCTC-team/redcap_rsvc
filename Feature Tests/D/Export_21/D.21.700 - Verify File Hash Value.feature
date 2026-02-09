@@ -20,11 +20,11 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     Then I should see a dialog containing the following text: "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
-    Then I should see a downloaded file named "D217000_DATA_yyyy-mm-dd_hhmm.csv"
+    Then I should see a downloaded file named "D21700_DATA_yyyy-mm-dd_hhmm.csv"
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "csv" file with SHA256 hash value "e358fffbfc5842686937b7e8a9c47dc0beb3dd184fcc2471410674a49ab9fc90"
+    And I should have the latest downloaded "csv" file with SHA256 hash value "5a250f27286860bcf82427090bf9a041821402d0cf25f452d183ed8e402c29c6"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export CSV (labels)
@@ -39,7 +39,7 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "csv" file with SHA256 hash value "87b2b7520ffe04648351ad3b01e14f58b201e70311cf72c12db09e448f127aaf"
+    And I should have the latest downloaded "csv" file with SHA256 hash value "eeb5aaa4727da3c617a0eb6aed29a989bf0a7058a4e5ef67856e463c3aa520f6"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export SPSS
@@ -53,7 +53,7 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "sps" file with SHA256 hash value "11bb1c4ff94b48073df83bd478a353ad8cab1d04a3242567162c0f663085c95a"
+    And I should have the latest downloaded "sps" file with SHA256 hash value "34e24fcab5433c4e66e913c8a34491c7474dbbb0e72809d125f10fcc84cdc4c0"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export SAS
@@ -66,7 +66,7 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "sas" file with SHA256 hash value "7389b4749622c71f4bd7ab2666b9ae0830bd16de77aa84420849dd5a2caca62e"
+    And I should have the latest downloaded "sas" file with SHA256 hash value "06a8f6ca3e7ea4cf3ec69ddf79756707a1325ae6627e3f8ca5e9c95a25faf72b"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export R
@@ -77,11 +77,11 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
 
     Given I click on the download icons to receive the files for the "R Statistical Software" format
 
-    Then I should see a downloaded file named "B521200100_R_yyyy-mm-dd_hhmm.r"
+    Then I should see a downloaded file named "D21700_R_yyyy-mm-dd_hhmm.r"
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "r" file with SHA256 hash value "5986730a9720472afbb1a3927ef7d0f024637ea74ccde0140c869fd19ad1e7a6"
+    And I should have the latest downloaded "r" file with SHA256 hash value "5ff8b4ba5a70457d8ec6a33cc5997ff7b09e59391bb40c39e28c0b057a7b00b2"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export STATA
@@ -91,7 +91,7 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     Then I should see a dialog containing the following text: "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "Stata Statistical Software" format
-    Then I should see a downloaded file named "B521200100-TestReport_STATA_yyyy-mm-dd_hhmm.do"
+    Then I should see a downloaded file named "D21700-TestReport_STATA_yyyy-mm-dd_hhmm.do"
     #Manual Close file
 
     And I click on the button labeled "Close"
@@ -105,9 +105,9 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     Then I should see a dialog containing the following text: "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CDISC ODM (XML)" format
-    Then I should see a downloaded file named "B521200100_CDISC_ODM_yyyy-mm-dd_hhmm.xml"
+    Then I should see a downloaded file named "D21700_CDISC_ODM_yyyy-mm-dd_hhmm.xml"
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "xml" file with SHA256 hash value "94b42c09dcdac6a324b309d75c00e7d7a5e43e2b9d37e2b2b57f32b98c91f9b4"
+    And I should have the latest downloaded "xml" file with SHA256 hash value "c1c7c30f96649d30b9560c6ad9cab3d2f347d3a41913f02bf7e15f423f6cebb3"
     And I logout
