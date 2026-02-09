@@ -30,7 +30,9 @@ Feature: D.120.100 - The system shall support the ability to use Embedded Fields
     
     When I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "; Participant Info:"
-    And I enter "User1@example.com" into the input field labeled "Mail ID"
+    # And I enter "User1@example.com" into the field labeled "Mail ID:"
+    And I enter "User1@example.com" into the embedded field labeled "Mail ID:"
+    And I enter "Participant1" into the embedded field labeled "; Participant Info:"
     And I should NOT see "Name"
     And I should NOT see "EmailField"
     And I click on the button labeled "Save & Exit Form"
@@ -39,7 +41,7 @@ Feature: D.120.100 - The system shall support the ability to use Embedded Fields
     #VERIFY_DE
     When I click on the link labeled "Logging"
     Then I should see table header and rows containing the following values in the logging table:
-        | Username   | Action                                   | List of Data Changes OR Fields Exported                       |
-        | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1)) | email_v2 = 'User1@example.com', text_validation_complete = '0' |
+        | Username   | Action                                   | List of Data Changes OR Fields Exported |
+        | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1)) | email_v2 = 'User1@example.com', ptname_v2_v2 = 'Participant1', text_validation_complete = '0', record_id = '2' |
     
     And I logout
