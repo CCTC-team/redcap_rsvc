@@ -33,7 +33,13 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I click on the button labeled "Auto Invitation options"
     When I click on the link labeled "Re-evaluate Automated Survey Invitations"
     When I click on the button labeled "Re-evaluate selected surveys"
-    Then I should see "Nothing changed!"
+    Then I should see "SUCCESS"
+    And I click on the button labeled "OK"
+
+    And I click on the button labeled "Auto Invitation options"
+    When I click on the link labeled "Re-evaluate Automated Survey Invitations"
+    When I click on the button labeled "Re-evaluate selected surveys"
+    Then I should see "Nothing changed"
     And I click on the button labeled "OK"
 
     Given I click on the link labeled "Logging"

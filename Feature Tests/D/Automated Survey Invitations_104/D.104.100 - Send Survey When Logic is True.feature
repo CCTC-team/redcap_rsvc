@@ -32,7 +32,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I enter "Testing Survey Event 1" into the input field labeled "Subject:"
     And I check the checkbox labeled "When the following logic becomes true:"
     And I click on "" in the textarea field labeled "When the following logic becomes true"
-    And I wait for 1 second
+    And I wait for 2 seconds
     And I should see "Logic Editor"
     And I clear field and enter "[fname]!='' and [email]!=''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
@@ -46,6 +46,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I should see "Settings for automated invitations were successfully saved!"
     And I click on the button labeled "Close"
     Then I should see "Automated Invitations"
+    And I wait for 2 seconds
 
     Given I click on the button labeled "+Set up"
     Then I should see "Define Conditions for Automated Survey Invitations (ASI)"
@@ -101,7 +102,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
       | Invitation send time | Participant Email | Record | Survey         |
       | ( 2)                 | joe@abc.com       | 1      | Survey Event 1 |
 
-    Then I wait for 80 seconds
+    Then I wait for 90 seconds
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
     And I click on the link labeled "Survey Invitation Log"
