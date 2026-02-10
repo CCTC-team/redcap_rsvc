@@ -27,8 +27,8 @@ Feature: D.112.100 - The system shall support the ability to send password over 
 
         ##VERIFY: Verify email in MailHog and set password
         Given I open Email
-        Then I should see an email for user "Test_User5@example.com" with subject "REDCap access granted"
-        When I click on the link in the email for user "Test_User5@example.com" with subject "REDCap access granted"
+        Then I should see an email for user "test_user5@example.com" with subject "REDCap access granted"
+        When I click on the link in the email for user "test_user5@example.com" with subject "REDCap access granted"
         Then I should see "Set Your Password"
         Then I enter "Testing123" into the input field labeled "Password"
         And I enter "Testing123" into the input field labeled "Re-type password"
@@ -39,7 +39,7 @@ Feature: D.112.100 - The system shall support the ability to send password over 
         And I enter "Test_User5" into the input field labeled "Username"
         And I enter "Testing123" into the input field labeled "Password"
         And I click on the button labeled "Log In"
-        Then I should see "Welcome to REDCap!"
+        Then I should see "My Projects"
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: Reset Password 
@@ -57,7 +57,7 @@ Feature: D.112.100 - The system shall support the ability to send password over 
         And I enter "Test_User5" into the input field labeled "Username"
         And I enter "Testingpass123" into the input field labeled "Password"
         And I click on the button labeled "Log In"
-        Then I should see "Welcome to REDCap!"
+        Then I should see "My Projects"
         And I logout
 
         ##ACTION: Forgot Your Password
@@ -71,7 +71,7 @@ Feature: D.112.100 - The system shall support the ability to send password over 
 
         ##VERIFY: Verify email in MailHog and set password
         Given I open Email
-        When I click on the link in the email for user "Test_User5@example.com" with subject "REDCap password reset"
+        When I click on the link in the email for user "test_user5@example.com" with subject "REDCap password reset"
         Then I should see "Set Your Password"
         And I enter "Testing1234" into the input field labeled "Password"
         And I enter "Testing1234" into the input field labeled "Re-type password"
@@ -82,5 +82,5 @@ Feature: D.112.100 - The system shall support the ability to send password over 
         When I enter "Test_User5" into the input field labeled "Username"
         And I enter "Testing1234" into the input field labeled "Password"
         And I click on the button labeled "Log In"
-        Then I should see "Welcome to REDCap!"
+        Then I should see "My Projects"
         And I logout
