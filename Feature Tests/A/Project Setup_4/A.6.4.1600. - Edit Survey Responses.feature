@@ -22,13 +22,13 @@ Feature: Control Center: The system shall allow users to edit survey responses t
         And I click on the link labeled "User Rights"
         And I click on the link labeled "test_admin"
         And I click on the button labeled "Edit user privileges"
-        And I should NOT see "Edit survey responses"
 
         # MANUAL NOTE: We should NOT see a column labeled "Edit survey responses" in the "Data Viewing Rights" table
         Then I should see table rows containing the following values in a table in the dialog box:
             | Data Viewing Rights |           |             |        |
             | No Access           | Read Only | View & Edit | Delete |
 
+        And I should NOT see "Edit survey responses"
         And I click on the button labeled "Cancel"
 
         #FUNCTIONAL REQUIREMENT
