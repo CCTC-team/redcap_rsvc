@@ -14,15 +14,15 @@ Feature: D.102.400 - The system shall support the ability to send emails When co
     Given I click on the button labeled "Upload or download Alerts"
     Then I should see "Upload Alerts (CSV)"
     And I click on the link labeled "Upload Alerts (CSV)"
-    Then I should see a dialog containing the following text: "Upload Alerts (CSV)"
+    Then I should see "Upload Alerts (CSV)"
     When I upload a "csv" format file located at "import_files/redcap_val/D102400_Alerts.csv", by clicking the button near "Select your CSV file of Alerts to be added:" to browse for the file, and clicking the button labeled "Upload" to upload the file
-    Then I should see a dialog containing the following text: "Upload Alerts (CSV) - Confirm"
+    Then I should see "Upload Alerts (CSV) - Confirm"
     And I should see a table header and rows containing the following values in the a table:
       | alert-title | alert-trigger	|
       | Email Alert | LOGIC         |
 
     Given I click on the button labeled "Upload"
-    Then I should see a dialog containing the following text: "SUCCESS!"
+    Then I should see "SUCCESS!"
     And I click on the button labeled "Close"
     And I should see "Alert #1:Email Alert"
       
