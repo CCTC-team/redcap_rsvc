@@ -22,6 +22,7 @@ Feature: Control Center: The system shall allow users to edit survey responses t
         And I click on the link labeled "User Rights"
         And I click on the link labeled "test_admin"
         And I click on the button labeled "Edit user privileges"
+        And I should NOT see "Edit survey responses"
 
         # MANUAL NOTE: We should NOT see a column labeled "Edit survey responses" in the "Data Viewing Rights" table
         Then I should see table rows containing the following values in a table in the dialog box:
@@ -48,11 +49,11 @@ Feature: Control Center: The system shall allow users to edit survey responses t
         # MANUAL NOTE: We should now see a column labeled "Edit survey responses" in the "Data Viewing Rights" table
         Then I should see table rows containing the following values in a table in the dialog box:
             | Data Viewing Rights |           |             |        |                       |
-            | No Access           | Read Only | View & Edit | Delete | Edit Survey Responses |
+            | No Access           | Read Only | View & Edit | Delete | Edit survey responses |
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION: Enable editing survey responses for survey instrument
-        When I check the checkbox in the column labeled "Edit Survey Responses" and the row labeled "Survey"
+        When I check the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
         And I click on the button labeled "Save Changes"
         Then I should see 'User "test_admin" was successfully edited'
 
