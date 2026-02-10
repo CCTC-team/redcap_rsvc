@@ -49,9 +49,9 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Upload File - "B3161200100_ACCURATE.csv" | V2             |
     
     And I click on the button labeled "Download" for row 1
-    And I should see a downloaded file named "file1.csv"
+    And I should see a downloaded file named "file1.csv (0.01 MB)"
     And I click on the button labeled "Download" for row 2
-    And I should see a downloaded file named "B3161200100_ACCURATE.csv"
+    And I should see a downloaded file named "B3161200100_ACCURATE.csv (0.01 MB)"
     And I click on the button labeled "Close"
 
   Scenario: D.117.400 - Download only current version of file during download of zip file
@@ -73,7 +73,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
-    Then I should see a downloaded file named "file1 (2).csv (0.01 MB)"
+    Then I should see a downloaded file named "file1.csv (0.01 MB)"
 
     When I click on the History icon for the field labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "3"'
@@ -123,7 +123,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I click on the button labeled "Close"
 
     # Disable File Version History
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     Then I uncheck the checkbox labeled Enable the File Version History for 'File Upload' fields in additional customizations
     And I click on the button labeled "Save"
