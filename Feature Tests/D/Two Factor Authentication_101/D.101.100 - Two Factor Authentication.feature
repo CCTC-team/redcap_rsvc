@@ -6,7 +6,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
     Scenario: D.101.100 Enabling/Disabling of Two-Factor Authentication
         # Two-Factor Authentication Disabled
         Given I login to REDCap with the user "Test_User1" 
-        Then I should see "Welcome to REDCap"
+        Then I should see "My Projects"
         And I logout
 
         Given I login to REDCap with the user "Test_Admin"
@@ -43,7 +43,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
 
         # Copy and paste REDCap Verification code from MailHog
         Given I open Email
-        And I copy the verification code for user "Test_User1@test.edu" from the email with subject "REDCap 2-step login"
+        And I copy the verification code for user "test_user1@test.edu" from the email with subject "REDCap 2-step login"
        
         Given I login to REDCap with the user "Test_User1"
         Then I should see "Two-step verification for REDCap login"
@@ -53,7 +53,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
         And I paste the verification code into the input field
         And I click on the button labeled "Submit"
         Then I should see "SUCCESS"
-        And I should see "Welcome to REDCap"
+        And I should see "My Projects"
         And I logout
 
         # Verification code asked
@@ -73,7 +73,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
 
         # Copy and paste REDCap Verification code from MailHog
         Given I open Email
-        And I copy the verification code for user "Test_User2@test.edu" from the email with subject "REDCap 2-step login"
+        And I copy the verification code for user "test_user2@test.edu" from the email with subject "REDCap 2-step login"
 
         Given I login to REDCap with the user "Test_User2"
         Then I should see "Two-step verification for REDCap login"
@@ -83,10 +83,10 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
         When I paste the verification code into the input field
         And I click on the button labeled "Submit"
         Then I should see "SUCCESS"
-        And I should see "Welcome to REDCap"
+        And I should see "My Projects"
         And I logout
       
         # No verification code asked
         Given I login to REDCap with the user "Test_User2"
-        Then I should see "Welcome to REDCap"
+        Then I should see "My Projects"
         And I logout
