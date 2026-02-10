@@ -22,7 +22,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "successfully edited"
 
-    And I click on the link labeled "Project Setup"
+    And I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     And I check the checkbox labeled "Designate a Secondary Unique Field"
     
@@ -61,7 +61,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | Record ID          |
       | 1 (Secondary ID 1) |
 
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     And I uncheck the checkbox labeled "Display the field label of the Secondary Unique Field when displaying the value?"
     And I click on the button labeled "Save"
@@ -102,7 +102,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1 (1)     |
       | 2 (2)     |
 
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     Then I uncheck the checkbox labeled "Display the value of the Secondary Unique Field next to each record name displayed?"
     And I click on the button labeled "Save"
@@ -128,7 +128,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 1         |
       | 2         |
 
-    And I click on the link labeled "Project Setup"
+    And I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     Then I check the checkbox labeled "Display the value of the Secondary Unique Field next to each record name displayed?"
     Then I check the checkbox labeled "PDF Customizations"
@@ -157,7 +157,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
       | 2 (2)     |
 
   Scenario: Diasble Secondary Unique Field
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
     Then I uncheck the checkbox labeled "Designate a Secondary Unique Field"
     And I click on the button labeled "Save"
