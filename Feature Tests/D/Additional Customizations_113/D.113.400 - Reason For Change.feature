@@ -6,7 +6,7 @@ Feature: D.113.400 - The system shall support the ability to specify a reason wh
     Scenario: D.113.400 - Enable Reason for change 
         Given I login to REDCap with the user "Test_Admin" 
         And I create a new project named "D.113.400" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
-        Given I click on the link labeled "Project Setup"
+        Given I click on the link labeled "Setup"
         And I click on the button labeled "Additional customizations"
         And I check the checkbox labeled Require a 'reason' when making changes to existing records in additional customizations
         Then I click on the button labeled "Save"
@@ -68,7 +68,7 @@ Feature: D.113.400 - The system shall support the ability to specify a reason wh
         And I click on the button labeled "Close"
 
     Scenario: Disable Reason for Change
-        Given I click on the link labeled "Project Setup"
+        Given I click on the link labeled "Setup"
         And I click on the button labeled "Additional customizations"
         And I uncheck the checkbox labeled Require a 'reason' when making changes to existing records in additional customizations
         Then I click on the button labeled "Save"

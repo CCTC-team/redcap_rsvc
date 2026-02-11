@@ -9,7 +9,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
             And I create a new project named "D.113.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
             #ACTION: Enable Data History Popup 
-            Given I click on the link labeled "Project Setup"
+            Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
             Then I should see a checkbox labeled Enable the Data History popup for all data collection instruments that is checked in additional customizations
             And I click on the button labeled "Cancel"
@@ -43,7 +43,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
             And I click on the button labeled "Close"
 
       Scenario: Disable Data History Popup 
-            Given I click on the link labeled "Project Setup"
+            Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
             And I uncheck the checkbox labeled Enable the Data History popup for all data collection instruments in additional customizations
             Then I click on the button labeled "Save"

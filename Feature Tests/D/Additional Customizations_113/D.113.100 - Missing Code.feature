@@ -12,7 +12,7 @@ Feature: D.113.100 - The system shall support the ability to add Missing Data Co
             Then I should NOT see a Missing Code icon for the field labeled "Name"
 
             #ACTION: Add Missing Data Code
-            Given I click on the link labeled "Project Setup"
+            Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
             And I scroll to the field labeled "Missing Data Codes"
             # {enter} for newline
