@@ -8,7 +8,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I create a new project named "D.104.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Survey.xml", and clicking the "Create Project" button
    
     # Enable surveys in the project and designate email field
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     Then I should see a button labeled "Enable" in the row labeled "Use surveys in this project?"
     And I click on the button labeled "Enable" in the row labeled "Use surveys in this project?"
     Then I should see a button labeled "Disable" in the row labeled "Use surveys in this project?"
