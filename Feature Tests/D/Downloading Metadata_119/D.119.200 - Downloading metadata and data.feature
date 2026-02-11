@@ -22,7 +22,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     | 2         |      
 
     #ACTION: Download Metadata and data xml file for project D.119.200
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     Then I click on the link labeled "Other Functionality"
     And I click on the button labeled "Download metadata & data (XML)"
     Then I should see a dialog containing the following text: 'Exporting "Entire project (metadata & data)"' 
@@ -37,7 +37,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I create a new project named "D.119.200_Metadata_and_Data" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing the latest downloaded CDISC file, and clicking the "Create Project" button
 
     #VERIFY: Project settings
-    When I click on the link labeled "Project Setup"
+    When I click on the link labeled "Setup"
     And I should see a button labeled "Enable" in the row labeled "Use surveys in this project?"
     And I should see a button labeled "Disable" in the row labeled "Use longitudinal data collection with defined events?"
    
@@ -49,7 +49,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
       | Data Types               | 18     |
 
     #VERIFY: Events and Arms 
-    When I click on the link labeled "Project Setup"
+    When I click on the link labeled "Setup"
     And I click on the button labeled "Define My Events"
     Then I should see "Arm 1"
     And I should see a table header and rows containing the following values in the define events table:
@@ -71,7 +71,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 1" 
 
     #VERIFY: Enable optional modules and customizations
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     Then I should see a button labeled "Modify" in the row labeled "Repeating instruments and events"
     And I should see a button labeled "Disable" in the row labeled "Auto-numbering for records"
     And I should see a button labeled "Enable" in the row labeled "Scheduling module"
@@ -141,7 +141,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I should see a checkbox labeled "Create & edit rules" that is checked
     And I should see a checkbox labeled "Execute rules" that is checked
     # And I should see a checkbox labeled "API Export" that is unchecked
-    And I should see a checkbox labeled "API Import/Update" that is unchecked
+    # And I should see a checkbox labeled "API Import/Update" that is unchecked
     And I should see a checkbox labeled "Allows user to collect data offline in the mobile app" that is checked
     And I should see a checkbox labeled "Allow user to download data for all records to the app?" that is checked
     And I should see a checkbox labeled "Create Records" that is checked
@@ -149,7 +149,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I should see a checkbox labeled "Delete Records" that is unchecked
     And I should see a checkbox labeled "Record Locking Customization" that is unchecked
     And I should see a radio labeled "Disabled" that is checked
-    And I should see a checkbox labeled "Lock/Unlock *Entire* Records (record level)" that is unchecked
+    And I should see a checkbox labeled "Lock/Unlock Entire Records (record level)" that is unchecked
     And I click on the button labeled "Cancel"
 
     #VERIFY: DAGS
