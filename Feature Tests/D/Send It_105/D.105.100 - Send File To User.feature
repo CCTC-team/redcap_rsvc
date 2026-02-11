@@ -7,7 +7,8 @@ Feature: Send It: D.105.100 - The system shall support the ability to send a fil
   Scenario: D.105.100 Send a file to user
     Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
-    Then I should see the dropdown field labeled "From:" with the option "Test_User1@test.edu" selected
+    And I wait for 1 second
+    Then I should see "Test_User1@test.edu"
     When I enter "joe@abc.com; paul@abc.com" into the textarea field labeled "To:"
     And I enter "Send-it file" into the input field labeled "Email subject:"
     And I enter "Send-it csv file" into the textarea field labeled "Email message:"

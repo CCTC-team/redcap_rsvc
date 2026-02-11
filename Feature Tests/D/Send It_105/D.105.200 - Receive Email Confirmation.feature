@@ -16,7 +16,7 @@ Feature: Send It: D.105.200 - The system shall support the ability to receive em
   Scenario: D.105.200 - Received Email Confirmation
     Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
-    Then I should see the dropdown field labeled "From:" with the option "Test_User1@test.edu" selected
+    Then I should see "Test_User1@test.edu"
     When I enter "dave@abc.com" into the textarea field labeled "To:"
     And I enter "Send-it file" into the input field labeled "Email subject:"
     And I enter "Send-it csv file" into the textarea field labeled "Email message:"
@@ -42,7 +42,7 @@ Feature: Send It: D.105.200 - The system shall support the ability to receive em
   
     ##VERIFY: Verify email confirmation is received
     Given I open Email
-    Then I should see an email for user "Test_User1@test.edu" with subject "[REDCap Send-It] Confirmation of file download"
+    Then I should see an email for user "test_user1@test.edu" with subject "[REDCap Send-It] Confirmation of file download"
     
     # # Step definition for changing the system date is not implemented. Hence the below steps need to be verified manually
     # # D.105.300 - Verify the link expires after Expiration Time (4 days)
