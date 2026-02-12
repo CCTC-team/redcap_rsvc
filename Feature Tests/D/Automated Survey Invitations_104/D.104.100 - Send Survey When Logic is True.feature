@@ -102,7 +102,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
       | Invitation send time | Participant Email | Record | Survey         |
       | ( 2)                 | joe@abc.com       | 1      | Survey Event 1 |
 
-    Then I wait for 90 seconds
+    Then I wait for 100 seconds
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
     And I click on the link labeled "Survey Invitation Log"
