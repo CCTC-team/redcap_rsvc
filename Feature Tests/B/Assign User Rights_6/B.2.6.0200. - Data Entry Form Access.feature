@@ -22,6 +22,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see a dialog containing the following text: "Upload users (CSV)"
 
     Given I upload a "csv" format file located at "import_files/user list for project 1.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
     Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
     And I should see a table header and rows containing the following values in a table in the dialog box:
       | username   |
@@ -102,7 +103,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see a dialog containing the following text: "Editing existing user"
 
     ##ACTION: Set user access to View & Edit + Edit survey responses
-    When I check the checkbox in the column labeled "Edit Survey Responses" and the row labeled "Survey"
+    When I check the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
 
     Given I click on the link labeled "Add / Edit Records"
@@ -142,7 +143,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see a dialog containing the following text: "Editing existing user"
 
     ##ACTION: Remove user access to Edit survey responses
-    When I uncheck the checkbox in the column labeled "Edit Survey Responses" and the row labeled "Survey"
+    When I uncheck the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
 
     ##VERIFY: Not able to edit survey responses for the instrument
