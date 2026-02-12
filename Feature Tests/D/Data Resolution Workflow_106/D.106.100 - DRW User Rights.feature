@@ -8,7 +8,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     And I create a new project named "D.106.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
     #ACTION: Enable the Data Resolution Workflow
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     And I click on the button labeled "Additional customizations"
     And I select "Data Resolution Workflow" on the dropdown field labeled "Enable:"
     Then I click on the button labeled "Save"
@@ -40,7 +40,7 @@ Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges 
     When I click on the Comment icon for the field labeled "Text Box"
     Then  I should see "Data Resolution Workflow"
     And I select the radio option Open query in Data Resolution Workflow
-    And I enter "Query 1" in the comment box in Data Resolution Workflow
+    And I enter "Query 1" into the textarea field labeled "Comment"
     And I click on the button labeled "Open query"
     Then I should see a Small Exclamation icon for the field labeled "Text Box"
     When I click on the Comment icon for the field labeled "Notes Box"

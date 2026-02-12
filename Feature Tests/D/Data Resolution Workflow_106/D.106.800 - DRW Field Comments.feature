@@ -9,7 +9,7 @@ Feature: D.106.800 Data Resolution Workflow
       And I create a new project named "D.106.800" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
       #ACTION: Verify Field Comment Log is enabled
-      Given I click on the link labeled "Project Setup"
+      Given I click on the link labeled "Setup"
       And I click on the button labeled "Additional customizations"
       Then I should see the dropdown field labeled "Enable:" with the option "Field Comment Log" selected
       And I should see a checkbox labeled "Allow users to edit or delete Field Comments" that is checked
@@ -37,7 +37,7 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Comment icon for the field labeled "Name"
-      Then I enter "Comment 1" in the comment box in Field Comment Log
+      And I enter "Comment 1" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
@@ -56,7 +56,7 @@ Feature: D.106.800 Data Resolution Workflow
             |              | Date/Time        | User       | Comments   | 
             |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
 
-      And I enter "Comment 2" in the comment box in Field Comment Log
+      And I enter "Comment 2" into the textarea field labeled "Comment"
       And  I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
@@ -80,7 +80,7 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the button labeled "Cancel"
 
       #ACTION: Disable users to edit/delete Field Comments
-      Given I click on the link labeled "Project Setup"
+      Given I click on the link labeled "Setup"
       And I click on the button labeled "Additional customizations"
       And I uncheck the checkbox labeled "Allow users to edit or delete Field Comments" 
       Then I click on the button labeled "Save"
@@ -105,7 +105,7 @@ Feature: D.106.800 Data Resolution Workflow
             | Date/Time        | User       | Comments  |
             | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
 
-      And I enter "Comment 3" in the comment box in Field Comment Log
+      And I enter "Comment 3" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
       Then I should see a Comment icon for the field labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
@@ -120,13 +120,13 @@ Feature: D.106.800 Data Resolution Workflow
 
       And I click on the button labeled "Cancel"
       Then I click on the Comment icon for the field labeled "Email"
-      And I enter "Comment 4" in the comment box in Field Comment Log
+      And I enter "Comment 4" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
 
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "2" and click on the bubble
       And I click on the Comment icon for the field labeled "Email"
-      And I enter "Comment 5" in the comment box in Field Comment Log
+      And I enter "Comment 5" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
       And I logout
 

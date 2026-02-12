@@ -8,7 +8,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I create a new project named "D.106.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
             #Enable the Data Resolution Workflow (Data Queries)
-            Given I click on the link labeled "Project Setup"
+            Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
             And I select "Data Resolution Workflow" in the dropdown field labeled "Enable:"
             Then I click on the button labeled "Save"
@@ -46,17 +46,17 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the Comment icon for the field labeled "Email"
             Then  I should see "Data Resolution Workflow"
             And I select the radio option Open query in Data Resolution Workflow
-            Then I select the dropdown option "Test_User2 (Test User2)" in Data Resolution Workflow
+            And I select "Test_User2 (Test User2)" on the dropdown field labeled "Assign query to a user (optional)"
             And I select the checkboxes option Email in Data Resolution Workflow
             And I select the checkboxes option REDCap Messenger in Data Resolution Workflow
-            And I enter "Query 1" in the comment box in Data Resolution Workflow
+            And I enter "Query 1" into the textarea field labeled "Comment"
             And I click on the button labeled "Open query"
             Then I should see a Small Exclamation icon for the field labeled "Email"
             And I logout
 
             #VERIFY D.106.500 - Email
             Given I open Email
-            Then I should see an email for user "Test_User2" with subject "[REDCap] You were assigned to a data query"
+            Then I should see an email for user "test_user2" with subject "[REDCap] You were assigned to a data query"
             
             #ACTION: Verify notification on Messenger and respond to query by uploading a file
             Given I login to REDCap with the user "Test_User2" 
@@ -74,12 +74,12 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Opened query Assigned to user:Test_User2 (Test User2) Comment:“Query 1” |
 
             #VERIFY D.106.400 - Upload file to Query
-            And I select the dropdown option "Verified - Confirmed correct (no error)" in Data Resolution Workflow
+            And I select "Verified - Confirmed correct (no error)" on the dropdown field labeled "Reply with response"
             Then I click on the link labeled "Upload file"
             Then I upload a "csv" format file located at "/import_files/B.3.16.600_DataImport.csv", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload document" to upload the file
             Then I should see "Document was successfully uploaded!"
             And I click on the button labeled "Close"
-            And I enter "The value is correct - B.3.16.600_DataImport.csv uploaded" in the comment box in Data Resolution Workflow
+            And I enter "The value is correct - B.3.16.600_DataImport.csv uploaded" into the textarea field labeled "Comment"
             And I click on the button labeled "Respond to query"
             Then I should see "Data Resolution Dashboard"
             And I wait for 1 second
@@ -94,7 +94,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | record_id | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
 
             And I select the radio option Send back for further attention in Data Resolution Workflow
-            And I clear field and enter "Please clarify" in the comment box in Data Resolution Workflow
+            And I clear field and enter "Please clarify" into the textarea field labeled "Comment"
             When I click on the button labeled "Send back for further attention"
             Then I should see "Data Resolution Dashboard"
 
@@ -115,7 +115,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | Test_User2 | Action:Sent back for further attention Comment:“Please clarify” |
 
             And I select the radio option Close the query in Data Resolution Workflow
-            And I enter "Closed" in the comment box in Data Resolution Workflow
+            And I enter "Closed" into the textarea field labeled "Comment"
             And I click on the button labeled "Close the query"
             Then I should see a Small Tick icon for the field labeled "Email"
             Given I click on the Small Tick icon for the field labeled "Email"
@@ -125,7 +125,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Closed query Comment:“Closed” |
 
             When I check the checkbox labeled "Reopen the closed query" 
-            And I enter "Reopen the closed query" in the comment box in Data Resolution Workflow
+            And I enter "Reopen the closed query" into the textarea field labeled "Comment"
             And I click on the button labeled "Reopen query"
             Then I should see a Small Exclamation icon for the field labeled "Email"
             Given I click on the Small Exclamation icon for the field labeled "Email"
@@ -135,15 +135,15 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | Test_User1 | Action:Reopened query Comment:“Reopen the closed query” |
 
             And I click on the radio labeled "Close the query"
-            And I enter "Closed" in the comment box in Data Resolution Workflow
+            And I enter "Closed" into the textarea field labeled "Comment"
             And I click on the button labeled "Close the query"
             Then I should see a Small Tick icon for the field labeled "Email"
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "2" and click on the bubble
             And I click on the Comment icon for the field labeled "Name"
             When I select the radio option Open query in Data Resolution Workflow
-            And I select the dropdown option "test_user1 (Test User1)" in Data Resolution Workflow
-            And I enter "Query 2" in the comment box in Data Resolution Workflow
+            And I select "test_user1 (Test User1)" on the dropdown field labeled "Assign query to a user (optional)"
+            And I enter "Query 2" into the textarea field labeled "Comment"
             And I click on the button labeled "Open query"
             Then I should see a Small Exclamation icon for the field labeled "Name"
       

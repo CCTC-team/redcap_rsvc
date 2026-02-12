@@ -9,7 +9,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I create a new project named "D.106.600" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
       #ACTION: Enable the Data Resolution Workflow (Data Queries)
-      Given I click on the link labeled "Project Setup"
+      Given I click on the link labeled "Setup"
       And I click on the button labeled "Additional customizations"
       And I select "Data Resolution Workflow" in the dropdown field labeled "Enable:"
       Then I click on the button labeled "Save"
@@ -41,7 +41,7 @@ Feature: D.106.600 Data Resolution Workflow
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone' |
 
       When I select the radio option Verified data value in Data Resolution Workflow
-      And I enter "Test Verify Data" in the comment box in Data Resolution Workflow
+      And I enter "Test Verify Data" into the textarea field labeled "Comment"
       And I click on the button labeled "Verified data value"
       Then I should see a Tick icon for the field labeled "Name"
       
@@ -64,7 +64,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I click on the button labeled "De-verify data value"
       Then I should see a dialog containing the following text: "A comment is required. Please enter a comment." 
       And I click on the button labeled "Close"
-      And I enter "Test De-verify Data" in the comment box in Data Resolution Workflow
+      And I enter "Test De-verify Data" into the textarea field labeled "Comment"
       And I click on the button labeled "De-verify data value"
       Then I should see an Exclamation icon for the field labeled "Name"
       And I wait for 1 second
