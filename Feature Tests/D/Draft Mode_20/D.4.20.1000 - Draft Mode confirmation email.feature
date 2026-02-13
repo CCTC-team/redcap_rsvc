@@ -26,7 +26,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         And I create a new project named "D.4.20.1000" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
         #SETUP_PRODUCTION
-        When I click on the link labeled "Project Setup"
+        When I click on the link labeled "Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far"
         And I click on the button labeled "YES, Move to Production Status"
@@ -71,7 +71,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         # Automatic Email to REDCap admin to review Draft changes
         Then I should see 1 email for user "redcap@test.instance"
         # Email to user who submitted the Draft changes
-        Then I should see 1 email for user "Test_User1@test.edu"
+        Then I should see 1 email for user "test_user1@test.edu"
 
         Given I login to REDCap with the user "Test_Admin"
         When I click on the link labeled "Control Center"
@@ -88,5 +88,5 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
 
         #VERIFY: Email Confirmation to requestor
         Given I open Email
-        Then I should see an email for user "Test_User1@test.edu" with subject "[REDCap] Project Changes were Approved"
+        Then I should see an email for user "test_user1@test.edu" with subject "[REDCap] Project Changes were Approved"
 #END
