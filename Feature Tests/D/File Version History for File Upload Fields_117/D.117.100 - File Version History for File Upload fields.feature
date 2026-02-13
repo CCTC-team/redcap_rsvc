@@ -1,4 +1,3 @@
-
 Feature: D.117.100 - The system shall support the ability to enable/disable File Version History for 'File Upload' fields 
 
   As a REDCap end user
@@ -17,6 +16,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
     And I click on the link labeled "Upload file"
     And I upload a "csv" format file located at "import_files/redcap_val/file1.csv", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+    And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
@@ -35,6 +35,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
   Scenario: D.117.200 - Upload new version of file
     Given I click on the link labeled "Upload new version"
     And I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "File Upload" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+    And I click on the button labeled "Close"
     Then I should see a link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I download a file by clicking on the link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
@@ -70,8 +71,10 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
     And I click on the link labeled "Upload file"
     And I upload a "csv" format file located at "import_files/redcap_val/file1.csv", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+    And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I wait for 1 second
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
     Then I should see a downloaded file named "file1.csv (0.01 MB)"
 
@@ -109,9 +112,11 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | test_user1 | Upload File - "B3161200100_ACCURATE.csv" | V2             |                             |
     
     And I click on the button labeled "Close"
+    And I wait for 1 second
     When I click on the link labeled "Remove file"
     Then I click on the button labeled "Yes, delete it"
     Then I should see a link labeled "Upload file"
+    And I click on the button labeled "Close"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     When I click on the History icon for the field labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
@@ -131,18 +136,24 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
+    And I wait for 1 second
     And I click on the link labeled "Upload file"
     And I upload a "csv" format file located at "import_files/redcap_val/file1.csv", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+    And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     Then I should NOT see a link labeled "Upload new version"
+    And I wait for 1 second
     And I click on the link labeled "Remove file"
     And I click on the button labeled "Yes, delete it"
+    And I click on the button labeled "Close"
     Then I should see a link labeled "Upload file"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I wait for 1 second
     When I click on the link labeled "Upload file"
     And I upload a "csv" format file located at "import_files/redcap_val/file1.csv", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+    And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
 

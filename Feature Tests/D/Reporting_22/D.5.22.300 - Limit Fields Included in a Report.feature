@@ -87,7 +87,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
       | 1         | Event 1 (Arm 1: Arm 1) |                   |                 |             | tonystone@example.com       |          |
       | 1         | Event 1 (Arm 1: Arm 1) | Data Types        | 1               | Lily Brown  |                             | 1        |
    
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the button labeled "Designate Instruments for My Events"
     And I click on the link labeled "Arm 1"
     And I click on the button labeled "Begin Editing"
