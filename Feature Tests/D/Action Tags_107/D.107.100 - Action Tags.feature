@@ -45,6 +45,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test"
     When I click on the Edit image for the field named "Favorite Disney Character"
+    And I wait for 1 second
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@DEFAULT='5'" in the textarea field labeled "Logic Editor"
