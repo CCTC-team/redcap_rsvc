@@ -14,7 +14,7 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
     And I click on the Edit image for the field named "Email"
     And I enter "email" into the input field labeled "Field Note"
     Then I click on the button labeled "Save"
-    When I click on the link labeled "Project Setup"
+    When I click on the link labeled "Setup"
     And I click on the link labeled "Download PDF of all instruments"
     Then I should see a downloaded file named "D115100.pdf"
     And I should see the following values in the downloaded PDF
@@ -67,6 +67,7 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
     When I click on the link labeled "Data Types"
     And I click on the button labeled "Dismiss"
     And I click on the Delete Field image for the field named "Signature"
+    And I wait for 1 second
     And I click on the button labeled "Delete"
     Then I should NOT see a field labeled "Signature"
     And I click on the Delete Field image for the field named "File Upload"
@@ -80,7 +81,7 @@ Feature: D.115.100 - The system shall support the ability to download the PDF of
     Then I should NOT see a field labeled "Descriptive Text with File"
 
     #VERIFY
-    Given I click on the link labeled "Project Setup"
+    Given I click on the link labeled "Setup"
     When I click on the link labeled "Download PDF of all instruments"
     Then I should see a downloaded file named "D115100.pdf"
     And I should NOT see the following values in the last file downloaded

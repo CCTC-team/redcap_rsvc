@@ -6,7 +6,7 @@ Feature: D.115.200 - The system shall support additional customization of PDF of
   Scenario: Additional customization of PDF of instruments
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.115.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
-    And I click on the link labeled "Project Setup"
+    And I click on the link labeled "Setup"
     And I click on the button labeled "Additional customizations"
     When I check the checkbox labeled "PDF Customizations"
     And I clear field and enter "CRF Version 1" into the input field labeled "1)"
