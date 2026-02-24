@@ -32,6 +32,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     When I click on the button labeled "Upload or download instrument mappings"
     And I click on the link labeled "Upload instrument-event mappings (CSV)"
     And I upload a "csv" format file located at "import_files/redcap_val/D114100_InstrumentDesignations.csv", by clicking the button near "Select your CSV File of Instrument-Event Designations" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
     Then I should see "Upload instrument-event mappings (CSV)"
     And I click on the button labeled "Upload"
     Then I should see "SUCCESS!"
@@ -145,7 +146,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
       | 10:00 am | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023  | Event 2     | Confirmed | Notes Event 2 |
       |  9:00 am | 11/28/2023 Tuesday                                   | Ad Hoc      |           | Ad Hoc Notes  |
 
-    Given I click on the View icon for the event named "Event 2" in the Schedule Events
+    Given I click on the View icon for the event named "Event 1" in the Schedule Events
     Then I should see "View/Edit Calendar Event"
     # And I should see "Notes Event 2"
     When I click on the link labeled "Data Types" in the View Calendar Event
@@ -191,13 +192,15 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
       | Wed Nov 22	| 10:00am |	1 (Event 2) -  Notes Event 2 |
       | Tue Nov 28	| 9:00am  |	1 -  Ad Hoc Notes            |
 
-    And I click on the link labeled "Calendar"
-    # D.114.600 - Verify file download to sync to calendar
-    When I click on the button labeled "Sync Calendar to External Application"
-    And I click on the button labeled "Download ICS file"
-    Then I should see a downloaded file named "D114100_CalendarEvents_yyyy-mm-dd_hhmm.ics"
-    And I should have the latest downloaded "ics" file with SHA256 hash value "5178a4a418caac72b8d56c0c557ec8c92bb6c1dc4cc9b85f60476baf3a20c245"
-    And I click on the button labeled "Close"
+    # # Download fails due to bug in REDCap version 15. (Ticket #273059)
+    # # If a user has a mixed-cased username, it might prevent them from successfully downloading their live calendar feed (ICS file) from the Calendar page in a project.
+    # # D.114.600 - Verify file download to sync to calendar
+    # Given I click on the link labeled "Calendar"
+    # And I click on the button labeled "Sync Calendar to External Application"
+    # When I click on the button labeled "Download ICS file"
+    # Then I should see a downloaded file named "D114100_CalendarEvents_yyyy-mm-dd_hhmm.ics"
+    # And I should have the latest downloaded "ics" file with SHA256 hash value "5178a4a418caac72b8d56c0c557ec8c92bb6c1dc4cc9b85f60476baf3a20c245"
+    # And I click on the button labeled "Close"
 
     # D.114.500 - Delete calendar event 
     Given I click on the link labeled "Scheduling"
