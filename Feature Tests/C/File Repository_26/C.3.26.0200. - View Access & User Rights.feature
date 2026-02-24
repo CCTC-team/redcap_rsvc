@@ -40,6 +40,7 @@ Feature: User Interface: The system shall support limiting file repository user 
         And I click on the button labeled "Upload or download users, roles, and assignments"
         And I click on the link labeled "Upload users (CSV)"
         Then I upload a "csv" format file located at "/import_files/user list for project 1.csv", by clicking the button near "Select your CSV file of users and their user rights to be added/modified:" to browse for the file, and clicking the button labeled "Upload" to upload the file
+        And I wait for 1 second
         Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
         And I should see a table header and rows containing the following values in a table in the dialog box:
             | username   |
