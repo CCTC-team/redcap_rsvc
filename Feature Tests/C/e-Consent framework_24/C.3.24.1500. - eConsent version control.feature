@@ -73,7 +73,8 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I should see "This is my test 1 consent form"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I click on the button labeled "Okay"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -150,6 +151,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I click on the button labeled "Consent Form (Inline PDF)"
         #Adding a .png file will cause an error
     And I upload a "pdf" format file located at "import_files/consent.png", by clicking the button near "Upload your PDF consent form" to browse for the file, and clicking the button labeled "Add new consent form" to upload the file
+    And I wait for 1 second
 
   Scenario: Verify error
     Then I should see "ERROR: Only PDF files are allowed"
@@ -168,7 +170,6 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           0 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
@@ -192,7 +193,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     #Manual: Then I should see "CONSENT" in the PDF content displayed within the page
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I click on the button labeled "Okay"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -257,11 +258,9 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
-    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario:
@@ -274,11 +273,9 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
-    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario:
@@ -293,11 +290,9 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
       | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
       |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
       |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 0  |                    | Test_Admin (Admin User) |                           0 |                   |              | ""                                      |                              |
       |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
-    And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
 
   Scenario: C.3.24.1500.400 View historical version
@@ -319,7 +314,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I should NOT see "consent.pdf"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I click on the button labeled "Okay"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -368,6 +363,6 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     When I click on the link labeled "pid13_formParticipantConsent_id3_"
     Then I should see the following values in the last file downloaded
       # Make sure the DOB is followed immediatly by "Participant", verifying that the consent "Version:" is omitted. 
-      | 2000-01-01, Type: Participant |
+      | 2000-01-01, Participant |
 #Manual: Close document
 #END
