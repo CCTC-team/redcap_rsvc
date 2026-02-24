@@ -67,6 +67,7 @@ Feature: User Interface: Survey Project Settings: The system shall support the a
 
     #ACTION - Create repeatable survey
     Given I click on the link labeled "Designer"
+    And I wait for 1 second
     And I click on the button labeled "Survey settings" in the row labeled "Survey"
     And I click on the checkbox labeled "(Optional) Repeat the survey"
     And I click on the button labeled "Save Changes"
