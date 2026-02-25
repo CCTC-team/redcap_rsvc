@@ -228,6 +228,7 @@ Feature: User Interface: The system shall support text validation for text field
 
         When I clear field and enter "" into the data entry form field labeled "Time HH:MM:SS"
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        And I wait for 1 second
 
         When I click on the link labeled "Text Validation"
         And I enter "TEST" into the data entry form field labeled "Email"
