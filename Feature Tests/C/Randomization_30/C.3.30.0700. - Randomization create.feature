@@ -361,6 +361,7 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
 
         When I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
         Then I should see "Already uploaded"
+        And I wait for 1 second
 
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"
@@ -395,6 +396,7 @@ Feature: C.3.30.0700 User Interface: The system shall ensure users with Randomiz
         #Different Upload File
         When I upload a "csv" format file located at "import_files/RandomizationAllocationTemplate_new.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
         Then I should see "Already uploaded"
+        And I wait for 1 second
 
         #VERIFY_log Randomization saved in logging table
         When I click on the link labeled "Logging"

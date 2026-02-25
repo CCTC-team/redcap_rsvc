@@ -24,14 +24,17 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     Then I should see "Test User2" within the "5_NoRand" row of the column labeled "Username" of the User Rights table
 
     #SETUP randomization for 0100
-    When I click on the link labeled "Project Setup"
+    When I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
     And I click on the button labeled "Add new randomization model"
     Then I should see "STEP 1: Define your randomization model"
     And I select "rand_group (Randomization group 1)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
     When I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
+    Then I should see "Delete allocation table?"
     When I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
     And I should see the dropdown field labeled "Trigger option" with the option "Manual only, using Randomize button (default)" selected
 
   Scenario: C.3.30.0800.0100. Manual only, using Randomize button (default)
@@ -67,7 +70,10 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I select "auto_rand (Automatic Randomization)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
+    Then I should see "Delete allocation table?"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
     And I select "Trigger logic, for users with Randomize permission only" on the dropdown field labeled "Trigger option" on the tooltip
 
     And I select "Demographics" on the dropdown field labeled "Instrument" on the tooltip
@@ -107,7 +113,10 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I select "rand_survey (Go to:)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
+    Then I should see "Delete allocation table?"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I wait for 1 second
     And I select "Trigger logic, for all users (including survey respondents)" on the dropdown field labeled "Trigger option" on the tooltip
     And I select "Survey" on the dropdown field labeled "Instrument" on the tooltip
     And I click on "" in the textarea field labeled "Trigger logic"

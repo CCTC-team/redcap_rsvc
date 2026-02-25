@@ -42,7 +42,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
       | DAG 1                     | test_user2 (Test User2) |
       | [Not assigned to a group] | test_user1 (Test User1) |
     #Adding randomization strategy and allocation table
-    When I click on the link labeled "Project Setup"
+    When I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
     And I click on the button labeled "Add new randomization model"
     And I check the checkbox labeled "B) Randomize by group/site"
@@ -54,7 +54,8 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     When I click on the button labeled "Example #2 (all possible combos)"
     Then I should see a downloaded file named "RandomizationAllocationTemplate.csv"
     Then I upload a "csv" format file located at "downloads/RandomizationAllocationTemplate.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-    
+    And I wait for 1 second
+
     #Adding Allocation table for automation
     When I upload a "csv" format file located at "import_files/AllocationTblC.3.30.0600.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     Then I should see " Success! The randomization allocation table was created!"
@@ -66,7 +67,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I login to REDCap with the user "Test_User2"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.30.0600."
-    And I click on the link labeled "Project Setup"
+    And I click on the link labeled "Setup"
     And I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
@@ -108,7 +109,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.30.0600."
-    And I click on the link labeled "Project Setup"
+    And I click on the link labeled "Setup"
     And I click on the button labeled "Set up randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:

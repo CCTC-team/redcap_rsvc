@@ -17,7 +17,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
 
     Scenario: #C.3.30.1000.0300: The system shall reject allocation tables missing required structural elements (e.g., target field column, inconsistent stratum combinations).
         # Test: Upload malformed CSV (e.g., missing redcap_randomization_group). Confirm that REDCap rejects the file with a descriptive error.
-        Given I click on the link labeled "Project Setup"
+        Given I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "auto_rand"
         And I upload a "csv" format file located at "import_files/AlloRand malformed.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload File" to upload the file

@@ -7,11 +7,14 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         And I create a new project named "C.3.30.0900" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "C.3.30.OneRand.xml", and clicking the "Create Project" button
 
         #SETUP randomization
-        When I click on the link labeled "Project Setup"
+        When I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
         And I upload a "csv" format file located at "import_files/AlloRand rand_group3.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I wait for 1 second
+        Then I should see "Delete allocation table?"
         And I upload a "csv" format file located at "import_files/AlloRand rand_group4.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I wait for 1 second
         When I click on the link labeled "Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far"
@@ -31,7 +34,7 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         Given I login to REDCap with the user "Test_User1"
         And I click on the link labeled "My Projects"
         And I click on the link labeled "C.3.30.0900"
-        And I click on the link labeled "Project Setup"
+        And I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
 
@@ -59,13 +62,13 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         Given I login to REDCap with the user "Test_Admin"
         And I click on the link labeled "My Projects"
         And I click on the link labeled "C.3.30.0900"
-        And I click on the link labeled "Project Setup"
+        And I click on the link labeled "Setup"
         And I click on the link labeled "Other Functionality"
         Then I should see "Because Randomization is enabled, the project cannot be moved back to Development status."
         And I should see the button labeled "Move back to Development status" that is disabled
 
     Scenario: C.3.30.0900.0300. Admin cannot modify setup in production.
-        Given I click on the link labeled "Project Setup"
+        Given I click on the link labeled "Setup"
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
 
@@ -92,6 +95,7 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         And I should see "(only REDCap admins may download the allocation table while in production)"
 
         Given I click on the second button labeled "Download table"
+        And I wait for 1 second
         Then I should see a downloaded file named "RandomizationAllocationTable_Prod.csv"
 
     Scenario: C.3.30.0900.0500. Admin cannot modify existing allocation table in production.
