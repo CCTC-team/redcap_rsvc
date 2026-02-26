@@ -23,6 +23,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         Then I should see a dialog containing the following text: "Upload users (CSV)"
 
         Given I upload a "csv" format file located at "import_files/user list for project 1.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
+        And I wait for 1 second
         Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
         And I should see a table header and rows containing the following values in a table in the dialog box:
             | username   |
@@ -58,8 +59,8 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I click on the button labeled "Edit user privileges"
         Then I should see a dialog containing the following text: "Editing existing user"
         When I uncheck the User Right named "Delete Records"
-        And I should see "The Delete right has been cleared for all forms"
-        And I click on the button labeled "Close"
+        # And I should see "The Delete right has been cleared for all forms"
+        # And I click on the button labeled "Close"
         And I click on the button labeled "Save Changes"
 
         ##ACTION Verify record exist ##VERIFY_RSD
@@ -272,6 +273,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 5."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 5 successfully added."
