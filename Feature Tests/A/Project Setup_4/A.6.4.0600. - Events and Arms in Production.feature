@@ -276,7 +276,7 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         When I click on the button labeled "Upload or download instrument mappings"
         And I click on the link labeled "Upload instrument-event mappings (CSV)"
         And I upload a "csv" format file located at "import_files/instrument_designation.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
-
+        And I wait for 2 seconds
         Then I should see a dialog containing the following text: "ERROR"
         And I click on the button labeled "Close"
 

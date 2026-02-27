@@ -281,6 +281,7 @@ Feature: User Interface: The system shall support ranges for the following data 
         When I click on the button labeled "Close"
         And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 10 successfully added."
+        And I wait for 1 second
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
