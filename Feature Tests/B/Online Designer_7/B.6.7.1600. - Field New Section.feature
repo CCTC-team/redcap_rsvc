@@ -91,5 +91,5 @@ Feature: Field Creation: The system shall support the creation of Begin New Sect
         And I click on the button labeled "Add new record"
         And I click the bubble to add a record for the "Data Types" instrument on the column labeled "Status"
         Then I should see "Data Types"
-        And I should see "Date"
+        And I should see "Date Section Header"
 #END
