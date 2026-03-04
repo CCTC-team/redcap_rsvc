@@ -30,7 +30,7 @@ Feature: User Interface: The system shall allow data to be uploaded as backgroun
         # Wait for import batch 2
         And I wait for background processes to finish
         # We've intermittently seen that it takes three cron runs to get through two batches. Perhaps the import is sometimes bumped by other crons.
-        And I wait for background processes to finish
+        # And I wait for background processes to finish
         #Manual: this may take several minutes
         And I should see "Completed" in the row labeled "BigDataTestProjectbadDATA.csv"
 

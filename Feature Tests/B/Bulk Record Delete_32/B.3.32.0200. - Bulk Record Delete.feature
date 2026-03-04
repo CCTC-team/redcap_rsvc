@@ -282,6 +282,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 6."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 6 successfully added."     
@@ -290,6 +291,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 7."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 7 successfully added."
@@ -298,6 +300,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 8."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 8 successfully added."  
@@ -306,6 +309,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 9."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 9 successfully added." 
@@ -314,6 +318,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 10."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 10 successfully added."
@@ -322,6 +327,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I select "Arm 2: Arm Two" on the dropdown field labeled "Choose an existing Record ID"
         And I click on the button labeled "Add new record for the arm selected above"
         Then I should see "Adding new Record ID 11."
+        And I wait for 1 second
 
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 11 successfully added."    
