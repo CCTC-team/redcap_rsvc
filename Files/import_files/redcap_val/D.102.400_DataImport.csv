@@ -1,0 +1,3 @@
+﻿record_id,redcap_event_name,redcap_repeat_instrument,redcap_repeat_instance,ptname_v2_v2,email_v2,text_validation_complete,ptname,text2,textbox,notesbox,multiple_dropdown_auto,multiple_dropdown_manual,radio_button_auto,radio_button_manual,checkbox___1,checkbox___2,checkbox___3,required,identifier,identifier_2,edit_field,data_types_complete
+2,event_1_arm_1,,,,test_user1@abc.com,0,,,,,,,,,,,,,,,,
+3,event_1_arm_1,,,User2,test_user2@abc.com,0,,,,,,,,,,,,,,,,

@@ -1,0 +1,6 @@
+username,expiration,data_access_group,data_access_group_id,design,alerts,user_rights,data_access_groups,reports,stats_and_charts,manage_survey_participants,calendar,data_import_tool,data_comparison_tool,logging,file_repository,data_quality_create,data_quality_execute,api_export,api_import,mobile_app,mobile_app_download_data,record_create,record_rename,record_delete,lock_records_all_forms,lock_records,lock_records_customization,data_quality_resolution,forms,forms_export
+test_admin,,,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,0,0,0,"data_types:1,text_validation:1","data_types:1,text_validation:1"
+test_user1,,,,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,3,"text_validation:1,data_types:1","text_validation:1,data_types:1"
+test_user2,,,,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,2,"text_validation:1,data_types:1","text_validation:1,data_types:1"
+test_user3,,,,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,4,"text_validation:1,data_types:1","text_validation:1,data_types:1"
+test_user4,,,,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,5,"text_validation:1,data_types:1","text_validation:1,data_types:1"

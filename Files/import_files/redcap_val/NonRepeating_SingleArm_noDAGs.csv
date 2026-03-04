@@ -1,0 +1,7 @@
+record_id,redcap_event_name,text_validation_crfver,ptname_v2,email_v2,text_validation_monstat,text_validation_complete,data_types_crfver,ptname,notesbox,multiple_dropdown_auto,radio_button_manual,checkbox___1,checkbox___2,checkbox___3,file_upload,data_types_monstat,data_types_complete
+1,event_1_arm_1,1,User1,,,2,1,User1,,,100,0,0,0,,,0
+1,event_2_arm_1,2,User2,testuser2@abc.com,,0,,,,,101,0,1,0,,,2
+1,event_three_arm_1,3,User2,,,0,,,,,,,,,,,
+2,event_1_arm_1,1,,,,0,1,,,,,0,0,0,,,0
+2,event_2_arm_1,2,,,,0,2,,,,100,0,0,0,,,0
+2,event_three_arm_1,3,User3,,,0,,,,,,,,,,,

@@ -1,0 +1,7 @@
+record_id,redcap_event_name,redcap_survey_identifier,lname,fname,email,demographics_complete,survey_timestamp,reminder,description,survey_complete
+1,event_1_arm_1,,George,Joe,joe@abc.com,0,10/12/2023 16:35,1,description,2
+1,event_2_arm_1,,,,,,10/13/2023 10:00,2,fdgf,2
+2,event_1_arm_1,,g,g,ds@sd.com,0,10/13/2023 10:02,vc,vcbvcb,2
+3,event_1_arm_1,,wqe,wqew,dadd@sgds.COM,0,10/13/2023 10:10,bdsb,fdbfdb,2
+4,event_1_arm_1,,bfdb,dfbf,vf@fd.vom,0,10/13/2023 10:26,v, vcb v,2
+5,event_1_arm_1,,vbc,fdvd,111@sdfd.ovm,0,,,,0

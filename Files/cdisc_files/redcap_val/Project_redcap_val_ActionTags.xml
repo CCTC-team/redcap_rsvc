@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="Project_redcap_val_ActionTags" AsOfDateTime="2024-11-06T08:23:46" CreationDateTime="2024-11-06T08:23:46" SourceSystem="REDCap" SourceSystemVersion="13.8.1">
+<Study OID="Project.D107100">
+<GlobalVariables>
+	<StudyName>Project_redcap_val_ActionTags</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "Project_redcap_val_ActionTags".</StudyDescription>
+	<ProtocolName>Project_redcap_val_ActionTags</ProtocolName>
+	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
+	<redcap:CustomRecordLabel></redcap:CustomRecordLabel>
+	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
+	<redcap:SchedulingEnabled>0</redcap:SchedulingEnabled>
+	<redcap:SurveysEnabled>0</redcap:SurveysEnabled>
+	<redcap:SurveyInvitationEmailField></redcap:SurveyInvitationEmailField>
+	<redcap:DisplayTodayNowButton>1</redcap:DisplayTodayNowButton>
+	<redcap:PreventBranchingEraseValues>0</redcap:PreventBranchingEraseValues>
+	<redcap:RequireChangeReason>0</redcap:RequireChangeReason>
+	<redcap:DataHistoryPopup>1</redcap:DataHistoryPopup>
+	<redcap:OrderRecordsByField></redcap:OrderRecordsByField>
+	<redcap:MyCapEnabled>0</redcap:MyCapEnabled>
+	<redcap:Purpose>0</redcap:Purpose>
+	<redcap:PurposeOther></redcap:PurposeOther>
+	<redcap:ProjectNotes></redcap:ProjectNotes>
+	<redcap:MissingDataCodes>UNK, Unknown
+NASK, Not asked
+NAVU, Not available</redcap:MissingDataCodes>
+	<redcap:ProtectedEmailMode>0</redcap:ProtectedEmailMode>
+	<redcap:ProtectedEmailModeCustomText>REDCap Secure Messaging</redcap:ProtectedEmailModeCustomText>
+	<redcap:ProtectedEmailModeTrigger>ALL</redcap:ProtectedEmailModeTrigger>
+	<redcap:ProtectedEmailModeLogo></redcap:ProtectedEmailModeLogo>
+</GlobalVariables>
+<MetaDataVersion OID="Metadata.D107100_2024-11-06_0823" Name="Project_redcap_val_ActionTags" redcap:RecordIdField="record_id">
+	<FormDef OID="Form.action_tags_test" Name="Action Tags Test" Repeating="No" redcap:FormName="action_tags_test">
+		<ItemGroupRef ItemGroupOID="action_tags_test.record_id" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.visit" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.calcdate" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.dob" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.years" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.default" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.sport" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test.action_tags_test_complete" Mandatory="No"/>
+	</FormDef>
+	<FormDef OID="Form.action_tags_test2" Name="Action Tags Test2" Repeating="No" redcap:FormName="action_tags_test2">
+		<ItemGroupRef ItemGroupOID="action_tags_test2.now" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test2.today" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test2.user_name" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test2.weekend_yn" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test2.if_ex" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="action_tags_test2.action_tags_test2_complete" Mandatory="No"/>
+	</FormDef>
+	<ItemGroupDef OID="action_tags_test.record_id" Name="Action Tags Test" Repeating="No">
+		<ItemRef ItemOID="record_id" Mandatory="No" redcap:Variable="record_id"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.visit" Name="@CALCDATE" Repeating="No">
+		<ItemRef ItemOID="visit" Mandatory="No" redcap:Variable="visit"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.calcdate" Name="Action Tags Test" Repeating="No">
+		<ItemRef ItemOID="calcdate" Mandatory="No" redcap:Variable="calcdate"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.dob" Name="@CALCTEXT" Repeating="No">
+		<ItemRef ItemOID="dob" Mandatory="No" redcap:Variable="dob"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.years" Name="Action Tags Test" Repeating="No">
+		<ItemRef ItemOID="years" Mandatory="No" redcap:Variable="years"/>
+		<ItemRef ItemOID="diff" Mandatory="No" redcap:Variable="diff"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.default" Name="@DEFAULT" Repeating="No">
+		<ItemRef ItemOID="default" Mandatory="No" redcap:Variable="default"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.sport" Name="Action Tags Test" Repeating="No">
+		<ItemRef ItemOID="sport" Mandatory="No" redcap:Variable="sport"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test.action_tags_test_complete" Name="Form Status" Repeating="No">
+		<ItemRef ItemOID="action_tags_test_complete" Mandatory="No" redcap:Variable="action_tags_test_complete"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.now" Name="@NOW &amp; @TODAY" Repeating="No">
+		<ItemRef ItemOID="now" Mandatory="No" redcap:Variable="now"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.today" Name="Action Tags Test2" Repeating="No">
+		<ItemRef ItemOID="today" Mandatory="No" redcap:Variable="today"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.user_name" Name="@USERNAME" Repeating="No">
+		<ItemRef ItemOID="user_name" Mandatory="No" redcap:Variable="user_name"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.weekend_yn" Name="@IF" Repeating="No">
+		<ItemRef ItemOID="weekend_yn" Mandatory="No" redcap:Variable="weekend_yn"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.if_ex" Name="Action Tags Test2" Repeating="No">
+		<ItemRef ItemOID="if_ex" Mandatory="No" redcap:Variable="if_ex"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="action_tags_test2.action_tags_test2_complete" Name="Form Status" Repeating="No">
+		<ItemRef ItemOID="action_tags_test2_complete" Mandatory="No" redcap:Variable="action_tags_test2_complete"/>
+	</ItemGroupDef>
+	<ItemDef OID="record_id" Name="record_id" DataType="text" Length="999" redcap:Variable="record_id" redcap:FieldType="text">
+		<Question><TranslatedText>Record ID</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="visit" Name="visit" DataType="date" Length="999" redcap:Variable="visit" redcap:FieldType="text" redcap:TextValidationType="date_dmy" redcap:SectionHeader="@CALCDATE" redcap:FieldAnnotation="@NOMISSING">
+		<Question><TranslatedText>Visit Date</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="calcdate" Name="calcdate" DataType="date" Length="999" redcap:Variable="calcdate" redcap:FieldType="text" redcap:TextValidationType="date_dmy">
+		<Question><TranslatedText>Next Visit Due</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="dob" Name="dob" DataType="date" Length="999" redcap:Variable="dob" redcap:FieldType="text" redcap:TextValidationType="date_dmy" redcap:SectionHeader="@CALCTEXT">
+		<Question><TranslatedText>DOB</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="years" Name="years" DataType="float" Length="999" redcap:Variable="years" redcap:FieldType="calc" redcap:Calculation="">
+		<Question><TranslatedText>Years old</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="diff" Name="diff" DataType="text" Length="999" redcap:Variable="diff" redcap:FieldType="text">
+		<Question><TranslatedText>Difference</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="default" Name="default" DataType="text" Length="1" redcap:Variable="default" redcap:FieldType="radio" redcap:SectionHeader="@DEFAULT">
+		<Question><TranslatedText>Favorite Disney Character</TranslatedText></Question>
+		<CodeListRef CodeListOID="default.choices"/>
+	</ItemDef>
+	<ItemDef OID="sport" Name="sport" DataType="text" Length="999" redcap:Variable="sport" redcap:FieldType="text">
+		<Question><TranslatedText>What sport do you like the most</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="action_tags_test_complete" Name="action_tags_test_complete" DataType="text" Length="1" redcap:Variable="action_tags_test_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
+		<Question><TranslatedText>Complete?</TranslatedText></Question>
+		<CodeListRef CodeListOID="action_tags_test_complete.choices"/>
+	</ItemDef>
+	<ItemDef OID="now" Name="now" DataType="partialDatetime" Length="999" redcap:Variable="now" redcap:FieldType="text" redcap:TextValidationType="time_hh_mm_ss" redcap:SectionHeader="@NOW &amp; @TODAY">
+		<Question><TranslatedText>Now</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="today" Name="today" DataType="date" Length="999" redcap:Variable="today" redcap:FieldType="text" redcap:TextValidationType="date_ymd">
+		<Question><TranslatedText>Today&#039;s Date</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="user_name" Name="user_name" DataType="text" Length="999" redcap:Variable="user_name" redcap:FieldType="text" redcap:SectionHeader="@USERNAME">
+		<Question><TranslatedText>Username</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="weekend_yn" Name="weekend_yn" DataType="boolean" Length="1" redcap:Variable="weekend_yn" redcap:FieldType="yesno" redcap:SectionHeader="@IF">
+		<Question><TranslatedText>Are you able to attend weekend appointments? </TranslatedText></Question>
+		<CodeListRef CodeListOID="weekend_yn.choices"/>
+	</ItemDef>
+	<ItemDef OID="if_ex" Name="if_ex" DataType="text" Length="1" redcap:Variable="if_ex" redcap:FieldType="radio">
+		<Question><TranslatedText>What are your preferred appointment times?</TranslatedText></Question>
+		<CodeListRef CodeListOID="if_ex.choices"/>
+	</ItemDef>
+	<ItemDef OID="action_tags_test2_complete" Name="action_tags_test2_complete" DataType="text" Length="1" redcap:Variable="action_tags_test2_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
+		<Question><TranslatedText>Complete?</TranslatedText></Question>
+		<CodeListRef CodeListOID="action_tags_test2_complete.choices"/>
+	</ItemDef>
+	<CodeList OID="default.choices" Name="default" DataType="text" redcap:Variable="default">
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Mickey</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Minnie</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="3"><Decode><TranslatedText>Donald</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="4"><Decode><TranslatedText>Daisy</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="5"><Decode><TranslatedText>Goofy</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="6"><Decode><TranslatedText>Pluto</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="action_tags_test_complete.choices" Name="action_tags_test_complete" DataType="text" redcap:Variable="action_tags_test_complete">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="weekend_yn.choices" Name="weekend_yn" DataType="boolean" redcap:Variable="weekend_yn">
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Yes</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>No</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="if_ex.choices" Name="if_ex" DataType="text" redcap:Variable="if_ex">
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Monday 8am - 9am</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Tuesday 10am - 11am</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="3"><Decode><TranslatedText>Wednesday 12pm - 1pm</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="4"><Decode><TranslatedText>Thursday 2pm - 3pm</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="5"><Decode><TranslatedText>Friday 4pm - 5pm</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="6"><Decode><TranslatedText>Saturday 10am - 11am</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+	<CodeList OID="action_tags_test2_complete.choices" Name="action_tags_test2_complete" DataType="text" redcap:Variable="action_tags_test2_complete">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+</MetaDataVersion>
+</Study>
+<ClinicalData StudyOID="Project.D107100" MetaDataVersionOID="Metadata.D107100_2024-11-06_0823">
+	<SubjectData SubjectKey="1" redcap:RecordIdField="record_id">
+			<FormData FormOID="Form.action_tags_test" FormRepeatKey="1">
+				<ItemGroupData ItemGroupOID="action_tags_test.record_id" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="record_id" Value="1"/>
+				</ItemGroupData>
+				<ItemGroupData ItemGroupOID="action_tags_test.action_tags_test_complete" ItemGroupRepeatKey="1">
+					<ItemData ItemOID="action_tags_test_complete" Value="0"/>
+				</ItemGroupData>
+			</FormData>
+	</SubjectData>
+</ClinicalData>
+</ODM>

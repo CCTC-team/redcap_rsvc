@@ -1,0 +1,3 @@
+record_id,redcap_data_access_group,text_validation_crfver,ptname_v2,email_v2,text_validation_complete,data_types_crfver,ptname,notesbox,multiple_dropdown_auto,radio_button_manual,checkbox___1,checkbox___2,checkbox___3,file_upload,data_types_complete
+1-1,dag1,1,User1,,0,1,,,,100,0,0,0,,2
+2-1,dag2,1,User2,,1,1,,,,9..9,0,0,0,,0

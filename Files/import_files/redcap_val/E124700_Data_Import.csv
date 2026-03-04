@@ -1,0 +1,9 @@
+record_id,redcap_event_name,redcap_repeat_instrument,redcap_repeat_instance,redcap_data_access_group,text_validation_crfver,ptname_v2_v2,email_v2,text_validation_complete,data_types_crfver,ptname,text2,textbox,notesbox,multiple_dropdown_auto,multiple_dropdown_manual,radio_button_auto,radio_button_manual,checkbox___1,checkbox___2,checkbox___3,signature,file_upload,required,identifier,edit_field,data_types_complete
+1,event_1_arm_1,,,,,,,0,,,,,,,,,,,,,,,,,,
+1,event_1_arm_1,data_types,1,,,,,,,,,,,,,,,0,0,0,,,,9,,0
+1,event_1_arm_1,data_types,2,,,,,,,,,,,,,,,0,0,0,,,,7,,0
+1,event_1_arm_1,data_types,3,,,,,,,,,,,,,,,0,0,0,,,,10,,0
+2,event_2_arm_2,,,,,,,0,,,,,,,,,,0,0,0,,,,110,,0
+2,event_1_arm_2,,1,,,,,0,,,,,,,,,,0,0,0,,,,6,,0
+2,event_1_arm_2,,2,,,,,0,,,,,,,,,,0,0,0,,,,100,,0
+2,event_1_arm_2,,3,,,,,0,,,,,,,,,,0,0,0,,,,120,,0

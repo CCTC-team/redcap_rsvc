@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redcap="https://projectredcap.org" xsi:schemaLocation="http://www.cdisc.org/ns/odm/v1.3 schema/odm/ODM1-3-1.xsd" ODMVersion="1.3.1" FileOID="000-00-0000" FileType="Snapshot" Description="Project_CUH_v1381_Field_Embedding" AsOfDateTime="2023-11-14T14:51:37" CreationDateTime="2023-11-14T14:51:37" SourceSystem="REDCap" SourceSystemVersion="13.8.1">
+<Study OID="Project.ProjectCUHv1381FieldEmbedding">
+<GlobalVariables>
+	<StudyName>Project_CUH_v1381_Field_Embedding</StudyName>
+	<StudyDescription>This file contains the metadata, events, and data for REDCap project "Project_CUH_v1381_Field_Embedding".</StudyDescription>
+	<ProtocolName>Project_CUH_v1381_Field_Embedding</ProtocolName>
+	<redcap:RecordAutonumberingEnabled>1</redcap:RecordAutonumberingEnabled>
+	<redcap:CustomRecordLabel></redcap:CustomRecordLabel>
+	<redcap:SecondaryUniqueField></redcap:SecondaryUniqueField>
+	<redcap:SchedulingEnabled>0</redcap:SchedulingEnabled>
+	<redcap:SurveysEnabled>0</redcap:SurveysEnabled>
+	<redcap:SurveyInvitationEmailField></redcap:SurveyInvitationEmailField>
+	<redcap:DisplayTodayNowButton>1</redcap:DisplayTodayNowButton>
+	<redcap:PreventBranchingEraseValues>0</redcap:PreventBranchingEraseValues>
+	<redcap:RequireChangeReason>0</redcap:RequireChangeReason>
+	<redcap:DataHistoryPopup>1</redcap:DataHistoryPopup>
+	<redcap:OrderRecordsByField></redcap:OrderRecordsByField>
+	<redcap:MyCapEnabled>0</redcap:MyCapEnabled>
+	<redcap:Purpose>1</redcap:Purpose>
+	<redcap:PurposeOther>Testing functionality</redcap:PurposeOther>
+	<redcap:ProjectNotes></redcap:ProjectNotes>
+	<redcap:MissingDataCodes></redcap:MissingDataCodes>
+	<redcap:ProtectedEmailMode>0</redcap:ProtectedEmailMode>
+	<redcap:ProtectedEmailModeCustomText></redcap:ProtectedEmailModeCustomText>
+	<redcap:ProtectedEmailModeTrigger>ALL</redcap:ProtectedEmailModeTrigger>
+	<redcap:ProtectedEmailModeLogo></redcap:ProtectedEmailModeLogo>
+</GlobalVariables>
+<MetaDataVersion OID="Metadata.ProjectCUHv1381FieldEmbedding_2023-11-14_1451" Name="Project_CUH_v1381_Field_Embedding" redcap:RecordIdField="record_id">
+	<FormDef OID="Form.field_embedding_demo" Name="Field Embedding Demo" Repeating="No" redcap:FormName="field_embedding_demo">
+		<ItemGroupRef ItemGroupOID="field_embedding_demo.record_id" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="field_embedding_demo.grant2012" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="field_embedding_demo.grant2013" Mandatory="No"/>
+		<ItemGroupRef ItemGroupOID="field_embedding_demo.field_embedding_demo_complete" Mandatory="No"/>
+	</FormDef>
+	<ItemGroupDef OID="field_embedding_demo.record_id" Name="Field Embedding Demo" Repeating="No">
+		<ItemRef ItemOID="record_id" Mandatory="No" redcap:Variable="record_id"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="field_embedding_demo.grant2012" Name="&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;p&gt;The fields below illustrate random examples of &lt;span style=&quot;color: #e03e2d;&quot;&gt;Field Embedding&lt;/span&gt; as a means of customizing your forms and surveys.&lt;/p&gt;&lt;/div&gt;" Repeating="No">
+		<ItemRef ItemOID="grant2012" Mandatory="No" redcap:Variable="grant2012"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="field_embedding_demo.grant2013" Name="Field Embedding Demo" Repeating="No">
+		<ItemRef ItemOID="grant2013" Mandatory="No" redcap:Variable="grant2013"/>
+		<ItemRef ItemOID="grant2014" Mandatory="No" redcap:Variable="grant2014"/>
+		<ItemRef ItemOID="nfgrant2012" Mandatory="No" redcap:Variable="nfgrant2012"/>
+		<ItemRef ItemOID="nfgrant2013" Mandatory="No" redcap:Variable="nfgrant2013"/>
+		<ItemRef ItemOID="nfgrant2014" Mandatory="No" redcap:Variable="nfgrant2014"/>
+		<ItemRef ItemOID="grant2022" Mandatory="No" redcap:Variable="grant2022"/>
+		<ItemRef ItemOID="grant2023" Mandatory="No" redcap:Variable="grant2023"/>
+		<ItemRef ItemOID="grant2024" Mandatory="No" redcap:Variable="grant2024"/>
+	</ItemGroupDef>
+	<ItemGroupDef OID="field_embedding_demo.field_embedding_demo_complete" Name="Form Status" Repeating="No">
+		<ItemRef ItemOID="field_embedding_demo_complete" Mandatory="No" redcap:Variable="field_embedding_demo_complete"/>
+	</ItemGroupDef>
+	<ItemDef OID="record_id" Name="record_id" DataType="text" Length="999" redcap:Variable="record_id" redcap:FieldType="text">
+		<Question><TranslatedText>Record ID</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2012" Name="grant2012" DataType="integer" Length="999" redcap:Variable="grant2012" redcap:FieldType="text" redcap:TextValidationType="int" redcap:SectionHeader="&lt;div class=&quot;rich-text-field-label&quot;&gt;&lt;p&gt;The fields below illustrate random examples of &lt;span style=&quot;color: #e03e2d;&quot;&gt;Field Embedding&lt;/span&gt; as a means of customizing your forms and surveys.&lt;/p&gt;&lt;/div&gt;">
+		<Question><TranslatedText>Federal Grants 2012</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2013" Name="grant2013" DataType="integer" Length="999" redcap:Variable="grant2013" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Federal Grants 2013</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2014" Name="grant2014" DataType="integer" Length="999" redcap:Variable="grant2014" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Federal Grants 2014</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="nfgrant2012" Name="nfgrant2012" DataType="integer" Length="999" redcap:Variable="nfgrant2012" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Non-federal Grants 2012</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="nfgrant2013" Name="nfgrant2013" DataType="integer" Length="999" redcap:Variable="nfgrant2013" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Non-federal Grants 2013</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="nfgrant2014" Name="nfgrant2014" DataType="integer" Length="999" redcap:Variable="nfgrant2014" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Non-federal Grants 2014</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2022" Name="grant2022" DataType="integer" Length="999" redcap:Variable="grant2022" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Research Agreements/Contracts 2012</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2023" Name="grant2023" DataType="integer" Length="999" redcap:Variable="grant2023" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Research Agreements/Contracts 2013</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="grant2024" Name="grant2024" DataType="integer" Length="999" redcap:Variable="grant2024" redcap:FieldType="text" redcap:TextValidationType="int">
+		<Question><TranslatedText>Research Agreements/Contracts 2014</TranslatedText></Question>
+	</ItemDef>
+	<ItemDef OID="field_embedding_demo_complete" Name="field_embedding_demo_complete" DataType="text" Length="1" redcap:Variable="field_embedding_demo_complete" redcap:FieldType="select" redcap:SectionHeader="Form Status">
+		<Question><TranslatedText>Complete?</TranslatedText></Question>
+		<CodeListRef CodeListOID="field_embedding_demo_complete.choices"/>
+	</ItemDef>
+	<CodeList OID="field_embedding_demo_complete.choices" Name="field_embedding_demo_complete" DataType="text" redcap:Variable="field_embedding_demo_complete">
+		<CodeListItem CodedValue="0"><Decode><TranslatedText>Incomplete</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="1"><Decode><TranslatedText>Unverified</TranslatedText></Decode></CodeListItem>
+		<CodeListItem CodedValue="2"><Decode><TranslatedText>Complete</TranslatedText></Decode></CodeListItem>
+	</CodeList>
+</MetaDataVersion>
+</Study>
+</ODM>
