@@ -3,7 +3,7 @@
 This repository is a fork of the [Regulatory and Software Validation Committee (RSVC)](https://github.com/vanderbilt-redcap/redcap_rsvc) repository.
 
 - **Folders A, B, C** contain validation test scripts written and maintained by RSVC.
-- **Folder D** contains additional test scripts written by CCTC for non-core features.
+- **Folder D** contains additional test scripts written by CCTC for non-core features. This was lead by CCTC with some support from CCTU.
 
 These scripts are intended to be run using the [CCTC REDCap Cypress Test Suite](https://github.com/CCTC-team/redcap_cypress/blob/redcap_val/README.md).
 
