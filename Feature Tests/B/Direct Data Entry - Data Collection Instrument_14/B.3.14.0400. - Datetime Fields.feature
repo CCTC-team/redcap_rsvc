@@ -45,11 +45,13 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
 
     ##ACTION: Now button
     When I click on the "Now" button for the field labeled "time HH:MM:SS"
+    And I wait for 1 second
     ##VERIFY
     Then I should see the exact time in the field labeled "time HH:MM:SS"
 
     ##ACTION: Today button
     When I click on the "Today" button for the field labeled "date YMD"
+    And I wait for 1 second
     ##VERIFY
     Then I should see today's date in the field labeled "date YMD"
 #END

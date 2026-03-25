@@ -44,7 +44,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
             And I click on the Comment icon for the field labeled "Email"
-            Then  I should see "Data Resolution Workflow"
+            Then I should see "Data Resolution Workflow"
             And I select the radio option Open query in Data Resolution Workflow
             And I select "Test_User2 (Test User2)" on the dropdown field labeled "Assign query to a user (optional)"
             And I select the checkboxes option Email in Data Resolution Workflow
@@ -81,15 +81,15 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             And I click on the button labeled "Close"
             And I enter "The value is correct - B.3.16.600_DataImport.csv uploaded" into the textarea field labeled "Comment"
             And I click on the button labeled "Respond to query"
+            And I wait for 2 second
             Then I should see "Data Resolution Dashboard"
-            And I wait for 1 second
             When I click on the button labeled "2 comments"
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                                                               | 
                   | mm/dd/yyyy hh:mm | Test_User2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
 
-            And  I click on the link labeled "B.3.16.600_DataImport.... (0.01 MB)" 
+            And I click on the link labeled "B.3.16.600_DataImport.... (0.01 MB)"
             Then the downloaded CSV with filename "B.3.16.600_DataImport.csv" has the header below
                   | record_id | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
 
