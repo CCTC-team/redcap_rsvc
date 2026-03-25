@@ -68,6 +68,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I locate the bubble for the "Survey" instrument on event "Event 1" for record ID "1" and click on the bubble
     When I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
+    And I wait for 1 second
     Then I should see "Survey"
     When I enter "1" into the data entry form field labeled "Reminder"
     And I enter "description" into the data entry form field labeled "Description"
