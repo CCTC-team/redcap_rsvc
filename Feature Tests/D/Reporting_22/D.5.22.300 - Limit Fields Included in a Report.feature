@@ -22,6 +22,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I select 'required "Required"' on the dropdown field labeled "Field 4"
     Then I should see "Show data for all events or repeating instruments/events for each record returned"
     And I click on the button labeled "View full list of fields" for the row labeled 'Filter 1'
+    And I wait for 1 second
     And I select 'textbox "Text Box"' on the dropdown field labeled "Filter 1"
     And I select the operator "contains" for Filter 1
     And I enter "She" into the operator value for Filter 1

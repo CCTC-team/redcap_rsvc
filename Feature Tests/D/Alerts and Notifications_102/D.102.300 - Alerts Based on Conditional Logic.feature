@@ -24,6 +24,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I select '"Data Types" (Event 1 (Arm 1: Arm 1))' on the dropdown field for alert form name
         And I should see the dropdown field for alert form status with the option "is saved with any form status" selected
         And I click on the textarea labeled while the following logic is true for the alert
+        And I wait for 1 second
         And I clear field and enter "[textbox]='Pass'" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I check the checkbox labeled "Ensure logic is still true before sending notification?"
@@ -33,7 +34,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I enter "test_user2@example.com" into the input field labeled "Or manually enter emails"
         Then I enter "Testing-Alerts-and-Notifications" into the alert message
         And I enter "Alerts-and-Notifications" into the input field labeled "Subject"
-        When I save the alert
+        When I click on the button labeled "Save"
         Then I should see "Success! New alert created"
         And I should see "Alert #1:Email-Alert"
             

@@ -23,7 +23,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I enter "test_user2@example.com" into the input field labeled "Or manually enter emails"
     Then I enter "Testing Alerts and Notifications" into the alert message
     And I enter "Alerts and Notifications" into the input field labeled "Subject"
-    When I save the alert
+    When I click on the button labeled "Save"
     Then I should see "Success! New alert created"
     And I should see "Alert #1:Email Alert"
     Given I click on the link labeled "Add / Edit Records"
@@ -64,7 +64,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I clear field and enter "test_user3@example.com" into the input field labeled "Or manually enter emails"
     Then I enter "Testing Editing Alerts and Notifications" into the alert message
     And I clear field and enter "Editing Alerts and Notifications" into the input field labeled "Subject"
-    When I save the alert
+    When I click on the button labeled "Save"
     Then I should see "Success! The alert was updated"
     And I should see "Alert #1:Email Alert"
     Given I click on the link labeled "Add / Edit Records"
@@ -121,8 +121,10 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I should see "test_user3@example.com"
     And I should see "Editing Alerts and Notifications"
     And I should see "Testing Editing Alerts and Notifications"
-    When I cancel the alert
+    When I click on the button labeled "Cancel"
     Then I should see "Alert #2:Email Alert"
+    And I wait for 1 second
+
 
   Scenario: D.102.500 - Deactivate alert
     When I click on the button labeled "Options" for alert "2"
@@ -143,6 +145,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     When I uncheck the checkbox labeled "Show 0 deactivated alert(s)"
     Then I should see "Alert #1:Email Alert"
     And I should see "Alert #2:Email Alert"
+    And I wait for 1 second
 
   Scenario: D.102.500 - Move alert
     # Edit Subject and Message for alert 2
@@ -150,7 +153,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I should see "Edit Alert #2"
     Then I enter "Testing Move Alerts and Notifications" into the alert message
     And I clear field and enter "Move Alerts and Notifications" into the input field labeled "Subject"
-    When I save the alert
+    When I click on the button labeled "Save"
     Then I should see "Success! The alert was updated."
     # Move alert 1
     Given I click on the button labeled "Options" for alert "1"
@@ -160,15 +163,21 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I should see "The alert was successfully moved to a new location!"
     And I should see "PLEASE NOTE that moving this alert may have caused some or all of the alerts to be re-numbered automatically. They will still retain their same alert title and unique alert ID, but their alert number (#) may have changed because alert numbers are generated on the fly based on the order of the alerts."
     And I click on the button labeled "Close"
+    And I wait for 1 second
     # VERIFY
     When I click on the button labeled "Edit" for alert "1"
+    And I wait for 1 second
     Then I should see "Edit Alert #1"
     And I should see "Move Alerts and Notifications"
-    And I cancel the alert
+    And I click on the button labeled "Cancel"
+    And I wait for 1 second
+
     When I click on the button labeled "Edit" for alert "2"
     Then I should see "Edit Alert #2"
     And I should see "Editing Alerts and Notifications"
-    And I cancel the alert
+    And I wait for 1 second
+    And I click on the button labeled "Cancel"
+    And I wait for 1 second
 
   Scenario: D.102.500 - Permanently delete alert
     Given I click on the button labeled "Options" for alert "1"
