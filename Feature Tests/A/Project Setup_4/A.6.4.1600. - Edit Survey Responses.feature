@@ -63,6 +63,7 @@ Feature: Control Center: The system shall allow users to edit survey responses t
 
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
+        And I wait for 1 second
         And I clear field and enter "SURVEY RESPONSE" into the data entry form field labeled "Name"
         And I click on the button labeled "Submit"
         Then I should see "Thank you for taking the survey."
