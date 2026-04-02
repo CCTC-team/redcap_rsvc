@@ -156,6 +156,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I wait for 1 second
 
     # Verify file version is not saved
     Given I click on the History icon for the field labeled "File Upload"
