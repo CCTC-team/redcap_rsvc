@@ -14,28 +14,25 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         # Change this path to the redcap_file_repository folder location
         And I enter "/var/www/html/redcap_file_repository/" into the input field labeled "SET LOCAL FILE STORAGE LOCATION: If using 'Local' storage option, you may set an alternative location for storage of uploaded files (otherwise it will default to 'edocs' folder)."
         Then I click on the button labeled "Save Changes"
+        And I should see "Your system configuration values have now been changed!"
 
-    Scenario: Add record to get participant signature
-        Given I create a new project named "D.3.28.0100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "24EConsentWithSetup.xml", and clicking the "Create Project" button
+    Scenario: Add record to get participant details into the system and verify the PDF snapshot of the survey response
+        Given I create a new project named "D.3.28.0100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "D3280100.xml", and clicking the "Create Project" button
         When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         And I click the bubble to add a record for the "Participant Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1"
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-        And I click on the button labeled "Okay"
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
+        And I wait for 1 second
         And I clear field and enter "FirstName" into the data entry form field labeled "First Name"
         And I clear field and enter "LastName" into the input field labeled "Last Name"
         And I clear field and enter "email@test.edu" into the input field labeled "email"
         And I click on the "Today" button for the field labeled "Date of Birth"
         And I clear field and enter "MyName" into the input field labeled "Participant's Name Typed"
 
-        When I click on the link labeled "Add signature"
-        Then I should see a dialog containing the following text: "Add signature"
-        And I draw a signature in the signature field area
-        And I click on the button labeled "Save signature"
         And I click on the button labeled "Next Page >>"
         And I check the checkbox labeled "I certify that all of my information in the document above is correct"
         And I click on the button labeled "Submit"
@@ -46,7 +43,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         Given I return to the REDCap page I opened the survey from
         Then I should see the "Response was completed"
         And I should see "Survey response is read-only because it was completed via the e-Consent Framework"
-   
+
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Snapshot Archive"
@@ -57,7 +54,6 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
             | email                       | email@test.edu |
             | Date of Birth               | yyyy-mm-dd     |
             | Participant's Name Typed    | MyName         |
-            | Participant signature field |                |
 
         ##VERIFY_PDF at Specific File Location
         And I should see the following values in the PDF at the local storage
@@ -66,6 +62,5 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
             | email                       | email@test.edu |
             | Date of Birth               | yyyy-mm-dd     |
             | Participant's Name Typed    | MyName         |
-            | Participant signature field |                |
 
         And I logout
