@@ -17,7 +17,7 @@ Feature: D.3.28.0100. - Control Center: The system shall support the option to c
         And I should see "Your system configuration values have now been changed!"
 
     Scenario: Add record to get participant details into the system and verify the PDF snapshot of the survey response
-        Given I create a new project named "D.3.28.0100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "D3280100.xml", and clicking the "Create Project" button
+        Given I create a new project named "D.3.28.0100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D3280100.xml", and clicking the "Create Project" button
         When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         And I click the bubble to add a record for the "Participant Consent" longitudinal instrument on event "Event 1"
