@@ -1,4 +1,4 @@
-Feature: B.4.9.0100. User Interface: The system shall support branching logic for data entry forms.
+Feature: B.4.9.0100. User Interface: The system shall support branching logic for data entry fields.
     As a REDCap end user
     I want to see that Branching Logic is functioning as expected
 

@@ -1,4 +1,4 @@
-Feature: B.2.10.0100. User Interface: The system shall allow for the creation of DAGs and the deletion of DAGs if no users or records are assigned to it.
+Feature: B.2.10.0100. User Interface: The system shall allow for the creation of DAGs and the deletion of a DAG if no users or records are assigned to it.
 
     As a REDCap end user
     I want to see that Data Access Groups is functioning as expected
