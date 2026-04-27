@@ -26,6 +26,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
         #FUNCTIONAL_REQUIREMENT
         ##ACTION
         When I drag the instrument named "Data Types" to the first row
+        And I wait for 1 second
         Then I should see "Saved!" in the data collection instruments table
         And I should see the instrument named "Data Types" in the first row
         And I should see the instrument named "Text Validation" in the second row
