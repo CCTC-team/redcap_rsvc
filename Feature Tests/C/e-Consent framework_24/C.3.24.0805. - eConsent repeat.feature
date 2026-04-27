@@ -107,6 +107,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
     And I wait for 1 second
     When I click on the button labeled "Add new"
+    And I wait for 1 second
     And I click on the icon in the column labeled "NEW" and the row labeled "Participant Consent"
 
   Scenario:

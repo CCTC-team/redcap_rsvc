@@ -19,6 +19,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I enter the equation "datediff([dob], 'today', 'y')" into Calculation Equation of the open "Add New Field" dialog box
     Then I click on the button labeled "Save"
     When I click on the Edit image for the field named "Difference"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@CALCTEXT(if([years] >= 10, 'Greater than or equal to 10', 'Less than 10'))" in the textarea field labeled "Logic Editor"
@@ -45,14 +46,16 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test"
     When I click on the Edit image for the field named "Favorite Disney Character"
-    And I wait for 1 second
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@DEFAULT='5'" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
     And I enter "@DEFAULT='5'" into the input field labeled "Field Note"
     Then I click on the button labeled "Save"
+    And I wait for 2 second
     When I click on the Edit image for the field named "What sport do you like the most"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter '@DEFAULT="Gymnastics"' in the textarea field labeled "Logic Editor"
@@ -72,6 +75,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test"
     When I click on the Edit image for the field named "Next Visit Due"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 2 seconds
     And I clear field and enter "@CALCDATE([visit], 7, 'd')" in the textarea field labeled "Logic Editor"
@@ -93,6 +97,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "Now"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@NOW" in the textarea field labeled "Logic Editor"
@@ -100,6 +105,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I enter "@NOW" into the input field labeled "Field Note"
     Then I click on the button labeled "Save"
     When I click on the Edit image for the field named "Today's Date"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@TODAY" in the textarea field labeled "Logic Editor"
@@ -118,6 +124,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "What are your preferred appointment times?"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@IF([weekend_yn] = '0', @HIDECHOICE='6', '')" in the textarea field labeled "Logic Editor"
@@ -150,6 +157,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "Username"
+    And I scroll the open field dialog to the Action Tags textarea
     And I click on "" in the textarea field labeled "Action Tags"
     And I wait for 1 second
     And I clear field and enter "@USERNAME" in the textarea field labeled "Logic Editor"

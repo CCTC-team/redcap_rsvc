@@ -38,6 +38,7 @@ Feature: User Interface: Survey Project Settings: The system shall support surve
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
+    And I wait for 1 second
 
     Given I clear field and enter "Name_survey" into the data entry form field labeled "Name"
     And I click on the button labeled "Submit"
