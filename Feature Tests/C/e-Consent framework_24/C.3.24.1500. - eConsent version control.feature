@@ -103,6 +103,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
 
   Scenario:
     When I click on the button labeled "Close survey"
+    And I wait for 1 second
     And I return to the REDCap page I opened the survey from
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Participant Consent" longitudinal instrument on event "Event 1" for record "1"
@@ -111,6 +112,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
         ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Snapshot Archive"
+    And I wait for 1 second
     Then I should see a table header and rows containing the following values in a table:
       | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)         | Version | Type |                       |
       | .pdf |                                  |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 1  |      | e-Consent Participant |

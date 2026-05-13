@@ -26,8 +26,10 @@ Feature: User Interface: The system shall support the customization of the file 
       And I wait for 1 second
       And I clear field and enter "[participant_consent_complete]='2'" into the textarea field labeled "Logic Editor"
       And I click on the button labeled "Update & Close Editor"
+      And I wait for 1 second
       And I check the checkbox labeled "Save as Compact PDF (includes only fields with saved data)"
       And I uncheck the checkbox labeled "Store the translated version of the PDF(if using Multi-language Management)"
+      And I wait for 2 seconds
       And I check the checkbox labeled "Save to File Repository"
       And I check the checkbox labeled "Save to specified field:"
       And I select "participant_file" in the dropdown field labeled "Save to specified field:"

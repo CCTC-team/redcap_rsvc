@@ -35,7 +35,7 @@ Feature: User Interface: The system shall support the creation, modification, an
       And I check the checkbox labeled "Save to File Repository"
       And I check the checkbox labeled "Save to specified field:"
       And I select "participant_file" in the dropdown field labeled "Save to specified field:"
-        And I select "Event 1 (Arm 1: Arm 1)" in the dropdown field labeled "Save to specified field:"
+      And I select "Event 1 (Arm 1: Arm 1)" in the dropdown field labeled "Save to specified field:"
       And I enter "CustomParticipant" into the input field labeled "File name:"
       And I click on the button labeled "Save"
       Then I should see "Saved!"
@@ -88,9 +88,11 @@ Feature: User Interface: The system shall support the creation, modification, an
       And I wait for 2 seconds
       And I clear field and enter "[participant_consent_complete]='2' and [coordinator_signature_complete]='2'" into the textarea field labeled "Logic Editor"
       And I click on the button labeled "Update & Close Editor"
+      And I wait for 1 second
       And I click on the icon labeled '[All instruments]'
       And I click on the link labeled 'deselect all'
       And I check the first checkbox labeled 'Participant Consent'
+      And I wait for 1 second
       And I check the first checkbox labeled 'Coordinator Signature'
       And I click on the button labeled "Update"
       And I check the checkbox labeled "Save as Compact PDF (includes only fields with saved data)"

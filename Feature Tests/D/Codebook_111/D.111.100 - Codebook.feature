@@ -189,13 +189,13 @@ Feature:
         And I enter "descriptive_text_file" into the Variable Name of the open "Add New Field" dialog box
         And I click on the link labeled "Upload file"
         And I should see a dialog containing the following text: "Attach an image, file, or embedded audio"
-        When I upload a "docx" format file located at "import_files/File_upload.docx", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload file" to upload the file
+        When I upload a "docx" format file located at "import_files/File_Upload.docx", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload file" to upload the file
         Then I should see "Document was successfully uploaded!"
         And I click on the button labeled "Close"
         And I click on the button labeled "Save"
         And I wait for 1 second
         # Then I should see the field labeled "Descriptive Text with File"
-        Then I should see the link labeled "File_upload.docx"
+        Then I should see the link labeled "File_Upload.docx"
 
         ##ACTION: Designating field as identifier
         When I click on the last button labeled "Add Field"

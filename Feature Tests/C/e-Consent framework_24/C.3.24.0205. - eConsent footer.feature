@@ -86,6 +86,7 @@ Feature: User Interface: The system shall support the e-Consent Framework abilit
         And I wait for 1 second
         And I clear field and enter "[participant_consent_complete]='2' and [coordinator_signature_complete]='2'" into the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
+        And I wait for 2 seconds
         And I check the checkbox labeled "Save to File Repository"
         And I check the checkbox labeled "Save to specified field"
         And I select "combo_file" in the dropdown field labeled "Save to specified field:"
@@ -170,6 +171,7 @@ Feature: User Interface: The system shall support the e-Consent Framework abilit
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Snapshot Archive"
+        And I wait for 1 second
         Then I should see a table header and rows containing the following values in a table:
             | Name | PDF utilized e-Consent Framework | Record | Survey Completed                               | Identifier (Name, DOB)        | Version | Type                  |
             | .pdf |                                  | 1      | (Event 1 (Arm 1: Arm 1))                       |                               |         |                       |
