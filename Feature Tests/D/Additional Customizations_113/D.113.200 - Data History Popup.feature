@@ -33,7 +33,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
 
             And I click on the button labeled "Close"
             When I clear field and enter "Joe" into the data entry form field labeled "Name" 
-            And I click on the button labeled "Save & Stay"
+            And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
             And I click on the History icon for the field labeled "Name"
             Then I should see a table header and row containing the following values in a table:
                   | Date/Time of Change | User       | Data Changes Made | 
