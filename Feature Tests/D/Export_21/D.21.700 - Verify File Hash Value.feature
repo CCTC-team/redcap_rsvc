@@ -1,9 +1,9 @@
-Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, SAS, R, STATA, and CDISC ODM (XML).
+Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, CDISC ODM XML) for valid format and correct data against verified references.
 
   As a REDCap end user
   I want to see that export data is verified
 
-  Scenario: B.5.21.200.100 Export data format
+  Scenario: D.21.700 - Verify the exported file formats
     #SETUP
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.21.700" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -24,7 +24,8 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "csv" file with SHA256 hash value "5a250f27286860bcf82427090bf9a041821402d0cf25f452d183ed8e402c29c6"
+    And I should have the latest downloaded "csv" file in a valid format
+    And I should have the latest downloaded "csv" file matching the verified reference "D21700/DATA.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export CSV (labels)
@@ -39,7 +40,8 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "csv" file with SHA256 hash value "eeb5aaa4727da3c617a0eb6aed29a989bf0a7058a4e5ef67856e463c3aa520f6"
+    And I should have the latest downloaded "csv" file in a valid format
+    And I should have the latest downloaded "csv" file matching the verified reference "D21700/DATA_LABELS.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export SPSS
@@ -53,7 +55,10 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "sps" file with SHA256 hash value "34e24fcab5433c4e66e913c8a34491c7474dbbb0e72809d125f10fcc84cdc4c0"
+    And I should have the latest downloaded "sps" file in a valid format
+    And I should have the latest downloaded "sps" file matching the verified reference "D21700/SPSS.sps"
+    # SPSS, SAS and STATA all export the identical "Test Report" companion data CSV — verify it once here
+    And I should have the latest downloaded "csv" file matching the verified reference "D21700/DATA_NOHDRS.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export SAS
@@ -66,7 +71,8 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "sas" file with SHA256 hash value "06a8f6ca3e7ea4cf3ec69ddf79756707a1325ae6627e3f8ca5e9c95a25faf72b"
+    And I should have the latest downloaded "sas" file in a valid format
+    And I should have the latest downloaded "sas" file matching the verified reference "D21700/SAS.sas"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export R
@@ -81,7 +87,10 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "r" file with SHA256 hash value "5ff8b4ba5a70457d8ec6a33cc5997ff7b09e59391bb40c39e28c0b057a7b00b2"
+    And I should have the latest downloaded "r" file in a valid format
+    And I should have the latest downloaded "r" file matching the verified reference "D21700/R.r"
+    # R's companion data CSV uses the statistical-export path (no CSV-injection space), unlike the UI CSV export
+    And I should have the latest downloaded "csv" file matching the verified reference "D21700/DATA_R.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export STATA
@@ -95,7 +104,8 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "do" file with SHA256 hash value "489ffb7820ec0d3b84f7a0edc4c45f8f72311168aef9449b5b50babbc096cd5b"
+    And I should have the latest downloaded "do" file in a valid format
+    And I should have the latest downloaded "do" file matching the verified reference "D21700/STATA.do"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: export XML
@@ -109,5 +119,6 @@ Feature: D.21.700 - Verify hash value of the exported file formats: CSV, SPSS, S
     #Manual Close file
 
     And I click on the button labeled "Close"
-    And I should have the latest downloaded "xml" file with SHA256 hash value "c1c7c30f96649d30b9560c6ad9cab3d2f347d3a41913f02bf7e15f423f6cebb3"
+    And I should have the latest downloaded "xml" file in a valid format
+    And I should have the latest downloaded "xml" file matching the verified reference "D21700/CDISC_ODM.xml"
     And I logout

@@ -1,0 +1,15 @@
+1,event_1_arm_1,,,0,,,,,,,,,,,,,,,,,,
+1,event_three_arm_1,,,,,,,,,,,,,,,,,,,,,
+1,event_1_arm_1,data_types,1,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",0
+1,event_2_arm_1,,1,1,,,,,,,,,0,0,0,,,,,,,0
+1,event_2_arm_1,,2,2,,,,,,,,,0,0,0,,,,,,,0
+2,event_1_arm_1,,,2,,,,,,,,,,,,,,,,,,
+2,event_1_arm_1,data_types,1,,"Name ",text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",0
+2,event_1_arm_1,data_types,2,,"Name ",text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",0
+3,event_1_arm_1,,,0,,,,,,,,,,,,,,,,,,
+3,event_1_arm_1,data_types,1,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",2
+3,event_1_arm_1,data_types,2,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",2
+4,event_1_arm_1,,,0,,,,,,,,,,,,,,,,,,
+4,event_1_arm_1,data_types,1,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",2
+4,event_1_arm_1,data_types,2,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",1
+4,event_1_arm_1,data_types,3,,,text2,"text box","note box",,1,5,100,1,0,0,,,required,PHI,PHI2,"Edit Field",0
