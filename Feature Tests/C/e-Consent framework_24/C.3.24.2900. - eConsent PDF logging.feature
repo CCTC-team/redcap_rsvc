@@ -104,7 +104,7 @@ Feature: User Interface: The system shall support audit trails for e-Consent Cer
       Then I should see "Adding new Record ID 2."
 
       When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-      And I click on the button labeled "Okay"
+      And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
       Then I should see "Please complete the survey"

@@ -67,7 +67,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -111,7 +111,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -146,7 +146,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     ##ACTION: add instance 1 for record with consent framework in Arm 1 Event Three  (repeatable instance)
     When I locate the bubble for the "Participant Consent" instrument on event "Event Three" for record ID "1" and click on the bubble
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -180,7 +180,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Participant Consent" instrument on event "Event Three" for record ID "1" and click the new instance link
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -223,7 +223,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -264,7 +264,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     When I click on the button labeled "Add new"
     And I click on the icon in the column labeled "(NEW)" and the row labeled "Participant Consent"
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"

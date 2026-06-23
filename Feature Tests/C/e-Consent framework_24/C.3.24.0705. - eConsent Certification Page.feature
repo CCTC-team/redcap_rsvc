@@ -24,7 +24,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to pro
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I wait for 1 second
-        And I click on the button labeled "Okay"
+        And I dismiss the "Okay" confirmation dialog if it appears
         And I click on the button labeled "Survey options"
         And I wait for 1 second
         And I click on the survey option label containing "Open survey" label

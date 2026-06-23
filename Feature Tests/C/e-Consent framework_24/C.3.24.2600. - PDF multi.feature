@@ -225,7 +225,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -269,7 +269,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
     Then I should see "Adding new Record ID 3."
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     And I wait for 1 second
@@ -298,7 +298,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     When I click on the link labeled "Record ID 3"
     When I click the bubble to select a record for the "Coordinator Signature" instrument on event "Event 1"
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -377,7 +377,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -432,7 +432,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"

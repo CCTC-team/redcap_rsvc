@@ -104,7 +104,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -140,7 +140,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     Then I should see "Adding new Record ID 2."
       #Assign record to DAG
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the link labeled "Record ID 2"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Assign to Data Access Group"
@@ -159,7 +159,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"
@@ -198,7 +198,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
 
   Scenario: #Assign record to DAG
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the link labeled "Record ID 3"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Assign to Data Access Group"
@@ -216,7 +216,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
 
   Scenario:
     When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    And I click on the button labeled "Okay"
+    And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey"

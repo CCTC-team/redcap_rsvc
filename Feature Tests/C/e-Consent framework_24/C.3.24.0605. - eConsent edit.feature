@@ -47,7 +47,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I wait for 2 seconds
-        And I click on the button labeled "Okay"
+        And I dismiss the "Okay" confirmation dialog if it appears
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
         Then I should see "Please complete the survey"
@@ -114,7 +114,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I wait for 2 seconds
-        And I click on the button labeled "Okay"
+        And I dismiss the "Okay" confirmation dialog if it appears
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
         Then I should see "Please complete the survey"
