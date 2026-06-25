@@ -48,6 +48,7 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Survey" longitudinal instrument on event "Event Three"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I should see a button labeled "Survey options"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Log out+ Open survey" label
     Then I should see "Please complete the survey below"
