@@ -56,14 +56,14 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             When I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
             Then I should see a dialog containing the following text: "WARNING"
 
-            Given I click on the button labeled "Close"
+            #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
             And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I check the checkbox labeled "Survey"
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
-            Given I click on the button labeled "Close"
+            # Given I click on the button labeled "Close"
             And I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
                   | Username   | Action        | List of Data Changes OR Fields Exported |
@@ -102,14 +102,14 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             When I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
             Then I should see a dialog containing the following text: "WARNING"
 
-            Given I click on the button labeled "Close"
+            #Given I click on the button labeled "Close"
             And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
             And I check the checkbox labeled "Data Types"
             And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
-            Given I click on the button labeled "Close"
+            # Given I click on the button labeled "Close"
             When I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
                   | Username   | Action        | List of Data Changes OR Fields Exported |
@@ -138,13 +138,13 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
             Then I should see a dialog containing the following text: "WARNING"
 
-            Given I click on the button labeled "Close"
+            #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
-            Given I click on the button labeled "Close"
+            # Given I click on the button labeled "Close"
             And I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
                   | Username   | Action        | List of Data Changes OR Fields Exported |
@@ -175,7 +175,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
             Then I should see a dialog containing the following text: "WARNING"
 
-            Given I click on the button labeled "Close"
+            #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
