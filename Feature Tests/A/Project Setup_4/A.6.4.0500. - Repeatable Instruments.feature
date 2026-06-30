@@ -180,7 +180,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
-            And I click on the button labeled "Close"
+            # And I click on the button labeled "Close"
 
             Given I should see the link labeled "Data Exports, Reports, and Stats"
             And I click on the link labeled "Data Exports, Reports, and Stats"
