@@ -63,6 +63,9 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
+            # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
+            # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
+            And I wait for the dialog to close
             # Given I click on the button labeled "Close"
             And I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
@@ -109,6 +112,9 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
+            # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
+            # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
+            And I wait for the dialog to close
             # Given I click on the button labeled "Close"
             When I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
@@ -144,6 +150,9 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
+            # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
+            # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
+            And I wait for the dialog to close
             # Given I click on the button labeled "Close"
             And I click on the link labeled "Logging"
             Then I should see a table header and rows containing the following values in the logging table:
@@ -180,6 +189,9 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
             Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+            # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
+            # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
+            And I wait for the dialog to close
             # And I click on the button labeled "Close"
 
             Given I should see the link labeled "Data Exports, Reports, and Stats"
