@@ -11,7 +11,7 @@ Feature: D.113.300 - The system shall support the ability to prevent branching l
         #ACTION: Enable 'Prevent branching logic from hiding fields that have values' 
         Given I click on the link labeled "Setup"
         And I click on the button labeled "Additional customizations"
-        And I check the checkbox labeled Prevent branching logic from hiding fields that have values in additional customizations
+        And I check the checkbox labeled "Prevent branching logic from hiding fields that have values"
         Then I click on the button labeled "Save"
 
         #VERIFY_LOG

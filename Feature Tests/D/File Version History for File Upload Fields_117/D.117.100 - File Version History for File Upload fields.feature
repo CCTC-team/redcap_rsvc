@@ -130,7 +130,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     # Disable File Version History
     Given I click on the link labeled "Setup"
     When I click on the button labeled "Additional customizations"
-    Then I uncheck the checkbox labeled Enable the File Version History for 'File Upload' fields in additional customizations
+    Then I uncheck the checkbox labeled "Enable the File Version History for 'File Upload' fields"
     And I click on the button labeled "Save"
 
     Given I click on the link labeled "Record Status Dashboard"

@@ -32,6 +32,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
                   | mm/dd/yyyy hh:mm    | test_admin | John              |
 
             And I click on the button labeled "Close"
+            Given I click on the link labeled "Text Validation"
             When I clear field and enter "Joe" into the data entry form field labeled "Name" 
             And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
             And I click on the History icon for the field labeled "Name"
@@ -45,7 +46,7 @@ Feature: D.113.200 - The system shall support the ability to enable/disable Data
       Scenario: Disable Data History Popup 
             Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
-            And I uncheck the checkbox labeled Enable the Data History popup for all data collection instruments in additional customizations
+            And I uncheck the checkbox labeled "Enable the Data History popup for all data collection instruments"
             Then I click on the button labeled "Save"
             
             #VERIFY_LOG
