@@ -1,4 +1,4 @@
-Feature: D.21.800 - The system shall support the option to organize stored files into subfolders by REDCap project ID
+Feature: D.121.100 - The system shall support the option to organize stored files into subfolders by REDCap project ID
 
   As a REDCap end user
   I want to see that uploaded files are stored in - and exported from - the backend location that the
@@ -20,7 +20,7 @@ Feature: D.21.800 - The system shall support the option to organize stored files
   # then fail rather than pass wrongly, so a failure here is the signal to target
   # select[name=local_storage_use_project_subfolder] explicitly.
 
-  Scenario: D.21.800.100 - Subfolder storage DISABLED: files are stored in the main file storage folder
+  Scenario: D.121.100.100 - Subfolder storage DISABLED: files are stored in the main file storage folder
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -34,7 +34,7 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     Then I should see "Your system configuration values have now been changed!"
 
     ##ACTION: Create a project and upload a file to a 'File Upload' field
-    Given I create a new project named "D.21.800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
+    Given I create a new project named "D.121.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     When I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -45,7 +45,7 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
 
     ##VERIFY backend folder structure - no subfolder, file sits directly in the storage folder
-    Then the uploaded files for the project named "D.21.800.100" should be stored in the main file storage folder
+    Then the uploaded files for the project named "D.121.100.100" should be stored in the main file storage folder
 
     ##VERIFY the file downloads from the record (file_download.php resolves the same path)
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
@@ -56,12 +56,12 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the link labeled "Other Export Options"
     When I click on the icon ZIP to download ZIP file of uploaded files
-    Then I should see a downloaded file named "Files_D21800100_yyyy-mm-dd_hhmm.zip" within 30 seconds
+    Then I should see a downloaded file named "Files_D121100100_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D21800100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
 
-  Scenario: D.21.800.200 - Subfolder storage ENABLED: files are stored in a subfolder named by project ID
+  Scenario: D.121.100.200 - Subfolder storage ENABLED: files are stored in a subfolder named by project ID
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Enable subfolder storage before the project is created
     Given I click on the link labeled "Control Center"
@@ -73,7 +73,7 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     Then I should see "Your system configuration values have now been changed!"
 
     ##ACTION: Create a project and upload a file to a 'File Upload' field
-    Given I create a new project named "D.21.800.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
+    Given I create a new project named "D.121.100.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     When I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -84,7 +84,7 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
 
     ##VERIFY backend folder structure - the file now sits in a pid<project_id> subfolder
-    Then the uploaded files for the project named "D.21.800.200" should be stored in the project ID subfolder
+    Then the uploaded files for the project named "D.121.100.200" should be stored in the project ID subfolder
 
     ##VERIFY the file downloads from the record
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
@@ -94,12 +94,12 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the link labeled "Other Export Options"
     When I click on the icon ZIP to download ZIP file of uploaded files
-    Then I should see a downloaded file named "Files_D21800200_yyyy-mm-dd_hhmm.zip" within 30 seconds
+    Then I should see a downloaded file named "Files_D121100200_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D21800200_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100200_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
 
-  Scenario: D.21.800.300 - Enabling the setting does not move or orphan files of existing projects
+  Scenario: D.121.100.300 - Enabling the setting does not move or orphan files of existing projects
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Return to the project created while subfolder storage was DISABLED. The setting
     ## "will not affect existing projects" (lang system_config_914), so its files must stay put
@@ -108,18 +108,18 @@ Feature: D.21.800 - The system shall support the option to organize stored files
     # Gate on the project list having rendered: clicking straight through races the
     # navigation on a loaded machine and the project link is then not yet in the DOM
     Then I should see "Listed below are the REDCap project"
-    And I click on the link labeled "D.21.800.100"
+    And I click on the link labeled "D.121.100.100"
 
     ##VERIFY the older project's files were left in the main file storage folder
-    Then the uploaded files for the project named "D.21.800.100" should be stored in the main file storage folder
+    Then the uploaded files for the project named "D.121.100.100" should be stored in the main file storage folder
 
     ##VERIFY export of the older project still works
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the link labeled "Other Export Options"
     When I click on the icon ZIP to download ZIP file of uploaded files
-    Then I should see a downloaded file named "Files_D21800100_yyyy-mm-dd_hhmm.zip" within 30 seconds
+    Then I should see a downloaded file named "Files_D121100100_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D21800100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
 
     And I logout
