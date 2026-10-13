@@ -31,6 +31,8 @@ Feature: A.2.67.0300. - Control Center: The system shall allow projects to be as
     And I enter a REDCap+ subscription key into the textarea field labeled "Enter a REDCap+ subscription key"
     And I click on the button labeled "Save key"
     Then I should see "REDCap+ subscription activated!"
+    When I click on the button "OK"
+    Then I should see "A REDCap+ subscription is active on this REDCap instance"
     And I click on the link labeled "Project Administrator Groups"
     And I click on "Create new PAG"
     Then I should see "Create new Project Administrator Group"

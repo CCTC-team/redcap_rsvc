@@ -13,6 +13,7 @@ Feature: A.2.67.0200. Control Center: The system shall allow REDCap users to be 
     Then I should see "REDCap+ subscription activated!"
 
     When I click on the button "OK"
+    Then I should see "A REDCap+ subscription is active on this REDCap instance"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Project Administrator Groups"
     And I click on "Create new PAG"
