@@ -35,7 +35,7 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         Then I should see table header and rows containing the following values in the logging table:
             | Username   | Action        | List of Data Changes OR Fields Exported |
             | test_user1 | Manage/Design | Create arm                              |
-            | test_user1 | Manage/Design | Arm 3: Arm 3                            |
+            |            |               | (Arm 3: Arm 3)                          |
 
         Given I click on the link labeled "Setup"
         And I click on the button labeled "Define My Events"
@@ -45,13 +45,13 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         Then I should see "Event 1" in the define events table
 
         When I click on the link labeled "Logging"
-        And I should see a table with 26 rows
+        And I should see a table with 25 rows
         Then I should see table header and rows containing the following values in the logging table:
             | Username   | Action        | List of Data Changes OR Fields Exported                         |
-            | test_user1 | Manage/Design | Create arm                                                      |
-            | test_user1 | Manage/Design | Arm 3: Arm 3                                                    |
             | test_user1 | Manage/Design | Create event                                                    |
-            | test_user1 | Manage/Design | Event: Event 1, Arm: Arm 3, Days Offset: 0, Offset Range: -0/+0 |
+            |            |               | (Event: Event 1, Arm: Arm 3, Days Offset: 0, Offset Range: -0/+0) |
+            | test_user1 | Manage/Design | Create arm                                                      |
+            |            |               | (Arm 3: Arm 3)                                                    |
 
         Given I click on the link labeled "Setup"
         And I click on the button labeled "Define My Events"
@@ -95,11 +95,11 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
 
         When I click on the link labeled "Logging"
         Then I should see table header and rows containing the following values in the logging table:
-            | Username   | Action        | List of Data Changes OR Fields Exported                         |
-            | test_user1 | Manage/Design | Create arm                                                      |
-            | test_user1 | Manage/Design | Arm 2: Arm 2                                                    |
-            | test_user1 | Manage/Design | Create event                                                    |
-            | test_user1 | Manage/Design | Event: Event 4, Arm: Arm 1, Days Offset: 4, Offset Range: -0/+0 |
+            | Username   | Action        | List of Data Changes OR Fields Exported                           |
+            | test_user1 | Manage/Design | Create event                                                      |
+            |            |               | (Event: Event 4, Arm: Arm 1, Days Offset: 4, Offset Range: -0/+0) |
+            | test_user1 | Manage/Design | Create arm                                                        |
+            |            |               | (Arm 3: Arm 3)                                                    |
 
         When I click on the link labeled "Record Status Dashboard"
         Then I should see "Arm 3:Arm 3"
@@ -236,11 +236,11 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
 
         When I click on the link labeled "Logging"
         Then I should see table header and rows containing the following values in the logging table:
-            | Username   | Action        | List of Data Changes OR Fields Exported                         |
-            | test_user1 | Manage/Design | Create arm                                                      |
-            | test_user1 | Manage/Design | Arm 4: Arm 4                                                    |
-            | test_user1 | Manage/Design | Create event                                                    |
-            | test_user1 | Manage/Design | Event: Event 1, Arm: Arm 4, Days Offset: 0, Offset Range: -0/+0 |
+            | Username   | Action        | List of Data Changes OR Fields Exported                           |
+            | test_user1 | Manage/Design | Create event                                                      |
+            |            |               | (Event: Event 1, Arm: Arm 4, Days Offset: 0, Offset Range: -0/+0) |
+            | test_user1 | Manage/Design | Create arm                                                        |
+            |            |               | (Arm 4: Arm 4)                                                    |
 
         Given I click on the link labeled "Setup"
         And I click on the button labeled "Define My Events"
@@ -258,7 +258,7 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         And I click on the link labeled "Arm 1"
 
         When I click on the Edit image for the event named "Event 2"
-        Then I should see a dialog containing the following text: "Sorry, but events can only be renamed by REDCap administrators when a project is in production status"
+        Then I should see "Sorry, but events can only be renamed by REDCap administrators when a project is in production status"
         And I click on the button labeled "Close"
 
         When I click on the link labeled "Record Status Dashboard"
@@ -277,7 +277,8 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         And I click on the link labeled "Upload instrument-event mappings (CSV)"
         And I upload a "csv" format file located at "import_files/instrument_designation.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
         And I wait for 2 seconds
-        Then I should see a dialog containing the following text: "ERROR"
+
+        Then I should see "Since the project is in production, you are not permitted to un-designate an instrument"
         And I click on the button labeled "Close"
 
         Given I click on the link labeled "Arm 1"

@@ -32,7 +32,8 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
         Then I should see "Adding new Record ID 7"
 
         When I select the radio option "Choice99" for the field labeled "radio"
-        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Stay"
         Then I should see "Record ID 7 successfully edited"
 
         When I click on the link labeled "reset" in the row labeled "radio"
@@ -43,8 +44,8 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
-            | mm/dd/yyyy hh:mm | test_user1 | Update record7 | radio = ''                              |
-            | mm/dd/yyyy hh:mm | test_user1 | Create record7 | radio = '9..9'                          |
+            | mm/dd/yyyy hh:mm | test_user1 | Update record 7 | radio = ''                              |
+            | mm/dd/yyyy hh:mm | test_user1 | Create record 7 | radio = '9..9'                          |
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"

@@ -23,10 +23,10 @@ Feature: User Interface: The system shall support the ability to identify data a
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
-      | [identifier]          | Identifier   | text, Identifier                                                       |
-      | [identifier_2]        | Identifier 2 | text, Identifier                                                       |
       | [ptname]              | Name         | text                                                                   |
       | [radio]               | radio        | radio, Identifier                                                      |
+      | [identifier]          | Identifier   | text, Identifier                                                       |
+      | [identifier_2]        | Identifier 2 | text, Identifier                                                       |
 
 
     ##ACTION: change identifier status
@@ -36,29 +36,29 @@ Feature: User Interface: The system shall support the ability to identify data a
     When I click on the link labeled "Check For Identifiers"
     Then I should see a table header and rows containing the following values in a table:
       | Variable Name | Field Label   | Identifier? |
-      | identifier    | Identifier    | [x]         |
-      | identifier_2  | Identifier  2 | [x]         |
       | ptname        | Name          | [ ]         |
       | radio         | radio         | [x]         |
+      | identifier    | Identifier    | [x]         |
+      | identifier_2  | Identifier 2  | [x]         |
 
     When I uncheck the checkbox labeled "identifier_2"
     And I check the checkbox labeled "ptname"
     And I click on the button labeled "Update Identifiers"
     Then I should see a table header and rows containing the following values in a table:
       | Variable Name | Field Label  | Identifier? |
-      | identifier    | Identifier   | [x]         |
-      | identifier_2  | Identifier 2 | [ ]         |
       | ptname        | Name         | [x]         |
       | radio         | radio        | [x]         |
+      | identifier    | Identifier   | [x]         |
+      | identifier_2  | Identifier 2 | [ ]         |
 
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
-      | [identifier]          | Identifier   | text, Identifier                                                       |
-      | [identifier_2]        | Identifier 2 | text                                                                   |
       | [ptname]              | Name         | text, Identifier                                                       |
       | [radio]               | radio        | radio, Identifier                                                      |
+      | [identifier]          | Identifier   | text, Identifier                                                       |
+      | [identifier_2]        | Identifier 2 | text                                                                   |
 
     ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -69,7 +69,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     Given I click on the button labeled "Export Data" in the row labeled "All data (all records and fields)"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
 
@@ -88,7 +88,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I check the checkbox labeled "Hash the Record ID field"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
 
@@ -107,7 +107,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I check the checkbox labeled "Remove Notes/Essay box fields"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     ##VERIFY: User can see all variables except for unvalidated fields and notes fields
@@ -124,7 +124,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I check the checkbox labeled "Remove all date and datetime fields"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     ##VERIFY: User can see all variables except for date and datetime fields
@@ -138,7 +138,8 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I click on the button labeled "Add new record"
     Then I should see "Adding new Record ID 5"
 
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
 
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
@@ -165,8 +166,8 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I check the checkbox labeled "Also shift all survey completion timestamps by value between 0 and 364 days"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
-    And I should see a dialog containing the following text: "All dates within your data have been DATE SHIFTED to an unknown value between 0 and  364 days."
+    Then I should see "Data export was successful!"
+    And I should see "All dates within your data have been DATE SHIFTED to an unknown value between 0 and  364 days."
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     ##VERIFY:

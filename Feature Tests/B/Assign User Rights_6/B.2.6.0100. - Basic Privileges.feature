@@ -21,7 +21,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         When I click on the link labeled "User Rights"
         And I enter "Test_User1" into the input field labeled "Add with custom rights"
         And I click on the button labeled "Add with custom rights"
-        Then I should see a dialog containing the following text: "Adding new user"
+        Then I should see "Adding new user"
 
         When I uncheck the User Right named "Project Setup & Design"
         And I check the radio labeled "No Access"
@@ -53,14 +53,14 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action   | List of Data Changes OR Fields Exported |
-            | test_admin | Add User | Test_User1                     |
+            | test_admin | Add user | Test_User1                     |
 
         ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
         When I select the "test_admin" option from the Filter by username dropdown field
         ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
         Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action   | List of Data Changes OR Fields Exported |
-            | test_admin | Add User | Test_User1                     |
+            | test_admin | Add user | Test_User1                     |
         Given I logout
 
         ##VERIFY: Verify User with Basic custom rights
@@ -99,7 +99,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I click on the link labeled "User Rights"
         And I click on the link labeled "Test User1"
         And I click on the button labeled "Edit user privileges"
-        Then I should see a dialog containing the following text: "Editing existing user"
+        Then I should see "Editing existing user"
 
         And I check the radio labeled "Read Only"
         And I click on the button labeled "Save Changes"
@@ -132,7 +132,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I click on the link labeled "User Rights"
         And I click on the link labeled "Test User1"
         And I click on the button labeled "Edit user privileges"
-        Then I should see a dialog containing the following text: "Editing existing user"
+        Then I should see "Editing existing user"
 
         When I check the User Right named "Project Setup & Design"
         And I check the radio labeled "Full Access"
@@ -150,7 +150,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I check the User Right named "Data Quality - Create & edit rules"
         And I check the User Right named "Data Quality - Execute rules"
         And I check the User Right named "REDCap Mobile App - Allow users to collect data offline in the mobile app"
-        Then I should see a dialog containing the following text: "Confirm Mobile App Privileges"
+        Then I should see "Confirm Mobile App Privileges"
         When I click on the button labeled "Yes, I understand"
         And I check the User Right named "REDCap Mobile App - Allow user to download data for all records to the app?"
         And I check the User Right named "API Export"
@@ -224,7 +224,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I click on the link labeled "B.2.6.0100.100"
         Then I should see "ACCESS DENIED!"
         And I should see "Your access to this particular REDCap project has expired"
-        When I click on the link labeled "Return to My Projects page"
+        When I click on the link labeled "Return to the My Projects page"
         And I logout
 
         ##ACTION: Remove expiration for User
@@ -257,10 +257,10 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
         And I click on the link labeled "User Rights"
         And I click on the link labeled "Test User1"
         And I click on the button labeled "Edit user privileges"
-        Then I should see a dialog containing the following text: "Editing existing user"
+        Then I should see "Editing existing user"
 
         When I click on a button labeled "Remove user"
-        Then I should see a dialog containing the following text: "Remove user?"
+        Then I should see "Remove user?"
         And I click on the button labeled "Remove user"
 
         ##VERIFY_LOG: Verify Logging of Delete user

@@ -33,9 +33,9 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
   Scenario: #VERIFY: view all versions for NO DAG
     When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | NO DAG  |                    | Test_Admin (Admin User) |                           0 |                   |              | "This is my NO DAG consent form"        |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | NO DAG  |                    | test_admin (Admin User) |                           0 |                   |              | "This is my NO DAG consent form"        |                              |
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "NO DAG"
     When I click on the button labeled "Close"
     Then I should see "vNO DAG" in the row labeled "Participant Consent"
@@ -71,11 +71,11 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
       #VERIFY: view all versions
     When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | NO DAG  |                    | Test_Admin (Admin User) |                           0 |                   |              | "This is my NO DAG consent form"        |                              |
-      |            | DAG 1   |                    | Test_Admin (Admin User) |                           0 |                   |              | DAG1.pdf                                |                              |
-      |            | DAG 2   |                    | Test_Admin (Admin User) |                           0 |                   |              | DAG2.pdf                                |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | NO DAG  |                    | test_admin (Admin User) |                           0 |                   |              | "This is my NO DAG consent form"        |                              |
+      | DAG 1   |                    | test_admin (Admin User) |                           0 |                   |              | DAG1.pdf                                |                              |
+      | DAG 2   |                    | test_admin (Admin User) |                           0 |                   |              | DAG2.pdf                                |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "NO DAG"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "DAG 1"
@@ -103,7 +103,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I should see "This is my NO DAG consent form"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -116,7 +117,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I clear field and enter "email@test.edu" into the input field labeled "email"
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -139,12 +140,12 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
     Then I should see "Adding new Record ID 2."
       #Assign record to DAG
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the link labeled "Record ID 2"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Assign to Data Access Group"
-    Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
+    Then I should see "Assign record to a Data Access Group?"
     And I select "TestGroup1" on the dropdown field labeled "[No Assignment]"
     And I click on the button labeled "Assign to Data Access Group"
 
@@ -158,7 +159,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I should NOT see "This is my NO DAG consent form"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
+    Then I should see "Your data was successfully saved, but you did not provide a value for some fields"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -173,7 +175,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I clear field and enter "email@test.edu" into the input field labeled "email"
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -197,12 +199,12 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     Then I should see "Adding new Record ID 3."
 
   Scenario: #Assign record to DAG
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the link labeled "Record ID 3"
     And I click on the button labeled "Choose action for record"
     And I click on the link labeled "Assign to Data Access Group"
-    Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
+    Then I should see "Assign record to a Data Access Group?"
     And I select "TestGroup2" on the dropdown field labeled "[No Assignment]"
     And I click on the button labeled "Assign to Data Access Group"
 
@@ -215,7 +217,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I should NOT see "This is my NO DAG consent form"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -228,7 +230,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     And I clear field and enter "email@test.edu" into the input field labeled "email"
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -260,7 +262,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to lim
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username            | Action                    | List of Data Changes OR Fields Exported                                                                                                                                   |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "3" identifier = "email@test.edu" consent_form_version = "DAG 2" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id  |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_version = "DAG 1" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id  |
+      | [survey respondent] | e-Consent Certification 3 | e-Consent Certification record = "3" identifier = "email@test.edu" consent_form_data_access_group = "testgroup2" consent_form_version = "DAG 2" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id |
+      | [survey respondent] | e-Consent Certification 2 | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_data_access_group = "testgroup1" consent_form_version = "DAG 1" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id |
       | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "NO DAG" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id |
 #END

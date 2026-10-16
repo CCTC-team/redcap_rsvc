@@ -26,8 +26,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       #VERIFY: Verify version enabled
       When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
       Then I should see a table header and rows containing the following values in a table:
-         | Active?    | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-         |            | 1.0     |            |             | 0                           |                   |              | _Fake_Consent[311203].pdf               |                              |
+         | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+         | 1.0     |            |             | 0                           |                   |              | _Fake_Consent[311203].pdf               |                              |
       And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
       And I click on the button labeled "Close"
 
@@ -39,7 +39,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       Then I should see "Adding new Record ID 1."
       And I wait for 1 second
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "More save options"
+      And I click on the link labeled "Save & Stay"
       And I wait for 1 second
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
@@ -53,7 +54,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
       
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -85,8 +86,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       #VERIFY: Verify version enabled
       When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
       Then I should see a table header and rows containing the following values in a table:
-         | Active?    | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-         |            | 1.0     |            |             | 1                           |                   |              | _Fake_Consent[311203].pdf               |                              |
+         | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+         | 1.0     |            |             | 1                           |                   |              | _Fake_Consent[311203].pdf               |                              |
       And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
       And I click on the button labeled "Close"
 
@@ -97,7 +98,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
       Then I should see "Adding new Record ID 2."
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "Save & Stay"
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
@@ -110,7 +111,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
       
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -130,6 +131,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I uncheck the checkbox labeled "Hide inactive"
       And I wait for 1 second
       And I check the checkbox in the row labeled "Participant Consent"
+      And I should see 'e-Consent has been successfully re-enabled for survey "participant_consent"'
+      And I click on the button labeled "OK"
       And I should see a table header and rows containing the following values in a table:
          | e-Consent active? | Survey                                      |
          | [x]               | "Participant Consent" (participant_consent) |
@@ -137,8 +140,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       #VERIFY: Verify version enabled
       When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
       Then I should see a table header and rows containing the following values in a table:
-         | Active?    | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-         |            | 1.0     |            |             | 1                           |                   |              | _Fake_Consent[311203].pdf               |                              |
+         | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+         | 1.0     |            |             | 1                           |                   |              | _Fake_Consent[311203].pdf               |                              |
 
       And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
       And I click on the button labeled "Close"
@@ -150,7 +153,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
       Then I should see "Adding new Record ID 3."
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "Save & Stay"
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
@@ -163,7 +166,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
       
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -189,8 +192,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       #VERIFY: Verify number of records consented
       When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
       Then I should see a table header and rows containing the following values in a table:
-         | Active?    | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-         |            | 1.0     |            |             | 2                           |                   |              | _Fake_Consent[311203].pdf               |                              |
+         | Version | Time added | Uploaded by | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+         | 1.0     |            |             | 2                           |                   |              | _Fake_Consent[311203].pdf               |                              |
 
       And I click on the button labeled "Close"
 
@@ -201,7 +204,6 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       Then I should see a table header and rows containing the following values in a table:
          | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)        | Version | Type                  |
          | .pdf |                                  | 3      | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 |         | e-Consent Participant |
-         | .pdf |                                  | 2      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                               |         | e-Consent             |
          | .pdf |                                  | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 |         | e-Consent Participant |
 
       ##VERIFY_Logging
@@ -210,8 +212,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to hid
       Then I should see a table header and rows containing the following values in the logging table:
          | Username            | Action                    | List of Data Changes OR Fields                                                                                                                             |
          | [survey respondent] | Save PDF Snapshot 3       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "3" event = "event_1_arm_1" instrument = "participant_consent"  |
-         | [survey respondent] | e-Consent Certification 3 | e-Consent Certification record = "3"  event = "event_1_arm_1" instrument = "participant_consent"                                                           |
-         | [survey respondent] | Save PDF Snapshot 2       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "2" event = "event_1_arm_1" instrument = "participant_consent"  |  
+         | [survey respondent] | e-Consent Certification 3 | e-Consent Certification record = "3" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" |
          | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent"  |
-         | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1"  event = "event_1_arm_1" instrument = "participant_consent"                                                           |
+         | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" |
 #END

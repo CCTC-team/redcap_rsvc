@@ -55,9 +55,11 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     Then I should see a downloaded file named "RandomizationAllocationTemplate.csv"
     Then I upload a "csv" format file located at "downloads/RandomizationAllocationTemplate.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
+    
     #Adding Allocation table for automation
     When I upload a "csv" format file located at "import_files/AllocationTblC.3.30.0600.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    Then I should see "Already uploaded" in the row labeled "for use in PRODUCTION status"
     Then I should see " Success! The randomization allocation table was created!"
 
 
@@ -72,17 +74,17 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Add new record"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1-1 successfully added." 
     #M This number may be diferent with manual testing.
 
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize" 
-    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    Then I should see "Below you may perform randomization for Record ID"
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for the field"
     And I click on the button labeled "Close"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1-1 successfully edited."
     #M This number may be diferent with manual testing.
 
@@ -116,7 +118,7 @@ Feature: User Interface: The system shall restrict users to randomizing records 
       | Used    | Not Used | Allocated records   | Data Access Group  redcap_data_access_group|Randomization group 2  rand_group_2|
       | 0       |     1    |                     | DAG 1 (1)                                  | Drug B (2)                        |
       | 0       |     1    |                     | DAG 1 (1)                                  | Placebo (3)                       |
-      | 0       |     0    |                     | DAG 2 (2)                                  | Drug A (1)                        |
+      | 0       |     1    |                     | DAG 2 (2)                                  | Drug A (1)                        |
       | 0       |     1    |                     | DAG 2 (2)                                  | Drug B (2)                        |
       | 0       |     1    |                     | DAG 2 (2)                                  | Placebo (3)                       |
       | 1       |     0    |     1-1             | DAG 1 (1)                                  | Drug A (1)                        |
@@ -137,14 +139,14 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Add new record"
     And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize"
-    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    Then I should see "Below you may perform randomization for Record ID"
     When I select "DAG 1" on the dropdown field labeled "Assign this record to a Data Access Group"
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
     And I should see "Already randomized"
     And I should see the radio labeled "Randomization group 2" with option "Drug B" selected
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 6 successfully edited."
 
     #VERIFY Logging
@@ -161,14 +163,14 @@ Feature: User Interface: The system shall restrict users to randomizing records 
     And I click on the button labeled "Add new record"
     And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize"
-    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    Then I should see "Below you may perform randomization for Record ID"
     When I select "DAG 2" on the dropdown field labeled "Assign this record to a Data Access Group"
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
     And I should see "Already randomized"
     And I should see the radio labeled "Randomization group 2" with option "Drug A" selected
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 7 successfully edited."
 
     #VERIFY Logging

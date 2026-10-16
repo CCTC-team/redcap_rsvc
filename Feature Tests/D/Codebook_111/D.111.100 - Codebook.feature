@@ -56,7 +56,7 @@ Feature:
         When I click on the button labeled " Create"
         And I click on the button labeled "Add instrument here"
         Then I should see "New instrument name:"
-        When I enter "Data Types" into the input field labeled "New instrument name:" within the data collection instrument list
+        When I enter "Data Types" into the input field labeled "New instrument name:"
         And I click on the last button labeled "Create"
         Then I should see "SUCCESS!"
         And I click on the button labeled "Close"

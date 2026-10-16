@@ -2,6 +2,22 @@
 
 set -e
 
+echo Before using this script again, figure out how to auto unsubscribe after creating issues, maybe via the following command
+exit 
+
+gh api graphql -f query='
+mutation{
+    updateSubscription(input: {
+        state: UNSUBSCRIBED,
+        subscribableId: "<NODE_ID_OF_SUBSCRIBABLE>"
+    }) {
+    subscribable {
+            viewerSubscription
+        }
+    }
+}
+'
+
 # Check if the GitHub CLI is installed
 if ! command -v gh &> /dev/null; then
   echo "GitHub CLI (gh) is not installed. Please install it and try again."
@@ -12,11 +28,6 @@ fi
 # - We use awk to print the file because it will append a trailing newline if it is missing
 # - We use 'tr -d "\r"' to remove carriage returns in case the file has been edited on Windows
 awk 1 features.txt | tr -d "\r" | while read title; do
-    if [[ $title == *REDUNDANT* ]]; then
-      echo "Skipping REDUNDANT feature: $title"
-      continue
-    fi
-
     echo "Creating issue for: $title"
 
     # Create a GitHub issue

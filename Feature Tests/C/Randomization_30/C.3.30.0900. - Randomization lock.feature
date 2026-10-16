@@ -12,9 +12,10 @@ Feature: C.3.30.0900.	User Interface: The system shall ensure users with Randomi
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
         And I upload a "csv" format file located at "import_files/AlloRand rand_group3.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         And I wait for 1 second
-        Then I should see "Delete allocation table?"
+        Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
         And I upload a "csv" format file located at "import_files/AlloRand rand_group4.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         And I wait for 1 second
+        Then I should see "Already uploaded" in the row labeled "for use in PRODUCTION status"
         When I click on the link labeled "Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far"

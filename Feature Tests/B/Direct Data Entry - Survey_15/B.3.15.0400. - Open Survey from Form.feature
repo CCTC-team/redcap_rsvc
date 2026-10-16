@@ -1,5 +1,4 @@
-Feature: User Interface: Survey Distribution: The system shall provide a survey to be generated from within a participant record using these survey options: (Log out + Open survey | Open Survey link)
-
+Feature: User Interface – Open Survey Workflow: The system shall allow users to launch the survey associated with an existing participant record using the Log out + Open Survey or Open Survey options.
   As a REDCap end user
   I want to see that Survey Distribution is functioning as expected
 
@@ -29,7 +28,8 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Survey" longitudinal instrument on event "Event Three"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey below."
@@ -47,7 +47,7 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Survey" longitudinal instrument on event "Event Three"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "Save & Stay"
     And I should see a button labeled "Survey options"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Log out+ Open survey" label
@@ -64,6 +64,6 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action           | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response5 | survey_complete = '2'                   |
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response6 | survey_complete = '2'                   |
+      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response 6 | survey_complete = '2'                   |
+      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response 5 | survey_complete = '2'                   |
 #END

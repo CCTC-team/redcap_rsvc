@@ -30,8 +30,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to cre
     And I click on the button labeled "Save settings"
     Then I should see a table header and rows containing the following values in a table:
       | e-Consent active? | Survey                                      | Location(s) to save the signed consent snapshot    | Custom tag/category | Notes |
-      | [x]               | "Participant Consent" (participant_consent) | File Repository                                    | Participant         |       |
-
+      | [x]               | "Participant Consent" (participant_consent) | File Repository                                    |                     |       |
   Scenario: Add record
         ##ACTION: add record to get participant signature
     When I click on the link labeled "Add / Edit Records"
@@ -40,7 +39,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to cre
     Then I should see "Adding new Record ID 1."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -55,7 +55,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to cre
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -93,5 +93,5 @@ Feature: User Interface: The system shall support the e-Consent Framework to cre
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username            | Action                    | List of Data Changes OR Fields Exported                                                          |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1"  event = "event_1_arm_1" instrument = "participant_consent" |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" event = "event_1_arm_1" instrument = "participant_consent" |
 #END

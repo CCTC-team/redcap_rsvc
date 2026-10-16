@@ -68,7 +68,8 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
       Then I should see "Adding new Record ID 1."
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "More save options"
+      And I click on the link labeled "Save & Stay"
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
@@ -81,7 +82,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
    
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -101,8 +102,8 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I click on the link labeled "PDF Snapshot Archive"
       Then I should see a table header and rows containing the following values in a table:
          | Name        | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB) | Version | Type |
-         | CustomHide_ | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
          | Custom_     | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
+         | CustomHide_ | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
 
 
    Scenario: Cancel Inactivate triggers
@@ -176,7 +177,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
       Then I should see "Adding new Record ID 2."
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "Save & Stay"
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
@@ -189,7 +190,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
    
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -209,8 +210,8 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I click on the link labeled "PDF Snapshot Archive"
       Then I should see a table header and rows containing the following values in a table:
          | Name       | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB) | Version | Type |
-         | CustomHide | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
          | Custom_    | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
+         | CustomHide | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
    #I should NOT see Record 2
 
    Scenario: Reactivate triggers
@@ -236,7 +237,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
       Then I should see "Adding new Record ID 3."
 
-      When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+      When I click on the button labeled "Save & Stay"
       And I dismiss the "Okay" confirmation dialog if it appears
       And I click on the button labeled "Survey options"
       And I click on the survey option label containing "Open survey" label
@@ -249,7 +250,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       And I enter "MyName" into the input field labeled "Participant's Name Typed"
       
       Given I click on the link labeled "Add signature"
-      And I see a dialog containing the following text: "Add signature"
+      And I should see "Add signature"
       And I draw a signature in the signature field area
       When I click on the button labeled "Save signature"
       Then I should see a link labeled "Remove signature"
@@ -270,7 +271,7 @@ Feature: User Interface: The system shall support the hide/unhide active and ina
       Then I should see a table header and rows containing the following values in a table:
          | Name       | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB) | Version | Type |
          | Custom_    | -                                | 3      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
-         | CustomHide | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
          | Custom_    | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
+         | CustomHide | -                                | 1      | Participant Consent (Event 1 (Arm 1: Arm 1)) |                        |         |      |
 #I should NOT see Record 2
 #END

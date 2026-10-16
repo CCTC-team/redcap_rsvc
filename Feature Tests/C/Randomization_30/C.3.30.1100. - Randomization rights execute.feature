@@ -33,7 +33,7 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     Then I should see "Success! The randomization model has been saved!"
     #Adding valid allocation table
     When I upload a "csv" format file located at "import_files/Randomization_one_strat.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-    Then I should see "Already uploaded"
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
 
   Scenario: #C.3.30.1100.0100. User without randomize rights cannot randomize record.
     Given I logout
@@ -45,7 +45,7 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1 successfully edited."
     #Ensure randomization button isn't available
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
@@ -61,18 +61,18 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I select "2" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 2 successfully edited."
     And I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     Then I should NOT see "Already randomized"
     And I click on the button labeled "Randomize" 
-    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    Then I should see "Below you may perform randomization for Record ID"
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
     Then I should see "Already randomized"
     And I should see the radio labeled "Randomization group 1" with option "Drug A" selected
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 2 successfully edited."
 
   Scenario: C.3.30.1100.0400 User with randomize rights cannot modify randomized record.
@@ -89,9 +89,9 @@ Feature: C.3.30.1100.	User Interface: The system shall ensure users with Randomi
     And I click on the button labeled "Set up randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-            |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-            |       | 0       |     1    |                   | No (0)           | Drug B (2)        |   
-            |       | 1       |     0    |     2             | Yes (1)          | Drug A (1)        | 
+            | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+            | 0       |     1    |                   | No (0)           | Drug B (2)        |   
+            | 1       |     0    |     2             | Yes (1)          | Drug A (1)        | 
 
   Scenario: C.3.30.1100.0300. Record's randomized value matches allocation table.  
     #This feature test is REDUNDANT and can be viewed in C.3.30.0200 and C.3.30.0300

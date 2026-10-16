@@ -22,7 +22,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to pro
         And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
-        When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        When I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Stay"
         And I wait for 1 second
         And I dismiss the "Okay" confirmation dialog if it appears
         And I click on the button labeled "Survey options"
@@ -37,7 +38,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to pro
         And I enter "MyName" into the input field labeled "Participant's Name Typed"
         
         Given I click on the link labeled "Add signature"
-        And I see a dialog containing the following text: "Add signature"
+        And I should see "Add signature"
         And I draw a signature in the signature field area
         When I click on the button labeled "Save signature"
         Then I should see a link labeled "Remove signature"
@@ -68,7 +69,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to pro
 
         When I click on the link labeled "pid13_formParticipantConsent_id1"
         Then I should see the following values in the last file downloaded
-          | \n2)First NameFirstName \n3)   |
+          | \n2) First Name FirstName\n3)   |
 
         ##VERIFY_Logging
         When I click on the link labeled "Logging"
@@ -76,7 +77,9 @@ Feature: User Interface: The system shall support the e-Consent Framework to pro
             | Username            | Action                                     | List of Data Changes OR Fields Exported         |
             | [survey respondent] | e-Consent                                  | e-Consent Certification                         |
             |                     | Certification                              | record = "1"                                    |
-            |                     | 1                                          | event = "event_1_arm_1"                         |
+            |                     | 1                                          | identifier = "email@test.edu"                   |
+            |                     |                                            | consent_form_version = "1.0"                    |
+            |                     |                                            | event = "event_1_arm_1"                         |
             |                     |                                            | instrument = "participant_consent"              |
-            | [survey respondent] | Update Response 1 (Event 1 (Arm 1: Arm 1)) | last_name = 'LastName', type_sign1 = 'MyName' |
+            | [survey respondent] | Update Response 1 (Event 1 (Arm 1: Arm 1)) | last_name = 'LastName', type_sign1 = 'MyName'   |
 #END

@@ -53,13 +53,14 @@ Feature: User Interface: Survey Project Settings: The system shall support the a
     #SETUP modify repeat instrument
     Given I click on the link labeled "Setup"
     When I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
-    Then I should see a dialog containing the following text: "WARNING"
+    Then I should see "WARNING"
     Given I click on the button labeled "Close"
     And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
     And I check the checkbox labeled "Survey" in the row labeled "Event Three (Arm 1: Arm 1)"
     And I click on the button labeled "Save"
-    Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
-    And I click on the button labeled "Close"
+    Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
+    # Wait for the page to reload automatically.  We used to click the close button, but that caused intermittent failures due to page reload timing.
+    Then I should NOT see "Your settings for repeating instruments and/or events have been successfully saved."
 
     #VERIFY - OK for manual; since dialog box disappears, commented out for ATS
     #Then I should see "Successfully saved"
@@ -77,7 +78,8 @@ Feature: User Interface: Survey Project Settings: The system shall support the a
     ##ACTION - Create repeatable survey in record
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "4" and click on the bubble
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     Then I should see "Record ID 4 successfully edited"
 
     Given I click on the button labeled "Survey options"

@@ -36,7 +36,8 @@ Feature: User Interface: The system shall allow submitted survey responses to be
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Survey" longitudinal instrument on event "Event Three"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     When I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
     Then I should see "Please complete the survey below"
@@ -57,7 +58,7 @@ Feature: User Interface: The system shall allow submitted survey responses to be
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action           | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response5 | survey_complete = '2'                   |
+      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response 5 | survey_complete = '2'                   |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Edit survey response
@@ -76,7 +77,7 @@ Feature: User Interface: The system shall allow submitted survey responses to be
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record5 | name_survey = 'Name_EDITRESPONSE'       |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 5 | name_survey = 'Name_EDITRESPONSE'       |
 
     #VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"

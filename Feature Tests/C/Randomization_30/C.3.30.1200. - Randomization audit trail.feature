@@ -23,7 +23,7 @@ Feature: C.3.30.1200.	User Interface: The system shall support an audit trail sh
       Then I should see "Success! The randomization model has been saved!"
       And I upload a "csv" format file located at "import_files/AlloRand blind1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
       And I wait for 1 second
-      Then I should see "Delete allocation table?"
+      Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
       And I click on the link labeled "Summary"
       And I click on the button labeled "Add new randomization model"
       And I select "rand_group (Randomization group 1)" on the first dropdown field labeled "- select a field -"
@@ -31,6 +31,7 @@ Feature: C.3.30.1200.	User Interface: The system shall support an audit trail sh
       Then I should see "Success! The randomization model has been saved!"
       And I upload a "csv" format file located at "import_files/AlloRand open1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
       And I wait for 1 second
+      Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
 
    Scenario: #C.3.30.1200.0100. Logging of record's randomization includes user and timestamp.
       Given I click on the link labeled "Add / Edit Records"
@@ -40,7 +41,7 @@ Feature: C.3.30.1200.	User Interface: The system shall support an audit trail sh
       And I should see "Below you may perform randomization"
       And I should NOT see "Already randomized"
       And I click on the button labeled "Randomize"
-      Then I should see a dialog containing the following text: 'Record ID "6" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
+      Then I should see 'Record ID 6 was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
       And I click on the button labeled "Close"
       Then I should see the radio labeled "Randomization group 1" with option "Drug A" selected
       And I should see a radio labeled "Drug A" in the row labeled "Randomization group 1" that is disabled
@@ -50,7 +51,7 @@ Feature: C.3.30.1200.	User Interface: The system shall support an audit trail sh
       And I click on the button labeled "Randomize"
       And I should see "Below you may perform randomization"
       And I click on the button labeled "Randomize"
-      Then I should see a dialog containing the following text: 'Record ID "6" was randomized for the field "Blinded randomization" and assigned the value "1".'
+      Then I should see 'Record ID 6 was randomized for the field "Blinded randomization" and assigned the value "1".'
       And I click on the button labeled "Close"
       Then I should see "1" in the data entry form field "Blinded randomization"
       And I click on the button labeled "Save & Exit Form"

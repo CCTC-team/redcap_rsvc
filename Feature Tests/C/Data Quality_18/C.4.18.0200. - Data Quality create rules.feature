@@ -79,7 +79,7 @@ Feature: User Interface: The system shall support data quality rule creation.
       | 4      | Integer   | [integer]<>'1999'                        |
         
     ##ACTION: edit existing rule for longitudinal projects
-    When I click the element containing the following text: "[event_1_arm_1][integer]='1999'"
+    When I click on "[event_1_arm_1][integer]='1999'"
     And I wait for 2 seconds
     And I clear field and enter "[event_1_arm_1][integer]='1'" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
@@ -89,7 +89,7 @@ Feature: User Interface: The system shall support data quality rule creation.
       | 3      | Integer   | [event_1_arm_1][integer]='1'             |
             
     ##ACTION: edit existing rule
-    When I click the element containing the following text: "[integer]<>'1999'"
+    When I click on "[integer]<>'1999'"
     And I clear field and enter "[integer]='2'" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor"
     And I click on the button labeled "Save"
@@ -120,20 +120,20 @@ Feature: User Interface: The system shall support data quality rule creation.
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_admin | Manage/Design | Delete data quality rule               |
       | test_admin | Manage/Design | Execute data quality rule: Rule 4      |
       | test_admin | Manage/Design | Execute data quality rule: Rule 3      |
       | test_admin | Manage/Design | Execute data quality rule: Rule 2      |
       | test_admin | Manage/Design | Execute data quality rule: Rule 1      |
-      | test_admin | Manage/Design | Execute data quality rule: Rule H      |
       | test_admin | Manage/Design | Execute data quality rule: Rule I      |
-      | test_admin | Manage/Design | Execute data quality rule: Rule F      |
+      | test_admin | Manage/Design | Execute data quality rule: Rule H      |
       | test_admin | Manage/Design | Execute data quality rule: Rule G      |
+      | test_admin | Manage/Design | Execute data quality rule: Rule F      |
       | test_admin | Manage/Design | Execute data quality rule: Rule E      |
-      | test_admin | Manage/Design | Execute data quality rule: Rule B      |
       | test_admin | Manage/Design | Execute data quality rule: Rule D      |
       | test_admin | Manage/Design | Execute data quality rule: Rule C      |
+      | test_admin | Manage/Design | Execute data quality rule: Rule B      |
       | test_admin | Manage/Design | Execute data quality rule: Rule A      |
       | test_admin | Manage/Design | Edit data quality rule                 |
       | test_admin | Manage/Design | Upload Data Quality Rules              |
