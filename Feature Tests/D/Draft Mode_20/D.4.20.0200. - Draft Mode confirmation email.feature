@@ -1,9 +1,9 @@
-Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation email to be sent to the requestor which is templated but allows for additional information to be entered.
+Feature: D.4.20.0200 - User Interface: The system shall allow for a confirmation email to be sent to the requestor which is templated but allows for additional information to be entered.
 
     As a REDCap end user
     I want to see that Draft Mode is functioning as expected
 
-    Scenario: D.4.20.1000 Detailed summary of drafted changes
+    Scenario: D.4.20.0200 Detailed summary of drafted changes
         Given I login to REDCap with the user "Test_Admin"
         When I click on the link labeled "Control Center"
         And I click on the link labeled "User Settings"
@@ -23,7 +23,7 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
 
         #SETUP
         Given I login to REDCap with the user "Test_User1"
-        And I create a new project named "D.4.20.1000" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+        And I create a new project named "D.4.20.0200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
         #SETUP_PRODUCTION
         When I click on the link labeled "Setup"
@@ -56,9 +56,9 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         Given I login to REDCap with the user "Test_Admin"
         When I click on the link labeled "Control Center"
         And I click on the link labeled "Browse Projects"
-        And I enter "D.4.20.1000" into the input field labeled "Search project title by keyword(s):"
+        And I enter "D.4.20.0200" into the input field labeled "Search project title by keyword(s):"
         And I click on the button labeled "Search project title"
-        And I click on the link labeled "D.4.20.1000"
+        And I click on the link labeled "D.4.20.0200"
         And I click on the link labeled "Designer"
         When I click on the button labeled "Project Modification Module"
         And I click on the button labeled "Compose confirmation email"
@@ -76,9 +76,9 @@ Feature: D.4.20.1000 - User Interface: The system shall allow for a confirmation
         Given I login to REDCap with the user "Test_Admin"
         When I click on the link labeled "Control Center"
         And I click on the link labeled "Browse Projects"
-        And I enter "D.4.20.1000" into the input field labeled "Search project title by keyword(s):"
+        And I enter "D.4.20.0200" into the input field labeled "Search project title by keyword(s):"
         And I click on the button labeled "Search project title"
-        And I click on the link labeled "D.4.20.1000"
+        And I click on the link labeled "D.4.20.0200"
         And I click on the link labeled "Designer"
         When I click on the button labeled "Project Modification Module"
         And I click on the button labeled "COMMIT CHANGES"
