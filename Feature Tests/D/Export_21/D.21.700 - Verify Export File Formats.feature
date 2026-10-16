@@ -17,7 +17,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     Then I should see a downloaded file named "D21700_DATA_yyyy-mm-dd_hhmm.csv"
@@ -32,7 +32,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     When I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
     And I click on the radio labeled "CSV / Microsoft Excel (labels)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (labels)" format
     Then I should see the latest downloaded "csv" file containing the headings below
@@ -48,7 +48,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "Test Report"
     And I click on the radio labeled "SPSS Statistical Software"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "SPSS Statistical Software" format
     Then I should see a downloaded file named "D21700-TestReport_SPSS_yyyy-mm-dd_hhmm.sps"
@@ -65,7 +65,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "Test Report"
     And I click on the radio labeled "SAS Statistical Software"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
     Given I click on the download icons to receive the files for the "SAS Statistical Software" format
     Then I should see a downloaded file named "D21700-TestReport_SAS_yyyy-mm-dd_hhmm.sas"
     #Manual Close file
@@ -79,7 +79,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
     And I click on the radio labeled "R Statistical Software"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "R Statistical Software" format
 
@@ -97,7 +97,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "Test Report"
     And I click on the radio labeled "Stata Statistical Software"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "Stata Statistical Software" format
     Then I should see a downloaded file named "D21700-TestReport_STATA_yyyy-mm-dd_hhmm.do"
@@ -112,7 +112,7 @@ Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, 
     Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
     And I click on the radio labeled "CDISC ODM (XML)"
     And I click on the button labeled "Export Data"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CDISC ODM (XML)" format
     Then I should see a downloaded file named "D21700_CDISC_ODM_yyyy-mm-dd_hhmm.xml"

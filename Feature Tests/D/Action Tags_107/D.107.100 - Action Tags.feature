@@ -40,7 +40,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     Then I should see "0" in the data entry form field "Years old" 
     And I should see "Less than 10" in the data entry form field "Difference" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     
   Scenario: D.107.100.2 - @DEFAULT
     Given I click on the link labeled "Designer"
@@ -69,7 +69,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Then I should see the radio labeled "Favorite Disney Character" with option "Goofy" selected
     And I should see "Gymnastics" in the data entry form field "What sport do you like the most"
     Then I clear field and enter "Football" into the input field labeled "What sport do you like the most"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
   Scenario: D.107.100.3 - @CALCDATE
     Given I click on the link labeled "Designer"
@@ -91,7 +91,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
     Then I should see "@CALCDATE(02-09-2023, 7, 'd')"
     And I should see "09-09-2023" in the data entry form field "Next Visit Due"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     
   Scenario: D.107.100.4 - @NOW and @TODAY
     Given I click on the link labeled "Designer"
@@ -118,7 +118,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     When I click the bubble to select a record for the "Action Tags Test2" longitudinal instrument on event "Status"
     Then I should see the exact time in the field labeled "Now"
     And I should see today's date in the field labeled "Today" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
   Scenario: D.107.100.5 - @IF
     Given I click on the link labeled "Designer"
@@ -151,7 +151,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I should see "Wednesday 12pm - 1pm"
     And I should see "Thursday 2pm - 3pm"
     And I should see "Friday 4pm - 5pm"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
   Scenario: D.107.100.6 - @USERNAME
     Given I click on the link labeled "Designer"
@@ -169,5 +169,5 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     When I click the bubble to select a record for the "Action Tags Test2" longitudinal instrument on event "Status"
     Then I should see "test_user1" in the data entry form field "Username"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     And I logout

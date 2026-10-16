@@ -62,7 +62,7 @@ Feature: D.106.600 Data Resolution Workflow
       
       When I select the radio option De-verify data value in Data Resolution Workflow
       And I click on the button labeled "De-verify data value"
-      Then I should see a dialog containing the following text: "A comment is required. Please enter a comment." 
+      Then I should see "A comment is required. Please enter a comment." 
       And I click on the button labeled "Close"
       And I enter "Test De-verify Data" into the textarea field labeled "Comment"
       And I click on the button labeled "De-verify data value"

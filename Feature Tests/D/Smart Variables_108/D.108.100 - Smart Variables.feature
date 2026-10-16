@@ -16,7 +16,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
-    Then I should see a dialog containing the following text: "Adding new user"
+    Then I should see "Adding new user"
     And I click on the button labeled "Add user"
 
     # Add Test_User1 to TestRole
@@ -73,7 +73,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     
     #VERIFY: [record-dag-id] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
-    And I select record ID "1-1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1-1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
     And I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see a field named "Group ID Assigned: 1"
@@ -92,11 +92,11 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
     #VERIFY: [user-role-label] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
-    And I select record ID "1-1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1-1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
     And I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see a field named "User role: TestRole"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
   Scenario: D.108.100.4 - [instrument-name]
@@ -110,11 +110,11 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
     #VERIFY: [instrument-name] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
-    And I select record ID "1-1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1-1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page" 
     And I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see a field named "Instrument Name: text_validation"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
   Scenario: D.108.100.5 [user-fullname]
@@ -128,10 +128,10 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
     #VERIFY: [user-fullname] shows correctly in instrument
     When I click on the link labeled "Add / Edit Records"
-    And I select record ID "1-1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1-1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
     And I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see a field named "User Fullname: Test User1"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
     And I logout

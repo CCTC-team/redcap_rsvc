@@ -19,12 +19,12 @@ Feature: D.115.300 - The system shall support the ability to download the PDF of
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Text Validation" instrument on event "Event 2" for record ID "1" and click on the bubble
     Then I enter "Joe" into the input field labeled "Name"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1 successfully edited."
     
     Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event Three"
     Then I enter "John" into the input field labeled "Name"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
     #VERIFY
     Given I click on the button labeled "Choose action for record"

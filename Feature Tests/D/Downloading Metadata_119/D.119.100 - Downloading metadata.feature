@@ -104,7 +104,7 @@ Feature: D.119.100 Downloading Metadata - The system shall support the ability t
     When I click on the link labeled "User Rights"
     And I click on the link labeled "test_user1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
     And I should see the Data Viewing Rights of the instrument "Text Validation" with option View & Edit selected
     And I should see the Data Viewing Rights of the instrument "Data Types" with option View & Edit selected
     And I should see the Data Export Rights of the instrument "Text Validation" with option Full Data Set selected

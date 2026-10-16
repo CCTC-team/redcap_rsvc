@@ -29,7 +29,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I enter "01-07-2024" into the data entry form field labeled "Date1" 
     And I enter "15-07-2024" into the data entry form field labeled "Date 2"
     Then I should see "14" in the data entry form field "Date difference in days" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     And I should see "Record Home Page"
 
   Scenario: D.110.100.2 - round
@@ -48,7 +48,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I enter "55.6" into the data entry form field labeled "Weight KG" 
     And I enter "180" into the data entry form field labeled "Height CM"
     Then I should see "17.2" in the data entry form field "BMI Calculated" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     And I should see "Record Home Page"
 
   Scenario: D.110.100.3 - if
@@ -69,7 +69,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I enter "180" into the data entry form field labeled "Height CM"
     Then I should see "17.2" in the data entry form field "BMI Calculated" 
     And I should see "1" in the data entry form field "BMI suitable for study 1 = Suitable 0 = Not suitable" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
   Scenario: D.110.100.4 - mean
@@ -88,7 +88,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I enter "9" into the data entry form field labeled "Value 2"
     And I enter "11" into the data entry form field labeled "Value 3"
     Then I should see "9" in the data entry form field "Mean sum of values"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
   Scenario: D.110.100.5 - length
@@ -105,6 +105,6 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     Then I should see "0" in the data entry form field "Length of text" 
     And I enter "Hello World" into the data entry form field labeled "Notes Box" 
     Then I should see "11" in the data entry form field "Length of text" 
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     And I should see "Record Home Page"
     And I logout

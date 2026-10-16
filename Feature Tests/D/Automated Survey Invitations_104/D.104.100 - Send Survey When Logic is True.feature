@@ -71,7 +71,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I enter "George" into the data entry form field labeled "Last name"
     And I enter "Joe" into the data entry form field labeled "First name"
     And I enter "joe@abc.com" into the data entry form field labeled "Email"
-    Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I click on the button labeled "Save & Exit Form"
 
     Given I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
