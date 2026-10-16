@@ -103,7 +103,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see "Editing existing user"
 
     ##ACTION: Set user access to View & Edit + Edit survey responses
-    When I check the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
+    When I check the checkbox in the column labeled "Edit Survey Responses" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
 
     Given I click on the link labeled "Add / Edit Records"
@@ -144,7 +144,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see "Editing existing user"
 
     ##ACTION: Remove user access to Edit survey responses
-    When I uncheck the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
+    When I uncheck the checkbox in the column labeled "Edit Survey Responses" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
 
     ##VERIFY: Not able to edit survey responses for the instrument
