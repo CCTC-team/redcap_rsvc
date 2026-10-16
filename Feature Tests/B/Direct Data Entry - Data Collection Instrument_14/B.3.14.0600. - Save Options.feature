@@ -32,7 +32,8 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         Then I should see "Adding new Record ID 7"
 
         When I enter "SAVE & STAY" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Stay"
         ##VERIFY
         Then I should see "Record ID 7 successfully edited."
         
@@ -46,7 +47,8 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         #FUNCTIONAL_REQUIREMENT:
         ##ACTION: SAVE & GO TO NEXT FORM       
         When I enter "SAVE & GO TO NEXT FORM" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Go To Next Form" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Go To Next Form"
         
         ##VERIFY
         And I should see "Data Types"
@@ -63,7 +65,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         ##ACTION  SAVE & MARK AS COMPLETE
         When I enter "SAVE & MARK AS COMPLETE" into the data entry form field labeled "Name"
         And I select "Complete" on the dropdown field labeled "Complete?"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
         
         ##VERIFY
         Then I should see "Record ID 9 successfully added."
@@ -78,7 +80,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         #FUNCTIONAL_REQUIREMENT:
         ##ACTION  SAVE & EXIT FORM
         When I enter "SAVE & EXIT FORM" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
 
         ##VERIFY
         Then I should see "Record ID 10 successfully added."
@@ -95,7 +97,8 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         #FUNCTIONAL_REQUIREMENT:
         ##ACTION Save & EXIT RECORD
         When I enter "SAVE & EXIT RECORD" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Exit Record" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Exit Record"
         
         ##VERIFY
         Then I should see "Record ID 11 successfully edited"
@@ -109,7 +112,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         
         ##VERIFY
         Then I should see "Adding new Record ID 12"
-        And I select the submit option labeled "Save & Exit Record" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Record"
         
         ##VERIFY
         Then I should see "Record ID 12 successfully edited"
@@ -117,7 +120,8 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         Given I click on the link labeled "Record Status Dashboard"
         And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "11" and click on the bubble
         When I clear field and enter "SAVE & GO TO NEXT RECORD" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Go To Next Record" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Go To Next Record"
         
         ##VERIFY
         Then I should see "Record ID 11 successfully edited."
@@ -145,12 +149,12 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action          | List of Data Changes OR Fields Exported |
-            | test_user1 | Update record11 | name = 'SAVE & GO TO NEXT RECORD'       |
-            | test_user1 | Create record11 | name = 'SAVE & EXIT RECORD'             |
-            | test_user1 | Create record10 | name = 'SAVE & EXIT FORM'               |
-            | test_user1 | Create record9  | name = 'SAVE & MARK COMPLETE'           |
-            | test_user1 | Create record8  | name = 'SAVE & GO TO NEXT FORM'         |
-            | test_user1 | Create record7  | name = 'SAVE & STAY'                    |
+            | test_user1 | Update record 11 | name = 'SAVE & GO TO NEXT RECORD'       |
+            | test_user1 | Create record 11 | name = 'SAVE & EXIT RECORD'             |
+            | test_user1 | Create record 10 | name = 'SAVE & EXIT FORM'               |
+            | test_user1 | Create record 9  | name = 'SAVE & MARK AS COMPLETE'        |
+            | test_user1 | Create record 8  | name = 'SAVE & GO TO NEXT FORM'         |
+            | test_user1 | Create record 7  | name = 'SAVE & STAY'                    |
 
         ##VERIFY_DE:
         When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -163,7 +167,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
             | Record ID | Event Name             | Name                     |
             | 7         | Event 1 (Arm 1: Arm 1) | SAVE & STAY              |
             | 8         | Event 1 (Arm 1: Arm 1) | SAVE & GO TO NEXT FORM   |
-            | 9         | Event 1 (Arm 1: Arm 1) | SAVE & MARK COMPLETE     |
+            | 9         | Event 1 (Arm 1: Arm 1) | SAVE & MARK AS COMPLETE  |
             | 10        | Event 1 (Arm 1: Arm 1) | SAVE & EXIT FORM         |
             | 11        | Event 1 (Arm 1: Arm 1) | SAVE & GO TO NEXT RECORD |
             | 12        | Event 1 (Arm 1: Arm 1) |                          |

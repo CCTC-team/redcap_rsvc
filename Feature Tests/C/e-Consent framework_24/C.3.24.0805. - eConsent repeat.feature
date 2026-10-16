@@ -46,7 +46,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I check the second checkbox labeled "Participant Consent"
     And I select "Repeat Entire Event" on the dropdown field labeled "Event 1 (Arm 2: Arm Two)"
     And I click on the button labeled "Save"
-    Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+    Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
     And I click on the button labeled "Close"
         #SETUP_PRODUCTION
 
@@ -66,7 +66,8 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     Then I should see "Adding new Record ID 1."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -79,7 +80,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -103,14 +104,14 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
   Scenario: add instance 2 for record with consent framework in Arm 1 Event 1  (repeatable event)
         ##ACTION: add instance 2 for record with consent framework in Arm 1 Event 1  (repeatable event)
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1" on the dropdown field labeled "select record"
     And I wait for 1 second
     When I click on the button labeled "Add new"
     And I wait for 1 second
     And I click on the icon in the column labeled "NEW" and the row labeled "Participant Consent"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -123,7 +124,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -145,7 +146,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
   Scenario: add instance 1 for record with consent framework in Arm 1 Event Three  (repeatable instance)
     ##ACTION: add instance 1 for record with consent framework in Arm 1 Event Three  (repeatable instance)
     When I locate the bubble for the "Participant Consent" instrument on event "Event Three" for record ID "1" and click on the bubble
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -158,7 +159,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -176,10 +177,12 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     Then I should see the "Completed Survey Response" icon for the "Participant Consent" longitudinal instrument on event "Event Three" for record "1"
 
   Scenario: add instance 2 for record with consent framework in Arm 1 Event Three  (repeatable instance)
-    ##ACTION: add instance 2 for record with consent framework in Arm 1 Event Three  (repeatable instance)
-    Given I click on the link labeled "Record Status Dashboard"
-    When I locate the bubble for the "Participant Consent" instrument on event "Event Three" for record ID "1" and click the new instance link
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        ##ACTION: add instance 2 for record with consent framework in Arm 1 Event Three  (repeatable instance)
+    Given I click on the link labeled "Add / Edit Records"
+    And I select "1" on the dropdown field labeled "select record"
+    And I wait for 1 second
+    When I click on the button labeled "Add new" in the row labeled "Participant Consent"
+    And I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -192,7 +195,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
 
   Scenario:
@@ -222,7 +225,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     Then I should see "Adding new Record ID 2."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -235,7 +238,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -259,11 +262,12 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
   Scenario: add instance 2 for record with consent framework in Arm 2 Event 1  (repeatable event)
         ##ACTION: add instance 2 for record with consent framework in Arm 1 Event 1  (repeatable event)
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "2" from arm name "Arm 2: Arm Two" on the Add / Edit record page
+    And I select "Arm 2" on the dropdown field labeled "Arm 1"
+    And I select "2" on the dropdown field labeled "select record"
     And I wait for 1 second
     When I click on the button labeled "Add new"
-    And I click on the icon in the column labeled "(NEW)" and the row labeled "Participant Consent"
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the icon in the column labeled "NEW" and the row labeled "Participant Consent"
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -276,7 +280,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -312,17 +316,17 @@ Feature: User Interface: The system shall support the e-Consent Framework for re
   Scenario:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username            | Action                    | List of Data Changes OR Fields Exported                                                                                                                                       |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 2       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_1_arm_2)" record = "2" event = "event_1_arm_2" instrument = "participant_consent" instance = "2"         |
-      | [survey respondent] | e-Consent Certification 2 | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_2" instrument = "participant_consent" instance = "2"     |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 2       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_1_arm_2)" record = "2" event = "event_1_arm_2" instrument = "participant_consent" instance = "1"         |
-      | [survey respondent] | e-Consent Certification 2 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_2" instrument = "participant_consent" instance = "1"     |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_three_arm_1)" record = "1" event = "event_three_arm_1" instrument = "participant_consent" instance = "2" |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_three_arm_1" instrument = "participant_consent" instance = "2" |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_three_arm_1)" record = "1" event = "event_three_arm_1" instrument = "participant_consent" instance = "1" |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_three_arm_1" instrument = "participant_consent" instance = "1" |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent" instance = "2"         |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" instance = "2"     |                                                                                                                                           |
-      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field                                                                                                                                        | field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent" instance = "1"         |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" instance = "1"     |                                                                                                                                           |
+      | Username            | Action                    | List of Data Changes OR Fields Exported                                                                                                                                            |
+      | [survey respondent] | Save PDF Snapshot 2       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_2)" record = "2" event = "event_1_arm_2" instrument = "participant_consent" instance = "2"           |
+      | [survey respondent] | e-Consent Certification 2 | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_2" instrument = "participant_consent" instance = "2"          |
+      | [survey respondent] | Save PDF Snapshot 2       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_2)" record = "2" event = "event_1_arm_2" instrument = "participant_consent" instance = "1"           |
+      | [survey respondent] | e-Consent Certification 2 | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_2" instrument = "participant_consent" instance = "1"         |
+      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field field = "participant_file (event_three_arm_1)" record = "1" event = "event_three_arm_1" instrument = "participant_consent" instance = "2" |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_three_arm_1" instrument = "participant_consent" instance = "2"      |
+      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field field = "participant_file (event_three_arm_1)" record = "1" event = "event_three_arm_1" instrument = "participant_consent" instance = "1" |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_three_arm_1" instrument = "participant_consent" instance = "1"      |
+      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent" instance = "2"          |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" instance = "2"          |
+      | [survey respondent] | Save PDF Snapshot 1       | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent" instance = "1"         |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" instance = "1"          |
 #END

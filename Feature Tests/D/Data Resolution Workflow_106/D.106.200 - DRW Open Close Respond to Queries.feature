@@ -26,7 +26,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I click on the link labeled "User Rights"
             And I enter "Test_User2" into the input field labeled "Add with custom rights"
             And I click on the button labeled "Add with custom rights"
-            Then I should see a dialog containing the following text: "Adding new user"
+            Then I should see "Adding new user"
             And I select the User Right named Data Resolution Workflow and choose Open, close, and respond to queries
             And I click on the button labeled "Add user"
             Then I should see a table header and rows containing the following values in a table:

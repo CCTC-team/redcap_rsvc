@@ -30,11 +30,13 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     Then I should see "STEP 1: Define your randomization model"
     And I select "rand_group (Randomization group 1)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
+    Then I should see "Success! The randomization model has been saved!"
     When I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-    Then I should see "Delete allocation table?"
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
     When I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
+    Then I should see "Already uploaded" in the row labeled "for use in PRODUCTION status"
     And I should see the dropdown field labeled "Trigger option" with the option "Manual only, using Randomize button (default)" selected
 
   Scenario: C.3.30.0800.0100. Manual only, using Randomize button (default)
@@ -45,9 +47,9 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
 
     #VERIFY User can Randomize Manually, using Randomize Button
     When I click on a button labeled "Randomize"
-    Then I should see a dialog containing the following text: 'Below you may perform randomization for Record ID "1" on the field Randomization group 1 (rand_group).'
+    Then I should see 'Below you may perform randomization for Record ID 1 on the field Randomization group 1 (rand_group).'
     And I click on the button labeled "Randomize"
-    Then I should see a dialog containing the following text: 'Record ID "1" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
+    Then I should see 'Record ID 1 was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
     And I click on the button labeled "Close"
     Then I should see "Already randomized"
     And I should see the radio labeled "Randomization group 1" with option "Drug A" selected
@@ -69,11 +71,13 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     Then I should see "STEP 1: Define your randomization model"
     And I select "auto_rand (Automatic Randomization)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
+    Then I should see "Success! The randomization model has been saved!"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-    Then I should see "Delete allocation table?"
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
+    Then I should see "Already uploaded" in the row labeled "for use in PRODUCTION status"
     And I select "Trigger logic, for users with Randomize permission only" on the dropdown field labeled "Trigger option" on the tooltip
 
     And I select "Demographics" on the dropdown field labeled "Instrument" on the tooltip
@@ -112,11 +116,13 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     Then I should see "STEP 1: Define your randomization model"
     And I select "rand_survey (Go to:)" on the first dropdown field labeled "- select a field -"
     And I click on the button labeled "Save randomization model"
+    Then I should see "Success! The randomization model has been saved!"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group1.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-    Then I should see "Delete allocation table?"
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
     And I upload a "csv" format file located at "import_files/AlloRand rand_group2.csv", by clicking the button near "for use in PRODUCTION status" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
+    Then I should see "Already uploaded" in the row labeled "for use in PRODUCTION status"
     And I select "Trigger logic, for all users (including survey respondents)" on the dropdown field labeled "Trigger option" on the tooltip
     And I select "Survey" on the dropdown field labeled "Instrument" on the tooltip
     And I click on "" in the textarea field labeled "Trigger logic"
@@ -142,7 +148,8 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I select the radio option "Yes" for the field labeled "Will you complete the survey?"
 
     And I select the dropdown option "Complete" for the Data Collection Instrument field labeled "Complete?"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
 
     #VERIFY Trigger logic, for all users based on form
     Then I should see "Already randomized"
@@ -158,7 +165,7 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I should see a radio labeled "Survey C" in the row labeled "Not yet randomized" that is disabled
     And I should see a radio labeled "Survey D" in the row labeled "Not yet randomized" that is disabled
     And I select the radio option "Yes" for the field labeled "Will you complete the survey?"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "Save & Stay"
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Log out+ Open survey" label
     And I click on the button labeled "Submit"
@@ -237,7 +244,7 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     When I click on the link labeled "Demographics"
     And I wait for 2 seconds
     And I select the dropdown option "Complete" for the Data Collection Instrument field labeled "Complete?"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     And I should see "The grid below displays the form-by-form progress"
     And I click the bubble for the row labeled "Survey" on the column labeled "Status"
     Then I should see "Not yet randomized" in the row labeled "Go to"
@@ -258,7 +265,7 @@ Feature: User Interface: The system shall ensure users with Randomization Setup 
     And I click on the button labeled "Randomize"
     And I click on the button labeled "Close"
     And I should see the radio labeled "Go to" with option "Survey C" selected
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
     #VERIFY - Logging
     When I click on the link labeled "Logging"

@@ -42,14 +42,14 @@ Feature: B.6.11.0800. User Interface: The system shall allow setting a record li
         Then I should see "You are currently using 4 of 5 test records allowed while in Development status"
         And I click on the button labeled "Add new record for the arm selected above"
         And I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
         Then I should see "Record ID 5 successfully added"
 
         ##VERIFY_LOG:
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
-            | mm/dd/yyyy hh:mm | test_admin | Create record5 | record_id = '5'   |
+            | mm/dd/yyyy hh:mm | test_admin | Create record 5 | record_id = '5'   |
 
 
     Scenario: B.6.11.0800.0200. - If limit is set (e.g., 3), a 4th record attempt via any method (form, survey, import) must be blocked    
@@ -133,14 +133,14 @@ Feature: B.6.11.0800. User Interface: The system shall allow setting a record li
         Then I should see "You are currently using 1 of 2 test records allowed while in Development status"
         And I click on the button labeled "Add new record for the arm selected above"
         And I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
         Then I should see "Record ID 2 successfully added"
 
         ##VERIFY_LOG:
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
-            | mm/dd/yyyy hh:mm | test_admin | Create record2 | record_id = '2'   |
+            | mm/dd/yyyy hh:mm | test_admin | Create record 2 | record_id = '2'   |
 
         When I click on the link labeled "Add / Edit Records"
         Then I should see "You are currently using 2 of 2 test records allowed while in Development status"

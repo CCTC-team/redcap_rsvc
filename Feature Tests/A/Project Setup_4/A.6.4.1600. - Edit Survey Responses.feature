@@ -28,7 +28,7 @@ Feature: Control Center: The system shall allow users to edit survey responses t
             | Data Viewing Rights |           |             |        |
             | No Access           | Read Only | View & Edit | Delete |
 
-        And I should NOT see "Edit survey responses"
+        And I should NOT see "Edit Survey Responses"
         And I click on the button labeled "Cancel"
 
         #FUNCTIONAL REQUIREMENT
@@ -85,7 +85,8 @@ Feature: Control Center: The system shall allow users to edit survey responses t
         Then I should see "(now editing)"
 
         Given I clear field and enter "EDITED SURVEY RESPONSE" into the data entry form field labeled "Name"
-        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        And I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Stay"
         Then I should see "Record ID 1 successfully edited."
 
         ##VERIFY_LOG

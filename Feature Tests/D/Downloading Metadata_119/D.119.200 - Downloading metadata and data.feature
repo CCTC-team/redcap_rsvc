@@ -25,9 +25,9 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     Given I click on the link labeled "Setup"
     Then I click on the link labeled "Other Functionality"
     And I click on the button labeled "Download metadata & data (XML)"
-    Then I should see a dialog containing the following text: 'Exporting "Entire project (metadata & data)"' 
+    Then I should see 'Exporting "Entire project (metadata & data)"' 
     And I click on the button labeled "Export Entire Project (metadata & data)"
-    Then I should see a dialog containing the following text: "Data export was successful!"
+    Then I should see "Data export was successful!"
     And I click on the icon REDCap XML to download REDCap Project (XML)
     And I click on the button labeled "Close"
   
@@ -121,7 +121,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     When I click on the link labeled "User Rights"
     And I click on the link labeled "test_user1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
     And I should see the Data Viewing Rights of the instrument "Text Validation" with option View & Edit selected
     And I should see the Data Viewing Rights of the instrument "Data Types" with option View & Edit selected
     And I should see the Data Export Rights of the instrument "Text Validation" with option Full Data Set selected

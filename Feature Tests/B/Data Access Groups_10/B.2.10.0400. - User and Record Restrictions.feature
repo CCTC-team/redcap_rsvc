@@ -14,11 +14,11 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         Then I should see "Upload users (CSV)"
 
         When I click on the link labeled "Upload users (CSV)"
-        Then I should see a dialog containing the following text: "Upload users (CSV)"
+        Then I should see "Upload users (CSV)"
 
         Given I upload a "csv" format file located at "import_files/user list for project 1.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
         And I wait for 1 second
-        Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
+        Then I should see "Displayed below is a preview of all the changes you are about to commit."
         And I should see a table header and rows containing the following values in a table in the dialog box:
             | username   |
             | test_admin |
@@ -30,7 +30,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         # We wait for a second because the "Upload" button sometimes doesn't work if clicked immediately during automation
         Then I wait for 1 second
         Given I click on the button labeled "Upload"
-        Then I should see a dialog containing the following text: "SUCCESS!"
+        Then I should see "SUCCESS!"
 
         When I click on the button labeled "Close"
         Then I should see a table header and rows containing the following values in a table:
@@ -50,7 +50,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         #This will give Test_User3 elevated privileges for this test
         And I click on the link labeled "Test User3"
         And I click on the button labeled "Edit user privileges"
-        Then I should see a dialog containing the following text: "Editing existing user"
+        Then I should see "Editing existing user"
 
         ##ACTION: Set user access to View & Edit + Edit survey responses
         When I click on the radio in the column labeled "View & Edit" and the row labeled "Text Validation"
@@ -60,7 +60,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         #This will give Test_User4 elevated privileges for this test
         And I click on the link labeled "Test User4"
         And I click on the button labeled "Edit user privileges"
-        Then I should see a dialog containing the following text: "Editing existing user"
+        Then I should see "Editing existing user"
 
         ##ACTION: Set user access to View & Edit + Edit survey responses
         When I click on the radio in the column labeled "View & Edit" and the row labeled "Text Validation"
@@ -75,7 +75,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
 
         Given I click on the button labeled "Choose action for record"
         And I click on the link labeled "Assign to Data Access Group"
-        Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
+        Then I should see "Assign record to a Data Access Group?"
 
         When I select "TestGroup1" on the dropdown field labeled "Assign record" on the dialog box
         And I click on the button labeled "Assign to Data Access Group"
@@ -88,7 +88,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
 
         Given I click on the button labeled "Choose action for record"
         And I click on the link labeled "Assign to Data Access Group"
-        Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
+        Then I should see "Assign record to a Data Access Group?"
 
         When I select "TestGroup2" on the dropdown field labeled "Assign record" on the dialog box
         And I click on the button labeled "Assign to Data Access Group"
@@ -161,7 +161,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
 
         ##ACTION: Add record while in a DAG
         Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
         And I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event Three"
 
         #This opens the survey
@@ -246,7 +246,7 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
 
         ##ACTION: Add record while in a DAG
         Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
-        And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+        And I click on the button labeled "Save & Exit Form"
         And I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event Three"
 
         #This opens the survey
@@ -272,8 +272,8 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         And I click on the link labeled "Record Status Dashboard"
         Then I should see a table header and rows containing the following values in the record status dashboard table:
             | Record ID       |
-            | 4  TestGroup2   |
             | 2-1  TestGroup2 |
+            | 4  TestGroup2   |
 
         ##ACTION: User from different DAG cannot access another DAG records    
         And I should NOT see "1-1  TestGroup1"
@@ -299,8 +299,8 @@ Feature: B.2.10.0400. User Interface: The system shall provide the ability to re
         When I click on the link labeled "Record Status Dashboard"
         Then I should see a table header and rows containing the following values in the record status dashboard table:
             | Record ID       |
-            | 4  TestGroup2   |
             | 2-1  TestGroup2 |
+            | 4  TestGroup2   |
 
         ##ACTION: User from different DAG cannot access another DAG records    
         And I should NOT see "1-1  TestGroup1"

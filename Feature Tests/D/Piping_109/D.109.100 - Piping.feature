@@ -13,9 +13,7 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     And I select "Multiple Choice - Radio Buttons (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
     And I enter "What is your favorite ice cream?" into the Field Label of the open "Add New Field" dialog box
     And I enter "ice_cream" into the Variable Name of the open "Add New Field" dialog box
-    And I enter Choices of "1, Chocolate" into the open "Add New Field" dialog box
-    And I enter Choices of "2, Strawberry" into the open "Add New Field" dialog box
-    And I enter Choices of "3, Vanilla" into the open "Add New Field" dialog box
+    And I enter "1, Chocolate{enter}2, Strawberry{enter}3, Vanilla" in the textarea field labeled "Choices"
     And I click on the button labeled "Save"    
     Then I should see the radio field labeled "What is your favorite ice cream?" with the options below
       | Chocolate     |
@@ -47,6 +45,6 @@ Feature: D.109.100 - The system shall support the ability to use previously coll
     When I select the radio option "Strawberry" for the field labeled "What is your favorite ice cream?" 
     And I should see a field named "How much do you love Strawberry?"
     And I should see "I love Strawberry"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
     And I logout

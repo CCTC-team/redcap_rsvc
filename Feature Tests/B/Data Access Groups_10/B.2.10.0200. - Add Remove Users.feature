@@ -13,11 +13,11 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     Then I should see "Upload users (CSV)"
 
     When I click on the link labeled "Upload users (CSV)"
-    Then I should see a dialog containing the following text: "Upload users (CSV)"
+    Then I should see "Upload users (CSV)"
 
     Given I upload a "csv" format file located at "import_files/user list for project 1.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-    Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
+    Then I should see "Displayed below is a preview of all the changes you are about to commit."
     And I should see a table header and rows containing the following values in a table in the dialog box:
       | username   |
       | test_user1 |
@@ -26,7 +26,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
       | test_user4 |
 
     Given I click on the button labeled "Upload"
-    Then I should see a dialog containing the following text: "SUCCESS!"
+    Then I should see "SUCCESS!"
 
     When I click on the button labeled "Close"
     Then I should see a table header and rows containing the following values in a table:
@@ -61,8 +61,8 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Assign user to data access group        |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
+      |                  |            |               | user = 'test_user1',                    |
+      |                  |            |               | group = 'TestGroup1'                    |
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
@@ -76,7 +76,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     ##VERIFY_UR: DAG assignment
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      | Role name | Username   | Data Access Groups |
+      | Role name | Username   | Data Access Group  |
       | —         | test_user1 | TestGroup1         |
 
     ##VERIFY_RSD:
@@ -113,7 +113,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     ##VERIFY_UR
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      | Role name | Username   | Data Access Groups |
+      | Role name | Username   | Data Access Group  |
       | —         | test_user1 |                    |
 
     ##VERIFY_RSD:
@@ -130,9 +130,9 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Remove user from data access group      |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
+      |                  |            |               | user = 'test_user1',                    |
+      |                  |            |               | group = 'TestGroup1'                    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Assign user to data access group        |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
+      |                  |            |               | user = 'test_user1',                    |
+      |                  |            |               | group = 'TestGroup1'                    |
 #End

@@ -12,14 +12,14 @@ Feature: D.115.700 - The system shall support the ability to download the PDF of
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I enter "Dave" into the data entry form field labeled "Name"
     Then I enter "dave@abc.com" into the data entry form field labeled "Email"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
 
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the button labeled "Add new record for this arm"
     And I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 2"
     And I enter "Paul" into the data entry form field labeled "Name"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 2 successfully added."
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"

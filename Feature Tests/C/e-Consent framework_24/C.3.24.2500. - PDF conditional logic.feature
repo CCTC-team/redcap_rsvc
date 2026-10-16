@@ -72,8 +72,8 @@ Feature: User Interface: The system shall support conditional logic integration 
     Then I should see "Saved!"
     Then I should see a table header and rows containing the following values in a table:
       | Active | Edit settings | Name       | Type of trigger   | Save snapshot when...                                    | Scope of the snapshot | Location(s) to save the snapshot |
-      | [x]    |               | Snapshot 3 | Logic-based       | Logic becomes true: [participant_consent_complete]='2... | All instruments       | File Repository                  |
       | [x]    |               | Snapshot 2 | Logic-based       | Logic becomes true: [participant_consent_complete]='2'   | All instruments       | File Repository                  |
+      | [x]    |               | Snapshot 3 | Logic-based       | Logic becomes true: [participant_consent_complete]='2... | All instruments       | File Repository                  |
       | [x]    |               | Snapshot 1 | Survey completion | Complete survey "Participant Consent"                    | All instruments       | File Repository                  |
       ##VERIFY_Logging - Manage/Designof the triggers
     When I click on the link labeled "Logging"
@@ -89,7 +89,8 @@ Feature: User Interface: The system shall support conditional logic integration 
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
     Then I should see "Adding new Record ID 1."
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -100,7 +101,7 @@ Feature: User Interface: The system shall support conditional logic integration 
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -132,7 +133,7 @@ Feature: User Interface: The system shall support conditional logic integration 
     Then I should see "Editing existing Record ID 1."
     
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"

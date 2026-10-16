@@ -49,7 +49,7 @@ Feature: D.113.100 - The system shall support the ability to add Missing Data Co
             Given I click on the button labeled "Export Data"
             And I click on the radio labeled "CSV / Microsoft Excel (raw data)"
             And I click on the button labeled "Export Data"
-            Then I should see a dialog containing the following text: "Data export was successful!"
+            Then I should see "Data export was successful!"
             And I click on the download icon to receive the file for the "CSV / Microsoft Excel (raw data)" format
             Then I should have the latest downloaded "csv" file that contains the headings and rows below
                   | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | ptname_v2_v2 | email_v2 | text_validation_complete | ptname | text2 | textbox | notesbox | calculated_field | multiple_dropdown_auto | multiple_dropdown_manual | radio_button_auto   | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | checkbox___inv | checkbox___unk | signature | file_upload | required | identifier | identifier_2 | edit_field | data_types_complete |

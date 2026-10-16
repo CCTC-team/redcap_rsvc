@@ -26,31 +26,31 @@ Feature: Project Interface Administrator Access: The system shall support admini
     
     #Adding valid allocation table
     When I upload a "csv" format file located at "import_files/Randomization_one_strat.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload" to upload the file
-    Then I should see "Already uploaded"
+    Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
 
     #Create Record for one stratum
     When I click on the link labeled "Add / Edit Records"
     And I select "1" on the dropdown field labeled "Choose an existing Record ID"
     And I click the bubble for the row labeled "Demographics" on the column labeled "Status"
     And I select the radio option "Yes" for the field labeled "Stratification 1"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1 successfully edited."
 
     When I click the bubble for the row labeled "Randomization" on the column labeled "Status"
     And I click on the button labeled "Randomize" 
-    Then I should see a dialog containing the following text: "Below you may perform randomization for Record ID"
+    Then I should see "Below you may perform randomization for Record ID"
     And I click on the button labeled "Randomize"
     Then I should see "was randomized for"
     And I click on the button labeled "Close"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1 successfully edited."
 
     When  I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
-      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |
-      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
+      | Used    | Not Used | Allocated records | Stratification 1 |Randomization group|
+      | 0       |     1    |                   | No (0)           | Drug B (2)        |
+      | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |
     #C.3.30.1700.0200. User with dashboard rights cannot access View Allocation Table. 
     And I should NOT see a table with header "View"
     And I logout
@@ -60,9 +60,9 @@ Feature: Project Interface Administrator Access: The system shall support admini
     When  I click on the link labeled "Randomization"
     And I click on the icon in the column labeled "Dashboard" and the row labeled "1"
     Then I should see a table header and rows containing the following values in a table:
-      |       | Used    | Not Used | Allocated records | Stratification 1 |Randomization group| View |
-      |       | 0       |     1    |                   | No (0)           | Drug B (2)        |      |
-      |       | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |      |
+      | Used    | Not Used | Allocated records | Stratification 1 |Randomization group| View |
+      | 0       |     1    |                   | No (0)           | Drug B (2)        |      |
+      | 1       |     0    |     1             | Yes (1)          | Drug A (1)        |      |
     When I click on the icon in the column labeled "View" and the row labeled "Drug B"
     Then I should see "View Allocation Table"
 #End

@@ -19,7 +19,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I enter "1" into the data entry form field labeled "Secondary ID"
-    Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I click on the button labeled "Save & Exit Form"
     Then I should see "successfully edited"
 
     And I click on the link labeled "Setup"
@@ -93,7 +93,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     Then I should see "DUPLICATE VALUE!"
     And I click on the button labeled "Close"
     And I clear field and enter "2" into the input field labeled "Secondary ID"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "successfully added"
 
     Given I click on the link labeled "Record Status Dashboard"
@@ -167,7 +167,7 @@ Feature: D.116.100 - The system shall provide the ability to enable/disable seco
     And I click on the button labeled "Add new record for this arm"
     When I click the bubble to add a record for the "Text Validation" longitudinal instrument on event "Event 1"
     And I enter "2" into the data entry form field labeled "Secondary ID"
-    And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    And I click on the button labeled "Save & Exit Form"
     Then I should see "successfully added"
 
     Given I click on the link labeled "Record Status Dashboard"

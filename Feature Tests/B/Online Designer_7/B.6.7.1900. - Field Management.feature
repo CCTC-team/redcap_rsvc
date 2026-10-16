@@ -95,10 +95,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
         Given I click on the button labeled "Return to list of instruments"
         And I click on the link labeled "Data Types"
         And I click on the Edit image for the field named "Radio Button Manual"
-        And I clear field and enter Choices of "9..9, Choice99" into the open "Edit Field" dialog box
-        And I enter Choices of "100, Choice100" into the open "Edit Field" dialog box
-        And I enter Choices of "101, Choice101" into the open "Edit Field" dialog box
-        And I enter Choices of "Abc123, Choice Abc123" into the open "Edit Field" dialog box
+        And I enter "9..9, Choice99{enter}100, Choice100{enter}101, Choice101{enter}Abc123, Choice Abc123" in the textarea field labeled "Choices"
         And I click on the button labeled "Save"
 
         ##VERIFY
@@ -157,7 +154,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
 
         When I click on the button labeled "Project Modification Module"
         And I click on the button labeled "COMMIT CHANGES"
-        Then I should see a dialog containing the following text: "COMMIT CHANGES TO PROJECT?"
+        Then I should see "COMMIT CHANGES TO PROJECT?"
         And I click on the button labeled "COMMIT CHANGES"
         Then I should see "Project Changes Committed / User Notified"
 
@@ -165,9 +162,9 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
         When I click on the link labeled "Codebook"
         Then I should see a table header and rows containing the following values in the codebook table:
             | Variable / Field Name | Field Label         | Field Attributes |
-            | [add]                 | Add Field           | text             |
-            | [radio_button_manual] | Radio Button Manual | Choice Abc123    |
             | [notesbox_2]          | Notes box           | notes            |
+            | [radio_button_manual] | Radio Button Manual | Choice Abc123    |
+            | [add]                 | Add Field           | text             |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"

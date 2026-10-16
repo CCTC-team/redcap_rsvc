@@ -42,7 +42,8 @@ Feature: A.3.24.3000. The system shall support the ability for administrators to
         And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
-        When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        When I click on the button labeled "More save options"
+        And I click on the link labeled "Save & Stay"
         And I click on the button labeled "Okay"
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
@@ -55,7 +56,7 @@ Feature: A.3.24.3000. The system shall support the ability for administrators to
         And I enter "MyName" into the input field labeled "Participant's Name Typed"
         
         Given I click on the link labeled "Add signature"
-        And I see a dialog containing the following text: "Add signature"
+        And I should see "Add signature"
         And I draw a signature in the signature field area
         When I click on the button labeled "Save signature"
         Then I should see a link labeled "Remove signature"

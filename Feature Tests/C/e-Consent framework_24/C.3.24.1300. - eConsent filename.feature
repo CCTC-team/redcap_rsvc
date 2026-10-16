@@ -29,7 +29,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to cus
     And I click on the button labeled "Save settings"
     Then I should see a table header and rows containing the following values in a table:
       | e-Consent active? | Survey                                      | Location(s) to save the signed consent snapshot    | Custom tag/category | Notes          |
-      | [x]               | "Participant Consent" (participant_consent) | File Repository                                    | Participant         | My custom note |
+      | [x]               | "Participant Consent" (participant_consent) | File Repository                                    |                     | My custom note |
 
   Scenario: #SETUP_eConsent for coordinator signature (second signature) process
     #SETUP_eConsent for coordinator signature (second signature) process
@@ -57,7 +57,8 @@ Feature: User Interface: The system shall support the e-Consent Framework to cus
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
     Then I should see "Adding new Record ID 1."
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -69,7 +70,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to cus
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -92,7 +93,7 @@ Feature: User Interface: The system shall support the e-Consent Framework to cus
     And I clear field and enter "Coordinator Name" into the input field labeled "Coordinator's Name Typed"
 
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -122,5 +123,5 @@ Feature: User Interface: The system shall support the e-Consent Framework to cus
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username            | Action                    | List of Data Changes OR Fields Exported                                                                                                         |
-      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1"  event = "event_1_arm_1" instrument = "participant_consent" snapshot_file = "Custom_ |
+      | [survey respondent] | e-Consent Certification 1 | e-Consent Certification record = "1" identifier = "email@test.edu" event = "event_1_arm_1" instrument = "participant_consent" snapshot_id = "1" snapshot_file = "Custom_ |
 #END

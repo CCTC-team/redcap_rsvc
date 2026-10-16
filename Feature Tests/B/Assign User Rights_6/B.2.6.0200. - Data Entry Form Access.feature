@@ -19,11 +19,11 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see "Upload users (CSV)"
 
     When I click on the link labeled "Upload users (CSV)"
-    Then I should see a dialog containing the following text: "Upload users (CSV)"
+    Then I should see "Upload users (CSV)"
 
     Given I upload a "csv" format file located at "import_files/user list for project 1.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
     And I wait for 1 second
-    Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
+    Then I should see "Displayed below is a preview of all the changes you are about to commit."
     And I should see a table header and rows containing the following values in a table in the dialog box:
       | username   |
       | test_user1 |
@@ -32,7 +32,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
       | test_user4 |
 
     Given I click on the button labeled "Upload"
-    Then I should see a dialog containing the following text: "SUCCESS!"
+    Then I should see "SUCCESS!"
     And I click on the button labeled "Close"
 
     And I should see a table header and rows containing the following values in a table:
@@ -49,7 +49,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
 
     When I click on the link labeled "Test User1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Set user access to No Access
@@ -82,14 +82,14 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Given I click on the link labeled "User Rights"
     And I click on the link labeled "Test User1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
 
     ##ACTION: Set user access to Read Only
     When I click on the radio in the column labeled "Read Only" and the row labeled "Text Validation"
     And I click on the button labeled "Save Changes"
 
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
 
     ##VERIFY: Read Only for the instrument
@@ -100,14 +100,14 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Given I click on the link labeled "User Rights"
     And I click on the link labeled "Test User1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
 
     ##ACTION: Set user access to View & Edit + Edit survey responses
     When I check the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
 
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
 
     ##VERIFY: Create survey record and then try to edit survey response for the instrument
@@ -124,7 +124,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.6.0200.100"
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
 
     When I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
@@ -134,13 +134,14 @@ Feature: Project Level:  The system shall allow data entry form user access to b
     Then I should see "now editing"
 
     When I clear field and enter "Edited Name" into the data entry form field labeled "Name"
-    And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     Then I should see "successfully edited"
 
     Given I click on the link labeled "User Rights"
     And I click on the link labeled "Test User1"
     And I click on the button labeled "Edit user privileges"
-    Then I should see a dialog containing the following text: "Editing existing user"
+    Then I should see "Editing existing user"
 
     ##ACTION: Remove user access to Edit survey responses
     When I uncheck the checkbox in the column labeled "Edit survey responses" and the row labeled "Survey"
@@ -148,7 +149,7 @@ Feature: Project Level:  The system shall allow data entry form user access to b
 
     ##VERIFY: Not able to edit survey responses for the instrument
     Given I click on the link labeled "Add / Edit Records"
-    And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+    And I select "1" on the dropdown field labeled "select record"
     Then I should see "Record Home Page"
     When I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
     Then I should see "Survey response is read-only"

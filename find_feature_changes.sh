@@ -99,7 +99,16 @@ awk_script='
   }
 }
 
+#We ingest a temporary file of all features here so we do not miss any
+BEGIN {
+  while ((getline line < "all_features.txt.tmp") > 0) {
+    all_files[line] = 1
+  }
+}
+
 END {
+  count = 1
+
   # Remove any files that were old paths in renames
   for (op in old_paths) {
     delete files[op]
@@ -111,7 +120,7 @@ END {
   total_deleted = 0
   printf "%10s %10s %10s   %s\n", "Added", "Deleted", "Total", "File"
 
-  for (file in files) {
+  for (file in all_files) {
     file_added = added[file]
     file_deleted = deleted[file]
     file_total = file_added + file_deleted
@@ -135,12 +144,38 @@ END {
     pure_added = file_added - mod
     pure_deleted = file_deleted - mod
 
+    #Outputting this is helpful so we know how many features we have
+    printf count
+    count++
+
     if (upload == "true") {
-      cmd = "sh push_lines_changes.sh \"" feature "\" " \
-            file_added " " pure_added " " \
-            file_deleted " " pure_deleted " " \
-            file_total " " mod
-      return_code = system(cmd)
+
+      #Skip these files for upload
+      # A.999.999.999 is just an example.  If we need to skip features going forward we should consider skipping those where NewManual records exist.
+      if( feature == "A.999.999.999"){
+
+        #Do nothing here because these records do not exist within the VUMC REDCap project for one reason or another
+        #NOTE: This skip block will probably change with each new version of LTS tested
+
+      } else {
+
+        if(file_added == 0 && file_deleted == 0){
+                printf feature
+                cmd = "sh push_lines_changes.sh \"" feature "\" " 0 " " 0 " " 0 " " 0 " " 0 " " 0 " " package_sequence
+                return_code = system(cmd)
+        } else {
+              cmd = "sh push_lines_changes.sh \"" feature "\" " \
+                    file_added " " \
+                    pure_added " " \
+                    file_deleted " " \
+                    pure_deleted " " \
+                    file_total " " \
+                    mod " " \
+                    package_sequence
+              return_code = system(cmd)
+        }
+      }
+
       if (return_code != 0) {
         print "push_lines_changes.sh failed on " feature
         exit 1
@@ -152,7 +187,7 @@ END {
   }
 
   printf "%s\n", "---------------------------------------------------------------"
-  printf "%10d %10d %10d   %s\n", total_added, total_deleted, total_added + total_deleted, "TOTAL"
+  printf "   %10d %10d %10d   %s\n", total_added, total_deleted, total_added + total_deleted, "TOTAL"
 }'
 
 # Validate input
@@ -193,7 +228,7 @@ else
     END_DATE=$(git log -1 --format=%ad --date=short $CUR_TAG)
   fi
 
-  echo -e "DEFAULT MODE: Takes the most recent tag and compares it to the previous tag.\n"
+  printf "DEFAULT MODE: Takes the most recent tag and compares it to the previous tag.\n"
 
 fi
 
@@ -213,25 +248,28 @@ if [ "$upload" = true ]; then
     CURL="$CURL --ssl-revoke-best-effort"
   fi
 
-  PROJECT_LTS_VERSION=`$CURL -X POST "$REDCAP_API_URL" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "token=$REDCAP_API_TOKEN" \
-    -d "content=project" \
-    -d "format=json" \
-    -d "returnFormat=json" |cut -d'"' -f 6|cut -d' ' -f 6`
-
-  if [[ "$CUR_TAG" != "V$PROJECT_LTS_VERSION-ABC" ]]; then
-    echo "Tag and project LTS version do not match ($CUR_TAG vs. $PROJECT_LTS_VERSION)"
-    exit
-  fi
+  echo "Enter the package_sequence value (1,2,3 etc.) matching the records we want to update:"
+  read PACKAGE_SEQUENCE
 fi
 
+#Generate a temporary file of all features
+ALL_FEATURE_FILES=$(git ls-files '*.feature')
+echo "$ALL_FEATURE_FILES" > all_features.txt.tmp
+
 # Get the line changes for .feature files between the dates
-git log --since="$START_DATE" --until="$END_DATE" --pretty=tformat: --numstat --ignore-space-change | awk -F'\t' -v upload="$upload" "$awk_script"
+git log --since="$START_DATE" --until="$END_DATE" --pretty=tformat: --numstat --ignore-space-change | awk -F'\t' -v upload="$upload" -v package_sequence="$PACKAGE_SEQUENCE" "$awk_script"
+
+#Remove the temporary file
+rm all_features.txt.tmp
 
 if [ -z $CUR_TAG ]; then
   echo ""
 else
-  echo -e "\nTAGS: \n CURRENT_TAG: $CUR_TAG \n COMPARISON_TAG: $COMP_TAG\n"
+  printf "\nTAGS: \n CURRENT_TAG: $CUR_TAG \n COMPARISON_TAG: $COMP_TAG\n"
 fi
-echo -e "DATES:\n START_DATE: $START_DATE \n END_DATE: $END_DATE\n"
+printf "DATES:\n START_DATE: $START_DATE \n END_DATE: $END_DATE\n"
+
+if [ "$upload" = false ]; then
+  echo 
+  echo "Add the '--upload' argument to upload these results."
+fi

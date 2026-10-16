@@ -41,7 +41,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "1"
         And I upload a "csv" format file located at "import_files/AlloRand rand_groupshuffle.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        Then I should see "Success"
+        Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
 
         ##Verify records randomized from same gender (stratification group) are assigned to the expected allocation - the first man should be in Placebo and the second man should be Drug A
         When I click on the link labeled "Add / Edit Records"
@@ -50,7 +50,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on a button labeled "Randomize"
         And I click on the radio labeled "Man" in the row labeled "Do you describe yourself as a man, a woman, or in some other way?"
         And I click on the button labeled "Randomize"
-        Then I should see a dialog containing the following text: 'Record ID "6" was randomized for the field "Randomization group 1" and assigned the value "Placebo" (3).'
+        Then I should see 'Record ID 6 was randomized for the field "Randomization group 1" and assigned the value "Placebo" (3).'
         And I click on the button labeled "Close"
         And I click on the button labeled "Save & Exit Form"
 
@@ -60,7 +60,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on a button labeled "Randomize"
         And I click on the radio labeled "Man" in the row labeled "Do you describe yourself as a man, a woman, or in some other way?"
         And I click on the button labeled "Randomize"
-        Then I should see a dialog containing the following text: 'Record ID "7" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
+        Then I should see 'Record ID 7 was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).'
         And I click on the button labeled "Close"
         And I click on the button labeled "Save & Exit Form"
 
@@ -71,7 +71,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on a button labeled "Randomize"
         And I click on the radio labeled "Other" in the row labeled "Do you describe yourself as a man, a woman, or in some other way?"
         And I click on the button labeled "Randomize"
-        Then I should see a dialog containing the following text: 'Record ID "8" was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).' 
+        Then I should see 'Record ID 8 was randomized for the field "Randomization group 1" and assigned the value "Drug A" (1).' 
         And I click on the button labeled "Close"
         And I click on the button labeled "Save & Exit Form"
 
@@ -82,7 +82,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on the button labeled "Set up randomization"
         And I click on the icon in the column labeled "Setup" and the row labeled "auto_rand"
         And I upload a "csv" format file located at "import_files/AlloRand auto_randtextduplicate.csv", by clicking the button near "for use in DEVELOPMENT status" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        Then I should see "Success"
+        Then I should see "Already uploaded" in the row labeled "for use in DEVELOPMENT status"
 
         #Verify records randomized from same gender (stratification group) are assigned to the expected allocation (next sequential allocation for that strat group) - the first man should be in Group 1 (A) and the second man should also be in Group 2 (B)
         When I click on the link labeled "Add / Edit Records"
@@ -91,7 +91,7 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on the second button labeled "Randomize"
         And I click on the radio labeled "Man" in the row labeled "Do you describe yourself as a man, a woman, or in some other way?"
         And I click on the button labeled "Randomize"
-        Then I should see a dialog containing the following text: 'Record ID "9" was randomized for the field "Automatic Randomization" and assigned the value "Group 1" (A).'
+        Then I should see 'Record ID 9 was randomized for the field "Automatic Randomization" and assigned the value "Group 1" (A).'
         And I click on the button labeled "Close"
         And I click on the button labeled "Save & Exit Form"
 
@@ -101,8 +101,20 @@ Feature: C.3.30.1000. User Interface: The system shall support the sequential as
         And I click on a second button labeled "Randomize"
         And I click on the radio labeled "Man" in the row labeled "Do you describe yourself as a man, a woman, or in some other way?"
         And I click on the button labeled "Randomize"
-        Then I should see a dialog containing the following text: 'Record ID "10" was randomized for the field "Automatic Randomization" and assigned the value "Group 2" (B).'
+        Then I should see 'Record ID 10 was randomized for the field "Automatic Randomization" and assigned the value "Group 2" (B).'
         And I click on the button labeled "Close"
         And I click on the button labeled "Save & Exit Form"
+
+        #Validation that the records were randomized correctly and that the logging table contains the expected values.
+        When I click on the link labeled "Logging"
+        Then I should see a table header and rows containing the following values in the logging table:
+        | Username   | Action                                   | List of Data Changes OR Fields Exported                                                              |
+        | test_user1 | Update record 10                         |                                                                                                      |
+        | test_user1 | Randomize Record 10                      | Randomize record                                                                                     |
+        | test_user1 | Create record 10                         | record_id = '10', auto_rand = 'B', gender = '0', randomization_complete = '0'                        |
+        | test_user1 | Update record 9                          |                                                                                                      |
+        | test_user1 | Randomize Record 9                       | Randomize record                                                                                     |
+        | test_user1 | Create record 9                          | record_id = '9', auto_rand = 'A', gender = '0', randomization_complete = '0'                        |
+
         And I logout
 #End

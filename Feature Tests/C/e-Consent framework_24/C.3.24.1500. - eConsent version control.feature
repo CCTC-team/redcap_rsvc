@@ -50,9 +50,9 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
   Scenario: #VERIFY: view all versions for Test 1
     When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf             |                              |
-      |            | test 1  |                    | Test_Admin (Admin User) |                           0 |                   |              | "This is my test 1 consent form"      |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf             |                              |
+      | test 1  |                    | test_admin (Admin User) |                           0 |                   |              | "This is my test 1 consent form"      |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
     When I click on the button labeled "Close"
@@ -87,7 +87,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I clear field and enter "email@test.edu" into the input field labeled "email"
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -114,8 +114,8 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I click on the link labeled "PDF Snapshot Archive"
     And I wait for 1 second
     Then I should see a table header and rows containing the following values in a table:
-      | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)         | Version | Type |                       |
-      | .pdf |                                  |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 1  |      | e-Consent Participant |
+      | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)         | Version | Type                  |
+      | .pdf |                                  |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 1  | e-Consent Participant |
 
   Scenario:
     When I click on the link labeled "pid13_formParticipantConsent_id1_"
@@ -169,10 +169,10 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
   Scenario: #view all versions for Test 1
     When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 2  |                    | Test_Admin (Admin User) |                           0 |                   |              | consent.pdf                             |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | test 1  |                    | test_admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      | test 2  |                    | test_admin (Admin User) |                           0 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
@@ -195,7 +195,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     #Manual: Then I should see "CONSENT" in the PDF content displayed within the page
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -211,7 +211,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -236,9 +236,9 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Snapshot Archive"
     Then I should see a table header and rows containing the following values in a table:
-      | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)         | Version | Type |                       |
-      | .pdf |                                  |      2 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 2  |      | e-Consent Participant |
-      | .pdf |                                  |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 1  |      | e-Consent Participant |
+      | Name | PDF utilized e-Consent Framework | Record | Survey Completed                             | Identifier (Name, DOB)         | Version | Type                  |
+      | .pdf |                                  |      2 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 2  | e-Consent Participant |
+      | .pdf |                                  |      1 | Participant Consent (Event 1 (Arm 1: Arm 1)) | FirstName LastName, 2000-01-01 | test 1  | e-Consent Participant |
 
   Scenario:
     When I click on the link labeled "pid13_formParticipantConsent_id2_"
@@ -257,10 +257,10 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
   Scenario: #view all versions
     When I click on the link labeled "View all versions" in the row labeled "Participant Consent"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | test 1  |                    | test_admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      | test 2  |                    | test_admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
@@ -272,10 +272,10 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
   Scenario: #Cancel inactivation of version
     When I click on the button labeled "Cancel"
     Then I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | test 1  |                    | test_admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      | test 2  |                    | test_admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
     And I should see a button labeled "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
@@ -289,10 +289,10 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     Then I should see "Consent form has been successfully removed"
     And I wait for 5 seconds
     And I should see a table header and rows containing the following values in a table:
-      | Active?    | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
-      |            |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
-      |            | test 1  |                    | Test_Admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
-      |            | test 2  |                    | Test_Admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
+      | Version | Time added         | Uploaded by             | Number of records consented | Data Access Group | MLM Language | Consent form text or file               | Set consent form as inactive |
+      |     1.0 |                    |                         |                           0 |                   |              | _Fake_Consent[311203].pdf               |                              |
+      | test 1  |                    | test_admin (Admin User) |                           1 |                   |              | "This is my test 1 consent form"        |                              |
+      | test 2  |                    | test_admin (Admin User) |                           1 |                   |              | consent.pdf                             |                              |
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "1.0"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 1"
     And I should NOT see "Set as inactive" in the column labeled "Set consent form as inactive" and the row labeled "test 2"
@@ -316,7 +316,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
     And I should NOT see "consent.pdf"
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -331,7 +331,7 @@ Feature: User Interface: The system shall support the e-Consent Framework for ve
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"

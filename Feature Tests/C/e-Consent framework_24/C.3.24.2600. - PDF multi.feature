@@ -54,6 +54,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I enter "multi data form same event" into the input field labeled "File name:"
     And I click on the button labeled "Save"
     Then I should see "Saved!"
+    Then I click on the button labeled "OK"
     Then I should see a table header and rows containing the following values in a table:
       | Active | Edit settings | Name                         | Type of trigger | Save snapshot when...                                 | Scope of the snapshot | Location(s) to save the snapshot |
       | [x]    |               | 1 multi data form same event | Logic-based     | Logic becomes true: [trigger1]='1' and [trigger2]='1' | All instruments       | File Repository                  |
@@ -191,7 +192,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -205,7 +206,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I enter "Coordinator" into the input field labeled "Coordinator's Name Typed"
     
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -224,7 +225,8 @@ Feature: User Interface: The system shall support the capture and storage of mul
     Then I should see "Adding new Record ID 2."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "More save options"
+    And I click on the link labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -238,7 +240,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I clear field and enter "2000-01-01" into the input field labeled "Date of Birth"
     And I enter "MyName" into the input field labeled "Participant's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -253,7 +255,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     When I select "Data Mode" on the dropdown field labeled "Form 2 Trigger"
     And I enter "Coordinator" into the input field labeled "Coordinator's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -268,7 +270,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to select a record for the "Participant Consent" instrument on event "Event 1"
     Then I should see "Adding new Record ID 3."
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -285,7 +287,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -297,7 +299,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
   Scenario:
     When I click on the link labeled "Record ID 3"
     When I click the bubble to select a record for the "Coordinator Signature" instrument on event "Event 1"
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -305,7 +307,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     And I select "Survey Mode" on the dropdown field labeled "Form 2 Trigger"
     And I enter "Coordinator" into the input field labeled "Coordinator's Name Typed"
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -337,7 +339,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -356,7 +358,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -376,7 +378,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     Then I should see "Adding new Record ID 5."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -392,7 +394,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -413,7 +415,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -431,7 +433,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
     Then I should see "Adding new Record ID 6."
 
   Scenario:
-    When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    When I click on the button labeled "Save & Stay"
     And I dismiss the "Okay" confirmation dialog if it appears
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
@@ -447,7 +449,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"
@@ -471,7 +473,7 @@ Feature: User Interface: The system shall support the capture and storage of mul
 
   Scenario:
     Given I click on the link labeled "Add signature"
-    And I see a dialog containing the following text: "Add signature"
+    And I should see "Add signature"
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature"
     Then I should see a link labeled "Remove signature"

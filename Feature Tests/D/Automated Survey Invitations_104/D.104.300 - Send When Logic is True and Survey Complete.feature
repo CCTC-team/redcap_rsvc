@@ -21,7 +21,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I check the checkbox labeled "When the following logic becomes true:"
     And I click on "" in the textarea field labeled "When the following logic becomes true"
     And I wait for 1 second
-    And I should see a dialog containing the following text: "Logic Editor"
+    And I should see "Logic Editor"
     And I clear field and enter "[event_1_arm_1][lname] != ''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
@@ -54,7 +54,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Demographics" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I clear field and enter "joe@abc.com" into the data entry form field labeled "Email"
-    Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I click on the button labeled "Save & Exit Form"
 
     Given I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
@@ -93,7 +93,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     When I locate the bubble for the "Demographics" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I enter "George" into the data entry form field labeled "Last name"
     And I enter "Joe" into the data entry form field labeled "First name"
-    Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I click on the button labeled "Save & Exit Form"
 
     Given I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"

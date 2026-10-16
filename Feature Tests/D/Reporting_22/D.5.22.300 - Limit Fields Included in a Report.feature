@@ -100,7 +100,7 @@ Feature: D.5.22.300 - The system shall support the ability to limit fields inclu
     And I enter "Jasmine Ryan" into the data entry form field labeled "Name"
     And I enter "9" into the data entry form field labeled "Required"
     And I enter "She is a nurse" into the data entry form field labeled "Text Box"
-    Then I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+    Then I click on the button labeled "Save & Exit Form"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     When I click on the button labeled "Edit"

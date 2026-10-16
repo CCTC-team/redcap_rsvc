@@ -174,7 +174,7 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
     When I click on the link labeled "Data Types"
     And I click on the button labeled "Dismiss"
     And I click on the Edit image for the field named "Radio Button Manual"
-    And I enter Choices of "102, Choice102" into the open "Edit Field" dialog box
+    And I enter "9..9, Choice99{enter}100, Choice100{enter}101, Choice101{enter}102, Choice102" in the textarea field labeled "Choices"
     And I click on the button labeled "Save"
     And I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit"
@@ -279,7 +279,7 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
     And I click on the Edit image for the field named "Radio Button Manual"
 
     #We are deleting the third option and renaming "100, Choice100" to "101, Choice100" in one step
-    And I clear field and enter Choices of "9..9, Choice99{enter}101, Choice100" into the open "Edit Field" dialog box
+    And I enter "9..9, Choice99{enter}101, Choice100" in the textarea field labeled "Choices"
 
     And I click on the button labeled "Save"
     And I click on the button labeled "Submit Changes for Review"
@@ -323,7 +323,7 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
     And I click on the Edit image for the field named "Radio Button Manual"
 
     #We are deleting the third option and renaming "100, Choice100" to "101, Choice100" in one step
-    And I clear field and enter Choices of "9..9, Choice99{enter}101, Choice100" into the open "Edit Field" dialog box
+    And I enter "9..9, Choice99{enter}101, Choice100" in the textarea field labeled "Choices"
 
     And I click on the button labeled "Save"
     And I click on the button labeled "Submit Changes for Review"
@@ -365,8 +365,8 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
 
     When I click on the link labeled "Data Types"
     And I click on the Edit image for the field named "Radio Button Manual"
-    Then I should see a dialog containing the following text: "Edit Field"
-    When I verify Choice of "101, Choice100" in the open "Edit Field" dialog box
+    Then I should see "Edit Field"
+    When I verify "101, Choice100" is within the textarea field labeled "Choices"
     Then I click on the button labeled "Cancel"
 
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -384,11 +384,11 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
     # We would expect to see ONLY the raw value (100) in the report data table
 
     Given I see a table header and rows containing the following values in the report data table:
-      | Record ID | Repeat Instrument | Event Name             | Radio Button Manual |
-      | 1         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
-      | 2         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
-      | 3         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
-      | 4         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
+      | Record ID | Event Name             | Repeat Instrument | Radio Button Manual |
+      | 1         | Event 1 (Arm 1: Arm 1) | Data Types        | (100)               |
+      | 2         | Event 1 (Arm 1: Arm 1) | Data Types        | (100)               |
+      | 3         | Event 1 (Arm 1: Arm 1) | Data Types        | (100)               |
+      | 4         | Event 1 (Arm 1: Arm 1) | Data Types        | (100)               |
 
     When I click on the link labeled "Designer"
 
@@ -396,7 +396,7 @@ Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Ce
     And I click on the Edit image for the field named "Radio Button Manual"
 
     #We are adding the third option of "102, Choice102"
-    And I clear field and enter Choices of "9..9, Choice99{enter}101, Choice100{enter}102, Choice102" in the open "Edit Field" dialog box
+    And I enter "9..9, Choice99{enter}101, Choice100{enter}102, Choice102" in the textarea field labeled "Choices"
 
     And I click on the button labeled "Save"
     And I click on the button labeled "Submit Changes for Review"

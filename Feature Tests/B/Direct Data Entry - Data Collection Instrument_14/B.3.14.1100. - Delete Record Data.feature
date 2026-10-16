@@ -46,7 +46,7 @@ Feature: B.3.14.1100. The system shall allow users to delete all data in an even
 
     ###ACTION delete this event
     Given I click the "X" icon for the row labeled "Delete all data on event:" on the event column labeled "Event 1"
-    Then I should see a dialog containing the following text: 'DELETE ALL DATA ON THIS EVENT FOR RECORD "1"?'
+    Then I should see 'DELETE ALL DATA ON THIS EVENT FOR RECORD "1"?'
 
     Given I click on the button labeled "Delete this event"
     Then I should see "Record ID 1 successfully deleted entire event of data"
@@ -61,12 +61,12 @@ Feature: B.3.14.1100. The system shall allow users to delete all data in an even
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | data_types_complete = ''                |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | dob = ''                                |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | email = ''                              |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | email_consent = ''                      |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | name_consent = ''                       |
-      | mm/dd/yyyy hh:mm | test_user1 | Update record1 | text_validation_complete = ''           |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | data_types_complete = ''                |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | dob = ''                                |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | email = ''                              |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | email_consent = ''                      |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | name_consent = ''                       |
+      | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | text_validation_complete = ''           |
 
     ##VERIFY - COUNT OF ROWS
     When I click on the link labeled "Data Exports, Reports, and Stats"

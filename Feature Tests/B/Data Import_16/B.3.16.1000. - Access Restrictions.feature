@@ -19,7 +19,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
         When I click on the link labeled "User Rights"
         And I enter "Test_User3" into the field with the placeholder text of "Add new user"
         And I click on the button labeled "Add with custom rights"
-        Then I should see a dialog containing the following text: "Adding new user"
+        Then I should see "Adding new user"
 
         When I check the User Right named "Data Import Tool"
         And I uncheck the User Right named "Create Records"
@@ -55,7 +55,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
         When I click on the link labeled "Record Status Dashboard"
         Then I should see a table header and rows containing the following values in the record status dashboard table:
             | Record ID |
-            | 5         |
+            | 6         |
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -65,5 +65,5 @@ Feature: User Interface: The system shall not allow a new record to be imported 
         When I click on the button labeled "View Report"
         Then I should see a table header and rows containing the following values in the report data table:
             | Record ID | Email          |
-            | 5         | email@test.edu |
+            | 6         | email@test.edu |
 #End

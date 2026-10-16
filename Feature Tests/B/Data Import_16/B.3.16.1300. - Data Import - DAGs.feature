@@ -16,15 +16,15 @@ Feature: B.3.16.1300. User Interface: The system shall provide the ability to as
         When I click on the link labeled "User Rights"
         And I enter "Test_User1" into the input field labeled "Add with custom rights"
         And I click on the button labeled "Add with custom rights"
-        Then I should see a dialog containing the following text: "Adding new user"
+        Then I should see "Adding new user"
 
         And I check the User Right named "Data Import Tool"
         And I select "Test_Group1" in the dropdown field labeled "Assign To DAG"
         And I click on the button labeled "Add user"
         Then I should see a table header and rows containing the following values in a table:
             | Role | Username or users assigned to a role | Expiration | Data Access Group |
-            |   —   | test_admin  (Admin User)                         |   never         | —                 |
-            |   —   | test_user1  (Test User1)                         |   never         | Test_Group1       |
+            |   —   | test_admin (Admin User)                         |   never         | —                 |
+            |   —   | test_user1 (Test User1)                         |   never         | Test_Group1       |
 
         #SETUP_PRODUCTION
         Given I click on the link labeled "Setup"

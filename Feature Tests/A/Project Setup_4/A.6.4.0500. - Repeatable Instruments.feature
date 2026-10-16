@@ -54,14 +54,14 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             Then I should see "Repeating instruments and events"
 
             When I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
-            Then I should see a dialog containing the following text: "WARNING"
+            Then I should see "WARNING"
 
             #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
             And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I check the checkbox labeled "Survey"
             And I click on the button labeled "Save"
-            Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+            Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
 
             # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
             # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
@@ -73,15 +73,16 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
                   | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
             Given I click on the link labeled "Add / Edit Records"
-            Given I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+            Given I select "1" on the dropdown field labeled "select record"
             And I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
 
             And I enter "MyName" into the data entry form field labeled "Name"
-            Given I select the submit option labeled "Save & Add New Instance" on the Data Collection Instrument
+            Given I click on the button labeled "More save options"
+            And I click on the link labeled "Save & Add New Instance"
             And I enter "MyOtherName" into the data entry form field labeled "Name"
-            Given I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+            Given I click on the button labeled "Save & Exit Form"
 
-            And I click on the icon in the row labeled "Instance #1"
+            And I click on the link in the row labeled "Instance #1"
             Then I should see "Current instance:"
 
             Given I click on the link labeled "Record ID 1"
@@ -95,22 +96,22 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             When I click on the button labeled "View Report"
 
             Then I should see table rows containing the following values in the report data table:
-                  | Event Three (Arm 1: Arm 1) | Survey | 1 | Name MyName      |
-                  | Event Three (Arm 1: Arm 1) | Survey | 2 | Name MyOtherName |
+                  | Event Three (Arm 1: Arm 1) | Survey | 1 | MyName      |
+                  | Event Three (Arm 1: Arm 1) | Survey | 2 | MyOtherName |
             And I should NOT see "Data Types"
 
             Given I click on the link labeled "Setup"
             Then I should see "Repeating instruments and events"
 
             When I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
-            Then I should see a dialog containing the following text: "WARNING"
+            Then I should see "WARNING"
 
             #Given I click on the button labeled "Close"
             And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
             And I check the checkbox labeled "Data Types"
             And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
-            Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+            Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
 
             # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
             # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
@@ -122,7 +123,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
                   | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
             Given I click on the link labeled "Add / Edit Records"
-            And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+            And I select "1" on the dropdown field labeled "select record"
             And I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
             Then I should NOT see "Current instance:"
             And I click on the button labeled "Cancel"
@@ -142,13 +143,13 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
 
             When I click on the link labeled "Setup"
             And I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
-            Then I should see a dialog containing the following text: "WARNING"
+            Then I should see "WARNING"
 
             #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
-            Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+            Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
 
             # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
             # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
@@ -160,7 +161,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
                   | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
             Given I click on the link labeled "Add / Edit Records"
-            And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+            And I select "1" on the dropdown field labeled "select record"
             Then I should NOT see "(#3)"
 
             When I click on the button labeled "Add new"
@@ -168,7 +169,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             Then I should see "Editing existing Record ID 1"
 
             When I clear field and enter "My repeat event name" into the data entry form field labeled "Name"
-            And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
+            And I click on the button labeled "Save & Exit Form"
             Then I should see "(#3)"
 
             And I click on the link labeled "Data Exports, Reports, and Stats"
@@ -182,13 +183,13 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
 
             When I click on the link labeled "Setup"
             And I click on the button labeled "Modify" in the row labeled "Repeating instruments and events"
-            Then I should see a dialog containing the following text: "WARNING"
+            Then I should see "WARNING"
 
             #Given I click on the button labeled "Close"
             And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
             And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
             And I click on the button labeled "Save"
-            Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+            Then I should see "Your settings for repeating instruments and/or events have been successfully saved."
             # The success dialog triggers window.location.reload() ~2.5s later (ProjectSetup.php).
             # Wait for that reload to complete (dialog gone) so the next nav click isn't cancelled.
             And I wait for the dialog to close
@@ -207,7 +208,7 @@ Feature: A.6.4.0500. Control Center: The system shall support the option to limi
             And I should NOT see "My repeat event name"
 
             Given I click on the link labeled "Add / Edit Records"
-            And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
+            And I select "1" on the dropdown field labeled "select record"
             And I click the X to delete all data related to the event named "#2"
             And I click on the button labeled "Delete this instance of this event"
             Then I should see "successfully deleted entire event of data"

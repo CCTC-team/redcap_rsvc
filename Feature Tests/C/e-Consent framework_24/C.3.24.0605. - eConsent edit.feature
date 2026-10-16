@@ -48,7 +48,6 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         When I click on the button labeled "Save & Exit Form"
         And I wait for 2 seconds
         And I dismiss the "Okay" confirmation dialog if it appears
-
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
         Then I should see "Please complete the survey"
@@ -60,7 +59,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         And I enter "MyName" into the input field labeled "Participant's Name Typed"
         
         Given I click on the link labeled "Add signature"
-        And I see a dialog containing the following text: "Add signature"
+        And I should see "Add signature"
         And I draw a signature in the signature field area
         When I click on the button labeled "Save signature"
         Then I should see a link labeled "Remove signature"
@@ -126,7 +125,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         And I enter "MyName" into the input field labeled "Participant's Name Typed"
         
         Given I click on the link labeled "Add signature"
-        And I see a dialog containing the following text: "Add signature"
+        And I should see "Add signature"
         And I draw a signature in the signature field area
         When I click on the button labeled "Save signature"
         Then I should see a link labeled "Remove signature"
@@ -151,6 +150,8 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I click on the button labeled "Edit response"
         Then I should see "(now editing)"
+        # If we don't wait, there is an odd intermittent where the focus jumps down to the lower part of the page interrupting typing into the following field
+        And I wait for 2 seconds
 
         When I clear field and enter "NewFirstName" into the input field labeled "First Name"
         And I click on the button labeled "Save & Exit Form"
@@ -175,11 +176,11 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I click on the link labeled "pid13_formParticipantConsent_id1"
         Then I should see the following values in the last file downloaded
-          | \n2)First NameFirstName \n3) |
+          | \n2) First Name FirstName\n3) |
 
         When I click on the link labeled "pid13_formParticipantConsent_id2"
         Then I should see the following values in the last file downloaded
-          | \n2)First NameFirstName \n3) |
+          | \n2) First Name FirstName\n3) |
         #NOTE: Edited version with "NewFirstName" is NOT in the file repository.
         #Manual: Close document
 
@@ -189,9 +190,9 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
             | Username            | Action                                     | List of Data Changes OR Fields Exported                                                                                                                    |
             | test_admin          | Update record 1 (Event 1 (Arm 1: Arm 1))   | first_name = 'NewFirstName'                                                                                                                                |
             | [survey respondent] | Save PDF Snapshot 2                        | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "2" event = "event_1_arm_1" instrument = "participant_consent"  |
-            | [survey respondent] | e-Consent Certification 2                  | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" |
+            | [survey respondent] | e-Consent Certification 2                  | e-Consent Certification record = "2" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" |
             | [survey respondent] | Update Response 2 (Event 1 (Arm 1: Arm 1)) | last_name = 'LastName', type_sign1 = 'MyName' |
-            | [survey respondent] | Save PDF Snapshot 2                        | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent"  |
-            | [survey respondent] | e-Consent Certification 1                  | e-Consent Certification record = "1"  event = "event_1_arm_1" instrument = "participant_consent"                                                           |
+            | [survey respondent] | Save PDF Snapshot 1                        | Save PDF Snapshot to File Upload Field field = "participant_file (event_1_arm_1)" record = "1" event = "event_1_arm_1" instrument = "participant_consent"  |
+            | [survey respondent] | e-Consent Certification 1                  | e-Consent Certification record = "1" identifier = "email@test.edu" consent_form_version = "1.0" event = "event_1_arm_1" instrument = "participant_consent" |
             | [survey respondent] | Update Response 1 (Event 1 (Arm 1: Arm 1)) | last_name = 'LastName', type_sign1 = 'MyName'                                                                                                            |
 #END

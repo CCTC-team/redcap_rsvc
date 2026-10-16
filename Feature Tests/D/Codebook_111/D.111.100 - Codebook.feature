@@ -56,7 +56,7 @@ Feature:
         When I click on the button labeled " Create"
         And I click on the button labeled "Add instrument here"
         Then I should see "New instrument name:"
-        When I enter "Data Types" into the input field labeled "New instrument name:" within the data collection instrument list
+        When I enter "Data Types" into the input field labeled "New instrument name:"
         And I click on the last button labeled "Create"
         Then I should see "SUCCESS!"
         And I click on the button labeled "Close"
@@ -122,9 +122,7 @@ Feature:
         And I select "Multiple Choice - Drop-down List (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Multiple Choice Dropdown Manual" into the Field Label of the open "Add New Field" dialog box
         And I enter "multiple_dropdown_manual" into the Variable Name of the open "Add New Field" dialog box
-        And I enter Choices of "5, DDChoice5" into the open "Add New Field" dialog box
-        And I enter Choices of "7, DDChoice7" into the open "Add New Field" dialog box
-        And I enter Choices of "6, DDChoice6" into the open "Add New Field" dialog box
+        And I enter "5, DDChoice5{enter}7, DDChoice7{enter}6, DDChoice6" in the textarea field labeled "Choices"
         And I click on the button labeled "Save"
         Then I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the options below
             | DDChoice5 |
@@ -137,10 +135,7 @@ Feature:
         And I select "Checkboxes (Multiple Answers)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Checkbox" into the Field Label of the open "Add New Field" dialog box
         And I enter "checkbox" into the Variable Name of the open "Add New Field" dialog box
-        And I enter Choices of "1, Checkbox1" into the open "Add New Field" dialog box
-        And I enter Choices of "2, Checkbox2" into the open "Add New Field" dialog box
-        And I enter Choices of "3, Checkbox3" into the open "Add New Field" dialog box
-        And I enter Choices of "4, Checkbox4" into the open "Add New Field" dialog box
+        And I enter "1, Checkbox1{enter}2, Checkbox2{enter}3, Checkbox3{enter}4, Checkbox4" in the textarea field labeled "Choices"
         And I click on the button labeled "Save"
         Then I should see the multiselect field labeled "checkbox" with the options below
             | Checkbox1 |
@@ -162,9 +157,7 @@ Feature:
         And I select "Multiple Choice - Radio Buttons (Single Answer)" from the Field Type dropdown of the open "Add New Field" dialog box
         And I enter "Radio Button Manual" into the Field Label of the open "Add New Field" dialog box
         And I enter "radio_button_manual" into the Variable Name of the open "Add New Field" dialog box
-        And I enter Choices of "99, Choice99" into the open "Add New Field" dialog box
-        And I enter Choices of "100, Choice100" into the open "Add New Field" dialog box
-        And I enter Choices of "101, Choice101" into the open "Add New Field" dialog box
+        And I enter "99, Choice99{enter}100, Choice100{enter}101, Choice101" in the textarea field labeled "Choices"
         And I click on the button labeled "Save"
         Then I should see the radio field labeled "Radio Button Manual" with the options below
             | Choice99  |
@@ -188,7 +181,7 @@ Feature:
         And I enter "Descriptive Text with File" into the Field Label of the open "Add New Field" dialog box
         And I enter "descriptive_text_file" into the Variable Name of the open "Add New Field" dialog box
         And I click on the link labeled "Upload file"
-        And I should see a dialog containing the following text: "Attach an image, file, or embedded audio"
+        And I should see "Attach an image, file, or embedded audio"
         When I upload a "docx" format file located at "import_files/File_Upload.docx", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload file" to upload the file
         Then I should see "Document was successfully uploaded!"
         And I click on the button labeled "Close"

@@ -11,13 +11,13 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
-    Then I should see a dialog containing the following text: "Adding new user"
+    Then I should see "Adding new user"
     And I click on the button labeled "Add user"
 
     #ACTION: Add Test_User2 with Custom rights
     And I enter "Test_User2" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
-    Then I should see a dialog containing the following text: "Adding new user"
+    Then I should see "Adding new user"
     And I click on the button labeled "Add user"
 
     #ACTION: Assign Test User1 to TestGroup1
@@ -66,7 +66,7 @@ Feature: D.10.700 - The system shall provide the ability to reassign a record fr
     Then I should see "Record Home Page"
     And I click on the span element labeled "Choose action for record"
     And I click on the link labeled "Assign to Data Access Group (or unassign/reassign)"
-    Then I should see a dialog containing the following text: "Assign record to a Data Access Group?"
+    Then I should see "Assign record to a Data Access Group?"
 
     When I select "TestGroup2" on the dropdown field labeled "Assign record" on the dialog box
     And I click on the button labeled "Assign to Data Access Group"
