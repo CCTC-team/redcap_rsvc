@@ -520,7 +520,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
             | mm/dd/yyyy hh:mm | test_user1 | Update record 10 | checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked, required = '', calc_test = '', data_types_complete = ''|
-            | mm/dd/yyyy hh:mm | test_user1 | Update record 9  | checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked, required = '', calc_test = '', data_types_complete = ''|          
+            | mm/dd/yyyy hh:mm | test_user1 | Update record 9  | checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked |          
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 8  | record_id = '8' |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 6  | record_id = '6' |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 7  | record_id = '7' |
@@ -676,6 +676,8 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
             | Queued      | mm/dd/yyyy hh:mm |                            | Test_Admin   | 3               |                 |                          | 0     |
        
         And I wait for background processes to finish
+        #Verify Email was sent when background deletion is completed
+        And I verify that an email was sent to "test_admin@test.edu" with a subject containing "Your bulk record deletion has completed" and content containing "3 of the 3 records selected were successfully deleted. A total of 0 errors occurred during the process."
         And I wait for 3 seconds
         And I click on the link labeled "View Background Deletions"
         Then I should see a table header and rows containing the following values in a table:
@@ -689,6 +691,4 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
             | mm/dd/yyyy hh:mm |SYSTEM (Test_Admin) | Delete record 11 (Arm 2: Arm Two) | record_id = '11'          |
             | mm/dd/yyyy hh:mm |SYSTEM (Test_Admin) | Delete record 10 (Arm 2: Arm Two) | record_id = '10'          |
             | mm/dd/yyyy hh:mm |SYSTEM (Test_Admin) | Delete record 9 (Arm 2: Arm Two)  | record_id = '9'          |
-        #Verify Email was sent when background deletion is completed
-        And I verify that an email was sent to "test_admin@test.edu" with a subject containing "Your bulk record deletion has completed" and content containing "3 of the 3 records selected were successfully deleted. A total of 0 errors occurred during the process."
 #END
