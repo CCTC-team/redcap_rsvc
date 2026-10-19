@@ -28,14 +28,14 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         And I clear field and enter "[textbox]='Pass'" in the textarea field labeled "Logic Editor"
         And I click on the button labeled "Update & Close Editor"
         And I check the checkbox labeled "Ensure logic is still true before sending notification?"
-        And I should see the radio option "Send immediately" for When to send the alert selected
-        And I should see the radio option "Just once" for Send it how many times selected
-        And I should see the radio option "Email" for Alert Type selected
+        And I should see a radio labeled "Send immediately" in the row labeled "When to send the alert" that is checked
+        And I should see a radio labeled "Just once" in the row labeled "Send it how many times" that is checked
+        And I should see a radio labeled "Email" in the row labeled "Alert Type" that is checked
         And I enter "test_user2@example.com" into the input field labeled "Or manually enter emails"
         Then I enter "Testing-Alerts-and-Notifications" into the alert message
         And I enter "Alerts-and-Notifications" into the input field labeled "Subject"
         When I click on the button labeled "Save"
-        Then I should see "Success! New alert created"
+        Then I should see "New alert created"
         And I should see "Alert #1:Email-Alert"
             
         Given I click on the link labeled "Add / Edit Records"
@@ -90,5 +90,5 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         Then I should see "Upload Alerts (CSV)"
         And I click on the link labeled "Download Alerts (CSV)"
         Then I should have the latest downloaded "csv" file that contains the headings and rows below
-            | alert-unique-id | alert-title | alert-trigger | unique-form-name | unique-event-name | saved-with-form-status | alert-condition  | ensure-logic-still-true | do-not-clear-recurrences | alert-stop-type | send-on | send-on-next-day-type | send-on-next-time | send-on-time-lag-days | send-on-time-lag-hours | send-on-time-lag-minutes | send-on-field-after | send-on-field | send-on-date | alert-send-how-many | every-time-type | repeat-for | repeat-for-units | repeat-for-max | alert-expiration | alert-type | email-from-display  | email-from          | email-to               | email-cc | email-bcc | email-failed | email-subject            | alert-message                           | sendgrid-template-id | sendgrid-template-data | sendgrid-mail-send-configuration | prevent-piping-identifiers | file-upload-fields | phone-number-to | alert-deactivated |
-            | A-1             | Email-Alert | SUBMIT-LOGIC  | data_types       | event_1_arm_1     | ANY                    | [textbox]='Pass' | Y                       | N                        | RECORD          | NOW     |                       |                   |                       |                        |                          |                     |               |              | ONCE                |                 |            |                  |                |                  | EMAIL      |                     | Test_User1@test.edu | test_user2@example.com |          |           |              | Alerts-and-Notifications | <p>Testing-Alerts-and-Notifications</p> |                      | {}                     | {}                               | Y                          |                    |                 | N                 |
+            | alert-unique-id | alert-title | alert-trigger | unique-form-name | unique-event-name | saved-with-form-status | alert-condition  | ensure-logic-still-true | do-not-clear-recurrences | alert-stop-type | send-on | send-on-next-day-type | send-on-next-time | send-on-time-lag-days | send-on-time-lag-hours | send-on-time-lag-minutes | send-on-field-after | send-on-field | reevaluate-send-time | send-on-date | alert-send-how-many | every-time-type | repeat-for | repeat-for-units | repeat-for-max | alert-expiration | alert-type | email-from-display  | email-from          | email-to               | email-cc | email-bcc | email-failed | email-subject            | alert-message                           | sendgrid-template-id | sendgrid-template-data | sendgrid-mail-send-configuration | prevent-piping-identifiers | file-upload-fields | phone-number-to | alert-deactivated |
+            | A-1             | Email-Alert | SUBMIT-LOGIC  | data_types       | event_1_arm_1     | ANY                    | [textbox]='Pass' | Y                       | N                        | RECORD          | NOW     |                       |                   |                       |                        |                          |                     |               | N                    |              | ONCE                |                 |            |                  |                |                  | EMAIL      |                     | Test_User1@test.edu | test_user2@example.com |          |           |              | Alerts-and-Notifications | <p>Testing-Alerts-and-Notifications</p> |                      | {}                     | {}                               | Y                          |                    |                 | N                 |

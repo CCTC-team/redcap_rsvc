@@ -13,18 +13,17 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the button labeled "Add New Alert"
     Then I should see "Create new alert"
     And I enter "Email Alert" into the input field labeled "Title of this alert"
-    And I should see the radio option "When a record is saved on a specific form/survey" for How will this alert be triggered selected
+    And I should see a radio labeled "When a record is saved on a specific form/survey" in the row labeled "How will this alert be triggered" that is checked
     And I select '"Data Types" (Event 1 (Arm 1: Arm 1))' on the dropdown field for alert form name
     And I should see the dropdown field for alert form status with the option "is saved with any form status" selected
-    And I should see the radio option "Send immediately" for When to send the alert selected
-    And I should see the radio option "Just once" for Send it how many times selected
-    And I should see the radio option "Email" for Alert Type selected
-    And I scroll to the field labeled "Or manually enter emails"
+    And I should see a radio labeled "Send immediately" in the row labeled "When to send the alert" that is checked
+    And I should see a radio labeled "Just once" in the row labeled "Send it how many times" that is checked
+    And I should see a radio labeled "Email" in the row labeled "Alert Type" that is checked
     And I enter "test_user2@example.com" into the input field labeled "Or manually enter emails"
     Then I enter "Testing Alerts and Notifications" into the alert message
     And I enter "Alerts and Notifications" into the input field labeled "Subject"
     When I click on the button labeled "Save"
-    Then I should see "Success! New alert created"
+    Then I should see "New alert created"
     And I should see "Alert #1:Email Alert"
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
@@ -60,12 +59,11 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     When I click on the button labeled "Edit" for alert "1"
     Then I should see "Edit Alert #1"
     And I select "is saved with Complete status only" on the dropdown field for alert form status
-    And I scroll to the field labeled "Or manually enter emails"
     And I clear field and enter "test_user3@example.com" into the input field labeled "Or manually enter emails"
     Then I enter "Testing Editing Alerts and Notifications" into the alert message
     And I clear field and enter "Editing Alerts and Notifications" into the input field labeled "Subject"
     When I click on the button labeled "Save"
-    Then I should see "Success! The alert was updated"
+    Then I should see "The alert was updated"
     And I should see "Alert #1:Email Alert"
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
@@ -112,12 +110,12 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I should see "Alert #2:Email Alert"
     When I click on the button labeled "Edit" for alert "2"
     Then I should see "Edit Alert #2"
-    And I should see the radio option "When a record is saved on a specific form/survey" for How will this alert be triggered selected
+    And I should see a radio labeled "When a record is saved on a specific form/survey" in the row labeled "How will this alert be triggered" that is checked
     And I should see "Data Types (Event 1 (Arm 1: Arm 1))"
     And I should see the dropdown field for alert form status with the option "is saved with Complete status only" selected
-    And I should see the radio option "Send immediately" for When to send the alert selected
-    And I should see the radio option "Just once" for Send it how many times selected
-    And I should see the radio option "Email" for Alert Type selected
+    And I should see a radio labeled "Send immediately" in the row labeled "When to send the alert" that is checked
+    And I should see a radio labeled "Just once" in the row labeled "Send it how many times" that is checked
+    And I should see a radio labeled "Email" in the row labeled "Alert Type" that is checked
     And I should see "test_user3@example.com"
     And I should see "Editing Alerts and Notifications"
     And I should see "Testing Editing Alerts and Notifications"
@@ -131,7 +129,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."
     When I click on the button labeled "Deactivate"
-    Then I should see "Success! The alert was deactivated"
+    Then I should see "The alert was deactivated"
     And I should NOT see "Alert #2:Email Alert"
     When I check the checkbox labeled "Show 1 deactivated alert(s)"
     Then I should see "Alert #2:Email Alert"
@@ -140,7 +138,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
   Scenario: D.102.500 - Re-enable alert
     When I click on the button labeled "Options" for alert "2"
     And I click on the link labeled "Re-enable alert"
-    Then I should see "Success! The alert was re-enabled."
+    Then I should see "The alert was re-enabled."
     And I should see "No matching records found"
     When I uncheck the checkbox labeled "Show 0 deactivated alert(s)"
     Then I should see "Alert #1:Email Alert"
@@ -154,7 +152,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I enter "Testing Move Alerts and Notifications" into the alert message
     And I clear field and enter "Move Alerts and Notifications" into the input field labeled "Subject"
     When I click on the button labeled "Save"
-    Then I should see "Success! The alert was updated."
+    Then I should see "The alert was updated."
     # Move alert 1
     Given I click on the button labeled "Options" for alert "1"
     When I click on the link labeled "Move alert"
@@ -184,7 +182,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."
     When I click on the button labeled "Deactivate"
-    Then I should see "Success! The alert was deactivated"
+    Then I should see "The alert was deactivated"
     And I should NOT see "Alert #1:Email Alert"
     When I check the checkbox labeled "Show 1 deactivated alert(s)"
     Then I should see "Alert #1:Email Alert"
@@ -195,7 +193,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I should see "Are you sure you want to delete this Alert?"
     And I should see "This will permanently delete the Alert."
     And I click on the button labeled "Delete"
-    Then I should see "Success! The alert was permanently deleted."
+    Then I should see "The alert was permanently deleted."
     And I should see a checkbox labeled "Show 0 deactivated alert(s)" that is unchecked
     And I should see "Alert #1:Email Alert"
     And I should see "Editing Alerts and Notifications"
@@ -212,9 +210,9 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
         | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Reactivate  alert              | Alert #2 (A-2)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                        
         | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Deactivate alert               | Alert #2 (A-2)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                        
         | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Copy alert                     | Alert #2 (A-2) copied from Alert #1 (A-1)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                        
-        | mm/dd/yyyy hh:mm | test_user1 | Sent alert Record 3 (Event 1 (Arm 1: Arm 1)) | Alert #1 (A-1), From: 'Test_User1@test.edu', To: 'test_user3@example.com', Subject: 'Editing Alerts and Notifications', Message: Testing Editing Alerts and Notifications'                                                                                                                                                                                                                                                                                                                                                                                                                                     |                        
-        | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Modify alert                   | Alert #1 (A-1), alert_title = 'Email Alert', alert_type = 'EMAIL', alert_stop_type = 'RECORD', alert_expiration = '', form_name = 'data_types', form_name_event = 'event_1_arm_1', alert_condition = '', ensure_logic_still_true = 'no', prevent_piping_identifiers = 'yes', trigger_on_instrument_save_status = 'complete_status_only', email_from = 'Test_User1@test.edu', email_from_display = '', email_to = 'test_user3@example.com', phone_number_to = '', email_cc = '', email_bcc = '', email_subject = 'Editing Alerts and Notifications', alert_message = 'Testing Editing Alerts and Notifications' | 
+        | mm/dd/yyyy hh:mm | test_user1 | Sent alert Record 3 (Event 1 (Arm 1: Arm 1)) | Alert #1 (A-1), From: 'Test_User1@test.edu', To: 'test_user3@example.com', Subject: 'Editing Alerts and Notifications', Message: 'Testing Editing Alerts and Notifications'                                                                                                                                                                                                                                                                                                                                                                                                                                     |                        
+        | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Modify alert                   | Alert #1 (A-1), alert_title = 'Email Alert', alert_type = 'EMAIL', alert_stop_type = 'RECORD', alert_expiration = '', form_name = 'data_types', form_name_event = 'event_1_arm_1', alert_condition = '', ensure_logic_still_true = 'no', do_not_clear_recurrences = 'no', prevent_piping_identifiers = 'yes', trigger_on_instrument_save_status = 'complete_status_only', email_from = 'Test_User1@test.edu', email_from_display = '', email_to = 'test_user3@example.com', phone_number_to = '', email_cc = '', email_bcc = '', email_subject = 'Editing Alerts and Notifications', alert_message = 'Testing Editing Alerts and Notifications' | 
         | mm/dd/yyyy hh:mm | test_user1 | Sent alert Record 2 (Event 1 (Arm 1: Arm 1)) | Alert #1 (A-1), From: 'Test_User1@test.edu', To: 'test_user2@example.com', Subject: 'Alerts and Notifications', Message: 'Testing Alerts and Notifications'                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
-        | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Create alert                   | Alert #1 (A-1), alert_title = 'Email Alert', alert_type = 'EMAIL', alert_stop_type = 'RECORD', alert_expiration = '', form_name = 'data_types', form_name_event = 'event_1_arm_1', alert_condition = '', ensure_logic_still_true = 'no', prevent_piping_identifiers = 'yes', trigger_on_instrument_save_status = 'any_status', email_from = 'Test_User1@test.edu', email_from_display = '', email_to = 'test_user2@example.com', phone_number_to = '', email_cc = '', email_bcc = '', email_subject = 'Alerts and Notifications', alert_message = 'Testing Alert and Notifications',                           | 
+        | mm/dd/yyyy hh:mm | test_user1 | Manage/Design Create alert                   | Alert #1 (A-1), alert_title = 'Email Alert', alert_type = 'EMAIL', alert_stop_type = 'RECORD', alert_expiration = '', form_name = 'data_types', form_name_event = 'event_1_arm_1', alert_condition = '', ensure_logic_still_true = 'no', do_not_clear_recurrences = 'no', prevent_piping_identifiers = 'yes', trigger_on_instrument_save_status = 'any_status', email_from = 'Test_User1@test.edu', email_from_display = '', email_to = 'test_user2@example.com', phone_number_to = '', email_cc = '', email_bcc = '', email_subject = 'Alerts and Notifications', alert_message = 'Testing Alerts and Notifications',                           | 
 
     And I logout
