@@ -29,6 +29,7 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         And I click on the button labeled "Stats & Charts" 
         Then I should see "All data (all records and fields)"
 
+        # D.118.200
         And I select "Text Validation" on the dropdown field labeled "Select a data collection instrument to view"
         Then I should see a table header and rows containing the following values in a table: 
             | Total Count (N) | Missing   |

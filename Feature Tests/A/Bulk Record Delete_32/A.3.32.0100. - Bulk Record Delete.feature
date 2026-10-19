@@ -3,7 +3,7 @@ Feature: A.3.32.0100. The system shall allow REDCap administrators to enable or 
     As a REDCap end user
     I want to see that Bulk Record Delete is functioning as expected
 
-    Scenario: A.3.32.0100.100 Enable/Disable file repository public links via Control Center
+    Scenario: A.3.32.0100.100 Enable/Disable Bulk Record Delete via Control Center
 
         #SETUP
         Given I login to REDCap with the user "Test_Admin"

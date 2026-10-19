@@ -3,7 +3,7 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
   As a REDCap end user
   I want to see that automated survey invitations work as expected
 
-  Scenario: D.104.200 - Send Survey When Survey Completed
+  Scenario: D.104.300 - Send survey after a delay when logic is true and survey complete
     
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.104.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D104300.xml", and clicking the "Create Project" button
@@ -25,9 +25,12 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I clear field and enter "[event_1_arm_1][lname] != ''" in the textarea field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" 
     And I check the checkbox labeled "Ensure logic is still true before sending invitation?"
+    And I click on the radio labeled "Send the invitation"
     When I enter 0 days 0 hours and 1 minute for When to send invitations AFTER conditions are met
     When I click on the button labeled "Save"
     And I click on the button labeled "Close"
+    # Close reloads the Designer page, so wait for it before using the toolbar
+    And I wait for 3 seconds
 
     #Re-evaluate surveys
     And I click on the button labeled "Auto Invitation options"
@@ -47,10 +50,10 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
       | Time / Date      | Username   | Action                                   | List of Data Changes OR Fields Exported                          |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                            | Re-evaluate automated survey invitations:                        |
       | mm/dd/yyyy hh:mm | test_user1 | Re-evaluate Automated Survey Invitations | 0 records were affected.                                         |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                            | Edit settings for automated survey invitations                   |
       | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design                            | Automatically schedule survey invitation                         |
       | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design                            | (Record: "1", Survey: "Survey", Event: "Event 1", Instance: "1") |
-    
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                            | Edit settings for automated survey invitations                   |
+
     Given I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Demographics" instrument on event "Event 1" for record ID "1" and click on the bubble
     And I clear field and enter "joe@abc.com" into the data entry form field labeled "Email"
@@ -61,9 +64,10 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
-    
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
+    And I should see a table with 1 row
+
     Given I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event 1" for record ID "1" and click on the bubble
     When I click on the button labeled "Survey options"
@@ -82,11 +86,12 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
+    And I should see a table with 1 row
 
-    And I should NOT see "Survey Event 2"
-    When I click on the button labeled "View future invitations"
+    # The Survey Invitation Log opens on future invitations by default
+    When I click on the link labeled "Survey Invitation Log"
     Then I should see "No invitations to list"
 
     Given I click on the link labeled "Record Status Dashboard"
@@ -95,13 +100,31 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
     And I enter "Joe" into the data entry form field labeled "First name"
     Then I click on the button labeled "Save & Exit Form"
 
+    # Event 2 invitation is scheduled 1 minute after the logic becomes true, so it is not sent yet
+    Given I click on the link labeled "Survey Distribution Tools"
+    Then I should see "Participant List"
+    And I click on the link labeled "Survey Invitation Log"
+    Then I should see a table header and rows containing the following values in a table:
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 2 |
+    And I should see a table with 1 row
+
+    # After the time lag, run the crons so the scheduled invitation is sent
+    When I wait for 70 seconds
+    And I wait for background processes to finish
+
     Given I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
-      |                      | joe@abc.com       | 1      | Survey Event 2 |
-    
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 2 |
+    And I should see a table with 2 rows
+
+    # The Survey Invitation Log opens on future invitations by default
+    When I click on the link labeled "Survey Invitation Log"
+    Then I should see "No invitations to list"
+
     And I logout
