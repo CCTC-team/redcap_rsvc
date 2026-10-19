@@ -46,15 +46,19 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the Comment icon for the field labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
-            |              | Date/Time        | User       | Comments  | 
-            |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 1 |
+            | Date/Time        | User       | Comments  | 
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 1 |
+      And I should see "pencil" icon for the Comment "Comment 1"
+      And I should see "cross" icon for the Comment "Comment 1"
 
       When I click on the image "pencil" link for the row containing "Comment 1"
       And I clear field and enter "Comment 10" in the comment box for the editted comment "Comment 1" in Field Comment Log
       And I click on the button labeled "Save"
       Then I should see a table header and row containing the following values in a table:
-            |              | Date/Time        | User       | Comments   | 
-            |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
+            | Date/Time        | User       | Comments   | 
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 10 |
+      And I should see "pencil" icon for the Comment "Comment 10"
+      And I should see "cross" icon for the Comment "Comment 10"
 
       And I enter "Comment 2" into the textarea field labeled "Comment"
       And  I click on the button labeled "Comment"
@@ -65,16 +69,22 @@ Feature: D.106.800 Data Resolution Workflow
       And I click on the Comment icon for the field labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
-            |              | Date/Time        | User       | Comments   |
-            |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 10 |
-            |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2  |
+            | Date/Time        | User       | Comments   |
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 10 |
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 2  |
+      And I should see "pencil" icon for the Comment "Comment 10"
+      And I should see "cross" icon for the Comment "Comment 10"
+      And I should see "pencil" icon for the Comment "Comment 2"
+      And I should see "cross" icon for the Comment "Comment 2"
 
       When I click on the image "cross" link for the row containing "Comment 10"
       Then I should see "Delete this Field Comment?"
       And I click on the button labeled "Delete"
       Then I should see a table header and row containing the following values in a table:
-            |              | Date/Time        | User       | Comments  |
-            |[icon] [icon] | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
+            | Date/Time        | User       | Comments  |
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 2 |
+      And I should see "pencil" icon for the Comment "Comment 2"
+      And I should see "cross" icon for the Comment "Comment 2"
 
       And I should NOT see "Comment 10"
       And I click on the button labeled "Cancel"
@@ -103,7 +113,7 @@ Feature: D.106.800 Data Resolution Workflow
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments  |
-            | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 2 |
 
       And I enter "Comment 3" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
@@ -115,8 +125,8 @@ Feature: D.106.800 Data Resolution Workflow
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments  |
-            | mm/dd/yyyy hh:mm | Test_User1 | Comment 2 |
-            | mm/dd/yyyy hh:mm | Test_User2 | Comment 3 |
+            | mm/dd/yyyy hh:mm | test_user1 | Comment 2 |
+            | mm/dd/yyyy hh:mm | test_user2 | Comment 3 |
 
       And I click on the button labeled "Cancel"
       Then I click on the Comment icon for the field labeled "Email"
