@@ -53,14 +53,14 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I click on the button labeled "Define My Events"
     Then I should see "Arm 1"
     And I should see a table header and rows containing the following values in the define events table:
-      | Event # | Event Label | Unique event name (auto generated) [event-name] |
+      | Event # | Event Label | Unique event name (auto-generated) [event-name] |
       | 1       | Event 1     | event_1_arm_1                                   |
       | 2       | Event 2     | event_2_arm_1                                   |
       | 3       | Event Three | event_three_arm_1                               |
 
     Then I click on the link labeled "Arm Two" 
     And I should see a table header and rows containing the following values in the define events table:
-      | Event # | Event Label | Unique event name (auto generated) [event-name] |
+      | Event # | Event Label | Unique event name (auto-generated) [event-name] |
       | 1       | Event 1     | event_1_arm_2                                   |
     
     Then I click on the link labeled "Designate Instruments for My Events"
@@ -122,10 +122,10 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     And I click on the link labeled "test_user1"
     And I click on the button labeled "Edit user privileges"
     Then I should see "Editing existing user"
-    And I should see the Data Viewing Rights of the instrument "Text Validation" with option View & Edit selected
-    And I should see the Data Viewing Rights of the instrument "Data Types" with option View & Edit selected
-    And I should see the Data Export Rights of the instrument "Text Validation" with option Full Data Set selected
-    And I should see the Data Export Rights of the instrument "Data Types" with option Full Data Set selected
+    And I should see a radio in the column labeled "View & Edit" and the row labeled "Text Validation" that is checked
+    And I should see a radio in the column labeled "View & Edit" and the row labeled "Data Types" that is checked
+    And I should see a radio in the column labeled "Full Data Set" and the row labeled "Text Validation" that is checked
+    And I should see a radio in the column labeled "Full Data Set" and the row labeled "Data Types" that is checked
   
     And I should see a checkbox labeled "Project Design and Setup" that is checked
     And I should see a radio labeled "Full Access" that is checked
@@ -155,7 +155,7 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
     #VERIFY: DAGS
     When I click on the link labeled "DAGs"
     Then I should see a table header and rows containing the following values in a table:
-      | Data Access Groups        | Users in group                                 | Number of records in group | Unique group name (auto generated) | Group ID number |
+      | Data Access Groups        | Users in group                                 | Number of records in group | Unique group name (auto-generated) | Group ID number |
       | DAG1                      |                                                |          0                 | dag1                               | 2               |  
       | [Not assigned to a group] | test_user1 (Test User1) * Can view ALL records |                            |                                    |                 |
     
@@ -171,14 +171,14 @@ Feature: D.119.200 Downloading Metadata and data - The system shall support the 
       | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?                     | 1 Unverified                                                           | 
       | 4  | [text_validation_complete]                   | Section Header: Form Status Complete?                     | 2 Complete                                                             |  
       | 5  | [ptname]                                     | Name                                                      | text                                                                   | 
-      | 6  | [text2]                                      | text2                                                     | text                                                                   |   
+      | 6  | [text2]                                      | Text2                                                     | text                                                                   |   
       | 7  | [textbox]                                    | Text Box                                                  | text                                                                   |   
       | 8  | [notesbox]                                   | Notes Box                                                 | notes                                                                  | 
       | 9  | [calculated_field]                           | Calculated Field                                          | calc Calculation: 3*2                                                  |
       | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | dropdown                                                               |
       | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | 1 DDChoice1                                                            |
-      | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | 1 DDChoice2                                                            |
-      | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | 1 DDChoice3                                                            |
+      | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | 2 DDChoice2                                                            |
+      | 10 | [multiple_dropdown_auto]                     | Multiple Choice Dropdown Auto                             | 3 DDChoice3                                                            |
       | 11 | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual                           | dropdown                                                               |
       | 11 | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual                           | 5 DDChoice5                                                            |
       | 11 | [multiple_dropdown_manual]                   | Multiple Choice Dropdown Manual                           | 7 DDChoice6                                                            |

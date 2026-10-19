@@ -22,7 +22,7 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     And I click on the button labeled "Save"
 
     Then I should see a table header and rows containing the following values in the define events table:
-      | Event # | Days Offset | Offset Range | Event Label | Custom Event Label    | Unique event name (auto generated) [event-name] |
+      | Event # | Days Offset | Offset Range | Event Label | Custom Event Label    | Unique event name (auto-generated) [event-name] |
       | 1       | 1           | -0/+0        | Event 1     |                       | event_1_arm_1                                   |
       | 2       | 2           | -1/+2        | Event 2     |                       | event_2_arm_1                                   |
       | 3       | 3           | -1/+2        | Event Three | [complete_study_date] | event_three_arm_1                               |
@@ -60,19 +60,19 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     When I click on the button labeled "Create Schedule"
     Then I should see 'Successfully Scheduled "1"'
     And I should see a table header and rows containing the following values in a table:
-      | Time | Date                 | Event Name  |
-      |      | 11/21/2023 Tuesday   | Event 1     |
-      |      | 11/22/2023 Wednesday | Event 2     |
-      |      | 11/23/2023 Thursday  | Event Three |
+      | Date                 | Event Name  |
+      | 11/21/2023 Tuesday   | Event 1     |
+      | 11/22/2023 Wednesday | Event 2     |
+      | 11/23/2023 Thursday  | Event Three |
 
     And I click on the link "View or Edit Schedule"
     And I select "1" on the dropdown field labeled "Select a previously scheduled Record ID:"
     Then I should see 'View/Edit Existing Schedule'
     And I should see a table header and rows containing the following values in a table:
-      | Time | Date / Day of Week                                  | Event Name  | Status   | Notes |
-      |      | 11/21/2023 Tuesday                                  | Event 1     | Due Date |       |
-      |      | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023 | Event 2     | Due Date |       |
-      |      | 11/23/2023 Thursday Range: 11/22/2023 - 11/25/2023  | Event Three | Due Date |       |
+      | Date / Day of Week                                  | Event Name  | Status   | Notes |
+      | 11/21/2023 Tuesday                                  | Event 1     | Due Date |       |
+      | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023 | Event 2     | Due Date |       |
+      | 11/23/2023 Thursday Range: 11/22/2023 - 11/25/2023  | Event Three | Due Date |       |
 
     # # D.114.200 - Edit calendar event in the Schedule Events - adjust ALL dates
     When I click on the Edit icon for the event named "Event 2" in the Schedule Events
@@ -84,10 +84,12 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     And I click on the button labeled "Save"
     When I click on the button labeled "YES, adjust ALL dates"
     Then I should see a table header and rows containing the following values in a table:
-      | Time     | Date / Day of Week                                  | Event Name  | Status   | Notes         |
-      |          | 11/21/2023 Tuesday                                  | Event 1     | Due Date |               |
-      | 10:00 am | 11/23/2023 Thursday Range: 11/21/2023 - 11/24/2023  | Event 2     | Due Date | Notes Event 2 |
-      |          | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023    | Event Three | Due Date |               |
+      | Date / Day of Week                                 | Event Name  | Status   | Notes         |
+      | 11/21/2023 Tuesday                                 | Event 1     | Due Date |               |
+      | 11/23/2023 Thursday Range: 11/21/2023 - 11/24/2023 | Event 2     | Due Date | Notes Event 2 |
+      | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023   | Event Three | Due Date |               |
+    And I should see a table rows containing the following values in a table:
+      | 10:00am | Event 2 |
   
     # # D.114.200 - Edit calendar event in the Schedule Events - adjust just this one
     When I click on the Edit icon for the event named "Event 2" in the Schedule Events
@@ -96,10 +98,12 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     And I click on the button labeled "Save"
     When I click on the button labeled "NO, just this one"
     Then I should see a table header and rows containing the following values in a table:
-      | Time     | Date / Day of Week                                   | Event Name  | Status   | Notes         |
-      |          | 11/21/2023 Tuesday                                   | Event 1     | Due Date |               |
-      | 10:00 am | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023  | Event 2     | Due Date | Notes Event 2 |
-      |          | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023     | Event Three | Due Date |               |
+      | Date / Day of Week                                  | Event Name  | Status   | Notes         |
+      | 11/21/2023 Tuesday                                  | Event 1     | Due Date |               |
+      | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023 | Event 2     | Due Date | Notes Event 2 |
+      | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023    | Event Three | Due Date |               |
+    And I should see a table rows containing the following values in a table:
+      | 10:00am | Event 2 |
     
     # D.114.400 - Add Ad Hoc calendar event in the Schedule Events
     When I clear field and enter "11/27/2023" into the input field labeled "Add new Ad Hoc calendar event on"
@@ -112,11 +116,14 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     Then I should see "Your new calendar event was created and added to the calendar!"
     And I return to the REDCap page I opened the calendar event from
     Then I should see a table header and rows containing the following values in a table:
-      | Time     | Date / Day of Week                                   | Event Name  | Status   | Notes         |
-      |          | 11/21/2023 Tuesday                                   | Event 1     | Due Date |               |
-      | 10:00 am | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023  | Event 2     | Due Date | Notes Event 2 |
-      |          | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023     | Event Three | Due Date |               |
-      |  9:00 am | 11/27/2023 Monday                                    | Ad Hoc      |          | Ad Hoc Notes  |
+      | Date / Day of Week                                  | Event Name  | Status   | Notes         |
+      | 11/21/2023 Tuesday                                  | Event 1     | Due Date |               |
+      | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023 | Event 2     | Due Date | Notes Event 2 |
+      | 11/24/2023 Friday Range: 11/22/2023 - 11/25/2023    | Event Three | Due Date |               |
+      | 11/27/2023 Monday                                   | Ad Hoc      |          | Ad Hoc Notes  |
+    And I should see a table rows containing the following values in a table:
+      | 10:00am | Event 2 |
+      | 9:00am  | Ad Hoc  |
     
     # D.114.500 - Delete calendar event in the Schedule Events
     And I click on the Delete icon for the event named "Event Three" in the Schedule Events
@@ -141,10 +148,13 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     When I click on the link labeled "View Schedule" in the View Calendar Event
     Then I should see 'View/Edit Existing Schedule'
     Then I should see a table header and rows containing the following values in a table:
-      | Time     | Date / Day of Week                                   | Event Name  | Status    | Notes         |
-      |          | 11/21/2023 Tuesday                                   | Event 1     | Due Date  |               |
-      | 10:00 am | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023  | Event 2     | Confirmed | Notes Event 2 |
-      |  9:00 am | 11/28/2023 Tuesday                                   | Ad Hoc      |           | Ad Hoc Notes  |
+      | Date / Day of Week                                  | Event Name | Status    | Notes         |
+      | 11/21/2023 Tuesday                                  | Event 1    | Due Date  |               |
+      | 11/22/2023 Wednesday Range: 11/21/2023 - 11/24/2023 | Event 2    | Confirmed | Notes Event 2 |
+      | 11/28/2023 Tuesday                                  | Ad Hoc     |           | Ad Hoc Notes  |
+    And I should see a table rows containing the following values in a table:
+      | 10:00am | Event 2 |
+      | 9:00am  | Ad Hoc  |
 
     Given I click on the View icon for the event named "Event 1" in the Schedule Events
     Then I should see "View/Edit Calendar Event"
