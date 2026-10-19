@@ -66,6 +66,9 @@ I want to verify that the File Upload field enhancement requires a password or P
     And I upload a "pdf" format file located at "import_files/consent.pdf", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
     And I enter "Testing123" into the input field labeled "Password:"
     And I click on the button labeled "Confirm"
+    Then I should see "File was successfully uploaded"
+    Then I wait for 1 second 
+    Then I should NOT see "File was successfully uploaded"
     Then I should see "consent.pdf" in the row labeled "File Upload"
     And I click on the button labeled "Save & Stay"
     And I enter "lock form" into the textarea field labeled "Reason for changes"
@@ -91,6 +94,9 @@ I want to verify that the File Upload field enhancement requires a password or P
     And I upload a "pdf" format file located at "import_files/consent.pdf", by clicking the button near "Select a file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
     And I enter "Testing123" into the input field labeled "Password:"
     And I click on the button labeled "Confirm"
+    Then I should see "File was successfully uploaded"
+    Then I wait for 1 second 
+    Then I should NOT see "File was successfully uploaded"
     Then I should see "consent.pdf" in the row labeled "File Upload"
     And I click on the button labeled "Save & Stay"
     And I enter "lock form" into the textarea field labeled "Reason for changes"

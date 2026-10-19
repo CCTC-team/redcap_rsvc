@@ -38,6 +38,9 @@ Feature: User Interface: The system shall support the e-Consent Framework abilit
         And I select "participant_file" in the dropdown field labeled "Save to specified field:"
         And I select "Event 1 (Arm 1: Arm 1)" in the dropdown field labeled "Save to specified field:"
         And I click on the button labeled "Save settings"
+        Then I should see "E-Consent settings were successfully"
+        Then I wait for 1 second
+        Then I should NOT see "E-Consent settings were successfully"
         Then I should see a table header and rows containing the following values in a table:
             | e-Consent active? | Survey                                      | Location(s) to save the signed consent snapshot    | Custom tag/category | Notes |
             | [x]               | "Participant Consent" (participant_consent) | File Repository Specified field:[event_1_arm_1][participant_file] | Participant         |       |
