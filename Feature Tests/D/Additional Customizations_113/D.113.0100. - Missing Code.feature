@@ -15,9 +15,10 @@ Feature: D.113.100 - The system shall support the ability to add Missing Data Co
             Given I click on the link labeled "Setup"
             And I click on the button labeled "Additional customizations"
             And I scroll to the field labeled "Missing Data Codes"
-            # {enter} for newline
-            And I clear field and enter "INV, Invalid{enter}" into the textarea field labeled "Missing Data Codes"
-            And I enter "UNK, Unknown" into the textarea field labeled "Missing Data Codes"
+            # INV, Invalid
+            And I click on the second button labeled "Add"
+            # UNK, Unknown"
+            And I click on the third button labeled "Add"
             Then I click on the button labeled "Save"
 
             #VERIFY_LOG

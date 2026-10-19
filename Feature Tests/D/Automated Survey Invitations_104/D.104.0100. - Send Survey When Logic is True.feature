@@ -8,6 +8,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I create a new project named "D.104.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Survey.xml", and clicking the "Create Project" button
    
     # Enable surveys in the project and designate email field
+    # D.3.15.1400.
     Given I click on the link labeled "Setup"
     Then I should see a button labeled "Enable" in the row labeled "Use surveys in this project?"
     And I click on the button labeled "Enable" in the row labeled "Use surveys in this project?"
@@ -23,7 +24,10 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I wait for 1 second
     And I click on the button labeled "Enable" in the column labeled "Enabled as" and the row labeled "Survey"
     And I click on the button labeled "Save Changes"
-    
+    Then I should see "Your survey settings were successfully saved!"
+    # Wait for the "saved" popup and its overlay to go away, or the next click can land on the overlay
+    And I wait for 4 seconds
+
     When I click on the button labeled "Automated Invitations"
     Then I should see "Automated Invitations"
     And I click on the first button labeled "+Set up"
@@ -59,6 +63,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     Then I should see "Settings for automated invitations were successfully saved!"
     And I click on the button labeled "Close"
     Then I should see "Automated Invitations"
+    And I wait for 2 seconds
 
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
@@ -78,42 +83,47 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
 
     When I click on the button labeled "View future invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      | ( 1)                 | joe@abc.com       | 1      | Survey Event 1 |
-      | ( 2)                 | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
+      | ( 2)                 | joe@abc.com       | 1      | "Survey" Event 1 |
 
     Then I wait for 65 seconds
+    # Run the crons so the due reminder is sent
+    And I wait for background processes to finish
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
-      | ( 1)                 | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time  | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm      | joe@abc.com       | 1      | "Survey" Event 1 |
+      | ( 1)                  | joe@abc.com       | 1      | "Survey" Event 1 |
 
     When I click on the button labeled "View future invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      | ( 2)                 | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time  | Participant Email | Record | Survey           |
+      | ( 2)                  | joe@abc.com       | 1      | "Survey" Event 1 |
 
     Then I wait for 100 seconds
+    # Run the crons so the due reminder is sent
+    And I wait for background processes to finish
     And I click on the link labeled "Survey Distribution Tools"
     Then I should see "Participant List"
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
-      | ( 1)                 | joe@abc.com       | 1      | Survey Event 1 |
-      | ( 2)                 | joe@abc.com       | 1      | Survey Event 1 |
+      | Invitation send time  | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm      | joe@abc.com       | 1      | "Survey" Event 1 |
+      | ( 1)                  | joe@abc.com       | 1      | "Survey" Event 1 |
+      | ( 2)                  | joe@abc.com       | 1      | "Survey" Event 1 |
 
-    When I click on the button labeled "View future invitations"
+    # The Survey Invitation Log opens on future invitations by default
+    When I click on the link labeled "Survey Invitation Log"
     Then I should see "No invitations to list"
 
     Given I click on the link labeled "Designer"
@@ -131,6 +141,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
       | mm/dd/yyyy hh:mm | SYSTEM	    | Manage/Design | (Record: "1", Survey: "Survey", Event: "Event 1", Instance: "1") |
 
     # ASI 2
+    # D.3.15.0700.
     Given I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event 1" for record ID "1" and click on the bubble
     When I click on the button labeled "Survey options"
@@ -149,7 +160,7 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
     And I click on the link labeled "Survey Invitation Log"
     When I click on the button labeled "View past invitations"
     Then I should see a table header and rows containing the following values in a table:
-      | Invitation send time | Participant Email | Record | Survey         |
-      |                      | joe@abc.com       | 1      | Survey Event 1 |
-      |                      | joe@abc.com       | 1      | Survey Event 2 |
+      | Invitation send time | Participant Email | Record | Survey           |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 1 |
+      | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 2 |
     And I logout
