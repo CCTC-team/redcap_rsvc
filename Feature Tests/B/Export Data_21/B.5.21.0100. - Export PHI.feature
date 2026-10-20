@@ -176,7 +176,10 @@ Feature: User Interface: The system shall support the ability to identify data a
     Then I should see the latest downloaded "csv" file containing the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
     And I verify the timestamp in column labeled "data_types_timestamp" for record "5" has shifted today's date in the latest downloaded "csv"
+    # Each check only finds a download from the last few seconds, so download the file again before each one
+    Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     And I verify the date in column labeled "date_ymd" for record "5" has shifted today's date in the latest downloaded "csv"
+    Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format
     And I verify the datetime in column labeled "datetime_ymd_hmss" for record "5" has shifted today's date in the latest downloaded "csv"
 
     #Manual: Close the report & refresh page

@@ -8,6 +8,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value=""/>
 					<ItemData ItemOID="email" Value="email@test.edu"/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="0"/>
@@ -132,6 +133,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value="Name "/>
 					<ItemData ItemOID="email" Value="email@test.edu"/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="1"/>
@@ -220,6 +222,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value="Name "/>
 					<ItemData ItemOID="email" Value="email@test.edu"/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="2"/>
@@ -310,6 +313,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value="Name "/>
 					<ItemData ItemOID="email" Value="email@test.edu"/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="2"/>
@@ -485,6 +489,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value=""/>
 					<ItemData ItemOID="email" Value=""/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="0"/>
@@ -660,6 +665,7 @@
 					<ItemData ItemOID="redcap_survey_identifier" Value=""/>
 					<ItemData ItemOID="name" Value=""/>
 					<ItemData ItemOID="email" Value=""/>
+					<ItemData ItemOID="phone_number" Value=""/>
 				</ItemGroupData>
 				<ItemGroupData ItemGroupOID="text_validation.text_validation_complete" ItemGroupRepeatKey="1">
 					<ItemData ItemOID="text_validation_complete" Value="0"/>

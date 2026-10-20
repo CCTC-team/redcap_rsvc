@@ -32,12 +32,18 @@ Feature: D.9.200 - The system shall support branching logic from data entry form
     #VERIFY - Branching Logic
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
+    # Text2 has a value but its branching logic is false, so REDCap asks whether to erase it before hiding it
+    Then I should see "ERASE THE VALUES OF FIELDS TO BE HIDDEN?"
+    And I click on the button labeled "Erase"
     Then I should see "text box" in the data entry form field "Text box"
     And I should NOT see "Text2"
 
     #VERIFY - Branching Logic
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "2" and click on the bubble
+    # Text box has a value but its branching logic is false, so REDCap asks whether to erase it before hiding it
+    Then I should see "ERASE THE VALUES OF FIELDS TO BE HIDDEN?"
+    And I click on the button labeled "Erase"
     Then I should NOT see "Text box"
     And I should see "text2" in the data entry form field "Text2"
     And I logout

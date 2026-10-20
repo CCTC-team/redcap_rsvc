@@ -83,6 +83,10 @@ Feature: User Interface: General: The system shall support the ability to erase 
     ##ACTION Erase data
     When I click on the button labeled "Erase all data"
     When I click on the button labeled "Erase all data"
+    # Production projects ask for the words to be typed in a second confirmation dialog
+    Then I should see "Really ERASE ALL data in this project?"
+    And I enter "ERASE ALL DATA" into the input field labeled 'TYPE "ERASE ALL DATA" BELOW'
+    And I click on the button labeled "Erase all data"
     Then I should see "SUCCESS!"
     And I click on the button labeled "Close"
 

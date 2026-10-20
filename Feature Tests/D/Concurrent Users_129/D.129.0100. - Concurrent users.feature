@@ -17,7 +17,8 @@ Feature: D.129.100 - The system shall prevent multiple users from concurrently e
     And I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     Then I should see "6" in the data entry form field "Calculated Field"
 
-    Given I login to REDCap with the user "Test_User2"
+    # Log in as Test_User2 while Test_User1 is still on the form (Test_User1 is not logged out)
+    Given I login to REDCap with the user "Test_User2" in a new browser session
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.129.100"
     When I click on the link labeled "Record Status Dashboard"
