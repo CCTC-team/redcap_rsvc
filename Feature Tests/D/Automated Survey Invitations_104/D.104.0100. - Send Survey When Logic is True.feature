@@ -122,7 +122,9 @@ Feature: D.104.100 - The system shall support the ability to send a survey when 
       | ( 1)                  | joe@abc.com       | 1      | "Survey" Event 1 |
       | ( 2)                  | joe@abc.com       | 1      | "Survey" Event 1 |
 
-    # The Survey Invitation Log opens on future invitations by default
+    # The Survey Invitation Log opens on future invitations by default. Its filter is per minute,
+    # so an invitation sent this minute is still listed as future: wait for the minute to pass.
+    And I wait for 60 seconds
     When I click on the link labeled "Survey Invitation Log"
     Then I should see "No invitations to list"
 

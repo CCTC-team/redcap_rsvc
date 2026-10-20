@@ -14,6 +14,7 @@ label(data$redcap_data_access_group) = "Data Access Group"
 label(data$redcap_survey_identifier) = "Survey Identifier"
 label(data$name) = "Name"
 label(data$email) = "Email"
+label(data$phone_number) = "Phone Number"
 label(data$text_validation_complete) = "Complete?"
 label(data$ptname) = "Name"
 label(data$textbox) = "Text box"
@@ -159,4 +160,3 @@ mapping_consent_complete = c(
 	"1" = "Unverified",
 	"2" = "Complete"
 )
-
