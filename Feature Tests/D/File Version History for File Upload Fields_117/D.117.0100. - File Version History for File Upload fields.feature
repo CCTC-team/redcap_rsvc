@@ -96,7 +96,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
     
     And the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/3_event_1_arm_1_data_types_1_file_upload.csv" has the header below
-      | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics |survey_timestamp | reminder | description | survey_complete |
+      | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "2"
@@ -175,19 +175,19 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
       | Time / Date      | Username   | Action                                                    | List of Data Changes OR Fields Exported                                              |
       | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload = '6'                                                                    |
       | mm/dd/yyyy hh:mm | test_user1 | Update record 4 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                     |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 4 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '5' data_types_complete = '0', record_id = '4' |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 4 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '5', data_types_complete = '0', record_id = '4' |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Make project customizations                                                          |
       | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload = ''                                                                     |
       | mm/dd/yyyy hh:mm | test_user1 | Deleted Document Update record 2 (Event 1 (Arm 1: Arm 1)) | file_upload (V1)                                                                     |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (all records)                                         |
       | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 3                       | file_upload                                                                          |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 3 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '4' data_types_complete = '0', record_id = '3' |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 3 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '4', data_types_complete = '0', record_id = '3' |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design                                             | Download ZIP of uploaded files (single record)                                       |
       | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V2)                                                                     |
       | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload (V1)                                                                     |
       | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                          |
       | mm/dd/yyyy hh:mm | test_user1 | Update record 2 (Event 1 (Arm 1: Arm 1))                  | file_upload = '3'                                                                    |
       | mm/dd/yyyy hh:mm | test_user1 | Download uploaded document Record 2                       | file_upload                                                                          |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '2' data_types_complete = '0', record_id = '2' |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record 2 (Event 1 (Arm 1: Arm 1))                  | calculated_field = '6', file_upload = '2', data_types_complete = '0', record_id = '2' |
 
     And I logout

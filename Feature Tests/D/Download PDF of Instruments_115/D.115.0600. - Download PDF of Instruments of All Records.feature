@@ -77,4 +77,4 @@ Feature: D.115.600 - The system shall support the ability to download the PDF of
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported            |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Download all data entry forms as PDF (all records) |
+      | mm/dd/yyyy hh:mm | test_user1 | PDF Export with data | Download all data entry forms as PDF (all records) |
