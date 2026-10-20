@@ -85,7 +85,7 @@ Feature: Stats and Charts: The system shall support the viewing of stats and cha
         And I should see a table header and rows containing the following values in a table: 
             | 0.05       | 0.10 | 0.25 | 0.50 Median | 0.75  | 0.90 | 0.95 | 
         
-        And I should see a table header and rows containing the following values in a table: 
+        And I should see a table rows containing the following values in a table:
             | 15              | 0 (0.0%) | 1     | 6   | 6   | 6    | 0     | 90  | 6          | 6    | 6    | 6           | 6     | 6    | 6    |
             
         And I should see "Lowest values: 6, 6, 6, 6, 6"

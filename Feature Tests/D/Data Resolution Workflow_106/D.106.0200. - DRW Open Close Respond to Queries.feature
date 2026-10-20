@@ -71,7 +71,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                         | 
-                  | mm/dd/yyyy hh:mm | Test_User1 | Action:Opened query Assigned to user:Test_User2 (Test User2) Comment:“Query 1” |
+                  | mm/dd/yyyy hh:mm | test_user1 | Action:Opened query Assigned to user:test_user2 (Test User2) Comment:“Query 1” |
 
             #VERIFY D.106.400 - Upload file to Query
             And I select "Verified - Confirmed correct (no error)" on the dropdown field labeled "Reply with response"
@@ -87,7 +87,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                                                               | 
-                  | mm/dd/yyyy hh:mm | Test_User2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
+                  | mm/dd/yyyy hh:mm | test_user2 | Response:Verified - Confirmed correct (no error) Uploaded file:B.3.16.600_DataImport.... (0.01 MB) Delete File Comment:“The value is correct - B.3.16.600_DataImport.csv uploaded” |
 
             And I click on the link labeled "B.3.16.600_DataImport.... (0.01 MB)"
             Then the downloaded CSV with filename "B.3.16.600_DataImport.csv" has the header below
@@ -112,7 +112,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                            | 
-                  | mm/dd/yyyy hh:mm | Test_User2 | Action:Sent back for further attention Comment:“Please clarify” |
+                  | mm/dd/yyyy hh:mm | test_user2 | Action:Sent back for further attention Comment:“Please clarify” |
 
             And I select the radio option Close the query in Data Resolution Workflow
             And I enter "Closed" into the textarea field labeled "Comment"
@@ -122,7 +122,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                 | 
-                  | mm/dd/yyyy hh:mm | Test_User1 | Action:Closed query Comment:“Closed” |
+                  | mm/dd/yyyy hh:mm | test_user1 | Action:Closed query Comment:“Closed” |
 
             When I check the checkbox labeled "Reopen the closed query" 
             And I enter "Reopen the closed query" into the textarea field labeled "Comment"
@@ -132,7 +132,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             Then I should see "Data Resolution Workflow"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                    | 
-                  | mm/dd/yyyy hh:mm | Test_User1 | Action:Reopened query Comment:“Reopen the closed query” |
+                  | mm/dd/yyyy hh:mm | test_user1 | Action:Reopened query Comment:“Reopen the closed query” |
 
             And I click on the radio labeled "Close the query"
             And I enter "Closed" into the textarea field labeled "Comment"
@@ -166,42 +166,42 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
             When I click on the link labeled "Resolve Issues"
             And I select the option "All status types (2)" from the dropdown field for Status in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
-                  | 1                      | email_v2 | Test_User2 | Test_User1 | Test_User1             |
-                  | Event 1 (Arm 1: Arm 1) | (Email)  | Test_User2 | "Query 1"  | "Closed"               |
-                  | 2 (#1)                 | ptname   | Test_User1 | Test_User1 | [same as first update] |
-                  | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
+                  | 1                      | email_v2 | test_user2 | test_user1 | test_user1             |
+                  | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
+                  | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
+                  | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
       
             When I click on the button labeled "Export" 
             Then the downloaded CSV with filename "D106200_DataResolutionDashboard_yyyy-mm-dd_hhmm.csv" has the header and rows below
                   | Current Query Status | Number of comments | Record (Sorted by DAG) | Data Access Group | Event                  | Data Quality Rule | Field            | User Assigned | Days Open |
-                  | CLOSED               | 6                  | 1                      |                   | Event 1 (Arm 1: Arm 1) |                   | email_v2 (Email) | Test_User2    | 0         |
-                  | OPEN                 | 1                  | 2 (#1)                 |                   | Event 1 (Arm 1: Arm 1) |                   | ptname (Name)    | Test_User1    | 0         |
+                  | CLOSED               | 6                  | 1                      |                   | Event 1 (Arm 1: Arm 1) |                   | email_v2 (Email) | test_user2    | 0         |
+                  | OPEN                 | 1                  | 2 (#1)                 |                   | Event 1 (Arm 1: Arm 1) |                   | ptname (Name)    | test_user1    | 0         |
             
             When I click on the link labeled "Resolve Issues"
             And I select the option "Open / unresolved issues (1)" from the dropdown field for Status in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
-                  | 2 (#1)                 | ptname   | Test_User1 | Test_User1 | [same as first update] |
-                  | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
+                  | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
+                  | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
 
             When I select the option "All status types (2)" from the dropdown field for Status in Data Resolution Dashboard
             And I select the option "email_v2 (1)" from the dropdown field for Field Rule in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
-                  | 1                      | email_v2 | Test_User2 | Test_User1 | Test_User1             |
-                  | Event 1 (Arm 1: Arm 1) | (Email)  | Test_User2 | "Query 1"  | "Closed"               |
+                  | 1                      | email_v2 | test_user2 | test_user1 | test_user1             |
+                  | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
 
             When I select the option "Event 1 (Arm 1: Arm 1)" from the dropdown field for Event in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
-                  | 1                      | email_v2 | Test_User2 | Test_User1 | Test_User1             |
-                  | Event 1 (Arm 1: Arm 1) | (Email)  | Test_User2 | "Query 1"  | "Closed"               |
+                  | 1                      | email_v2 | test_user2 | test_user1 | test_user1             |
+                  | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
             
             And I wait for 1 second
-            When I select the option "Test_User1 (Test User1)" from the dropdown field for Assigned User in Data Resolution Dashboard
+            When I select the option "test_user1 (Test User1)" from the dropdown field for Assigned User in Data Resolution Dashboard
             Then I should see "No results to display"
 
             When I select the option "All fields" from the dropdown field for Field Rule in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
-                  | 2 (#1)                 | ptname   | Test_User1 | Test_User1 | [same as first update] |
-                  | Event 1 (Arm 1: Arm 1) | (Name)   | Test_User1 | "Query 2"  | [same as first update] |
+                  | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
+                  | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
             
             When I select the option "DAG1" from the dropdown field for DAG in Data Resolution Dashboard
             Then I should see "No results to display"

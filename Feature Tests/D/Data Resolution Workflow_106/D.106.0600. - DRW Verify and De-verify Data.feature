@@ -48,8 +48,8 @@ Feature: D.106.600 Data Resolution Workflow
       Given I click on the link labeled "Resolve Issues"
       And I select the option "All status types (1)" from the dropdown field for Status in Data Resolution Dashboard
       Then I should see a table row containing the following values in a table:
-            | 1                      | ptname_v2_v2 | Test_User1 | Test_User1         | [same as first update] |
-            | Event 1 (Arm 1: Arm 1) | (Name)       | Test_User1 | "Test Verify Data" | [same as first update] |
+            | 1                      | ptname_v2_v2 | test_user1 | test_user1         | [same as first update] |
+            | Event 1 (Arm 1: Arm 1) | (Name)       | test_user1 | "Test Verify Data" | [same as first update] |
 
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
@@ -58,7 +58,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                  | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'        |
-            | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data” |
+            | mm/dd/yyyy hh:mm | test_user1 | Action:Verified data value Comment:“Test Verify Data” |
       
       When I select the radio option De-verify data value in Data Resolution Workflow
       And I click on the button labeled "De-verify data value"
@@ -73,16 +73,16 @@ Feature: D.106.600 Data Resolution Workflow
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                        | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'              |
-            | mm/dd/yyyy hh:mm | Test_User1 | Action:Verified data value Comment:“Test Verify Data”       |
-            | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value Comment:“Test De-verify Data” |
+            | mm/dd/yyyy hh:mm | test_user1 | Action:Verified data value Comment:“Test Verify Data”       |
+            | mm/dd/yyyy hh:mm | test_user1 | Action:De-verified data value Comment:“Test De-verify Data” |
       
       And I click on the button labeled "Cancel"
 
       Given I click on the link labeled "Resolve Issues"
       And I select the option "All status types (1)" from the dropdown field for Status in Data Resolution Dashboard
       Then I should see a table rows containing the following values in a table:
-            | 1                      | ptname_v2_v2 | Test_User1 | Test_User1         | Test_User1            |
-            | Event 1 (Arm 1: Arm 1) | (Name)       | Test_User1 | "Test Verify Data" | "Test De-verify Data" |
+            | 1                      | ptname_v2_v2 | test_user1 | test_user1         | test_user1            |
+            | Event 1 (Arm 1: Arm 1) | (Name)       | test_user1 | "Test Verify Data" | "Test De-verify Data" |
 
   Scenario: D.106.700 - Automatically De-verify data when verified data is changed
       Given I click on the link labeled "Record Status Dashboard"
@@ -102,7 +102,7 @@ Feature: D.106.600 Data Resolution Workflow
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                          | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'John'                      |
-            | mm/dd/yyyy hh:mm | Test_User1 | Action:De-verified data value (automatically via data change) |
+            | mm/dd/yyyy hh:mm | test_user1 | Action:De-verified data value (automatically via data change) |
 
       And I click on the button labeled "Cancel"
 
