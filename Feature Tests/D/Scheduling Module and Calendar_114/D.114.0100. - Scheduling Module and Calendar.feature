@@ -209,7 +209,6 @@ Feature: D.114.100  Scheduling Module and Calendar Scheduling
     # And I click on the button labeled "Sync Calendar to External Application"
     # When I click on the button labeled "Download ICS file"
     # Then I should see a downloaded file named "D114100_CalendarEvents_yyyy-mm-dd_hhmm.ics"
-    # And I should have the latest downloaded "ics" file with SHA256 hash value "5178a4a418caac72b8d56c0c557ec8c92bb6c1dc4cc9b85f60476baf3a20c245"
     # And I click on the button labeled "Close"
 
     # D.114.500 - Delete calendar event 
