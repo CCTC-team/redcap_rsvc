@@ -21,7 +21,7 @@ CCTC has two divisions: Cancer Theme, which coordinates trial delivery, and Clin
 
 - **Last sync:** 2026-10-16, Vanderbilt `staging` at `3f0a4546` (2026-10-12).
 - **Current CCTC tag:** `cctc_v1.0.11`. It includes the follow-up fixes for REDCap 17.5.6.
-- **Deliberately absent on `redcap_val`:** CDIS features (`CDIS_31`), features that use external file storage, Bulk Record Delete (B.3.32.0200), and upstream modules CCTC doesn't use. Upstream changes to these files come back as modify/delete conflicts in a sync; keep the deletion.
+- **Deliberately absent on `redcap_val`:** CDIS features (`CDIS_31`), features that use external file storage, Bulk Record Delete (A.3.32.0100, B.3.32.0200), and upstream modules CCTC doesn't use. Upstream changes to these files come back as modify/delete conflicts in a sync; keep the deletion.
 
 ---
 
