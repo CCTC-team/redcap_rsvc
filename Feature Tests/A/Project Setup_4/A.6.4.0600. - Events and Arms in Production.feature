@@ -41,7 +41,9 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         And I click on the button labeled "Define My Events"
         And I click on the link labeled "Arm 3"
 
-        Given I add an event named "Event 1" with offset of 0 days into the currently selected arm
+        Given I enter "0" into the input field labeled "Days"
+        And I enter "Event 1" into the input field labeled "Descriptive name for this event"
+        Then I click on the button labeled "Add new event"
         Then I should see "Event 1" in the define events table
 
         When I click on the link labeled "Logging"
@@ -90,7 +92,9 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         And I click on the link labeled "Arm 1"
         Then I should see a button labeled "Add new event"
 
-        Given I add an event named "Event 4" with offset of 4 days into the currently selected arm
+        Given I enter "4" into the input field labeled "Days"
+        And I enter "Event 4" into the input field labeled "Descriptive name for this event"
+        Then I click on the button labeled "Add new event"
         Then I should see "Event 4" in the define events table
 
         When I click on the link labeled "Logging"
@@ -231,7 +235,9 @@ Feature: A.6.4.0600 Manage project creation, deletion, and settings. Control Cen
         Then I should see "Arm name:  Arm 4"
         And I click on the link labeled "Arm 4"
 
-        Given I add an event named "Event 1" with offset of 0 days into the currently selected arm
+        Given I enter "0" into the input field labeled "Days"
+        And I enter "Event 1" into the input field labeled "Descriptive name for this event"
+        Then I click on the button labeled "Add new event"
         Then I should see "Event 1" in the define events table
 
         When I click on the link labeled "Logging"
