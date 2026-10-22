@@ -135,6 +135,8 @@ Feature: A.2.67.0400. - Control Center: The system shall allow users to be assoc
 
   Scenario: A.2.67.0400.0500 Move the user to another PAG and verify subsequently created projects are assigned to the new PAG
     #User was moved to another PAG in the previous step.
+    # Navigate to the "Home" page before logging out since Test_User2 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     Given I logout
     And I login to REDCap with the user "Test_User2"
     And I click on the link labeled "New Project"
@@ -173,6 +175,8 @@ Feature: A.2.67.0400. - Control Center: The system shall allow users to be assoc
         |New PAG 1                    |Test_User1 (Test User1)     |1                          | 0                      |1        |
         |New PAG 2                    |Test_User3 (Test User3)     |1                          | 0                      |2        |
 
+    # Navigate to the "Home" page before logging out since Test_User2 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     Given I logout
     And I login to REDCap with the user "Test_User2"
     And I click on the link labeled "New Project"
