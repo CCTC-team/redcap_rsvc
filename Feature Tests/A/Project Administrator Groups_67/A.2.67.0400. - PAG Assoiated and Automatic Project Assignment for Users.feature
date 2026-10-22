@@ -49,9 +49,9 @@ Feature: A.2.67.0400. - Control Center: The system shall allow users to be assoc
         |New PAG 1                    |Test_User1 (Test User1)     |0                          | 1                      |1        |
 
   Scenario: A.2.67.0400.0200 Verify projects created by the user are automatically assigned to the PAG
+    And I click on the link labeled "New Project"
     Given I logout
     And I login to REDCap with the user "Test_User2"
-    And I click on the link labeled "New Project"
     And I enter "Auto Assigned Project" into the input field labeled "Project title"
     And I select "Practice / Just for fun" on the dropdown field labeled "Project's purpose"
     And I click on the radio labeled "Empty project (blank slate)"
@@ -84,6 +84,8 @@ Feature: A.2.67.0400. - Control Center: The system shall allow users to be assoc
         |14         |Auto Assigned Project   |        |
     And I should NOT see "Pre-Association Project"
     
+    # Navigate to the "Home" page before logging out since Test_User1 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     Given I logout
     And I login to REDCap with the user "Test_User1"
     And I click on the link labeled "Control Center"

@@ -98,11 +98,11 @@ Scenario: A.2.67.0100.200 PAG management is available in REDCap+
     Then I should see "Project assigned successfully!"
     Then I click on the button labeled "OK"
     And I click on the button labeled "Close"
+    When I click on the link labeled "My Projects"
     And I logout
 
     #Make a project leve change in draft more that must be reviewed
     Given I login to REDCap with the user "Test_User2"
-    When I click on the link labeled "My Projects"
     And I click on the link labeled "PAG Test 1"
 
     #Make a project leve change in draft more that must be reviewed

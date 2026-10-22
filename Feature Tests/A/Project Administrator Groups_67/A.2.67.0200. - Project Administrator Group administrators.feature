@@ -99,6 +99,8 @@ Feature: A.2.67.0200. Control Center: The system shall allow REDCap users to be 
 
 
   Scenario: A.2.67.0200.500 Authentication and system-wide administration remain unavailable
+    # Navigate to the "Home" page before logging out since Test_User1 doesn't have access to the Project Administrator Groups page
+    When I click on the link labeled "Home"
     Given I login to REDCap with the user "Test_User1" 
     And I click on the link labeled "Control Center"
     Then I should see "Control Center Home"
@@ -165,6 +167,8 @@ Feature: A.2.67.0200. Control Center: The system shall allow REDCap users to be 
     And I click on the button labeled "Remove user as project-level admin"
     Then I should see "User successfully removed as a project-level admin!"
     And I click on the button labeled "Close"
+    # Navigate to the "Home" page before logging out since Test_User1 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     Given I logout
     And I login to REDCap with the user "Test_User1"
     When I click on the link labeled "Control Center"
