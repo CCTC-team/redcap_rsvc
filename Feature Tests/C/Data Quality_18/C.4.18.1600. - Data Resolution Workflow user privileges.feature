@@ -109,7 +109,6 @@ Feature: C.4.18.1600.	User Interface: The system shall support configurable user
                 #FUNCTIONAL_REQUIREMENT
                 ##ACTION open a brand new query on the "Email" field
                 And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
-                And I click on the radio labeled "Open query"
                 And I enter "Please verify this participant's email address." into the textarea field labeled "Comment"
                 And I click on the button labeled "Open query"
 
