@@ -9,7 +9,7 @@ Feature: C.3.31.1800. User Interface: The system shall support defining day offs
       Then I should see "Clinical Data Interoperability Services"
       When I select "Enable" on the dropdown field labeled "Clinical Data Pull"
       And I click on the button labeled "Save Changes"
-      Then I should see "Loading"
+      Then I should see the dropdown field labeled "Clinical Data Pull" with the option "Enabled" selected
 
     #SET UP SMARTHEALTH IT IN CONTROL CENTER 
     #M Only one FHIR system setup is needed to test the functionality. You can skip these steps if you have already done this on another CDIS test. These FHIR settings will allow for validation against smart health IT and ensure REDCap can pull data via FHIR. If you want to validate against your local EHR vendor modification to these steps will be required. 
