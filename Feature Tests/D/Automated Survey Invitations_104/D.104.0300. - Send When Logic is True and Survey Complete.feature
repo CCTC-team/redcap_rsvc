@@ -123,8 +123,11 @@ Feature: D.104.300 - The system shall support the ability to send a survey after
       | mm/dd/yyyy hh:mm     | joe@abc.com       | 1      | "Survey" Event 2 |
     And I should see a table with 2 rows
 
-    # The Survey Invitation Log opens on future invitations by default
-    When I click on the link labeled "Survey Invitation Log"
+    # The Survey Invitation Log opens on future invitations by default.
+    # Its Begin time is the current minute, so an invitation sent earlier in
+    # that minute still shows. Wait for the minute to roll over first.
+    When I wait for 60 seconds
+    And I click on the link labeled "Survey Invitation Log"
     Then I should see "No invitations to list"
 
     And I logout
