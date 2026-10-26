@@ -336,8 +336,8 @@ Each needed modified file below is tagged with every kind of change it contains 
 - C.2.19.0600. - Locking module navigation.feature `[core]`
 - C.2.19.0700. - eSign customization.feature `[rctf-deprecated, rctf-removed, core]`
 - C.2.19.0900. - eSign and Lock access.feature `[rctf-deprecated]`
-- C.2.19.1200. - REDUNDANT.Pin session.feature `[housekeeping]`
-- C.2.19.1400. - REDUNDANT.record_locking_external_storage.feature `[housekeeping]`
+- C.2.19.1200. - REDUNDANT.Pin session.feature `[housekeeping]` — **deleted on redcap_val 2026-10-26** (removed by CCTC: PIN session)
+- C.2.19.1400. - REDUNDANT.record_locking_external_storage.feature `[housekeeping]` — **deleted on redcap_val 2026-10-26** (removed by CCTC: external file storage)
 - C.2.19.1300. - REDUNDANT.Pin_session_record_locking.feature `[housekeeping]` — **kept deleted on redcap_val** (removed by CCTC: external file storage / PIN session)
 
 ### C/Reporting_22
