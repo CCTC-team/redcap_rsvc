@@ -216,6 +216,8 @@ Feature: A.2.67.0300. - Control Center: The system shall allow projects to be as
 
   Scenario: A.2.67.0300.0900 Reassignment transfers administrative responsibility
     #Checking that no projects are currently available to manage for Test_User1.
+    # Navigate to the "Home" page before logging out since Test_User1 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Projects"
@@ -242,6 +244,8 @@ Feature: A.2.67.0300. - Control Center: The system shall allow projects to be as
     Then I should see "Project assigned successfully!"
     And I should see "New PAG 1"
 
+    # Navigate to the "Home" page before logging out since Test_User1 doesn't have access to the Project Administrator Groups page
+    And I click on the link labeled "Home"
     #Checking that project is now assigned to New PAG 1 and is available to manage for Test_User1.
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "Control Center"
