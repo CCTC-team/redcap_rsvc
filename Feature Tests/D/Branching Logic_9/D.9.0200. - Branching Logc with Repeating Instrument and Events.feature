@@ -3,10 +3,10 @@ Feature: D.9.0200 - The system shall support branching logic from data entry for
     As a REDCap end user
     I want to see that branching logic from data entry forms of repeating events/instruments is functioning as expected
 
-  Scenario: D.27.800
+  Scenario: D.9.0200
 
     Given I login to REDCap with the user "Test_User1"
-    And I create a new project named "D.27.800" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D27800.xml", and clicking the "Create Project" button
+    And I create a new project named "D.9.0200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D90200.xml", and clicking the "Create Project" button
 
     ##VERIFY: Branching logic
     When I click on the link labeled "Designer"

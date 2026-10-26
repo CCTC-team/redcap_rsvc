@@ -20,7 +20,7 @@ CCTC has two divisions: Cancer Theme, which coordinates trial delivery, and Clin
 `redcap_val` is periodically synced with Vanderbilt's `staging` branch by merge.
 
 - **Last sync:** 2026-10-16, Vanderbilt `staging` at `3f0a4546` (2026-10-12).
-- **Current CCTC tag:** `cctc_v1.0.15`. It includes the follow-up fixes for REDCap 17.5.6, the D.104.0300 invitation-log timing fix, the new D.106.1000 DRW rule H feature and the 4-digit ids on the Feature/Scenario lines of the D features.
+- **Current CCTC tag:** `cctc_v1.0.16`. It includes the follow-up fixes for REDCap 17.5.6, the D.104.0300 invitation-log timing fix, the new D.106.1000 DRW rule H feature and the 4-digit ids on the Feature/Scenario lines of the D features (including D.9.0200's scenario and project name).
 - **Deliberately absent on `redcap_val`:** CDIS features (`CDIS_31`), features that use external file storage, Bulk Record Delete (A.3.32.0100, B.3.32.0200), and upstream modules CCTC doesn't use. Upstream changes to these files come back as modify/delete conflicts in a sync; keep the deletion.
 
 ---
