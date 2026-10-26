@@ -1,9 +1,9 @@
-Feature: D.109.100 - The system shall support the ability to use previously collected data in a text on a data collection form or survey. 
+Feature: D.109.0100 - The system shall support the ability to use previously collected data in a text on a data collection form or survey. 
 
   As a REDCap end user
   I want to see that Piping feature is functioning as expected
 
-  Scenario: D.109.100 - Piping
+  Scenario: D.109.0100 - Piping
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "D.109.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     When I click on the link labeled "Designer" 

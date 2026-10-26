@@ -1,9 +1,9 @@
-Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor Authentication.
+Feature: D.101.0100 - The system shall support enabling/disabling of Two-Factor Authentication.
 
     As a REDCap end user
     I want to see that Two Factor Authentication is functioning as expected
 
-    Scenario: D.101.100 Enabling/Disabling of Two-Factor Authentication
+    Scenario: D.101.0100 Enabling/Disabling of Two-Factor Authentication
         # Two-Factor Authentication Disabled
         Given I login to REDCap with the user "Test_User1" 
         Then I should see "My Projects"
@@ -29,7 +29,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
         Then I should see "Your system configuration values have now been changed!"
         And I logout
 
-    Scenario: D.101.200 Login using Two-Factor Authentication
+    Scenario: D.101.0200 Login using Two-Factor Authentication
         # Enter incorrect REDCap Authentication Code
         Given I login to REDCap with the user "Test_User1"
         Then I should see "Two-step verification for REDCap login"
@@ -64,7 +64,7 @@ Feature: D.101.100 - The system shall support enabling/disabling of Two-Factor A
         Then I should see "Two-step verification for REDCap login"        
         And I logout
 
-    Scenario: D.101.300 - Bypass Two-Factor Authentication for 24 hours
+    Scenario: D.101.0300 - Bypass Two-Factor Authentication for 24 hours
         Given I login to REDCap with the user "Test_User2"
         Then I should see "Two-step verification for REDCap login"
         Then I check the checkbox labeled "Don't prompt me with two-step login on this computer for 24 hours"

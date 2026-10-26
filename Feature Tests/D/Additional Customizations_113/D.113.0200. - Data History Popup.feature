@@ -1,5 +1,5 @@
 
-Feature: D.113.200 - The system shall support the ability to enable/disable Data History Popup for all data collection instruments.
+Feature: D.113.0200 - The system shall support the ability to enable/disable Data History Popup for all data collection instruments.
 
       As a REDCap end user
       I want to see that Data History Popup is functioning as expected

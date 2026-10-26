@@ -1,5 +1,5 @@
 
-Feature: D.107.100 - The system shall support the ability to use Action Tags in data entry forms. The following subset of Action Tags is selected and tested: 
+Feature: D.107.0100 - The system shall support the ability to use Action Tags in data entry forms. The following subset of Action Tags is selected and tested: 
             D.107.100.1 - @CALCTEXT 
             D.107.100.2 - @DEFAULT 
             D.107.100.3 - @CALCDATE 
@@ -10,7 +10,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
   As a REDCap end user
   I want to see that Action Tags is functioning as expected
 
-  Scenario: D.107.100.1 - @CALCTEXT
+  Scenario: D.107.0100.1 - @CALCTEXT
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.107.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_ActionTags.xml", and clicking the "Create Project" button
     Given I click on the link labeled "Designer"
@@ -42,7 +42,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I should see "Less than 10" in the data entry form field "Difference" 
     And I click on the button labeled "Save & Exit Form"
     
-  Scenario: D.107.100.2 - @DEFAULT
+  Scenario: D.107.0100.2 - @DEFAULT
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test"
     When I click on the Edit image for the field named "Favorite Disney Character"
@@ -71,7 +71,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     Then I clear field and enter "Football" into the input field labeled "What sport do you like the most"
     And I click on the button labeled "Save & Exit Form"
 
-  Scenario: D.107.100.3 - @CALCDATE
+  Scenario: D.107.0100.3 - @CALCDATE
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test"
     When I click on the Edit image for the field named "Next Visit Due"
@@ -93,7 +93,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I should see "09-09-2023" in the data entry form field "Next Visit Due"
     And I click on the button labeled "Save & Exit Form"
     
-  Scenario: D.107.100.4 - @NOW and @TODAY
+  Scenario: D.107.0100.4 - @NOW and @TODAY
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "Now"
@@ -120,7 +120,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I should see today's date in the field labeled "Today" 
     And I click on the button labeled "Save & Exit Form"
 
-  Scenario: D.107.100.5 - @IF
+  Scenario: D.107.0100.5 - @IF
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "What are your preferred appointment times?"
@@ -153,7 +153,7 @@ Feature: D.107.100 - The system shall support the ability to use Action Tags in 
     And I should see "Friday 4pm - 5pm"
     And I click on the button labeled "Save & Exit Form"
 
-  Scenario: D.107.100.6 - @USERNAME
+  Scenario: D.107.0100.6 - @USERNAME
     Given I click on the link labeled "Designer"
     And I click on the link labeled "Action Tags Test2"
     When I click on the Edit image for the field named "Username"

@@ -1,9 +1,9 @@
-Feature: D.106.100 - The system shall allow Data Resolution Workflow privileges to be (No Access, View only, Open queries only, Respond only to opened queries, Open and respond to queries; Open, close, and respond to queries).
+Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges to be (No Access, View only, Open queries only, Respond only to opened queries, Open and respond to queries; Open, close, and respond to queries).
 
   As a REDCap end user
   I want to see that Data Resolution Workflow privileges work as expected
 
-  Scenario: D.106.100 - Data Resolution Workflow privileges
+  Scenario: D.106.0100 - Data Resolution Workflow privileges
     Given I login to REDCap with the user "Test_Admin" 
     And I create a new project named "D.106.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 

@@ -1,4 +1,4 @@
-Feature: D.115.500 - The system shall support the ability to download the data entry form from within an instrument (instrument contains Record ID) 
+Feature: D.115.0500 - The system shall support the ability to download the data entry form from within an instrument (instrument contains Record ID) 
 
   As a REDCap end user
   I want to be able to download the data entry form from within an instrument

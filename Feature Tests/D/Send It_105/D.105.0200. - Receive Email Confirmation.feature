@@ -13,7 +13,7 @@ Feature: Send It: D.105.200 - The system shall support the ability to receive em
     Then I should see "Your system configuration values have now been changed"
     Given I logout
 
-  Scenario: D.105.200 - Received Email Confirmation
+  Scenario: D.105.0200 - Received Email Confirmation
     Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
     Then I should see "Test_User1@test.edu"

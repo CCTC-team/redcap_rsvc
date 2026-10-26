@@ -1,4 +1,4 @@
-Feature: D.108.100 - The system shall support the ability to use Smart Variables in data entry forms. The following subset of Smart Variables is selected and tested: 
+Feature: D.108.0100 - The system shall support the ability to use Smart Variables in data entry forms. The following subset of Smart Variables is selected and tested: 
     D.108.100.1 - [event-label]  
     D.108.100.2 - [record-dag-id]  
     D.108.100.3 - [user-role-label] 
@@ -39,7 +39,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
 
     And I logout
 
-  Scenario: D.108.100.1 - [event-label]
+  Scenario: D.108.0100.1 - [event-label]
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"  
     And I click on the link labeled "D.108.100" 
@@ -62,7 +62,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     When I should see "Record Home Page"
     # Add instrument in another event and check
 
-  Scenario: D.108.100.2 - [record-dag-id] 
+  Scenario: D.108.0100.2 - [record-dag-id] 
     When I click on the link labeled "Designer"
     And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
@@ -80,7 +80,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
     
-  Scenario: D.108.100.3 - [user-role-label]
+  Scenario: D.108.0100.3 - [user-role-label]
     Given I click on the link labeled "Designer"
     And I should see "Text Validation"
     When I click on the link labeled "Text Validation"
@@ -99,7 +99,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
-  Scenario: D.108.100.4 - [instrument-name]
+  Scenario: D.108.0100.4 - [instrument-name]
     When I click on the link labeled "Designer"
     And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"
@@ -117,7 +117,7 @@ Feature: D.108.100 - The system shall support the ability to use Smart Variables
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
-  Scenario: D.108.100.5 [user-fullname]
+  Scenario: D.108.0100.5 [user-fullname]
     When I click on the link labeled "Designer"
     And I click on the link labeled "Text Validation"
     And I click on the first button labeled "Add Field"

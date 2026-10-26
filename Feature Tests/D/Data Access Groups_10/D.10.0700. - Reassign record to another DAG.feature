@@ -1,9 +1,9 @@
-Feature: D.10.700 - The system shall provide the ability to reassign a record from one DAG to another for users with appropriate user rights
+Feature: D.10.0700 - The system shall provide the ability to reassign a record from one DAG to another for users with appropriate user rights
 
   As a REDCap end user
   I want to see that reassign a record from one DAG to another works as expected.
 
-  Scenario: D.10.700 - Reassign a record from one DAG to another
+  Scenario: D.10.0700 - Reassign a record from one DAG to another
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "D.10.700" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D10700.xml", and clicking the "Create Project" button
    

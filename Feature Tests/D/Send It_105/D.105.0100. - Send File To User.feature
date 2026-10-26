@@ -4,7 +4,7 @@ Feature: Send It: D.105.100 - The system shall support the ability to send a fil
   As a REDCap end user
   I want to see that Send It is functioning as expected
 
-  Scenario: D.105.100 Send a file to user
+  Scenario: D.105.0100 Send a file to user
     Given I login to REDCap with the user "Test_User1" 
     When I click on the link labeled "Send-It"
     And I wait for 1 second

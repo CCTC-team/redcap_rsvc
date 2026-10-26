@@ -1,10 +1,10 @@
 
-Feature: D.116.100 - The system shall provide the ability to enable/disable secondary unique field 
+Feature: D.116.0100 - The system shall provide the ability to enable/disable secondary unique field 
 
   As a REDCap end user
   I want to see that a secondary field can be made unique or otherwise as expected.
 
-  Scenario: D.116.100 - Enable Secondary Unique Field
+  Scenario: D.116.0100 - Enable Secondary Unique Field
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.116.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
    

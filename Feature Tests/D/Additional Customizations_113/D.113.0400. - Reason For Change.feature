@@ -1,9 +1,9 @@
-Feature: D.113.400 - The system shall support the ability to specify a reason when making changes to existing records 
+Feature: D.113.0400 - The system shall support the ability to specify a reason when making changes to existing records 
 
     As a REDCap end user 
     I want to see that Reason for change is working as expected 
    
-    Scenario: D.113.400 - Enable Reason for change 
+    Scenario: D.113.0400 - Enable Reason for change 
         Given I login to REDCap with the user "Test_Admin" 
         And I create a new project named "D.113.400" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
         Given I click on the link labeled "Setup"

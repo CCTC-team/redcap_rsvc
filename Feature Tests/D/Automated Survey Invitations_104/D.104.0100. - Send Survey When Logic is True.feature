@@ -1,9 +1,9 @@
-Feature: D.104.100 - The system shall support the ability to send a survey when a logic becomes true 
+Feature: D.104.0100 - The system shall support the ability to send a survey when a logic becomes true 
 
   As a REDCap end user
   I want to see that automated survey invitations work as expected
 
-  Scenario: D.104.100 - Send Survey When Logic is True
+  Scenario: D.104.0100 - Send Survey When Logic is True
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.104.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Survey.xml", and clicking the "Create Project" button
    

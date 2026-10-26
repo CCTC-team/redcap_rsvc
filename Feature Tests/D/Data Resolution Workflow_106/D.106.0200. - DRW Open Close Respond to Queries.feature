@@ -1,9 +1,9 @@
-Feature: D.106.200 - The system shall support the ability to open, close, reopen and respond to queries.
+Feature: D.106.0200 - The system shall support the ability to open, close, reopen and respond to queries.
 
       As a REDCap end user
       I want to see that Data Resolution Workflow works as expected
 
-      Scenario: D.106.200 - Open, close, reopen and respond to queries
+      Scenario: D.106.0200 - Open, close, reopen and respond to queries
             Given I login to REDCap with the user "Test_User1" 
             And I create a new project named "D.106.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
@@ -162,7 +162,7 @@ Feature: D.106.200 - The system shall support the ability to open, close, reopen
                   | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Open data query (Record: 1, Event: Event 1 (Arm 1: Arm 1), Field: email_v2, Comment: "Query 1")                                                         |
                   | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Make project customizations                                                                                                                             |
             
-      Scenario: D.106.300 - Filtering
+      Scenario: D.106.0300 - Filtering
             When I click on the link labeled "Resolve Issues"
             And I select the option "All status types (2)" from the dropdown field for Status in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:

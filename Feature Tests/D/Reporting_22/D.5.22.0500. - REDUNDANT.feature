@@ -1,4 +1,4 @@
-Feature: D.5.22.500 - User Interface: The system shall support the ability for reports to link with the following features: Stats & Charts | Export Data | Print | Edit Report.
+Feature: D.5.22.0500 - User Interface: The system shall support the ability for reports to link with the following features: Stats & Charts | Export Data | Print | Edit Report.
   
   This feature test is REDUNDANT and can be viewed in the following scripts
     Stats & Charts - D.118.100

@@ -1,9 +1,9 @@
-Feature: D.21.700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, CDISC ODM XML) for valid format and correct data against verified references.
+Feature: D.21.0700 - Verify the exported file formats (CSV, SPSS, SAS, R, STATA, CDISC ODM XML) for valid format and correct data against verified references.
 
   As a REDCap end user
   I want to see that export data is verified
 
-  Scenario: D.21.700 - Verify the exported file formats
+  Scenario: D.21.0700 - Verify the exported file formats
     #SETUP
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.21.700" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
