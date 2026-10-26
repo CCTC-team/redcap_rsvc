@@ -42,7 +42,7 @@ Feature: C.4.18.2300. User Interface: The system shall support notification of u
         And I click on the button labeled "Save & Exit Form"
         Then I should see "Record ID 1 successfully edited."
 
-        And I verify that an email was sent to "Test_User1@test.edu" with a subject containing "You were assigned to a data query" and a body containing "Open the data query assigned to you"
+        And I verify that an email was sent to "test_user1@test.edu" with a subject containing "You were assigned to a data query" and content containing "Open the data query assigned to you"
 
         #VERIFY_LOG
         When I click on the link labeled "Logging"
