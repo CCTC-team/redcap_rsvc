@@ -1,5 +1,5 @@
 
-Feature: D.112.100 - The system shall support the ability to send password over emails when a user is created, or password is changed.
+Feature: D.112.0100 - The system shall support the ability to send password over emails when a user is created, or password is changed.
 
     As a REDCap end user
     I want to see that User Password Strategy is functioning as expected

@@ -1,4 +1,4 @@
-Feature: D.115.300 - The system shall support the ability to download the PDF of record data of all instruments/events
+Feature: D.115.0300 - The system shall support the ability to download the PDF of record data of all instruments/events
 
   As a REDCap end user
   I want to see that download PDF of record data of all instruments/events is working as expected

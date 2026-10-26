@@ -1,4 +1,4 @@
-Feature: D.115.200 - The system shall support additional customization of PDF of instruments
+Feature: D.115.0200 - The system shall support additional customization of PDF of instruments
 
   As a REDCap end user
   I want to see that additional customization of PDF of instruments is working as expected

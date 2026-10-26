@@ -1,9 +1,9 @@
-Feature: D.113.100 - The system shall support the ability to add Missing Data Codes to fields. 
+Feature: D.113.0100 - The system shall support the ability to add Missing Data Codes to fields. 
 
       As a REDCap end user
       I want to see that Missing Data Code is functioning as expected 
 
-      Scenario: D.113.100 - Missing Data Code
+      Scenario: D.113.0100 - Missing Data Code
             Given I login to REDCap with the user "Test_Admin" 
             And I create a new project named "D.113.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 

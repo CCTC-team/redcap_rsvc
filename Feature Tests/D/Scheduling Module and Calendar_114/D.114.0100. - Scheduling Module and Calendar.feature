@@ -1,4 +1,4 @@
-Feature: D.114.100  Scheduling Module and Calendar Scheduling
+Feature: D.114.0100  Scheduling Module and Calendar Scheduling
 
   As a REDCap end user I want to see that Calendar and Scheduling Module works as expected
 

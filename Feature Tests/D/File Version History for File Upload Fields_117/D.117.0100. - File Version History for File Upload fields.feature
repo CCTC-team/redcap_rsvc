@@ -1,9 +1,9 @@
-Feature: D.117.100 - The system shall support the ability to enable/disable File Version History for 'File Upload' fields 
+Feature: D.117.0100 - The system shall support the ability to enable/disable File Version History for 'File Upload' fields 
 
   As a REDCap end user
   I want to see that File Version History for File Upload fields is functioning as expected
 
-  Scenario: D.117.100 - File Version History Enabled
+  Scenario: D.117.0100 - File Version History Enabled
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.117.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
     And I click on the button labeled "Additional customizations"
@@ -32,7 +32,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I should see a button labeled "Download"
     And I click on the button labeled "Close"
     
-  Scenario: D.117.200 - Upload new version of file
+  Scenario: D.117.0200 - Upload new version of file
     Given I click on the link labeled "Upload new version"
     And I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "File Upload" to browse for the file, and clicking the button labeled "Upload file" to upload the file
     And I click on the button labeled "Close"
@@ -55,7 +55,7 @@ Feature: D.117.100 - The system shall support the ability to enable/disable File
     And I should see a downloaded file named "B3161200100_ACCURATE.csv (0.01 MB)"
     And I click on the button labeled "Close"
 
-  Scenario: D.117.400 - Download only current version of file during download of zip file
+  Scenario: D.117.0400 - Download only current version of file during download of zip file
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "2"
     And I click on the button labeled "Choose action for record"

@@ -1,9 +1,9 @@
-Feature: D.102.300 - The system shall support the ability to send emails If conditional logic is TRUE when a record is saved on a specific form/survey
+Feature: D.102.0300 - The system shall support the ability to send emails If conditional logic is TRUE when a record is saved on a specific form/survey
 
     As a REDCap end user
     I want to see that Alerts and Notifications is functioning as expected
 
-    Scenario: D.102.300 Send emails If conditional logic is TRUE when a record is saved on a specific form/survey.
+    Scenario: D.102.0300 Send emails If conditional logic is TRUE when a record is saved on a specific form/survey.
         Given I login to REDCap with the user "Test_User1"   
         And I create a new project named "D.102.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
         When I click on the link labeled "Designer"
@@ -81,7 +81,7 @@ Feature: D.102.300 - The system shall support the ability to send emails If cond
         Given I open Email
         Then I should see an email for user "test_user2@example.com" with subject "Alerts-and-Notifications"
 
-    Scenario: D.102.600 - Verify Download alert settings
+    Scenario: D.102.0600 - Verify Download alert settings
         Given I login to REDCap with the user "Test_User1"
         When I click on the link labeled "My Projects"
         And I click on the link labeled "D.102.300"

@@ -1,10 +1,10 @@
-Feature: D.106.800 Data Resolution Workflow
+Feature: D.106.0800 Data Resolution Workflow
 
   As a REDCap end user
   I want to see that I have the ability to add comments to fields. 
   I want to see that I have the ability to filter comments based on records, events, fields, users and keywords.
 
-  Scenario: D.106.800 - Field comments
+  Scenario: D.106.0800 - Field comments
       Given I login to REDCap with the user "Test_User1" 
       And I create a new project named "D.106.800" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 

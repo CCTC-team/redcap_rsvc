@@ -1,8 +1,8 @@
-Feature: D.102.100 - The system shall support the ability to send emails when a record is saved on a specific form/survey
+Feature: D.102.0100 - The system shall support the ability to send emails when a record is saved on a specific form/survey
     As a REDCap end user
     I want to see that Alerts and Notifications is functioning as expected
 
-  Scenario: D.102.100 - Send alert when a record is saved on a specific form/survey
+  Scenario: D.102.0100 - Send alert when a record is saved on a specific form/survey
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.102.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
@@ -54,7 +54,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I should see "Alerts and Notifications"
     Then I click on the button labeled "Close"
 
-  Scenario: D.102.200 - Modify Alerts
+  Scenario: D.102.0200 - Modify Alerts
     Given I click on the link labeled "My Alerts"
     When I click on the button labeled "Edit" for alert "1"
     Then I should see "Edit Alert #1"
@@ -99,7 +99,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Given I open Email
     Then I should see an email for user "test_user3@example.com" with subject "Editing Alerts and Notifications"
 
-  Scenario: D.102.500 - Copy alert
+  Scenario: D.102.0500 - Copy alert
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "D.102.100"
@@ -124,7 +124,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I wait for 1 second
 
 
-  Scenario: D.102.500 - Deactivate alert
+  Scenario: D.102.0500 - Deactivate alert
     When I click on the button labeled "Options" for alert "2"
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."
@@ -135,7 +135,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     Then I should see "Alert #2:Email Alert"
     And I should see "DEACTIVATED: Alert was deactivated"
 
-  Scenario: D.102.500 - Re-enable alert
+  Scenario: D.102.0500 - Re-enable alert
     When I click on the button labeled "Options" for alert "2"
     And I click on the link labeled "Re-enable alert"
     Then I should see "The alert was re-enabled."
@@ -145,7 +145,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I should see "Alert #2:Email Alert"
     And I wait for 1 second
 
-  Scenario: D.102.500 - Move alert
+  Scenario: D.102.0500 - Move alert
     # Edit Subject and Message for alert 2
     Given I click on the button labeled "Edit" for alert "2"
     Then I should see "Edit Alert #2"
@@ -177,7 +177,7 @@ Feature: D.102.100 - The system shall support the ability to send emails when a 
     And I click on the button labeled "Cancel"
     And I wait for 1 second
 
-  Scenario: D.102.500 - Permanently delete alert
+  Scenario: D.102.0500 - Permanently delete alert
     Given I click on the button labeled "Options" for alert "1"
     And I click on the link labeled "Deactivate alert"
     Then I should see "Are you sure you want to deactivate this Alert? It can be re-enabled later, if needed."

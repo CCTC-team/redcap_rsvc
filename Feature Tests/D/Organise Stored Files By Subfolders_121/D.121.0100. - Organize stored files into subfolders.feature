@@ -1,4 +1,4 @@
-Feature: D.121.100 - The system shall support the option to organize stored files into subfolders by REDCap project ID
+Feature: D.121.0100 - The system shall support the option to organize stored files into subfolders by REDCap project ID
 
   As a REDCap end user
   I want to see that uploaded files are stored in - and exported from - the backend location that the
@@ -20,7 +20,7 @@ Feature: D.121.100 - The system shall support the option to organize stored file
   # then fail rather than pass wrongly, so a failure here is the signal to target
   # select[name=local_storage_use_project_subfolder] explicitly.
 
-  Scenario: D.121.100.100 - Subfolder storage DISABLED: files are stored in the main file storage folder
+  Scenario: D.121.0100.100 - Subfolder storage DISABLED: files are stored in the main file storage folder
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -61,7 +61,7 @@ Feature: D.121.100 - The system shall support the option to organize stored file
     Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
-  Scenario: D.121.100.200 - Subfolder storage ENABLED: files are stored in a subfolder named by project ID
+  Scenario: D.121.0100.200 - Subfolder storage ENABLED: files are stored in a subfolder named by project ID
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Enable subfolder storage before the project is created
     Given I click on the link labeled "Control Center"
@@ -99,7 +99,7 @@ Feature: D.121.100 - The system shall support the option to organize stored file
     Then the downloaded CSV with filename "unzipped/Files_D121100200_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
-  Scenario: D.121.100.300 - Enabling the setting does not move or orphan files of existing projects
+  Scenario: D.121.0100.300 - Enabling the setting does not move or orphan files of existing projects
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Return to the project created while subfolder storage was DISABLED. The setting
     ## "will not affect existing projects" (lang system_config_914), so its files must stay put

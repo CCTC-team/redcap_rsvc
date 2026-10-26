@@ -246,7 +246,7 @@ Feature:
             | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 1 Unverified                                                           | 
             | 14 | [data_types_complete]                        | Section Header: Form Status Complete?     | 2 Complete                                                             |   
 
-    Scenario: D.111.200 Modify and delete fields and verify codebook
+    Scenario: D.111.0200 Modify and delete fields and verify codebook
         When I click on the link labeled "Designer"
         And I click on the link labeled "Text Validation"
         And I click on the Edit image for the field named "Patient Name"

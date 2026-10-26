@@ -1,9 +1,9 @@
-Feature: D.104.300 - The system shall support the ability to send a survey after a specified time when a logic becomes true and/or when another survey is completed.
+Feature: D.104.0300 - The system shall support the ability to send a survey after a specified time when a logic becomes true and/or when another survey is completed.
 
   As a REDCap end user
   I want to see that automated survey invitations work as expected
 
-  Scenario: D.104.300 - Send survey after a delay when logic is true and survey complete
+  Scenario: D.104.0300 - Send survey after a delay when logic is true and survey complete
     
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.104.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/D104300.xml", and clicking the "Create Project" button

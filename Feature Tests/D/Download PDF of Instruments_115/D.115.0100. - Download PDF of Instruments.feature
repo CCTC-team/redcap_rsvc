@@ -1,10 +1,10 @@
 
-Feature: D.115.100 - The system shall support the ability to download the PDF of instruments 
+Feature: D.115.0100 - The system shall support the ability to download the PDF of instruments 
 
   As a REDCap end user
   I want to be able to download a PDF of instruments
 
-  Scenario: D.115.100 - Download PDF of Instruments
+  Scenario: D.115.0100 - Download PDF of Instruments
     Given I login to REDCap with the user "Test_User1"
     Then I create a new project named "D.115.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 

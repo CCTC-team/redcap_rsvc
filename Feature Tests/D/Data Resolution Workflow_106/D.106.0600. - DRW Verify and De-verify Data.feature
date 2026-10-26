@@ -1,10 +1,10 @@
-Feature: D.106.600 Data Resolution Workflow
+Feature: D.106.0600 Data Resolution Workflow
 
   As a REDCap end user
   I want to see that I have the ability to verify and de-verify data value based on user rights
   I want to see that I have the ability to automatically de-verify data that has been verified and subsequently changed 
 
-  Scenario: D.106.600 - Verify and de-verify data
+  Scenario: D.106.0600 - Verify and de-verify data
       Given I login to REDCap with the user "Test_User1" 
       And I create a new project named "D.106.600" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
@@ -84,7 +84,7 @@ Feature: D.106.600 Data Resolution Workflow
             | 1                      | ptname_v2_v2 | test_user1 | test_user1         | test_user1            |
             | Event 1 (Arm 1: Arm 1) | (Name)       | test_user1 | "Test Verify Data" | "Test De-verify Data" |
 
-  Scenario: D.106.700 - Automatically De-verify data when verified data is changed
+  Scenario: D.106.0700 - Automatically De-verify data when verified data is changed
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
       And I click on the Exclamation icon for the field labeled "Name"

@@ -1,4 +1,4 @@
-Feature: D.110.100 - The system shall support the ability to use Special Functions in data entry forms. The following subset of Special Functions is selected and tested: 
+Feature: D.110.0100 - The system shall support the ability to use Special Functions in data entry forms. The following subset of Special Functions is selected and tested: 
     D.110.100.1 - datediff 
     D.110.100.2 - round  
     D.110.100.3 - if 
@@ -8,7 +8,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
   As a REDCap end user
   I want to see that Special Functions feature is functioning as expected
 
-  Scenario: D.110.100.1 - datediff
+  Scenario: D.110.0100.1 - datediff
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.110.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val_Special_Functions.xml", and clicking the "Create Project" button
     And I click on the link labeled "Designer"
@@ -32,7 +32,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I click on the button labeled "Save & Exit Form"
     And I should see "Record Home Page"
 
-  Scenario: D.110.100.2 - round
+  Scenario: D.110.0100.2 - round
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "BMI Calculated"
@@ -51,7 +51,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I click on the button labeled "Save & Exit Form"
     And I should see "Record Home Page"
 
-  Scenario: D.110.100.3 - if
+  Scenario: D.110.0100.3 - if
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "BMI suitable for study"
@@ -72,7 +72,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
-  Scenario: D.110.100.4 - mean
+  Scenario: D.110.0100.4 - mean
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     Then I should see a field named "Mean sum of values"
@@ -91,7 +91,7 @@ Feature: D.110.100 - The system shall support the ability to use Special Functio
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
 
-  Scenario: D.110.100.5 - length
+  Scenario: D.110.0100.5 - length
     When I click on the link labeled "Designer"  
     And I click on the link labeled "Data Types"
     And I should see a field named "Length of text"

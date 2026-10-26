@@ -1,9 +1,9 @@
-Feature: D.120.100 - The system shall support the ability to use Embedded Fields in data entry forms for better user-friendly form designs. 
+Feature: D.120.0100 - The system shall support the ability to use Embedded Fields in data entry forms for better user-friendly form designs. 
 
   As a REDCap end user
   I want to see that Field Embedding is functioning as expected
 
-  Scenario: D.120.100 Field Embedding
+  Scenario: D.120.0100 Field Embedding
     #SETUP
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "D.120.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button

@@ -1,10 +1,10 @@
 
-Feature: D.113.300 - The system shall support the ability to prevent branching logic from hiding fields that have values 
+Feature: D.113.0300 - The system shall support the ability to prevent branching logic from hiding fields that have values 
 
     As a REDCap end user
     I want to see that 'prevent branching logic from hiding fields that have values' is working as expected
     
-    Scenario: D.113.300 - Prevent branching logic from hiding fields that have values
+    Scenario: D.113.0300 - Prevent branching logic from hiding fields that have values
         Given I login to REDCap with the user "Test_Admin" 
         And I create a new project named "D.113.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 

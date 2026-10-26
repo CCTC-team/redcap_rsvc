@@ -1,5 +1,5 @@
 
-Feature: D.115.700 - The system shall support the ability to download the PDF of data of all instruments/events in a compact mode (fields with data only) of all records
+Feature: D.115.0700 - The system shall support the ability to download the PDF of data of all instruments/events in a compact mode (fields with data only) of all records
 
   As a REDCap end user
   I want to be able to download the PDF of data of all instruments/events (compact mode) of all records
