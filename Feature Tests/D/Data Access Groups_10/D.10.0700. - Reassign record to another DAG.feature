@@ -88,6 +88,8 @@ Feature: D.10.0700 - The system shall provide the ability to reassign a record f
     Then I should see "Record Home Page"
     And I click on the span element labeled "Choose action for record"
     Then I should NOT see "Assign to Data Access Group (or unassign/reassign)"
+    #Leave record 1-2 before logging out: the next login lands on the same page, and since REDCap 17.5.7 Test_User1 (TestGroup1) gets "ERROR!" there
+    When I click on the link labeled "My Projects"
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
