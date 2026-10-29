@@ -19,9 +19,9 @@ CCTC has two divisions: Cancer Theme, which coordinates trial delivery, and Clin
 
 `redcap_val` is periodically synced with Vanderbilt's `staging` branch by merge.
 
-- **Last sync:** 2026-10-16, Vanderbilt `staging` at `3f0a4546` (2026-10-12).
-- **Current CCTC tag:** `cctc_v1.0.17`. It includes the follow-up fixes for REDCap 17.5.6, the D.104.0300 invitation-log timing fix, the new D.106.1000 DRW rule H feature, the 4-digit ids on the Feature/Scenario lines of the D features (including D.9.0200's scenario and project name) and the removal of the REDUNDANT C.2.19.1200/1400 stubs.
-- **Deliberately absent on `redcap_val`:** CDIS features (`CDIS_31`), features that use external file storage, Bulk Record Delete (A.3.32.0100, B.3.32.0200), and upstream modules CCTC doesn't use. Upstream changes to these files come back as modify/delete conflicts in a sync; keep the deletion.
+- **Last sync:** 2026-10-29, Vanderbilt `staging` at `c5737c7e` (2026-10-27). It brings upstream's fixes for REDCap 17.5.7 and the new Data Resolution Workflow features C.4.18.1500 and C.4.18.1900–2400.
+- **Current CCTC tag:** `cctc_v1.0.18`. It includes the follow-up fixes for REDCap 17.5.6, the D.104.0300 invitation-log timing fix, the new D.106.1000 DRW rule H feature, the 4-digit ids on the Feature/Scenario lines of the D features (including D.9.0200's scenario and project name), the removal of the REDUNDANT C.2.19.1200/1400 stubs, and the 2026-10-29 sync for 17.5.7 (with D.114.0100 moved off the removed "Edit image for the event" step).
+- **Deliberately absent on `redcap_val`:** CDIS features (`CDIS_31`), features that use external file storage, Bulk Record Delete (A.3.32.0100, B.3.32.0200), Project Administrator Groups (A.2.67), and upstream modules CCTC doesn't use. Upstream changes to these files come back as modify/delete conflicts in a sync; keep the deletion.
 
 ---
 
