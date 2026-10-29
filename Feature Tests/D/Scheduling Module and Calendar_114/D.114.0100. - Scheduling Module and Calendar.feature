@@ -9,13 +9,13 @@ Feature: D.114.0100  Scheduling Module and Calendar Scheduling
     And I click on the button labeled "Define My Events"
     Then I should see "Event 1" in the define events table
     
-    Then I click on the Edit image for the event named "Event 2"
+    Then I click on the icon labeled "Edit" in the row labeled "Event 2"
     And I enter "1" into the Min Offset Range for the event named "Event 2" in the Event table
     And I enter "2" into the Max Offset Range for the event named "Event 2" in the Event table
     And I click on the button labeled "Save"
     Then I should see "Event 2" in the define events table
 
-    Then I click on the Edit image for the event named "Event Three"
+    Then I click on the icon labeled "Edit" in the row labeled "Event Three"
     And I enter "1" into the Min Offset Range for the event named "Event Three" in the Event table
     And I enter "2" into the Max Offset Range for the event named "Event Three" in the Event table
     And I enter "[complete_study_date]" into the Custom Event Label for the event named "Event Three" in the Event table
