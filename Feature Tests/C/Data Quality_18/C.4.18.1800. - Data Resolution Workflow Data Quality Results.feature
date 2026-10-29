@@ -33,6 +33,7 @@ Feature: User Interface: The system shall support opening and management of data
         And I click on the button labeled "Open query"
         Then I should see "Saved!"
         And I click on the button labeled "Close"
+        And I click on the button labeled "Close"
 
         #VERIFY: The query is linked to the discrepancy result
         When I click on the link labeled "view" in the row labeled "C"

@@ -15,6 +15,8 @@ Feature: A.3.28.1600. Control Center: The system shall enforce the Restricted Up
     Given I click on the link labeled "Upload file" in the row labeled "File Upload"
     When I upload a "csv" format file located at "import_files/testusers_bulkupload.csv", by clicking the button near "Upload file" to browse for the file, and clicking the button labeled "Upload file" to upload the file
     Then I should see "File was successfully uploaded"
+    Then I wait for 1 second 
+    Then I should NOT see "File was successfully uploaded"
     And I should see "testusers_bulkupload.csv" in the row labeled "File Upload"
     When I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 1 successfully edited."

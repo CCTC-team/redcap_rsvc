@@ -22,11 +22,15 @@ Feature: User Interface: Longitudinal Project Settings: The system shall support
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION Add new events
-        Given I add an event named "Event 4" with offset of 4 days into the currently selected arm
+        Given I enter "4" into the input field labeled "Days"
+        And I enter "Event 4" into the input field labeled "Descriptive name for this event"
+        Then I click on the button labeled "Add new event"
         Then I should see "Event 4" in the define events table
 
         When I click on the link labeled "Arm 2"
-        Given I add an event named "Event 2" with offset of 2 days into the currently selected arm
+        Given I enter "2" into the input field labeled "Days"
+        And I enter "Event 2" into the input field labeled "Descriptive name for this event"
+        Then I click on the button labeled "Add new event"
         Then I should see "Event 2" in the define events table
 
         ##ACTION Designate Instruments
