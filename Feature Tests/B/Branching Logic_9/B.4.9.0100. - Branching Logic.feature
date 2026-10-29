@@ -78,7 +78,7 @@ Feature: B.4.9.0100. User Interface: The system shall support branching logic fo
 
         #FUNCTIONAL_REQUIREMENT: survey mode
         When I click on the link labeled "Survey Distribution Tools"
-        When I click on the button labeled "Open public survey" and will leave the tab open when I return to the REDCap project
+        When I click on the button labeled "Open public survey"
         Then I should see "Please complete the survey below."
         And I should see the field labeled "Name"
         And I should see the field labeled "Text2"
