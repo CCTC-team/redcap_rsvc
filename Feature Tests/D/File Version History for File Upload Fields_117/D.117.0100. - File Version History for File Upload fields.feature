@@ -63,7 +63,7 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     And I wait for 1 second
     Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"
     And I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
 
     Given I click on the link labeled "Record Status Dashboard"
@@ -92,10 +92,10 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     And I wait for 1 second
     Then I should see a downloaded file named "Files_D117100_yyyy-mm-dd_hhmm.zip"
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete |
     
-    And the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/3_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    And the downloaded CSV with filename "unzipped/Files_D117100_yyyy-mm-dd_hhmm/documents/3_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
     Given I click on the link labeled "Record Status Dashboard"

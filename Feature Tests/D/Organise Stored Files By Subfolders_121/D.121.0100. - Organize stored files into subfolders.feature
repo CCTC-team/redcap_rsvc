@@ -58,7 +58,7 @@ Feature: D.121.0100 - The system shall support the option to organize stored fil
     When I click on the icon ZIP to download ZIP file of uploaded files
     Then I should see a downloaded file named "Files_D121100100_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
   Scenario: D.121.0100.200 - Subfolder storage ENABLED: files are stored in a subfolder named by project ID
@@ -96,7 +96,7 @@ Feature: D.121.0100 - The system shall support the option to organize stored fil
     When I click on the icon ZIP to download ZIP file of uploaded files
     Then I should see a downloaded file named "Files_D121100200_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D121100200_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100200_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
   Scenario: D.121.0100.300 - Enabling the setting does not move or orphan files of existing projects
@@ -119,7 +119,7 @@ Feature: D.121.0100 - The system shall support the option to organize stored fil
     When I click on the icon ZIP to download ZIP file of uploaded files
     Then I should see a downloaded file named "Files_D121100100_yyyy-mm-dd_hhmm.zip" within 30 seconds
     When I unzip the latest downloaded zip file
-    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload.csv" has the header below
+    Then the downloaded CSV with filename "unzipped/Files_D121100100_yyyy-mm-dd_hhmm/documents/2_event_1_arm_1_data_types_1_file_upload_*.csv" has the header below
       | record_id | redcap_event_name | redcap_survey_identifier | lname | fname | email | demographics_complete | survey_timestamp | reminder | description | survey_complete |
 
     And I logout

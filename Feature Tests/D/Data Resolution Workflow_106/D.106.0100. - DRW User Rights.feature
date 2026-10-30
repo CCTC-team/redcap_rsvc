@@ -125,15 +125,17 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I click on the button labeled "Close"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
     And I click on the Comment icon for the field labeled "Name"
-    Then I should see "Open query"
-    And I should see "Verified data value"
+    #Since REDCap 17.5.7, 'Open queries only' users can only open queries: no verify/de-verify options
+    Then I should see a button labeled "Open query"
+    And I should NOT see "Verified data value"
     And I click on the button labeled "Cancel"
     And I click on the Tick icon for the field labeled "Notes Box"
     Then I should see a table header and row containing the following values in a table:
-          | Date/Time        | User       | Comments and Details       | 
+          | Date/Time        | User       | Comments and Details       |
           | mm/dd/yyyy hh:mm | test_admin | Action:Verified data value |
 
-    Then I should see "De-verify data value"
+    Then I should see a button labeled "Open query"
+    And I should NOT see "De-verify data value"
     And I click on the button labeled "Cancel"
     And I logout
 
