@@ -17,8 +17,8 @@ Feature: D.113.0200 - The system shall support the ability to enable/disable Dat
             #VERIFY - Data History Popup entries
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            Then I should see a History icon for the field labeled "Name"
-            When I click on the History icon for the field labeled "Name"
+            Then I should see an icon labeled "View data history" in the row labeled "Name"
+            When I click on the icon labeled "View data history" in the row labeled "Name"
             Then I should see a table header and row containing the following values in a table:
                   | Date/Time of Change           |
                   | No data exists for this field |
@@ -26,7 +26,8 @@ Feature: D.113.0200 - The system shall support the ability to enable/disable Dat
             And I click on the button labeled "Close"
             When I enter "John" into the data entry form field labeled "Name" 
             And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-            And I click on the History icon for the field labeled "Name"
+            And I should see "Record ID 1 successfully edited."
+            And I click on the icon labeled "View data history" in the row labeled "Name"
             Then I should see a table header and row containing the following values in a table:
                   | Date/Time of Change | User       | Data Changes Made | 
                   | mm/dd/yyyy hh:mm    | test_admin | John              |
@@ -35,7 +36,8 @@ Feature: D.113.0200 - The system shall support the ability to enable/disable Dat
             Given I click on the link labeled "Text Validation"
             When I clear field and enter "Joe" into the data entry form field labeled "Name" 
             And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-            And I click on the History icon for the field labeled "Name"
+            And I should see "Record ID 1 successfully edited."
+            And I click on the icon labeled "View data history" in the row labeled "Name"
             Then I should see a table header and row containing the following values in a table:
                   | Date/Time of Change | User       | Data Changes Made | 
                   | mm/dd/yyyy hh:mm    | test_admin | John              |
@@ -58,5 +60,5 @@ Feature: D.113.0200 - The system shall support the ability to enable/disable Dat
             #VERIFY - No Data History icon is present
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            Then I should NOT see a History icon for the field labeled "Name"
+            Then I should NOT see an icon labeled "View data history" in the row labeled "Name"
             And I logout

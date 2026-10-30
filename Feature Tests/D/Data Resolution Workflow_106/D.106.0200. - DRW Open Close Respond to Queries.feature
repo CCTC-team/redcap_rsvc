@@ -43,7 +43,7 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             #ACTION: Open a new query and 'Assign Query' and notify via Email and Messenger
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            And I click on the Comment icon for the field labeled "Email"
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
             Then I should see "Data Resolution Workflow"
             And I select the radio option Open query in Data Resolution Workflow
             And I select "Test_User2 (Test User2)" on the dropdown field labeled "Assign query to a user (optional)"
@@ -51,7 +51,10 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I select the checkboxes option REDCap Messenger in Data Resolution Workflow
             And I enter "Query 1" into the textarea field labeled "Comment"
             And I click on the button labeled "Open query"
-            Then I should see a Small Exclamation icon for the field labeled "Email"
+            And I wait for the dialog to close
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
+            Then I should see "Open / Unresolved"
+            And I click on the button labeled "Cancel"
             And I logout
 
             #VERIFY D.106.500 - Email
@@ -100,7 +103,9 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
 
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            Then I should see a Small Exclamation icon for the field labeled "Email"
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
+            Then I should see "Open / Unresolved"
+            And I click on the button labeled "Cancel"
             And I logout
 
             Given I login to REDCap with the user "Test_User1"
@@ -108,8 +113,9 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I click on the link labeled "D.106.200"
             And I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            And I click on the Small Exclamation icon for the field labeled "Email"
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
             Then I should see "Data Resolution Workflow"
+            And I should see "Open / Unresolved"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                            | 
                   | mm/dd/yyyy hh:mm | test_user2 | Action:Sent back for further attention Comment:“Please clarify” |
@@ -117,9 +123,10 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I select the radio option Close the query in Data Resolution Workflow
             And I enter "Closed" into the textarea field labeled "Comment"
             And I click on the button labeled "Close the query"
-            Then I should see a Small Tick icon for the field labeled "Email"
-            Given I click on the Small Tick icon for the field labeled "Email"
+            And I wait for the dialog to close
+            Given I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
             Then I should see "Data Resolution Workflow"
+            And I should see "Closed / Resolved"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                 | 
                   | mm/dd/yyyy hh:mm | test_user1 | Action:Closed query Comment:“Closed” |
@@ -127,9 +134,10 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             When I check the checkbox labeled "Reopen the closed query" 
             And I enter "Reopen the closed query" into the textarea field labeled "Comment"
             And I click on the button labeled "Reopen query"
-            Then I should see a Small Exclamation icon for the field labeled "Email"
-            Given I click on the Small Exclamation icon for the field labeled "Email"
+            And I wait for the dialog to close
+            Given I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
             Then I should see "Data Resolution Workflow"
+            And I should see "Open / Unresolved"
             And I should see a table header and row containing the following values in a table:
                   | Date/Time        | User       | Comments and Details                                    | 
                   | mm/dd/yyyy hh:mm | test_user1 | Action:Reopened query Comment:“Reopen the closed query” |
@@ -137,15 +145,21 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I click on the radio labeled "Close the query"
             And I enter "Closed" into the textarea field labeled "Comment"
             And I click on the button labeled "Close the query"
-            Then I should see a Small Tick icon for the field labeled "Email"
+            And I wait for the dialog to close
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
+            Then I should see "Closed / Resolved"
+            And I click on the button labeled "Cancel"
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "2" and click on the bubble
-            And I click on the Comment icon for the field labeled "Name"
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
             When I select the radio option Open query in Data Resolution Workflow
             And I select "test_user1 (Test User1)" on the dropdown field labeled "Assign query to a user (optional)"
             And I enter "Query 2" into the textarea field labeled "Comment"
             And I click on the button labeled "Open query"
-            Then I should see a Small Exclamation icon for the field labeled "Name"
+            And I wait for the dialog to close
+            And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
+            Then I should see "Open / Unresolved"
+            And I click on the button labeled "Cancel"
       
             ##VERIFY_LOG
             Given I click on the link labeled "Logging"

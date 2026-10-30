@@ -30,14 +30,14 @@ Feature: D.113.0400 - The system shall support the ability to specify a reason w
         #ACTION: Change field values
         Given I click on the link labeled "Record Status Dashboard"
         When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-        And I click on the History icon for the field labeled "Name"
+        And I click on the icon labeled "View data history" in the row labeled "Name"
         Then I should see a table header and row containing the following values in a table:
             | Date/Time of Change | User       | Data Changes Made | Reason for Data Change(s) | 
             | mm/dd/yyyy hh:mm    | test_admin | Lily Brown        | Reason 2                  |
 
         And I click on the button labeled "Close"
         And I click on the link labeled "Text Validation"
-        When I click on the History icon for the field labeled "Name"
+        When I click on the icon labeled "View data history" in the row labeled "Name"
         # Bug - Should be Reason 1 but shows Reason 2
         Then I should see a table header and row containing the following values in a table:
             | Date/Time of Change | User       | Data Changes Made | Reason for Data Change(s) | 
@@ -52,14 +52,14 @@ Feature: D.113.0400 - The system shall support the ability to specify a reason w
         And I click on the button labeled "Save"
 
         #ACTION: Verify reason for change history
-        When I click on the History icon for the field labeled "Name"
+        When I click on the icon labeled "View data history" in the row labeled "Name"
         Then I should see a table header and row containing the following values in a table:
             | Date/Time of Change | User       | Data Changes Made | Reason for Data Change(s) | 
             | mm/dd/yyyy hh:mm    | test_admin | Tony Stone        | Reason 2                  |
             | mm/dd/yyyy hh:mm    | test_admin |  John             | Reason 3                  |
 
         And I click on the button labeled "Close"
-        Given I click on the History icon for the field labeled "Email"
+        Given I click on the icon labeled "View data history" in the row labeled "Email"
         Then I should see a table header and row containing the following values in a table:
             | Date/Time of Change | User       | Data Changes Made     | Reason for Data Change(s) | 
             | mm/dd/yyyy hh:mm    | test_admin | tonystone@example.com | Reason 2                  |

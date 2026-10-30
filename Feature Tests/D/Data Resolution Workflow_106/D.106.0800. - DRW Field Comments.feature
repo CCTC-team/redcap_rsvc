@@ -36,14 +36,15 @@ Feature: D.106.0800 Data Resolution Workflow
       #ACTION: Add field comments. Users can Edit/Delete Comments
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View comment log" in the row labeled "Name"
       And I enter "Comment 1" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
-      Then I should see a Comment icon for the field labeled "Name"
+      And I wait for the dialog to close
+      Then I should see an icon labeled "View comment log" in the row labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View comment log" in the row labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments  | 
@@ -62,11 +63,12 @@ Feature: D.106.0800 Data Resolution Workflow
 
       And I enter "Comment 2" into the textarea field labeled "Comment"
       And  I click on the button labeled "Comment"
-      Then I should see a Comment icon for the field labeled "Name"
+      And I wait for the dialog to close
+      Then I should see an icon labeled "View comment log" in the row labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View comment log" in the row labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments   |
@@ -98,7 +100,7 @@ Feature: D.106.0800 Data Resolution Workflow
 
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View comment log" in the row labeled "Name"
       Then I should NOT see "pencil" icon for the Comment "Comment 2"
       And I should NOT see "cross" icon for the Comment "Comment 2"
       And I click on the button labeled "Cancel"
@@ -109,7 +111,7 @@ Feature: D.106.0800 Data Resolution Workflow
       And I click on the link labeled "D.106.800"
       And I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      When I click on the Comment icon for the field labeled "Name"
+      When I click on the icon labeled "View comment log" in the row labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments  |
@@ -117,11 +119,12 @@ Feature: D.106.0800 Data Resolution Workflow
 
       And I enter "Comment 3" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
-      Then I should see a Comment icon for the field labeled "Name"
+      And I wait for the dialog to close
+      Then I should see an icon labeled "View comment log" in the row labeled "Name"
       # Clicking on Record Status dashboard again else comment dialog box gets closed off automatically
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View comment log" in the row labeled "Name"
       Then I should see "Field Comment Log"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments  |
@@ -129,13 +132,13 @@ Feature: D.106.0800 Data Resolution Workflow
             | mm/dd/yyyy hh:mm | test_user2 | Comment 3 |
 
       And I click on the button labeled "Cancel"
-      Then I click on the Comment icon for the field labeled "Email"
+      Then I click on the icon labeled "View comment log" in the row labeled "Email"
       And I enter "Comment 4" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
 
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "2" and click on the bubble
-      And I click on the Comment icon for the field labeled "Email"
+      And I click on the icon labeled "View comment log" in the row labeled "Email"
       And I enter "Comment 5" into the textarea field labeled "Comment"
       And I click on the button labeled "Comment"
       And I logout

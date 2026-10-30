@@ -34,7 +34,7 @@ Feature: D.106.0600 Data Resolution Workflow
       #ACTION: Verify and de-verify data
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Comment icon for the field labeled "Name"
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see a table header and row containing the following values in a table:
             | Date/Time        | User       | Comments and Details                           | 
@@ -43,8 +43,11 @@ Feature: D.106.0600 Data Resolution Workflow
       When I select the radio option Verified data value in Data Resolution Workflow
       And I enter "Test Verify Data" into the textarea field labeled "Comment"
       And I click on the button labeled "Verified data value"
-      Then I should see a Tick icon for the field labeled "Name"
-      
+      And I wait for the dialog to close
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
+      Then I should see "Data Verified"
+      And I click on the button labeled "Cancel"
+
       Given I click on the link labeled "Resolve Issues"
       And I select the option "All status types (1)" from the dropdown field for Status in Data Resolution Dashboard
       Then I should see a table row containing the following values in a table:
@@ -53,8 +56,9 @@ Feature: D.106.0600 Data Resolution Workflow
 
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Tick icon for the field labeled "Name"
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
       Then I should see "Data Resolution Workflow"
+      And I should see "Data Verified"
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                  | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'        |
@@ -66,10 +70,10 @@ Feature: D.106.0600 Data Resolution Workflow
       And I click on the button labeled "Close"
       And I enter "Test De-verify Data" into the textarea field labeled "Comment"
       And I click on the button labeled "De-verify data value"
-      Then I should see an Exclamation icon for the field labeled "Name"
-      And I wait for 1 second
-      When I click on the Exclamation icon for the field labeled "Name"
+      And I wait for the dialog to close
+      When I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
       Then I should see "Data Resolution Workflow"
+      And I should see "Data De-verified"
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                        | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'Tony Stone'              |
@@ -87,18 +91,22 @@ Feature: D.106.0600 Data Resolution Workflow
   Scenario: D.106.0700 - Automatically De-verify data when verified data is changed
       Given I click on the link labeled "Record Status Dashboard"
       When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-      And I click on the Exclamation icon for the field labeled "Name"
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
       Then I should see "Data Resolution Workflow"
       And I should see "Data De-verified"
       When I select the radio option Verified data value in Data Resolution Workflow
       And I click on the button labeled "Verified data value"
       Then I should NOT see "Data Resolution Workflow"
-      Then I should see a Tick icon for the field labeled "Name"
+      And I wait for the dialog to close
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
+      Then I should see "Data Verified"
+      And I click on the button labeled "Cancel"
       Given I clear field and enter "John" into the input field labeled "Name" 
       And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-      Then I should see an Exclamation icon for the field labeled "Name"
-      And I click on the Exclamation icon for the field labeled "Name"
+      And I should see "Record ID 1 successfully edited."
+      And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
       Then I should see "Data Resolution Workflow"
+      And I should see "Data De-verified"
       And I should see a table header and rows containing the following values in a table:
             | Date/Time        | User       | Comments and Details                                          | 
             | mm/dd/yyyy hh:mm | test_user1 | Data Changes Made: ptname_v2_v2 = 'John'                      |

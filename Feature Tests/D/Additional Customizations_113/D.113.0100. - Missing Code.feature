@@ -9,7 +9,7 @@ Feature: D.113.0100 - The system shall support the ability to add Missing Data C
 
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            Then I should NOT see a Missing Code icon for the field labeled "Name"
+            Then I should NOT see an icon labeled "Mark field as missing" in the row labeled "Name"
 
             #ACTION: Add Missing Data Code
             Given I click on the link labeled "Setup"
@@ -30,10 +30,10 @@ Feature: D.113.0100 - The system shall support the ability to add Missing Data C
             #ACTION: Mark fields as Missing
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
-            And I click on the Missing Code icon for the field labeled "Name"
+            And I click on the icon labeled "Mark field as missing" in the row labeled "Name"
             And I add the missing code "Unknown (UNK)"
             Then I should see "UNK" in the data entry form field "Name"
-            And I click on the Missing Code icon for the field labeled "Email"
+            And I click on the icon labeled "Mark field as missing" in the row labeled "Email"
             And I add the missing code "Invalid (INV)"
             Then I should see "INV" in the data entry form field "Email"
             And I click on the button labeled "Save & Exit Form"
