@@ -19,10 +19,11 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     And I click on the button labeled "Close"
     Then I should see a link labeled "file1.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I should see "Record ID 2 successfully edited."
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
     Then I should see a downloaded file named "file1.csv (0.01 MB)"
 
-    Given I click on the History icon for the field labeled "File Upload"
+    Given I click on the icon labeled "View data history" in the row labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
     And I should see a table header and rows containing the following values in a table:
       | User       | File Uploaded             | File Version   |
@@ -38,11 +39,12 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     And I click on the button labeled "Close"
     Then I should see a link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+    And I should see "Record ID 2 successfully edited."
     When I download a file by clicking on the link labeled "B3161200100_ACCURATE.csv (0.01 MB)"
     Then I should see a downloaded file named "B3161200100_ACCURATE.csv (0.01 MB)"
 
     # D.117.300
-    Given I click on the History icon for the field labeled "File Upload"
+    Given I click on the icon labeled "View data history" in the row labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
     And I should see a table header and rows containing the following values in a table:
       | User       | File Uploaded                            | File Version   |
@@ -78,7 +80,7 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     When I download a file by clicking on the link labeled "file1.csv (0.01 MB)"
     Then I should see a downloaded file named "file1.csv (0.01 MB)"
 
-    When I click on the History icon for the field labeled "File Upload"
+    When I click on the icon labeled "View data history" in the row labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "3"'
     And I should see a table header and rows containing the following values in a table:
       | User       | File Uploaded             | File Version   |
@@ -101,7 +103,7 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     Given I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "2"
     And I click the bubble to select a record for the "Data Types" longitudinal instrument on event "Event 1"
-    And I click on the History icon for the field labeled "File Upload"
+    And I click on the icon labeled "View data history" in the row labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
     And I click on the link labeled "Delete" for row 1
     When I click on the button labeled "Yes, delete it"
@@ -118,7 +120,8 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     Then I should see a link labeled "Upload file"
     And I click on the button labeled "Close"
     And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-    When I click on the History icon for the field labeled "File Upload"
+    And I should see "Record ID 2 successfully edited."
+    When I click on the icon labeled "View data history" in the row labeled "File Upload"
     Then I should see 'Data History for variable "file_upload" for record "2"'
     Then I should see a table header and rows containing the following values in a table:
       | User       | File Uploaded                            | File Version   | Information / Action        |
@@ -159,7 +162,7 @@ Feature: D.117.0100 - The system shall support the ability to enable/disable Fil
     And I wait for 1 second
 
     # Verify file version is not saved
-    Given I click on the History icon for the field labeled "File Upload"
+    Given I click on the icon labeled "View data history" in the row labeled "File Upload"
     When I should see 'Data History for variable "file_upload" for record "4"'
     Then I should see a table header and rows containing the following values in a table:
       | User       | Data Changes Made         |

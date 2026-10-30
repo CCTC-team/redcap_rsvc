@@ -40,6 +40,6 @@ Feature: D.113.0300 - The system shall support the ability to prevent branching 
         Then I should see a field labeled "Email"
         And I enter "John@email.com" into the data entry form field labeled "Email"
         And I enter "John" into the data entry form field labeled "Name"
-        Then I should see a Show Field icon for the field labeled "Email"
+        Then I should see an icon labeled "Field should be hidden by branching logic but is shown because it has a value" in the row labeled "Email"
         And I click on the button labeled "Save & Exit Form"
         And I logout
