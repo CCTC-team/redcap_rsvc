@@ -3,6 +3,11 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
       As a REDCap end user
       I want to see that Data Resolution Workflow works as expected
 
+      #Opening, responding to and closing queries is covered by C.4.18.1700, email notification by C.4.18.2300,
+      #attachment upload by C.4.18.2100, and status/field/user filters and export by C.4.18.1900.
+      #This feature covers what those do not: REDCap Messenger notification, attachment download,
+      #sending a query back for further attention, reopening a closed query, and event/DAG filters.
+
       Scenario: D.106.0200 - Open, close, reopen and respond to queries
             Given I login to REDCap with the user "Test_User1" 
             And I create a new project named "D.106.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
@@ -40,14 +45,13 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I click on the button labeled "Save Changes"
             Then I should see 'User "test_user1" was successfully edited'
 
-            #ACTION: Open a new query and 'Assign Query' and notify via Email and Messenger
+            #ACTION: Open a new query and 'Assign Query' and notify via Messenger
             Given I click on the link labeled "Record Status Dashboard"
             When I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
             And I click on the icon labeled "View data resolution workflow" in the row labeled "Email"
             Then I should see "Data Resolution Workflow"
             And I select the radio option Open query in Data Resolution Workflow
             And I select "Test_User2 (Test User2)" on the dropdown field labeled "Assign query to a user (optional)"
-            And I select the checkboxes option Email in Data Resolution Workflow
             And I select the checkboxes option REDCap Messenger in Data Resolution Workflow
             And I enter "Query 1" into the textarea field labeled "Comment"
             And I click on the button labeled "Open query"
@@ -57,18 +61,14 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
             And I click on the button labeled "Cancel"
             And I logout
 
-            #VERIFY D.106.500 - Email
-            Given I open Email
-            Then I should see an email for user "test_user2" with subject "[REDCap] You were assigned to a data query"
-            
             #ACTION: Verify notification on Messenger and respond to query by uploading a file
-            Given I login to REDCap with the user "Test_User2" 
+            Given I login to REDCap with the user "Test_User2"
             And I click on the link labeled "My Projects"
             And I click on the link labeled "D.106.200"
             Then I should see "Record Status Dashboard"
             #VERIFY D.106.500 - REDCap Messenger
             And I click on the link labeled "REDCap Messenger"
-            Then I should see "Assigned to a data query" 
+            Then I should see "Assigned to a data query"
             And I click on the link labeled "Resolve Issues"
             And I click on the button labeled "1 comment"
             Then I should see "Data Resolution Workflow"
@@ -76,7 +76,7 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
                   | Date/Time        | User       | Comments and Details                                         | 
                   | mm/dd/yyyy hh:mm | test_user1 | Action:Opened query Assigned to user:test_user2 (Test User2) Comment:“Query 1” |
 
-            #VERIFY D.106.400 - Upload file to Query
+            #ACTION: Respond with an attachment so it can be downloaded (upload itself is covered by C.4.18.2100)
             And I select "Verified - Confirmed correct (no error)" on the dropdown field labeled "Reply with response"
             Then I click on the link labeled "Upload file"
             Then I upload a "csv" format file located at "/import_files/B.3.16.600_DataImport.csv", by clicking the button near "Select a file then click the 'Upload File' button" to browse for the file, and clicking the button labeled "Upload document" to upload the file
@@ -184,39 +184,16 @@ Feature: D.106.0200 - The system shall support the ability to open, close, reope
                   | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
                   | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
                   | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
-      
-            When I click on the button labeled "Export" 
-            Then the downloaded CSV with filename "D106200_DataResolutionDashboard_yyyy-mm-dd_hhmm.csv" has the header and rows below
-                  | Current Query Status | Number of comments | Record (Sorted by DAG) | Data Access Group | Event                  | Data Quality Rule | Field            | User Assigned | Days Open |
-                  | CLOSED               | 6                  | 1                      |                   | Event 1 (Arm 1: Arm 1) |                   | email_v2 (Email) | test_user2    | 0         |
-                  | OPEN                 | 1                  | 2 (#1)                 |                   | Event 1 (Arm 1: Arm 1) |                   | ptname (Name)    | test_user1    | 0         |
-            
-            When I click on the link labeled "Resolve Issues"
-            And I select the option "Open / unresolved issues (1)" from the dropdown field for Status in Data Resolution Dashboard
-            Then I should see a table rows containing the following values in a table:
-                  | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
-                  | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
 
-            When I select the option "All status types (2)" from the dropdown field for Status in Data Resolution Dashboard
-            And I select the option "email_v2 (1)" from the dropdown field for Field Rule in Data Resolution Dashboard
-            Then I should see a table rows containing the following values in a table:
-                  | 1                      | email_v2 | test_user2 | test_user1 | test_user1             |
-                  | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
-
+            #Status, field and assigned-user filters and export are covered by C.4.18.1900
             When I select the option "Event 1 (Arm 1: Arm 1)" from the dropdown field for Event in Data Resolution Dashboard
             Then I should see a table rows containing the following values in a table:
                   | 1                      | email_v2 | test_user2 | test_user1 | test_user1             |
                   | Event 1 (Arm 1: Arm 1) | (Email)  | test_user2 | "Query 1"  | "Closed"               |
-            
-            And I wait for 1 second
-            When I select the option "test_user1 (Test User1)" from the dropdown field for Assigned User in Data Resolution Dashboard
-            Then I should see "No results to display"
-
-            When I select the option "All fields" from the dropdown field for Field Rule in Data Resolution Dashboard
-            Then I should see a table rows containing the following values in a table:
                   | 2 (#1)                 | ptname   | test_user1 | test_user1 | [same as first update] |
                   | Event 1 (Arm 1: Arm 1) | (Name)   | test_user1 | "Query 2"  | [same as first update] |
-            
+
+            And I wait for 1 second
             When I select the option "DAG1" from the dropdown field for DAG in Data Resolution Dashboard
             Then I should see "No results to display"
             And I logout

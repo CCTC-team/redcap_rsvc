@@ -3,8 +3,11 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
   As a REDCap end user
   I want to see that Data Resolution Workflow privileges work as expected
 
+  #Opening, responding to and closing queries per privilege level is covered by C.4.18.1600.
+  #This feature covers what C.4.18.1600 does not: verify/de-verify data rights per privilege level.
+
   Scenario: D.106.0100 - Data Resolution Workflow privileges
-    Given I login to REDCap with the user "Test_Admin" 
+    Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "D.106.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "redcap_val/Project_redcap_val.xml", and clicking the "Create Project" button
 
     #ACTION: Enable the Data Resolution Workflow
@@ -21,7 +24,7 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
           | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
           | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Make project customizations             |
 
-    #ACTION: Add users 
+    #ACTION: Add users
     Given I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
     And I click on the link labeled "Upload users (CSV)"
@@ -58,29 +61,23 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I logout
 
     #ACTION: Verify access right - 'Open close and respond to queries', 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User1" 
+    Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
+    #A field with an open query cannot be verified
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Text Box"
     Then I should see "Open / Unresolved"
-    Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details                  | 
-      | mm/dd/yyyy hh:mm | test_admin | Action:Opened query Comment:“Query 1” |
-
-    Then I should see "Reply with response"
-    Then I should see "Close the query"
     And I should NOT see "Verified data value"
     And I click on the button labeled "Cancel"
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Text2"
     Then I should see "Verified data value"
-    And I should see "Open query"
     And I click on the button labeled "Cancel"
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Notes Box"
     Then I should see "Data Verified"
     Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       |
       | mm/dd/yyyy hh:mm | test_admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
@@ -88,30 +85,20 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I logout
 
     #ACTION: Verify access right - 'Respond only to open queries', No access to 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User2" 
+    Given I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the icon labeled "View data resolution workflow" in the row labeled "Text Box"
-    Then I should see "Open / Unresolved"
-    Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details                  | 
-      | mm/dd/yyyy hh:mm | test_admin | Action:Opened query Comment:“Query 1” |
-
-    Then I should see "Reply with response"
-    Then I should NOT see "Close the query"
-    And I click on the button labeled "Cancel"
     Given I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
-    Then I should NOT see "Open query"
+    Then I should see "Awaiting action by user with sufficient user privileges"
     And I should NOT see "Verified data value"
-    And I should see "Awaiting action by user with sufficient user privileges"
     #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
     And I click on the button labeled "Close"
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Notes Box"
     Then I should see "Data Verified"
     Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       |
       | mm/dd/yyyy hh:mm | test_admin | Action:Verified data value |
 
     And I should see "Awaiting action by user with sufficient user privileges"
@@ -120,23 +107,12 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I click on the button labeled "Close"
     And I logout
 
-    #ACTION: Verify User right - 'Open queries only', 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User3" 
+    #ACTION: Verify User right - 'Open queries only', No access to 'verify/de-verify'
+    Given I login to REDCap with the user "Test_User3"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the icon labeled "View data resolution workflow" in the row labeled "Text Box"
-    Then I should see "Open / Unresolved"
-    Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details                  | 
-      | mm/dd/yyyy hh:mm | test_admin | Action:Opened query Comment:“Query 1” |
-
-    Then I should NOT see "Close the query"
-    And I should NOT see "Respond to query"
-    And I should see "Awaiting action by user with sufficient user privileges"
-    And I click on the button labeled "Close"
-    #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
     #Since REDCap 17.5.7, 'Open queries only' users can only open queries: no verify/de-verify options
     Then I should see a button labeled "Open query"
@@ -154,20 +130,11 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I logout
 
     #ACTION: Verify User right - 'Open and respond to queries', 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User4" 
+    Given I login to REDCap with the user "Test_User4"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    And I click on the icon labeled "View data resolution workflow" in the row labeled "Text Box"
-    Then I should see "Open / Unresolved"
-    Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details                  | 
-      | mm/dd/yyyy hh:mm | test_admin | Action:Opened query Comment:“Query 1” |
-
-    Then I should NOT see "Close the query"
-    And I should see "Reply with response:"
-    And I click on the button labeled "Cancel"
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Name"
     Then I should see "Open query"
     And I should see "Verified data value"
@@ -175,7 +142,7 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I click on the icon labeled "View data resolution workflow" in the row labeled "Notes Box"
     Then I should see "Data Verified"
     Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       |
       | mm/dd/yyyy hh:mm | test_admin | Action:Verified data value |
 
     Then I should see "De-verify data value"
@@ -183,7 +150,7 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I logout
 
     #ACTION: Assign user rights
-    Given I login to REDCap with the user "Test_Admin" 
+    Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     When I click on the link labeled "User Rights"
@@ -200,39 +167,26 @@ Feature: D.106.0100 - The system shall allow Data Resolution Workflow privileges
     And I logout
 
     #ACTION: Verify access right - 'No Access', No access to 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User3" 
+    Given I login to REDCap with the user "Test_User3"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
-    Then I should NOT see an icon labeled "View data resolution workflow" in the row labeled "Text Box"
-    And I should NOT see an icon labeled "View data resolution workflow" in the row labeled "Name"
-    And I should NOT see an icon labeled "View data resolution workflow" in the row labeled "Notes Box"
+    Then I should NOT see an icon labeled "View data resolution workflow" in the row labeled "Notes Box"
     And I logout
 
     #ACTION: Verify access right - 'View only', No access to 'verify/de-verify'
-    Given I login to REDCap with the user "Test_User4" 
+    Given I login to REDCap with the user "Test_User4"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "D.106.100"
     And I click on the link labeled "Record Status Dashboard"
     When I locate the bubble for the "Data Types" instrument on event "Event 1" for record ID "1" and click on the bubble
     #The below step shows a new query cannot be opened and cannot verify data value
     Then I should NOT see an icon labeled "View data resolution workflow" in the row labeled "Name"
-    Given I click on the icon labeled "View data resolution workflow" in the row labeled "Text Box"
-    Then I should see "Open / Unresolved"
-    Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details                  | 
-      | mm/dd/yyyy hh:mm | test_admin | Action:Opened query Comment:“Query 1” |
-
-    Then I should NOT see "Close the query"
-    Then I should NOT see "Respond to query"
-    And I should see "Awaiting action by user with sufficient user privileges"
-    #There is no 'Close' button, but an 'x' icon and its label is 'Close'. There is no other step to match
-    And I click on the button labeled "Close"
     Given I click on the icon labeled "View data resolution workflow" in the row labeled "Notes Box"
     Then I should see "Data Verified"
     Then I should see a table header and row containing the following values in a table:
-      | Date/Time        | User       | Comments and Details       | 
+      | Date/Time        | User       | Comments and Details       |
       | mm/dd/yyyy hh:mm | test_admin | Action:Verified data value |
 
     And I should see "Awaiting action by user with sufficient user privileges"
