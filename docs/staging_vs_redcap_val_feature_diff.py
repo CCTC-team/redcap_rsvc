@@ -6,7 +6,7 @@ origin/redcap_val, splits them into needed / not needed (unused modules), and
 tags each needed modified file by the kind of change it contains.
 
 Usage (from the repo root, after `git fetch origin staging redcap_val`):
-    python3 staging_vs_redcap_val_feature_diff.py [output.md]
+    python3 docs/staging_vs_redcap_val_feature_diff.py [output.md]
 
 Overwrites the output file. Sections added to the md by hand (e.g. the
 "Merge outcome" section from the 2026-10-16 sync) are not generated, so write
@@ -15,8 +15,9 @@ to a new file and copy them across if you need them.
 import datetime, os, re, subprocess, sys
 from collections import Counter
 
-REPO = os.path.dirname(os.path.abspath(__file__))
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(REPO, 'staging_vs_redcap_val_feature_diff.md')
+DOCS = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(DOCS)
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(DOCS, 'staging_vs_redcap_val_feature_diff.md')
 VAL, STAGING = 'origin/redcap_val', 'origin/staging'
 
 # Modules we don't use: (label, path regex). Edit this list to change what counts as "not needed".
@@ -151,7 +152,7 @@ w('')
 w(f'Generated {datetime.date.today()}. Changes made on `{STAGING}` since the merge-base with `{VAL}` (`{base[:8]}`).')
 w(f'Staging is {ahead} commits ahead; redcap_val is {behind} commits ahead.')
 w('')
-w('Regenerate: `git fetch origin staging redcap_val && python3 staging_vs_redcap_val_feature_diff.py`')
+w('Regenerate: `git fetch origin staging redcap_val && python3 docs/staging_vs_redcap_val_feature_diff.py`')
 w('')
 w('**Summary** — "Not needed" = modules not used: ' + ', '.join(l for l, _ in NOT_NEEDED) + '.')
 w('')
