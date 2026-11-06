@@ -1,6 +1,6 @@
 # Feature file changes: `staging` vs `redcap_val` (redcap_rsvc)
 
-Generated 2026-10-16. Changes made on `origin/staging` since the merge-base with `origin/redcap_val` (`6af77e13`).
+Generated 2026-10-16, updated 2026-11-06 with the features added since. Changes made on `origin/staging` since the merge-base with `origin/redcap_val` (`6af77e13`).
 Staging is 442 commits ahead; redcap_val is 157 commits ahead.
 
 Regenerate: `git diff -M --name-status origin/redcap_val...origin/staging -- '*.feature'`
@@ -9,13 +9,13 @@ Regenerate: `git diff -M --name-status origin/redcap_val...origin/staging -- '*.
 
 | Change | Total | Not needed | Needed |
 |---|---|---|---|
-| Added | 84 | 69 | 15 |
+| Added | 92 | 69 | 23 |
 | Modified | 189 | 31 | 158 (147 applied, 11 kept deleted) |
 | Deleted | 2 | 0 | 2 |
 | Renamed | 3 | 3 | 0 |
-| **Total** | **278** | **103** | **175** |
+| **Total** | **286** | **103** | **183** |
 
-Contents: [Merge outcome](#merge-outcome-syncupstream-2026-10-16) · [Needed](#needed) · [Not needed](#not-needed) · [redcap_val-only changes](#note-redcap_val-only-changes)
+Contents: [Merge outcome](#merge-outcome-syncupstream-2026-10-16) · [Needed](#needed) · [Not needed](#not-needed) · [redcap_val-only changes](#note-redcap_val-only-changes) · [New CCTC feature](#new-cctc-feature-since-this-sync)
 
 ---
 
@@ -43,7 +43,9 @@ How this list was applied when staging (`3f0a4546`) was merged into `redcap_val`
 
 # Needed
 
-## Added (15)
+## Added (23)
+
+15 came from the 2026-10-16 sync. The other 8 came later: C.4.18.1500 and C.4.18.1900–2400 from the 2026-10-29 sync (redcap_rsvc#19, `staging` at `c5737c7e`), and B.5.21.0800 from the 2026-11-06 sync (redcap_rsvc#24, `staging` at `8b96d344`).
 
 - Feature Tests/A/User Settings_6/A.2.6.0700. - Adding user to project.feature
 - Feature Tests/A/eDoc_28/A.3.28.1600. - Restricted Upload MIME Validation.feature
@@ -51,12 +53,20 @@ How this list was applied when staging (`3f0a4546`) was merged into `redcap_val`
 - Feature Tests/B/Data Import_16/B.3.16.1600. - REDUNDANT.feature
 - Feature Tests/B/Data Import_16/B.3.16.1700. - REDUNDANT.feature
 - Feature Tests/B/Direct Data Entry - Data Collection Instrument_14/B.3.14.1300. - Retaining user preferences for record search, navigation, and arm selection.feature
+- Feature Tests/B/Export Data_21/B.5.21.0800. - Export All Records as PDF.feature
 - Feature Tests/B/Online Designer_7/B.6.7.2100. - Enhanced Signature.feature
 - Feature Tests/B/Online Designer_7/B.6.7.2200. - User Interface - Online Designer - Field Creation - Variable Name Validation.feature
 - Feature Tests/B/Online Designer_7/B.6.7.2300. - Dynamic SQL Field Creation.feature
+- Feature Tests/C/Data Quality_18/C.4.18.1500. - User Interface field comment and query management.feature
 - Feature Tests/C/Data Quality_18/C.4.18.1600. - Data Resolution Workflow user privileges.feature
 - Feature Tests/C/Data Quality_18/C.4.18.1700. - Data Resolution Workflow Query Lifecycle.feature
 - Feature Tests/C/Data Quality_18/C.4.18.1800. - Data Resolution Workflow Data Quality Results.feature
+- Feature Tests/C/Data Quality_18/C.4.18.1900. - The system shall support centralized review and management of data queries within the Data Resolution Workflow.feature
+- Feature Tests/C/Data Quality_18/C.4.18.2000. - Data Resolution Workflow Assign and Reassign Queries.feature
+- Feature Tests/C/Data Quality_18/C.4.18.2100. - Data Resolution Workflow Attachment Upload Configuration.feature
+- Feature Tests/C/Data Quality_18/C.4.18.2200. - Exporting Data Quality Discrepencies.feature
+- Feature Tests/C/Data Quality_18/C.4.18.2300. - Data Resolution Workflow Assignment Notifications.feature
+- Feature Tests/C/Data Quality_18/C.4.18.2400. - Data Resolution Workflow File Deletion.feature
 - Feature Tests/C/File Repository_26/C.3.26.1100. - Project Settings – File Repository.feature
 - Feature Tests/C/Randomization_30/C.3.30.1900. - Randomization dashboard export.feature
 - Feature Tests/C/Record Locking & E-Signatures_19/C.2.19.1500. - Record Locking Customization settings as part of a Project XML file.feature
@@ -522,3 +532,11 @@ These modules are not used, so their changes can be skipped:
 ## Note: redcap_val-only changes
 
 redcap_val also has its own feature changes not on staging: 73 A, 55 D, 56 M — these may conflict on merge.
+
+---
+
+# New CCTC feature since this sync
+
+This one is CCTC's own, not from `staging`, so it isn't counted above. Added 2026-10-26 (redcap_rsvc#14):
+
+- D.106.1000. - DRW Prevent Rule H Fixing Closed Queries.feature
