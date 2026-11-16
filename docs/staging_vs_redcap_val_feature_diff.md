@@ -531,7 +531,7 @@ These modules are not used, so their changes can be skipped:
 
 ## Note: redcap_val-only changes
 
-redcap_val also has its own feature changes not on staging: 73 A, 55 D, 56 M — these may conflict on merge.
+redcap_val had its own feature changes not on staging (73 A, 55 D, 56 M, made 2025-11-14 to 2026-09-17). All were kept in the 2026-10-16 sync merge; conflicts are covered in [Merge outcome](#merge-outcome-syncupstream-2026-10-16).
 
 ---
 
