@@ -1,0 +1,7 @@
+B.4.27.0100. - User Interface: The system shall allow the option to add or modify events and arms on the Define My Events page for longitudinal projects while in production status including:  No, only Administrators can add/modify events in production | Yes, normal users can add/modify events in production | Add new event | Designate Instruments not previously designated
+B.4.27.0200. - User Interface: The system shall provide the option to require administrators to review the addition or modification of events for longitudinal projects while in production
+B.4.27.0300. - User Interface: Longitudinal Project Settings: The system shall support enabling and disabling longitudinal data collection.
+B.4.27.0400. - User Interface: Longitudinal Project Settings: The system shall support the ability to designate data collection instruments for defined events in each arm.
+B.4.27.0500. - User Interface: Longitudinal Project Settings: The system shall support multiple study arms and the ability to define unique event schedules for each arm.
+B.4.27.0600. - User Interface: Longitudinal Project Settings: The system shall support the ability to create repeating events and instruments within events.
+B.4.27.0700. - User Interface: Longitudinal Project Settings: The system shall require administrators to delete events for longitudinal projects while in production

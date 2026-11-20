@@ -36,6 +36,16 @@ CCTC has two divisions: Cancer Theme, which coordinates trial delivery, and Clin
 
 ---
 
+## User Requirement Specification (`user_requirement_specification/`)
+
+The URS states one requirement per line, keyed by the same ID as the feature file that tests it. For example, `D.15.1500. - User Interface: Survey Settings: …` is tested by `Feature Tests/D/Direct Data Entry - Survey_15/D.15.1500. - …feature`. There is one `.spec` file per feature area, named after the area number, e.g. `features/15_direct_data_entry_through_survey.spec` for area 15.
+
+When you add a feature, add its requirement line to the matching `.spec` file in the same PR.
+
+Each feature card links its area's `.spec` file here by its `redcap_val` URL. The validation report generator (getval) fetches the requirement text from that link. The URS moved here from [redcap_cypress](https://github.com/CCTC-team/redcap_cypress) in November 2026. External Module requirements live in each EM's own repository.
+
+---
+
 ## Supporting Files (`Files/`)
 
 The `Files/` directory holds the supporting assets the feature tests depend on:
