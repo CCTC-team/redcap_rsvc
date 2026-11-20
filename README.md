@@ -36,9 +36,9 @@ CCTC has two divisions: Cancer Theme, which coordinates trial delivery, and Clin
 
 ---
 
-## User Requirement Specification (`user_requirement_specification/`)
+## User Requirement Specification (`URS/`)
 
-The URS states one requirement per line, keyed by the same ID as the feature file that tests it. For example, `D.15.1500. - User Interface: Survey Settings: …` is tested by `Feature Tests/D/Direct Data Entry - Survey_15/D.15.1500. - …feature`. There is one `.spec` file per feature area, named after the area number, e.g. `features/15_direct_data_entry_through_survey.spec` for area 15.
+The URS states one requirement per line, keyed by the same ID as the feature file that tests it. For example, `D.15.1500. - User Interface: Survey Settings: …` is tested by `Feature Tests/D/Direct Data Entry - Survey_15/D.15.1500. - …feature`. There is one `.spec` file per feature area, named after the area number, e.g. `15_direct_data_entry_through_survey.spec` for area 15.
 
 When you add a feature, add its requirement line to the matching `.spec` file in the same PR.
 
