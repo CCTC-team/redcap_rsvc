@@ -1,0 +1,14 @@
+B.3.15.0100. - User Interface: Survey Project Settings: The system shall support enabling and disabling each data collection instrument in a project as a survey.
+B.3.15.0200. - User Interface: Survey Project Settings: The system shall support survey status as active or offline.
+B.3.15.0300. - User Interface – Survey Settings: The system shall allow users to designate any email-validated text field within the project as the survey-specific email invitation field.
+B.3.15.0400. - User Interface – Open Survey Workflow: The system shall allow users to launch the survey associated with an existing participant record using the Log out + Open Survey or Open Survey options.
+B.3.15.0500. - User Interface – Open Survey Workflow: The system shall warn users before saving a data entry form after the user launches the same record’s survey using the Open Survey option, allowing the user to leave without saving or remain on the form.
+D.3.15.0700. - User Interface: The system shall support the ability for a participant to enter data in a data collection instrument enabled and distributed as a survey.
+B.3.15.0800. - User Interface: The system shall allow submitted survey responses to be changed by a user who has edit survey responses rights.
+B.3.15.0900. - User Interface: The system shall support the following statuses for surveys: (Incomplete (no data saved) | Partial Survey Response | Completed Survey Response)
+B.3.15.1000. - User Interface: Survey Project Settings: The system shall support a participant list for each survey in the project. A dropdown menu will list each survey or if a longitudinal project, each survey/event pairing from which to select the survey of interest.
+B.3.15.1100. - User Interface: Survey Project Settings: The system shall support tracking responders and non-responders to surveys when using the participant list.
+B.3.15.1200. - User Interface: Survey Project Settings: The system shall delete all survey-related information and functions including survey link, return codes and date/time stamp when disabling survey functionality. Saved data will remain unaffected.
+B.3.15.1300. - User Interface: Survey distribution: The system shall allow creation of a public survey link when the survey is in the first instrument position.
+D.3.15.1400. - User Interface: Survey distribution: The system shall allow creation of a designated email field.
+D.15.1500. - User Interface: Survey Settings: The system shall support downloading the Survey Settings of all surveys in a project as a CSV file, and uploading a CSV file to add or modify Survey Settings, rejecting the whole upload when any value is invalid.
