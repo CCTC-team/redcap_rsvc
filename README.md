@@ -42,7 +42,7 @@ The URS states one requirement per line, keyed by the same ID as the feature fil
 
 When you add a feature, add its requirement line to the matching `.spec` file in the same PR.
 
-Each feature card links its area's `.spec` file here by its `redcap_val` URL. The validation report generator (getval) fetches the requirement text from that link. The URS moved here from [redcap_cypress](https://github.com/CCTC-team/redcap_cypress) in November 2026. External Module requirements live in each EM's own repository.
+Each feature card links its area's `.spec` file here by its `redcap_val` URL. The validation report generator (getval) fetches the requirement text from that link. The URS moved here from [redcap_cypress](https://github.com/CCTC-team/redcap_cypress) in November 2026.
 
 ---
 
