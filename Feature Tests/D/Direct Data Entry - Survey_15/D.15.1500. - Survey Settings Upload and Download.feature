@@ -53,6 +53,8 @@ Feature: D.15.1500 - The system shall support downloading the Survey Settings of
       | text_validation | Y              | Text Validation | LARGE     | N               | N                               |
 
     ##ACTION Upload a valid CSV: modify Text Validation, and add Data Types as a survey
+    ## Reload the Online Designer first: the download can cut off the Survey Settings drop-down's request
+    Given I click on the link labeled "Designer"
     When I click on the button labeled "Survey Settings"
     And I click on the link labeled "Upload Survey Settings (CSV)"
     And I upload a "csv" format file located at "import_files/redcap_val/D.15.1500_SurveySettings.csv", by clicking the button near "Choose and upload CSV file" to browse for the file
